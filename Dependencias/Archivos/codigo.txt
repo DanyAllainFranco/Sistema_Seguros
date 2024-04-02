@@ -1,0 +1,4 @@
+services.DataAccess(Configuration.GetConnectionString("Connec"));
+    services.BusinessLogic();
+            services.AddAutoMapper(typeof(Startup));
+            services.AddHttpContextAccessor();
