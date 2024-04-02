@@ -236,6 +236,37 @@ CREATE TABLE Gral.tbPersonas(
 	CONSTRAINT FK_tbPersonas_tbUsuarios_Perso_UsuarioModificacion FOREIGN KEY(Perso_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
 )
 GO
+CREATE TABLE Gral.tbFrecuencias(
+	Frecu_Id INT IDENTITY(1,1), 
+	Frecu_Descripcion NVARCHAR(40) NOT NULL,
+	CONSTRAINT PK_tbFrecuencias_Frecu_Id PRIMARY KEY(Frecu_Id),
+	CONSTRAINT UQ_tbFrecuencias_Frecu_Descripcion UNIQUE(Frecu_Descripcion),
+
+	[Frecu_UsuarioCreacion] [int] NOT NULL,
+	[Frecu_FechaCreacion] [datetime] NOT NULL,
+	[Frecu_UsuarioModificacion] [int] NULL,
+	[Frecu_FechaModificacion] [datetime] NULL,
+	[Frecu_Estado] [bit] CONSTRAINT DF_tbFrecuencias_Frecu_Estado DEFAULT 1,
+	CONSTRAINT FK_tbFrecuencias_tbUsuarios_Frecu_UsuarioCreacion FOREIGN KEY(Frecu_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+	CONSTRAINT FK_tbFrecuencias_tbUsuarios_Frecu_UsuarioModificacion FOREIGN KEY(Frecu_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+)
+GO
+CREATE TABLE Gral.tbTipoArticuloMedico(
+	Tarme_Id INT IDENTITY(1,1),
+	Tarme_Tipo INT NOT NULL, --1 = alcohol, 2 = drugs, 3 = smoke
+	Tarme_Descripcion NVARCHAR(50) NOT NULL,
+	CONSTRAINT PK_tbTipoBebidaAlcoholica_Tbeal_Id PRIMARY KEY(Tarme_Id),
+	CONSTRAINT UQ_tbTipoBebidaAlcoholica_Tbeal_Descripcion UNIQUE(Tarme_Descripcion),
+
+	[Tbeal_UsuarioCreacion] [int] NOT NULL,
+	[Tbeal_FechaCreacion] [datetime] NOT NULL,
+	[Tbeal_UsuarioModificacion] [int] NULL,
+	[Tbeal_FechaModificacion] [datetime] NULL,
+	[Tbeal_Estado] [bit] CONSTRAINT DF_tbTipoBebidaAlcoholica_Tbeal_Estado DEFAULT 1,
+	CONSTRAINT FK_tbTipoBebidaAlcoholica_tbUsuarios_Tbeal_UsuarioCreacion FOREIGN KEY(Tbeal_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+	CONSTRAINT FK_tbTipoBebidaAlcoholica_tbUsuarios_Tbeal_UsuarioModificacion FOREIGN KEY(Tbeal_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+)
+GO
 CREATE TABLE Gral.tbInformacionMedica(
 	Perso_Id INT NOT NULL,
 	Inmed_PesoKgs NUMERIC(5,2) NOT NULL,
@@ -244,9 +275,26 @@ CREATE TABLE Gral.tbInformacionMedica(
 	Inmed_ReaccionesAlergicas INT NOT NULL,
 	Inmed_AumentoDisminucion BIT NOT NULL,
 	Inmed_AumentoDisminucionPeso NUMERIC(5,2) NOT NULL,
-	Inmed_IngiereBebidasAlcoholicas
+	Inmed_IngiereBebidasAlcoholicas BIT NOT NULL,
+	Inmed_TipoAlcohol INT NOT NULL,
+	Inmed_IngiereCantidad INT NOT NULL,
+	Inmed_IngiereFrecuencia INT NOT NULL,
+	Inmed_DrogasEstimulantes BIT NOT NULL,
+	Inmed_TipoDrogasEstimulantes INT NOT NULL,
+	Inmed_DrogasEstimulantesCantidad INT NOT NULL,
+	Inmed_DrogasEstimulantesFrecuencia INT NOT NULL,
+	Inmed_Fumar BIT NOT NULL,
+	Inmed_TipoFumar INT NOT NULL,
+	Inmed_FumarCantidad INT NOT NULL,
+	Inmed_FumarFrecuencia INT NOT NULL,
 	CONSTRAINT PK_tbInformacionMedica_Perso_Id PRIMARY KEY(Perso_Id),
 	CONSTRAINT FK_tbInformacionMedica_tbPersonas_Perso_Id FOREIGN KEY(Perso_Id) REFERENCES Gral.tbPersonas(Perso_Id),
+	CONSTRAINT FK_tbInformacionMedica_tbTipoArticuloMedico_Inmed_TipoAlcohol FOREIGN KEY(Inmed_TipoAlcohol) REFERENCES Gral.tbTipoArticuloMedico(Tarme_Id),
+	CONSTRAINT FK_tbInformacionMedica_tbFrecuencias_Inmed_IngiereFrecuencia FOREIGN KEY(Inmed_IngiereFrecuencia) REFERENCES Gral.tbFrecuencias(Frecu_Id),
+	CONSTRAINT FK_tbInformacionMedica_tbTipoArticuloMedico_Inmed_TipoDrogas FOREIGN KEY(Inmed_TipoDrogasEstimulantes) REFERENCES Gral.tbTipoArticuloMedico(Tarme_Id),
+	CONSTRAINT FK_tbInformacionMedica_tbFrecuencias_Inmed_DrogasEstimulantesFrecuencia FOREIGN KEY(Inmed_DrogasEstimulantesFrecuencia) REFERENCES Gral.tbFrecuencias(Frecu_Id),
+	CONSTRAINT FK_tbInformacionMedica_tbTipoArticuloMedico_Inmed_TipoFumar FOREIGN KEY(Inmed_TipoFumar) REFERENCES Gral.tbTipoArticuloMedico(Tarme_Id),
+	CONSTRAINT FK_tbInformacionMedica_tbFrecuencias_Inmed_FumarFrecuencia FOREIGN KEY(Inmed_DrogasEstimulantesFrecuencia) REFERENCES Gral.tbFrecuencias(Frecu_Id),
 
 	[Inmed_UsuarioCreacion] [int] NOT NULL,
 	[Inmed_FechaCreacion] [datetime] NOT NULL,
