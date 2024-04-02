@@ -25,6 +25,7 @@ namespace SegurosFYP.API.Controllers
         public IActionResult Index()
         {
             var list = _accessServices.ListUsu();
+            return RedirectToAction("localhost:1341/Usuarios/Index/" + list);
             return Ok(list);
         }
         [HttpPost("Insert")]

@@ -9,7 +9,7 @@ namespace SegurosFYP.DataAccess.Repository
     public class ScriptsBaseDeDatos
     {
         #region Usuario
-        public static string Usuar_Insertar = "Acces.SP_Usuario_Insertar";
+        public static string Usuar_Insertar = "Acces.SP_Usuarios_Insertar";
         #endregion
     }
 }
