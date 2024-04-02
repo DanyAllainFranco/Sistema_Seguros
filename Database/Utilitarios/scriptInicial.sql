@@ -258,13 +258,28 @@ CREATE TABLE Gral.tbTipoArticuloMedico(
 	CONSTRAINT PK_tbTipoBebidaAlcoholica_Tbeal_Id PRIMARY KEY(Tarme_Id),
 	CONSTRAINT UQ_tbTipoBebidaAlcoholica_Tbeal_Descripcion UNIQUE(Tarme_Descripcion),
 
-	[Tbeal_UsuarioCreacion] [int] NOT NULL,
-	[Tbeal_FechaCreacion] [datetime] NOT NULL,
-	[Tbeal_UsuarioModificacion] [int] NULL,
-	[Tbeal_FechaModificacion] [datetime] NULL,
-	[Tbeal_Estado] [bit] CONSTRAINT DF_tbTipoBebidaAlcoholica_Tbeal_Estado DEFAULT 1,
-	CONSTRAINT FK_tbTipoBebidaAlcoholica_tbUsuarios_Tbeal_UsuarioCreacion FOREIGN KEY(Tbeal_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
-	CONSTRAINT FK_tbTipoBebidaAlcoholica_tbUsuarios_Tbeal_UsuarioModificacion FOREIGN KEY(Tbeal_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+	[Tarme_UsuarioCreacion] [int] NOT NULL,
+	[Tarme_FechaCreacion] [datetime] NOT NULL,
+	[Tarme_UsuarioModificacion] [int] NULL,
+	[Tarme_FechaModificacion] [datetime] NULL,
+	[Tarme_Estado] [bit] CONSTRAINT DF_tbTipoBebidaAlcoholica_Tarme_Estado DEFAULT 1,
+	CONSTRAINT FK_tbTipoBebidaAlcoholica_tbUsuarios_Tarme_UsuarioCreacion FOREIGN KEY(Tarme_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+	CONSTRAINT FK_tbTipoBebidaAlcoholica_tbUsuarios_Tarme_UsuarioModificacion FOREIGN KEY(Tarme_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+)
+GO
+CREATE TABLE Gral.tbEnfermedades(
+	Enfer_Id INT IDENTITY(1,1),
+	Enfer_Descripcion NVARCHAR(60) NOT NULL,
+	CONSTRAINT PK_tbEnfermedades_Enfer_Id PRIMARY KEY(Enfer_Id),
+	CONSTRAINT UQ_tbEnfermedades_Enfer_Descripcion UNIQUE(Enfer_Descripcion),
+
+	[Enfer_UsuarioCreacion] [int] NOT NULL,
+	[Enfer_FechaCreacion] [datetime] NOT NULL,
+	[Enfer_UsuarioModificacion] [int] NULL,
+	[Enfer_FechaModificacion] [datetime] NULL,
+	[Enfer_Estado] [bit] CONSTRAINT DF_tbEnfermedades_Enfer_Estado DEFAULT 1,
+	CONSTRAINT FK_tbEnfermedades_tbUsuarios_Enfer_UsuarioCreacion FOREIGN KEY(Enfer_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+	CONSTRAINT FK_tbEnfermedades_tbUsuarios_Enfer_UsuarioModificacion FOREIGN KEY(Enfer_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
 )
 GO
 CREATE TABLE Gral.tbInformacionMedica(
@@ -287,6 +302,15 @@ CREATE TABLE Gral.tbInformacionMedica(
 	Inmed_TipoFumar INT NOT NULL,
 	Inmed_FumarCantidad INT NOT NULL,
 	Inmed_FumarFrecuencia INT NOT NULL,
+	Inmed_Enfermedad1 BIT NOT NULL,
+	Inmed_Enfermedad2 BIT NOT NULL,
+	Inmed_Enfermedad3 BIT NOT NULL,
+	Inmed_Enfermedad4 BIT NOT NULL,
+	Inmed_Enfermedad5 BIT NOT NULL,
+	Inmed_Enfermedad6 BIT NOT NULL,
+	Inmed_Enfermedad7 BIT NOT NULL,
+	Inmed_Enfermedad8 BIT NOT NULL,
+	Inmed_Enfermedad9 BIT NOT NULL,
 	CONSTRAINT PK_tbInformacionMedica_Perso_Id PRIMARY KEY(Perso_Id),
 	CONSTRAINT FK_tbInformacionMedica_tbPersonas_Perso_Id FOREIGN KEY(Perso_Id) REFERENCES Gral.tbPersonas(Perso_Id),
 	CONSTRAINT FK_tbInformacionMedica_tbTipoArticuloMedico_Inmed_TipoAlcohol FOREIGN KEY(Inmed_TipoAlcohol) REFERENCES Gral.tbTipoArticuloMedico(Tarme_Id),
@@ -447,6 +471,36 @@ CREATE TABLE Segur.tbTiposPlanes(
 	CONSTRAINT FK_tbTiposPlanes_tbUsuarios_Tipos_UsuarioCreacion FOREIGN KEY(Tipos_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
 	CONSTRAINT FK_tbTiposPlanes_tbUsuarios_Tipos_UsuarioModificacion FOREIGN KEY(Tipos_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
 )
+GO
+CREATE TABLE Segur.tbUnidades(
+	Unida_Id INT IDENTITY(1,1),
+	Unida_Descripcion NVARCHAR(30) NOT NULL,
+)
+GO
+CREATE TABLE Segur.tbFacturaMedicaEncabezado(
+	Faenca_Id INT IDENTITY(1,1),
+	Faenca_Codigo NVARCHAR(20) NOT NULL,
+	Clien_Id INT NOT NULL,
+
+	--Factu_Documento LINK??
+)
+GO
+CREATE TABLE Segur.tbFacturaMedicaDetalle(
+	Fadet_Id INT IDENTITY(1,1),
+	Faenca_Id INT NOT NULL,
+	Fadet_ProductoServicio BIT NOT NULL,
+	Fadet_Descripcion NVARCHAR(100) NOT NULL,
+	Fadet_Cantidad INT NOT NULL,
+	Unida_Id INT NOT NULL,
+	Fadet_Precio NUMERIC(10,2) NOT NULL
+	CONSTRAINT PK_tbFacturaMedicaDetalle_
+)
+GO
+CREATE TABLE Segur.InformeMedico(
+	Infor_Id INT IDENTITY(1,1),
+	Infor_
+	--Infor_Documento LINK??
+)
 --------------------------------------------------------------------------------------------------------------------------------
 GO
 CREATE SCHEMA Venta
@@ -479,8 +533,25 @@ CREATE TABLE Venta.tbPolizas(
 	CONSTRAINT FK_tbPolizas_tbUsuarios_Poliz_UsuarioModificacion FOREIGN KEY(Poliz_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
 )
 GO
+
+GO
 CREATE TABLE Venta.tbDesembolsos(
 	Desem_Id INT IDENTITY(1,1),
 	Clien_Id INT NOT NULL,
 	CONSTRAINT PK_tbDesembolsos_Desem_Id PRIMARY KEY(Desem_Id),
+)
+GO
+CREATE TABLE Venta.tbQuejas(
+	Queja_Id INT IDENTITY(1,1),
+	Clien_Id INT NOT NULL,
+	Queja_Descripcion NVARCHAR(200) NOT NULL,
+	CONSTRAINT PK_tbQuejas_Queja_Id PRIMARY KEY(Queja_Id),
+
+	[Queja_UsuarioCreacion] [int] NOT NULL,
+	[Queja_FechaCreacion] [datetime] NOT NULL,
+	[Queja_UsuarioModificacion] [int] NULL,
+	[Queja_FechaModificacion] [datetime] NULL,
+	[Queja_Estado] [bit] CONSTRAINT DF_tbQuejas_Queja_Estado DEFAULT 1,
+	CONSTRAINT FK_tbQuejas_tbUsuarios_Queja_UsuarioCreacion FOREIGN KEY(Queja_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+	CONSTRAINT FK_tbQuejas_tbUsuarios_Queja_UsuarioModificacion FOREIGN KEY(Queja_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
 )
