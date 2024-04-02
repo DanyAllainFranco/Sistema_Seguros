@@ -186,6 +186,21 @@ CREATE TABLE Gral.tbIdentificaciones(
 	CONSTRAINT FK_tbIdentificaciones_tbUsuarios_Ident_UsuarioModificacion FOREIGN KEY(Ident_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
 )
 GO
+CREATE TABLE Gral.tbParentescos(
+	Paren_Id INT IDENTITY(1,1),
+	Paren_Descripcion NVARCHAR(30) NOT NULL,
+	CONSTRAINT PK_tbParentescos_Paren_Id PRIMARY KEY(Paren_Id),
+	CONSTRAINT UQ_tbParentescos_Paren_Descripcion UNIQUE(Paren_Descripcion),
+
+	[Paren_UsuarioCreacion] [int] NOT NULL,
+	[Paren_FechaCreacion] [datetime] NOT NULL,
+	[Paren_UsuarioModificacion] [int] NULL,
+	[Paren_FechaModificacion] [datetime] NULL,
+	[Paren_Estado] [bit] CONSTRAINT DF_tbParentescos_Paren_Estado DEFAULT 1,
+	CONSTRAINT FK_tbParentescos_tbUsuarios_Paren_UsuarioCreacion FOREIGN KEY(Paren_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+	CONSTRAINT FK_tbParentescos_tbUsuarios_Paren_UsuarioModificacion FOREIGN KEY(Paren_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+)
+GO
 CREATE TABLE Gral.tbPersonas(
 	Perso_Id INT IDENTITY(1,1) NOT NULL,
 	Perso_PrimerNombre NVARCHAR(50) NOT NULL,
@@ -202,12 +217,14 @@ CREATE TABLE Gral.tbPersonas(
 	Munic_Id CHAR(4) NOT NULL,
 	Paise_Id INT NOT NULL,
 
-	Plane_Id INT NOT NULL,
+	Poliz_Id INT NOT NULL,
+	Paren_Id INT NOT NULL,
 	CONSTRAINT PK_tbPersonas_Perso_Id PRIMARY KEY(Perso_Id),
 	CONSTRAINT FK_tbPersonas_tbEstadosCiviles_Estci_Id FOREIGN KEY(Estci_Id) REFERENCES Gral.tbEstadosCiviles(Estad_Id),
 	CONSTRAINT FK_tbPersonas_tbMunicipios_Munic_Id FOREIGN KEY(Munic_Id) REFERENCES Gral.tbMunicipios(Munic_Id),
 	CONSTRAINT FK_tbPersonas_tbPaises_Paise_Id FOREIGN KEY(Paise_Id) REFERENCES Gral.tbPaises(Paise_Id),
 	CONSTRAINT FK_tbPersonas_tbIdentificaciones_Ident_Id FOREIGN KEY(Ident_Id) REFERENCES Gral.tbIdentificaciones(Ident_Id),
+	CONSTRAINT FK_tbPersonas_tbParentescos_Paren_Id FOREIGN KEY(Paren_Id) REFERENCES Gral.tbParentescos(Paren_Id),
 	CONSTRAINT CK_tbPersonas_Perso_Sexo CHECK (Perso_Sexo IN ('M','F')),
 
 	[Perso_UsuarioCreacion] [int] NOT NULL,
@@ -219,7 +236,26 @@ CREATE TABLE Gral.tbPersonas(
 	CONSTRAINT FK_tbPersonas_tbUsuarios_Perso_UsuarioModificacion FOREIGN KEY(Perso_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
 )
 GO
-CREATE TABLE Gral.tbEnfermedades
+CREATE TABLE Gral.tbInformacionMedica(
+	Perso_Id INT NOT NULL,
+	Inmed_PesoKgs NUMERIC(5,2) NOT NULL,
+	Inmed_EstaturaMtrs NUMERIC(3,2) NOT NULL,
+	Inmed_TipoSangre NVARCHAR(3) NOT NULL,
+	Inmed_ReaccionesAlergicas INT NOT NULL,
+	Inmed_AumentoDisminucion BIT NOT NULL,
+	Inmed_AumentoDisminucionPeso NUMERIC(5,2) NOT NULL,
+	Inmed_IngiereBebidasAlcoholicas
+	CONSTRAINT PK_tbInformacionMedica_Perso_Id PRIMARY KEY(Perso_Id),
+	CONSTRAINT FK_tbInformacionMedica_tbPersonas_Perso_Id FOREIGN KEY(Perso_Id) REFERENCES Gral.tbPersonas(Perso_Id),
+
+	[Inmed_UsuarioCreacion] [int] NOT NULL,
+	[Inmed_FechaCreacion] [datetime] NOT NULL,
+	[Inmed_UsuarioModificacion] [int] NULL,
+	[Inmed_FechaModificacion] [datetime] NULL,
+	[Inmed_Estado] [bit] CONSTRAINT DF_tbInformacionMedica_Inmed_Estado DEFAULT 1,
+	CONSTRAINT FK_tbInformacionMedica_tbUsuarios_Inmed_UsuarioCreacion FOREIGN KEY(Inmed_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+	CONSTRAINT FK_tbInformacionMedica_tbUsuarios_Inmed_UsuarioModificacion FOREIGN KEY(Inmed_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+)
 GO
 
 --------------------------------------------------------------------------------------------------------------------------------
