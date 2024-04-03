@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,9 @@ namespace SegurosFYP.Common.Models
         public DateTime? Depar_FechaModificacion { get; set; }
         public bool? Depar_Estado { get; set; }
 
-
+        [NotMapped]
+        public string UsuarioCreacion { get; set; }
+        [NotMapped]
+        public string UsuarioModificacion { get; set; }
     }
 }

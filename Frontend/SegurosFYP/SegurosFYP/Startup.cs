@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Net.Http;
 
 namespace SegurosFYP
 {
@@ -20,6 +21,10 @@ namespace SegurosFYP
             services.AddControllersWithViews();
 
             services.AddHttpClient();
+
+            services.Configure<Cliente>(Configuration.GetSection("HttpClientUrl"));
+
+            services.SetHttpClient();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
