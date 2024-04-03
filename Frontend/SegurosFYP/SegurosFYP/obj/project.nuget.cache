@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< Updated upstream
-  "dgSpecHash": "pwsBrnuQEx0GAlDc3Mi04NosWzfD0bPfj+mlUzAiIHbjlrW5GrqCWdIbnOgebhkOidTHYrc29nJNtRFjOvmw+g==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\LAB2\\Desktop\\Seguross\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\SegurosFYP.csproj",
-=======
   "dgSpecHash": "Lb+Bkd3C1GaG89h7jUP3Xyl3fYlxLmCMUnOr+gwJjnZZwwCYN4vUnGdJso99cdJzunJYHo3XiT8oniIkqOXvdQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\LAB2\\Desktop\\Seguros\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\SegurosFYP.csproj",
->>>>>>> Stashed changes
   "expectedPackageFiles": [
     "C:\\Users\\LAB2\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\LAB2\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
@@ -119,5 +113,12 @@
     "C:\\Users\\LAB2\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\LAB2\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\LAB2\\Desktop\\Seguros\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
