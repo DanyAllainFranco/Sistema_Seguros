@@ -15,6 +15,16 @@ namespace SegurosFYP.DataAccess.Repository
     {
         public RequestStatus Delete(tbDepartamentos item)
         {
+            string sql = ScriptsBaseDeDatos.Depar_Delete;
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                var parameter = new DynamicParameters();
+                parameter.Add("@Depar_Id", item.Depar_Id);
+                var result = db.QueryFirst(sql, parameter, commandType: CommandType.Text);
+                return result;
+            }
+
             throw new NotImplementedException();
         }
 
@@ -64,7 +74,19 @@ namespace SegurosFYP.DataAccess.Repository
 
         public RequestStatus Update(tbDepartamentos item)
         {
-            throw new NotImplementedException();
+            string sql = ScriptsBaseDeDatos.Depar_Actualizar;
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                var parameter = new DynamicParameters();
+                parameter.Add("@Depar_Id", item.Depar_Id);
+                parameter.Add("@Depar_Descripcion", item.Depar_Descripcion);
+                parameter.Add("@Depar_UsuarioModificacion", item.Depar_UsuarioModificacion);
+                parameter.Add("@Depar_FechaModificacion", item.Depar_FechaModificacion);
+                var result = db.QueryFirst(sql, parameter, commandType: CommandType.Text);
+                return result;
+            }
+            //throw new NotImplementedException();
         }
     }
 }
