@@ -50,7 +50,6 @@ namespace SegurosFYP.DataAccess.Repository
                 parameter.Add("@Depar_Descripcion", item.Depar_Descripcion);
                 parameter.Add("@Depar_UsuarioCreacion", 1 );
                 parameter.Add("@Depar_FechaCreacion", DateTime.Now);
-
                 var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
                 return new RequestStatus { CodeStatus = result, MessageStatus = "" };
             }

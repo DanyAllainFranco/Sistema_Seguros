@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fo+lbkBljcoYMomWFlgiZjV/tCkm2kwwKHiK/hh06Dsv2PM/lsz3m/jbHAjiaF0eAcsZhGK/lsY7HwSaSdHYxQ==",
+  "dgSpecHash": "iRijPL+T8ogpVv35xcdSV62M13HZWztO74FlYsISaeV6qKPQVMCwWDq5lPsgTt2rbp6D6eZYjnCHamVNz9IgIA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LAB2\\Desktop\\Seguross\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.API\\SegurosFYP.API.csproj",
+  "projectFilePath": "C:\\Users\\LAB2\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.API\\SegurosFYP.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LAB2\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\LAB2\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
