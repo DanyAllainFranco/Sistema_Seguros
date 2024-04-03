@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = SegurosFYP.BusinessLogic
-build_property.ProjectDir = C:\Users\LAB2\Desktop\Seguross\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.BusinessLogic\
+build_property.ProjectDir = C:\Users\LAB2\Desktop\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.BusinessLogic\
