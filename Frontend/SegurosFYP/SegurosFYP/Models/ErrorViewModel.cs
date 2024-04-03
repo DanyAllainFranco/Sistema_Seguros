@@ -1,5 +1,3 @@
-using System;
-
 namespace SegurosFYP.Models
 {
     public class ErrorViewModel
