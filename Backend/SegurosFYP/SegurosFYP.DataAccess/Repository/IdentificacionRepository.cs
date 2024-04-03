@@ -22,8 +22,8 @@ namespace SegurosFYP.DataAccess.Repository
                 var parameter = new DynamicParameters();
                 parameter.Add("@Ident_Id", item.Ident_Id);
 
-                parameter.Add("@Ident_UsuarioModificacion", item.Ident_UsuarioModificacion);
-                parameter.Add("@Ident_FechaModificacion", item.Ident_FechaModificacion);
+                parameter.Add("@Ident_UsuarioModificacion", 1 /*HttpContext.Session.GetSession("Usuar_Id")*/);
+                parameter.Add("@Ident_FechaModificacion", DateTime.Now);
 
                 var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
 
@@ -54,8 +54,8 @@ namespace SegurosFYP.DataAccess.Repository
                 parameter.Add("@Ident_FechaNacimiento", item.Ident_FechaNacimiento);
                 parameter.Add("@Ident_LugarNacimiento", item.Ident_LugarNacimiento);
 
-                parameter.Add("@Ident_UsuarioCreacion", item.Ident_UsuarioCreacion);
-                parameter.Add("@Ident_FechaCreacion", item.Ident_FechaCreacion);
+                parameter.Add("@Ident_UsuarioCreacion", 1 /*HttpContext.Session.GetSession("Usuar_Id")*/);
+                parameter.Add("@Ident_FechaCreacion", DateTime.Now);
 
                 var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
 
@@ -81,8 +81,8 @@ namespace SegurosFYP.DataAccess.Repository
                 parameter.Add("@Ident_FechaNacimiento", item.Ident_FechaNacimiento);
                 parameter.Add("@Ident_LugarNacimiento", item.Ident_LugarNacimiento);
 
-                parameter.Add("@Ident_UsuarioModificacion", item.Ident_UsuarioModificacion);
-                parameter.Add("@Ident_FechaModificacion", item.Ident_FechaModificacion);
+                parameter.Add("@Ident_UsuarioModificacion", 1 /*HttpContext.Session.GetSession("Usuar_Id")*/);
+                parameter.Add("@Ident_FechaModificacion", DateTime.Now);
 
                 var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
 

@@ -46,3 +46,15 @@ C:\Users\LAB1\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Entities\obj
 C:\Users\LAB1\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Entities\obj\Debug\net5.0\SegurosFYP.Entities.dll
 C:\Users\LAB1\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Entities\obj\Debug\net5.0\ref\SegurosFYP.Entities.dll
 C:\Users\LAB1\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Entities\obj\Debug\net5.0\SegurosFYP.Entities.pdb
+C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Entities\bin\Debug\net5.0\SegurosFYP.Entities.deps.json
+C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Entities\bin\Debug\net5.0\SegurosFYP.Entities.dll
+C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Entities\bin\Debug\net5.0\ref\SegurosFYP.Entities.dll
+C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Entities\bin\Debug\net5.0\SegurosFYP.Entities.pdb
+C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Entities\obj\Debug\net5.0\SegurosFYP.Entities.csproj.AssemblyReference.cache
+C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Entities\obj\Debug\net5.0\SegurosFYP.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Entities\obj\Debug\net5.0\SegurosFYP.Entities.AssemblyInfoInputs.cache
+C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Entities\obj\Debug\net5.0\SegurosFYP.Entities.AssemblyInfo.cs
+C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Entities\obj\Debug\net5.0\SegurosFYP.Entities.csproj.CoreCompileInputs.cache
+C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Entities\obj\Debug\net5.0\SegurosFYP.Entities.dll
+C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Entities\obj\Debug\net5.0\ref\SegurosFYP.Entities.dll
+C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Entities\obj\Debug\net5.0\SegurosFYP.Entities.pdb
