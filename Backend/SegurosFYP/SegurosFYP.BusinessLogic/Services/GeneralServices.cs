@@ -18,41 +18,84 @@ namespace SegurosFYP.BusinessLogic.Services
            
         }
 
-        #region
-        public ServiceResult ListDepar()
-        {
-            var result = new ServiceResult();
-            try
+        #region Departamentos
+   
+            public ServiceResult ListDepar()
             {
-                var lost = _departamentoRepository.List();
-                return result.Ok(lost);
-            }
-            catch (Exception ex)
-            {
-                return result.Error(ex.Message);
-            }
-        }
-        public ServiceResult InsertDepar(tbDepartamentos item)
-        {
-            var result = new ServiceResult();
-            try
-            {
-                var lost = _departamentoRepository.Insert(item);
-                if (lost.CodeStatus > 0)
+                var result = new ServiceResult();
+                try
                 {
+                    var lost = _departamentoRepository.List();
                     return result.Ok(lost);
                 }
-                else
+                catch (Exception ex)
                 {
-                    return result.Error(lost);
+                    return result.Error(ex.Message);
                 }
             }
-            catch (Exception ex)
+            public ServiceResult InsertDepar(tbDepartamentos item)
             {
-                return result.Error(ex.Message);
+                var result = new ServiceResult();
+                try
+                {
+                    var lost = _departamentoRepository.Insert(item);
+                    if (lost.CodeStatus > 0)
+                    {
+                        return result.Ok(lost);
+                    }
+                    else
+                    {
+                        return result.Error(lost);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return result.Error(ex.Message);
+                }
             }
-        }
 
-        #endregion
-    }
+            public ServiceResult UpdateDepar(tbDepartamentos item)
+            {
+                var result = new ServiceResult();
+                try
+                {
+                    var lost = _departamentoRepository.Update(item);
+                    if (lost.CodeStatus > 0)
+                    {
+                        return result.Ok(lost);
+                    }
+                    else
+                    {
+                        return result.Error(lost);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return result.Error(ex.Message);
+                }
+            }
+
+            public ServiceResult DeleteDepar(tbDepartamentos item)
+            {
+                var result = new ServiceResult();
+                try
+                {
+                    var lost = _departamentoRepository.Delete(item);
+                    if (lost.CodeStatus > 0)
+                    {
+                        return result.Ok(lost);
+                    }
+                    else
+                    {
+                        return result.Error(lost);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return result.Error(ex.Message);
+                }
+            }
+        
+            #endregion
+        }
 }

@@ -12,10 +12,11 @@ namespace SegurosFYP.DataAccess.Repository
         public static string Usuar_Insertar = "Acces.SP_Usuario_Insertar";
         #endregion
 
-        #region
+        #region Departamentos
         public static string Depar_Insertar = "Gral.SP_Departamentos_Insertar";
         public static string Depar_Listar = "Gral.SP_Departamentos_Listar";
-
+        public static string Depar_Actualizar = "Gral.SP_Departamentos_Actualizar";
+        public static string Depar_Delete = "Gral.SP_Departamentos_Eliminar";
         #endregion
     }
 }
