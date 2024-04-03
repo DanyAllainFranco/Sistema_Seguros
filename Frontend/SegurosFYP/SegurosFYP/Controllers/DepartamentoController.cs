@@ -41,7 +41,6 @@ namespace SegurosFYP.Controllers
             }
         }
 
-
         [HttpPost]
         public async Task<IActionResult> Insert(DepartamentoViewModel departamento)
         {
@@ -49,6 +48,42 @@ namespace SegurosFYP.Controllers
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             var response = await _client.PostAsync("api/departamento/Insert/Departamentos", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(DepartamentoViewModel departamento)
+        {
+            var json = JsonConvert.SerializeObject(departamento);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await _client.PostAsync("api/Departamento/Update/Departamentos", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(DepartamentoViewModel departamento)
+        {
+            var json = JsonConvert.SerializeObject(departamento);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await _client.PostAsync("api/Departamento/Delete/Departamentos", content);
 
             if (response.IsSuccessStatusCode)
             {
