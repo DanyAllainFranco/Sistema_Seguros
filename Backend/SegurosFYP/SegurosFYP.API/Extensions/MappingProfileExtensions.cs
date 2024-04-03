@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using SegurosFYP.Common;
+using SegurosFYP.Common.Models;
 using SegurosFYP.Entities.Entities;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace SegurosFYP.API.Extensions
         public MappingProfileExtensions()
         {
             CreateMap<UsuarioViewModel, tbUsuarios>().ReverseMap();
+            CreateMap<DepartamentoViewModel, tbDepartamentos>().ReverseMap();
         }
     }
 }

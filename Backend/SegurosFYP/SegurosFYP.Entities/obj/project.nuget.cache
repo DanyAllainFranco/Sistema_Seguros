@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6wM8jII0qGDTJ5UKX8oT31R6B/sRmvNDJShf1GCkjr+gxQjOle1m6DJAdqomyhMXvbqVTl55NWtR8z052IKKaA==",
+  "dgSpecHash": "lk/kHJj4tScZSiropOUEjfz2UZnYa2u2esaO0q3PpcN83h8TBYdLQg6ZmgsrZFH02aXMCO1Iao2Rn8HllMLZ6Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LAB1\\Desktop\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj",
+  "projectFilePath": "C:\\Users\\LAB2\\Desktop\\Seguross\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
