@@ -22,14 +22,14 @@ namespace SegurosFYP.Common.Models
         public DateTime? Poliz_FechaModificacion { get; set; }
         public bool? Poliz_Estado { get; set; }
 
-        [NotMapped]
-        public string UsuarioCreacion { get; set; }
-        [NotMapped]
-        public string UsuarioModificacion { get; set; }
+        //[NotMapped]
+        //public string UsuarioCreacion { get; set; }
+        //[NotMapped]
+        //public string UsuarioModificacion { get; set; }
 
-        [NotMapped]
-        public string Perso_NombreCompleto { get; set; }
-        [NotMapped]
-        public string Tipo_Descripcion { get; set; }
+        //[NotMapped]
+        //public string Perso_NombreCompleto { get; set; }
+        //[NotMapped]
+        //public string Tipo_Descripcion { get; set; }
     }
 }
