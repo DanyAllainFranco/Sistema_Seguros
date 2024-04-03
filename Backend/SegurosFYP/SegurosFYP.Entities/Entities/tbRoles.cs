@@ -11,6 +11,7 @@ namespace SegurosFYP.Entities.Entities
         public tbRoles()
         {
             tbPantallasPorRoles = new HashSet<tbPantallasPorRoles>();
+            tbUsuarios = new HashSet<tbUsuarios>();
         }
 
         public int Roles_Id { get; set; }
@@ -24,5 +25,6 @@ namespace SegurosFYP.Entities.Entities
         public virtual tbUsuarios Roles_UsuarioCreacionNavigation { get; set; }
         public virtual tbUsuarios Roles_UsuarioModificacionNavigation { get; set; }
         public virtual ICollection<tbPantallasPorRoles> tbPantallasPorRoles { get; set; }
+        public virtual ICollection<tbUsuarios> tbUsuarios { get; set; }
     }
 }

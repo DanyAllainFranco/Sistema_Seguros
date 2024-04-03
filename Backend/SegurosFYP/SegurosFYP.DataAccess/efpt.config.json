@@ -28,6 +28,106 @@
       {
          "Name": "[Acces].[tbUsuarios]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbDepartamentos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbEnfermedades]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbEstadosCiviles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbFrecuencias]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbIdentificaciones]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbInformacionMedica]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbMunicipios]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbPaises]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbParentescos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbPersonas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbTipoArticuloMedico]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbTiposIdentificaciones]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Segur].[tbCargos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Segur].[tbCausaAtencionMedica]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Segur].[tbCoberturas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Segur].[tbEmpleados]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Segur].[tbFacturaMedicaDetalle]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Segur].[tbFacturaMedicaEncabezado]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Segur].[tbInformeMedico]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Segur].[tbPrescripciones]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Segur].[tbTiposPlanes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Segur].[tbUnidades]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Venta].[tbDesembolsos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Venta].[tbPolizas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Venta].[tbQuejas]",
+         "ObjectType": 0
       }
    ],
    "UiHint": "vj7500.dbSegurosFYP",

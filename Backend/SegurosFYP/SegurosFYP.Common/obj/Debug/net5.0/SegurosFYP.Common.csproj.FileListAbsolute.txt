@@ -22,3 +22,15 @@ C:\Users\LAB2\Desktop\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Comm
 C:\Users\LAB2\Desktop\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.dll
 C:\Users\LAB2\Desktop\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\ref\SegurosFYP.Common.dll
 C:\Users\LAB2\Desktop\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.pdb
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\bin\Debug\net5.0\SegurosFYP.Common.deps.json
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\bin\Debug\net5.0\SegurosFYP.Common.dll
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\bin\Debug\net5.0\ref\SegurosFYP.Common.dll
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\bin\Debug\net5.0\SegurosFYP.Common.pdb
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.csproj.AssemblyReference.cache
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.AssemblyInfoInputs.cache
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.AssemblyInfo.cs
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.csproj.CoreCompileInputs.cache
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.dll
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\ref\SegurosFYP.Common.dll
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.pdb

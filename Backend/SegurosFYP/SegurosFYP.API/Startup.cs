@@ -39,6 +39,17 @@ namespace SegurosFYP.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SegurosFYP.API", Version = "v1" });
             });
+
+            // Configuración de CORS
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +65,9 @@ namespace SegurosFYP.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            // Habilitar CORS
+            app.UseCors("AllowAll");
 
             app.UseAuthorization();
 
