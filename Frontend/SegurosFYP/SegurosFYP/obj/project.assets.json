@@ -6238,11 +6238,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< Updated upstream
       "projectUniqueName": "C:\\Users\\LAB2\\Desktop\\Seguross\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\SegurosFYP.csproj",
       "projectName": "SegurosFYP",
       "projectPath": "C:\\Users\\LAB2\\Desktop\\Seguross\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\SegurosFYP.csproj",
       "packagesPath": "C:\\Users\\LAB2\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\LAB2\\Desktop\\Seguross\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\LAB2\\Desktop\\Seguros\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\SegurosFYP.csproj",
+      "projectName": "SegurosFYP",
+      "projectPath": "C:\\Users\\LAB2\\Desktop\\Seguros\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\SegurosFYP.csproj",
+      "packagesPath": "C:\\Users\\LAB2\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\LAB2\\Desktop\\Seguros\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\obj\\",
+>>>>>>> Stashed changes
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\LAB2\\AppData\\Roaming\\NuGet\\NuGet.Config",
