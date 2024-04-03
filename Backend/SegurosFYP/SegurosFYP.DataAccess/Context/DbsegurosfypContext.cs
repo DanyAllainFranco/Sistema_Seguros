@@ -19,14 +19,635 @@ namespace SegurosFYP.DataAccess.Context
         {
         }
 
+        public virtual DbSet<tbCargos> tbCargos { get; set; }
+        public virtual DbSet<tbCausaAtencionMedica> tbCausaAtencionMedica { get; set; }
+        public virtual DbSet<tbCoberturas> tbCoberturas { get; set; }
+        public virtual DbSet<tbDepartamentos> tbDepartamentos { get; set; }
+        public virtual DbSet<tbDesembolsos> tbDesembolsos { get; set; }
+        public virtual DbSet<tbEmpleados> tbEmpleados { get; set; }
+        public virtual DbSet<tbEnfermedades> tbEnfermedades { get; set; }
+        public virtual DbSet<tbEstadosCiviles> tbEstadosCiviles { get; set; }
+        public virtual DbSet<tbFacturaMedicaDetalle> tbFacturaMedicaDetalle { get; set; }
+        public virtual DbSet<tbFacturaMedicaEncabezado> tbFacturaMedicaEncabezado { get; set; }
+        public virtual DbSet<tbFrecuencias> tbFrecuencias { get; set; }
+        public virtual DbSet<tbIdentificaciones> tbIdentificaciones { get; set; }
+        public virtual DbSet<tbInformacionMedica> tbInformacionMedica { get; set; }
+        public virtual DbSet<tbInformeMedico> tbInformeMedico { get; set; }
+        public virtual DbSet<tbMunicipios> tbMunicipios { get; set; }
+        public virtual DbSet<tbPaises> tbPaises { get; set; }
         public virtual DbSet<tbPantallas> tbPantallas { get; set; }
         public virtual DbSet<tbPantallasPorRoles> tbPantallasPorRoles { get; set; }
+        public virtual DbSet<tbParentescos> tbParentescos { get; set; }
+        public virtual DbSet<tbPersonas> tbPersonas { get; set; }
+        public virtual DbSet<tbPolizas> tbPolizas { get; set; }
+        public virtual DbSet<tbPrescripciones> tbPrescripciones { get; set; }
+        public virtual DbSet<tbQuejas> tbQuejas { get; set; }
         public virtual DbSet<tbRoles> tbRoles { get; set; }
+        public virtual DbSet<tbTipoArticuloMedico> tbTipoArticuloMedico { get; set; }
+        public virtual DbSet<tbTiposIdentificaciones> tbTiposIdentificaciones { get; set; }
+        public virtual DbSet<tbTiposPlanes> tbTiposPlanes { get; set; }
+        public virtual DbSet<tbUnidades> tbUnidades { get; set; }
         public virtual DbSet<tbUsuarios> tbUsuarios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
+            modelBuilder.Entity<tbCargos>(entity =>
+            {
+                entity.HasKey(e => e.Cargo_Id)
+                    .HasName("PK_tbCargos_Cargo_Id");
+
+                entity.ToTable("tbCargos", "Segur");
+
+                entity.HasIndex(e => e.Cargo_Descripcion, "UQ_tbCargos_Cargo_Descripcion")
+                    .IsUnique();
+
+                entity.Property(e => e.Cargo_Descripcion).HasMaxLength(40);
+
+                entity.Property(e => e.Cargo_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Cargo_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Cargo_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Cargo_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbCargosCargo_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Cargo_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Cargo_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbCargosCargo_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Cargo_UsuarioModificacion);
+            });
+
+            modelBuilder.Entity<tbCausaAtencionMedica>(entity =>
+            {
+                entity.HasKey(e => e.Catme_Id)
+                    .HasName("PK_tbCausaAtencionMedica_Catme_Id");
+
+                entity.ToTable("tbCausaAtencionMedica", "Segur");
+
+                entity.Property(e => e.Catme_Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Catme_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Catme_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Catme_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Catme_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbCausaAtencionMedicaCatme_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Catme_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Catme_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbCausaAtencionMedicaCatme_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Catme_UsuarioModificacion);
+
+                entity.HasOne(d => d.Infor)
+                    .WithMany(p => p.tbCausaAtencionMedica)
+                    .HasForeignKey(d => d.Infor_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tbCausaAtencionMedica_Infor_Id");
+            });
+
+            modelBuilder.Entity<tbCoberturas>(entity =>
+            {
+                entity.HasKey(e => e.Cober_Id)
+                    .HasName("PK_tbCoberturas_Cober_Id");
+
+                entity.ToTable("tbCoberturas", "Segur");
+
+                entity.HasIndex(e => e.Cober_Descripcion, "UQ_tbCoberturas_Cober_Descripcion")
+                    .IsUnique();
+
+                entity.Property(e => e.Cober_Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(40);
+
+                entity.Property(e => e.Cober_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Cober_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Cober_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Cober_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbCoberturasCober_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Cober_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Cober_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbCoberturasCober_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Cober_UsuarioModificacion);
+            });
+
+            modelBuilder.Entity<tbDepartamentos>(entity =>
+            {
+                entity.HasKey(e => e.Depar_Id)
+                    .HasName("PK_tbDepartamentos_Depar_Id");
+
+                entity.ToTable("tbDepartamentos", "Gral");
+
+                entity.HasIndex(e => e.Depar_Descripcion, "UQ_tbDepartamentos_Depar_Descripcion")
+                    .IsUnique();
+
+                entity.Property(e => e.Depar_Id)
+                    .HasMaxLength(2)
+                    .IsUnicode(false)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Depar_Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Depar_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Depar_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Depar_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Depar_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbDepartamentosDepar_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Depar_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Depar_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbDepartamentosDepar_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Depar_UsuarioModificacion);
+            });
+
+            modelBuilder.Entity<tbDesembolsos>(entity =>
+            {
+                entity.HasKey(e => e.Desem_Id)
+                    .HasName("PK_tbDesembolsos_Desem_Id");
+
+                entity.ToTable("tbDesembolsos", "Venta");
+
+                entity.Property(e => e.Desem_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Desem_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Desem_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Clien)
+                    .WithMany(p => p.tbDesembolsos)
+                    .HasForeignKey(d => d.Clien_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Desem_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbDesembolsosDesem_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Desem_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Desem_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbDesembolsosDesem_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Desem_UsuarioModificacion);
+
+                entity.HasOne(d => d.Infor)
+                    .WithMany(p => p.tbDesembolsos)
+                    .HasForeignKey(d => d.Infor_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tbDesembolsos_tbInformeMedico");
+            });
+
+            modelBuilder.Entity<tbEmpleados>(entity =>
+            {
+                entity.HasKey(e => e.Emple_Id)
+                    .HasName("PK_tbEmpleados_Emple_Id");
+
+                entity.ToTable("tbEmpleados", "Segur");
+
+                entity.Property(e => e.Emple_Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Emple_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Emple_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Emple_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Cargo)
+                    .WithMany(p => p.tbEmpleados)
+                    .HasForeignKey(d => d.Cargo_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tbEmpleados_tbCargos_Cargo_id");
+
+                entity.HasOne(d => d.Emple)
+                    .WithOne(p => p.tbEmpleados)
+                    .HasForeignKey<tbEmpleados>(d => d.Emple_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Emple_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbEmpleadosEmple_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Emple_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Emple_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbEmpleadosEmple_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Emple_UsuarioModificacion);
+            });
+
+            modelBuilder.Entity<tbEnfermedades>(entity =>
+            {
+                entity.HasKey(e => e.Enfer_Id)
+                    .HasName("PK_tbEnfermedades_Enfer_Id");
+
+                entity.ToTable("tbEnfermedades", "Gral");
+
+                entity.HasIndex(e => e.Enfer_Descripcion, "UQ_tbEnfermedades_Enfer_Descripcion")
+                    .IsUnique();
+
+                entity.Property(e => e.Enfer_Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(60);
+
+                entity.Property(e => e.Enfer_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Enfer_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Enfer_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Enfer_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbEnfermedadesEnfer_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Enfer_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Enfer_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbEnfermedadesEnfer_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Enfer_UsuarioModificacion);
+            });
+
+            modelBuilder.Entity<tbEstadosCiviles>(entity =>
+            {
+                entity.HasKey(e => e.Estad_Id)
+                    .HasName("PK_tbEstadosCiviles_Estad_Id");
+
+                entity.ToTable("tbEstadosCiviles", "Gral");
+
+                entity.HasIndex(e => e.Estad_Descripcion, "UQ_tbEstadosCiviles_Estad_Descripcion")
+                    .IsUnique();
+
+                entity.Property(e => e.Estad_Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(30);
+
+                entity.Property(e => e.Estad_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Estad_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Estad_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Estad_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbEstadosCivilesEstad_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Estad_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Estad_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbEstadosCivilesEstad_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Estad_UsuarioModificacion);
+            });
+
+            modelBuilder.Entity<tbFacturaMedicaDetalle>(entity =>
+            {
+                entity.HasKey(e => e.Fadet_Id)
+                    .HasName("PK_tbFacturaMedicaDetalle_Fadet_Id");
+
+                entity.ToTable("tbFacturaMedicaDetalle", "Segur");
+
+                entity.Property(e => e.Fadet_Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.Fadet_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Fadet_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Fadet_FechaModificacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Fadet_Precio).HasColumnType("numeric(10, 2)");
+
+                entity.HasOne(d => d.Fadet_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbFacturaMedicaDetalleFadet_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Fadet_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Fadet_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbFacturaMedicaDetalleFadet_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Fadet_UsuarioModificacion);
+
+                entity.HasOne(d => d.Faenca)
+                    .WithMany(p => p.tbFacturaMedicaDetalle)
+                    .HasForeignKey(d => d.Faenca_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Unida)
+                    .WithMany(p => p.tbFacturaMedicaDetalle)
+                    .HasForeignKey(d => d.Unida_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+            });
+
+            modelBuilder.Entity<tbFacturaMedicaEncabezado>(entity =>
+            {
+                entity.HasKey(e => e.Faenca_Id)
+                    .HasName("PK_tbFacturaMedicaEncabezado_Faenca_Id");
+
+                entity.ToTable("tbFacturaMedicaEncabezado", "Segur");
+
+                entity.Property(e => e.Factu_DocumentoAdelante).IsRequired();
+
+                entity.Property(e => e.Factu_DocumentoAtras).IsRequired();
+
+                entity.Property(e => e.Faenca_Codigo)
+                    .IsRequired()
+                    .HasMaxLength(20);
+
+                entity.Property(e => e.Faenca_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Faenca_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Faenca_FechaImpresion).HasColumnType("date");
+
+                entity.Property(e => e.Faenca_FechaModificacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Faenca_HospitalClinica)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.Clien)
+                    .WithMany(p => p.tbFacturaMedicaEncabezado)
+                    .HasForeignKey(d => d.Clien_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Desem)
+                    .WithMany(p => p.tbFacturaMedicaEncabezado)
+                    .HasForeignKey(d => d.Desem_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Faenca_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbFacturaMedicaEncabezadoFaenca_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Faenca_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Faenca_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbFacturaMedicaEncabezadoFaenca_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Faenca_UsuarioModificacion);
+            });
+
+            modelBuilder.Entity<tbFrecuencias>(entity =>
+            {
+                entity.HasKey(e => e.Frecu_Id)
+                    .HasName("PK_tbFrecuencias_Frecu_Id");
+
+                entity.ToTable("tbFrecuencias", "Gral");
+
+                entity.HasIndex(e => e.Frecu_Descripcion, "UQ_tbFrecuencias_Frecu_Descripcion")
+                    .IsUnique();
+
+                entity.Property(e => e.Frecu_Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(40);
+
+                entity.Property(e => e.Frecu_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Frecu_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Frecu_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Frecu_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbFrecuenciasFrecu_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Frecu_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Frecu_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbFrecuenciasFrecu_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Frecu_UsuarioModificacion);
+            });
+
+            modelBuilder.Entity<tbIdentificaciones>(entity =>
+            {
+                entity.HasKey(e => e.Ident_Id)
+                    .HasName("PK_tbIdentificaciones_Ident_Id");
+
+                entity.ToTable("tbIdentificaciones", "Gral");
+
+                entity.HasIndex(e => e.Ident_NumeroIdentificacion, "UQ_tbIdentificaciones_Ident_NumeroIdentificacion")
+                    .IsUnique();
+
+                entity.Property(e => e.Ident_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Ident_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Ident_FechaModificacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Ident_FechaNacimiento).HasColumnType("date");
+
+                entity.Property(e => e.Ident_LugarNacimiento)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.Ident_NumeroIdentificacion)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.HasOne(d => d.Ident_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbIdentificacionesIdent_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Ident_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Ident_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbIdentificacionesIdent_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Ident_UsuarioModificacion);
+
+                entity.HasOne(d => d.Tiden)
+                    .WithMany(p => p.tbIdentificaciones)
+                    .HasForeignKey(d => d.Tiden_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tbIdentificaciones_tbTiposIdentificaciones_Ident_Tipo");
+            });
+
+            modelBuilder.Entity<tbInformacionMedica>(entity =>
+            {
+                entity.HasKey(e => e.Perso_Id)
+                    .HasName("PK_tbInformacionMedica_Perso_Id");
+
+                entity.ToTable("tbInformacionMedica", "Gral");
+
+                entity.Property(e => e.Perso_Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Inmed_AumentoDisminucionPeso).HasColumnType("numeric(5, 2)");
+
+                entity.Property(e => e.Inmed_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Inmed_EstaturaMtrs).HasColumnType("numeric(3, 2)");
+
+                entity.Property(e => e.Inmed_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Inmed_FechaModificacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Inmed_PesoKgs).HasColumnType("numeric(5, 2)");
+
+                entity.Property(e => e.Inmed_TipoSangre)
+                    .IsRequired()
+                    .HasMaxLength(3);
+
+                entity.HasOne(d => d.Inmed_DrogasEstimulantesFrecuenciaNavigation)
+                    .WithMany(p => p.tbInformacionMedicaInmed_DrogasEstimulantesFrecuenciaNavigation)
+                    .HasForeignKey(d => d.Inmed_DrogasEstimulantesFrecuencia)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Inmed_FumarFrecuenciaNavigation)
+                    .WithMany(p => p.tbInformacionMedicaInmed_FumarFrecuenciaNavigation)
+                    .HasForeignKey(d => d.Inmed_FumarFrecuencia)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Inmed_IngiereFrecuenciaNavigation)
+                    .WithMany(p => p.tbInformacionMedicaInmed_IngiereFrecuenciaNavigation)
+                    .HasForeignKey(d => d.Inmed_IngiereFrecuencia)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Inmed_TipoAlcoholNavigation)
+                    .WithMany(p => p.tbInformacionMedicaInmed_TipoAlcoholNavigation)
+                    .HasForeignKey(d => d.Inmed_TipoAlcohol)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Inmed_TipoDrogasEstimulantesNavigation)
+                    .WithMany(p => p.tbInformacionMedicaInmed_TipoDrogasEstimulantesNavigation)
+                    .HasForeignKey(d => d.Inmed_TipoDrogasEstimulantes)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tbInformacionMedica_tbTipoArticuloMedico_Inmed_TipoDrogas");
+
+                entity.HasOne(d => d.Inmed_TipoFumarNavigation)
+                    .WithMany(p => p.tbInformacionMedicaInmed_TipoFumarNavigation)
+                    .HasForeignKey(d => d.Inmed_TipoFumar)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Inmed_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbInformacionMedicaInmed_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Inmed_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Inmed_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbInformacionMedicaInmed_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Inmed_UsuarioModificacion);
+
+                entity.HasOne(d => d.Perso)
+                    .WithOne(p => p.tbInformacionMedica)
+                    .HasForeignKey<tbInformacionMedica>(d => d.Perso_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+            });
+
+            modelBuilder.Entity<tbInformeMedico>(entity =>
+            {
+                entity.HasKey(e => e.Infor_Id)
+                    .HasName("PK_tbInformeMedico_Infor_Id");
+
+                entity.ToTable("tbInformeMedico", "Segur");
+
+                entity.Property(e => e.Infor_Diagnostico).IsRequired();
+
+                entity.Property(e => e.Infor_DocumentoAdelante).IsRequired();
+
+                entity.Property(e => e.Infor_DocumentoAtras).IsRequired();
+
+                entity.Property(e => e.Infor_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Infor_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Infor_FechaModificacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Infor_OtrosTratamientos).IsRequired();
+
+                entity.Property(e => e.Infor_TratamientoProgramado).IsRequired();
+
+                entity.Property(e => e.Infor_TratamientoRealizado).IsRequired();
+
+                entity.HasOne(d => d.Infor_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbInformeMedicoInfor_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Infor_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Infor_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbInformeMedicoInfor_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Infor_UsuarioModificacion);
+            });
+
+            modelBuilder.Entity<tbMunicipios>(entity =>
+            {
+                entity.HasKey(e => e.Munic_Id)
+                    .HasName("PK_tbMunicipios_Munic_Id");
+
+                entity.ToTable("tbMunicipios", "Gral");
+
+                entity.Property(e => e.Munic_Id)
+                    .HasMaxLength(4)
+                    .IsUnicode(false)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Depar_Id)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Munic_Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Munic_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Munic_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Munic_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Depar)
+                    .WithMany(p => p.tbMunicipios)
+                    .HasForeignKey(d => d.Depar_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Munic_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbMunicipiosMunic_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Munic_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Munic_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbMunicipiosMunic_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Munic_UsuarioModificacion);
+            });
+
+            modelBuilder.Entity<tbPaises>(entity =>
+            {
+                entity.HasKey(e => e.Paise_Id)
+                    .HasName("PK_tbPaises_Paise_Id");
+
+                entity.ToTable("tbPaises", "Gral");
+
+                entity.Property(e => e.Paise_Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Paise_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Paise_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Paise_FechaModificacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Paise_Nacionalidad)
+                    .IsRequired()
+                    .HasMaxLength(70);
+
+                entity.HasOne(d => d.Paise_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbPaisesPaise_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Paise_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Paise_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbPaisesPaise_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Paise_UsuarioModificacion);
+            });
 
             modelBuilder.Entity<tbPantallas>(entity =>
             {
@@ -94,6 +715,202 @@ namespace SegurosFYP.DataAccess.Context
                     .OnDelete(DeleteBehavior.ClientSetNull);
             });
 
+            modelBuilder.Entity<tbParentescos>(entity =>
+            {
+                entity.HasKey(e => e.Paren_Id)
+                    .HasName("PK_tbParentescos_Paren_Id");
+
+                entity.ToTable("tbParentescos", "Gral");
+
+                entity.HasIndex(e => e.Paren_Descripcion, "UQ_tbParentescos_Paren_Descripcion")
+                    .IsUnique();
+
+                entity.Property(e => e.Paren_Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(30);
+
+                entity.Property(e => e.Paren_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Paren_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Paren_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Paren_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbParentescosParen_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Paren_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Paren_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbParentescosParen_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Paren_UsuarioModificacion);
+            });
+
+            modelBuilder.Entity<tbPersonas>(entity =>
+            {
+                entity.HasKey(e => e.Perso_Id)
+                    .HasName("PK_tbPersonas_Perso_Id");
+
+                entity.ToTable("tbPersonas", "Gral");
+
+                entity.Property(e => e.Munic_Id)
+                    .HasMaxLength(4)
+                    .IsUnicode(false)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Perso_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Perso_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Perso_FechaModificacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Perso_PrimerApellido)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Perso_PrimerNombre)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Perso_SegundoApellido).HasMaxLength(50);
+
+                entity.Property(e => e.Perso_SegundoNombre).HasMaxLength(50);
+
+                entity.Property(e => e.Perso_Sexo)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Perso_Telefono).HasMaxLength(30);
+
+                entity.HasOne(d => d.Ident)
+                    .WithMany(p => p.tbPersonas)
+                    .HasForeignKey(d => d.Ident_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Munic)
+                    .WithMany(p => p.tbPersonas)
+                    .HasForeignKey(d => d.Munic_Id);
+
+                entity.HasOne(d => d.Paise)
+                    .WithMany(p => p.tbPersonas)
+                    .HasForeignKey(d => d.Paise_Id);
+
+                entity.HasOne(d => d.Paren)
+                    .WithMany(p => p.tbPersonas)
+                    .HasForeignKey(d => d.Paren_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Perso_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbPersonasPerso_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Perso_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Perso_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbPersonasPerso_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Perso_UsuarioModificacion);
+            });
+
+            modelBuilder.Entity<tbPolizas>(entity =>
+            {
+                entity.HasKey(e => e.Poliz_Id)
+                    .HasName("PK_tbPolizas_Poliz_Id");
+
+                entity.ToTable("tbPolizas", "Venta");
+
+                entity.HasIndex(e => e.Clien_Id, "UQ_tbPolizas_Clien_Id")
+                    .IsUnique();
+
+                entity.Property(e => e.Poliz_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Poliz_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Poliz_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Clien)
+                    .WithOne(p => p.tbPolizas)
+                    .HasForeignKey<tbPolizas>(d => d.Clien_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Emple)
+                    .WithMany(p => p.tbPolizas)
+                    .HasForeignKey(d => d.Emple_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Poliz_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbPolizasPoliz_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Poliz_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Poliz_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbPolizasPoliz_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Poliz_UsuarioModificacion);
+
+                entity.HasOne(d => d.Tipos)
+                    .WithMany(p => p.tbPolizas)
+                    .HasForeignKey(d => d.Tipos_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+            });
+
+            modelBuilder.Entity<tbPrescripciones>(entity =>
+            {
+                entity.HasKey(e => e.Presc_Id)
+                    .HasName("PK_tbPrescripciones_Presc_Id");
+
+                entity.ToTable("tbPrescripciones", "Segur");
+
+                entity.Property(e => e.Presc_DocumentoAdelante).IsRequired();
+
+                entity.Property(e => e.Presc_DocumentoAtras).IsRequired();
+
+                entity.Property(e => e.Presc_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Presc_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Presc_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Desem)
+                    .WithMany(p => p.tbPrescripciones)
+                    .HasForeignKey(d => d.Desem_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Presc_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbPrescripcionesPresc_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Presc_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Presc_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbPrescripcionesPresc_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Presc_UsuarioModificacion);
+            });
+
+            modelBuilder.Entity<tbQuejas>(entity =>
+            {
+                entity.HasKey(e => e.Queja_Id)
+                    .HasName("PK_tbQuejas_Queja_Id");
+
+                entity.ToTable("tbQuejas", "Venta");
+
+                entity.Property(e => e.Queja_Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(200);
+
+                entity.Property(e => e.Queja_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Queja_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Queja_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Queja_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbQuejasQueja_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Queja_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Queja_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbQuejasQueja_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Queja_UsuarioModificacion);
+            });
+
             modelBuilder.Entity<tbRoles>(entity =>
             {
                 entity.HasKey(e => e.Roles_Id)
@@ -124,6 +941,185 @@ namespace SegurosFYP.DataAccess.Context
                     .HasForeignKey(d => d.Roles_UsuarioModificacion);
             });
 
+            modelBuilder.Entity<tbTipoArticuloMedico>(entity =>
+            {
+                entity.HasKey(e => e.Tarme_Id)
+                    .HasName("PK_tbTipoBebidaAlcoholica_Tbeal_Id");
+
+                entity.ToTable("tbTipoArticuloMedico", "Gral");
+
+                entity.HasIndex(e => e.Tarme_Descripcion, "UQ_tbTipoBebidaAlcoholica_Tbeal_Descripcion")
+                    .IsUnique();
+
+                entity.Property(e => e.Tarme_Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Tarme_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Tarme_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Tarme_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Tarme_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbTipoArticuloMedicoTarme_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Tarme_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tbTipoBebidaAlcoholica_tbUsuarios_Tarme_UsuarioCreacion");
+
+                entity.HasOne(d => d.Tarme_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbTipoArticuloMedicoTarme_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Tarme_UsuarioModificacion)
+                    .HasConstraintName("FK_tbTipoBebidaAlcoholica_tbUsuarios_Tarme_UsuarioModificacion");
+            });
+
+            modelBuilder.Entity<tbTiposIdentificaciones>(entity =>
+            {
+                entity.HasKey(e => e.Tiden_Id)
+                    .HasName("PK_tbTiposIdentificaciones_Tiden_Id");
+
+                entity.ToTable("tbTiposIdentificaciones", "Gral");
+
+                entity.HasIndex(e => e.Tiden_Descripcion, "UQ_tbTiposIdentificaciones_Tiden_Descripcion")
+                    .IsUnique();
+
+                entity.Property(e => e.Tiden_Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(30);
+
+                entity.Property(e => e.Tiden_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Tiden_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Tiden_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Tiden_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbTiposIdentificacionesTiden_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Tiden_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Tiden_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbTiposIdentificacionesTiden_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Tiden_UsuarioModificacion);
+            });
+
+            modelBuilder.Entity<tbTiposPlanes>(entity =>
+            {
+                entity.HasKey(e => e.Tipos_Id)
+                    .HasName("PK_tbTiposPlanes_Tipos_Id");
+
+                entity.ToTable("tbTiposPlanes", "Segur");
+
+                entity.HasIndex(e => e.Tipos_Descripcion, "UQ_tbTiposPlanes_Tipos_Descripcion")
+                    .IsUnique();
+
+                entity.Property(e => e.Tipos_AmbulanciaAerea).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_AsistenciaFuneraria).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_CentroAmerica).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_CoberturaPorSidaMaximoVitalicio).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_CostoPlan).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_CuartoAlimentacionDentroCA).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_CuartoAlimentacionFueraCA).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_Deducible).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(40);
+
+                entity.Property(e => e.Tipos_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Tipos_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Tipos_FechaModificacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Tipos_FueraCentroAmerica).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_GastosFunebresDependientes).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_GastosFunebresTitular).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_GastosHogar6rentasmensuales).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_GastosRepatriacion).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_LimiteConsultaExternaMedicoEspecialista).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_LimiteConsultaExternaMedicoGeneral).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_LimiteConsultaExternaNeurologoCardiologo).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_LimitesMomentoAbortoLegal).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_LimitesMomentoCesarea).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_LimitesMomentoCuidadoCriticoNeonatal).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_LimitesMomentoGastosPsiquiatriaConsulaMedicamento).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_LimitesMomentoPartoNormal).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_LimitesMomentoSalaCuna).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_LímiteCuartoIntensivoFueraCA).HasColumnType("numeric(4, 2)");
+
+                entity.Property(e => e.Tipos_MaximoVitalicio).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_ReduccionMaximoVitalicio).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_SeguroVidaRenovableAnualMasDID).HasColumnType("numeric(10, 2)");
+
+                entity.HasOne(d => d.Cober)
+                    .WithMany(p => p.tbTiposPlanes)
+                    .HasForeignKey(d => d.Cober_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Tipos_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbTiposPlanesTipos_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Tipos_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Tipos_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbTiposPlanesTipos_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Tipos_UsuarioModificacion);
+            });
+
+            modelBuilder.Entity<tbUnidades>(entity =>
+            {
+                entity.HasKey(e => e.Unida_Id)
+                    .HasName("PK_tbUnidades_Unida_Id");
+
+                entity.ToTable("tbUnidades", "Segur");
+
+                entity.HasIndex(e => e.Unida_Descripcion, "UQ_tbUnidades_Unida_Descripcion")
+                    .IsUnique();
+
+                entity.Property(e => e.Unida_Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(30);
+
+                entity.Property(e => e.Unida_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Unida_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Unida_FechaModificacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Unida_UsuarioCreacionNavigation)
+                    .WithMany(p => p.tbUnidadesUnida_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Unida_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Unida_UsuarioModificacionNavigation)
+                    .WithMany(p => p.tbUnidadesUnida_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Unida_UsuarioModificacion);
+            });
+
             modelBuilder.Entity<tbUsuarios>(entity =>
             {
                 entity.HasKey(e => e.Usuar_Id)
@@ -147,6 +1143,25 @@ namespace SegurosFYP.DataAccess.Context
                 entity.Property(e => e.Usuar_Usuario)
                     .IsRequired()
                     .HasMaxLength(50);
+
+                entity.HasOne(d => d.Emple)
+                    .WithMany(p => p.tbUsuarios)
+                    .HasForeignKey(d => d.Emple_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Roles)
+                    .WithMany(p => p.tbUsuarios)
+                    .HasForeignKey(d => d.Roles_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Usuar_UsuarioCreacionNavigation)
+                    .WithMany(p => p.InverseUsuar_UsuarioCreacionNavigation)
+                    .HasForeignKey(d => d.Usuar_UsuarioCreacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Usuar_UsuarioModificacionNavigation)
+                    .WithMany(p => p.InverseUsuar_UsuarioModificacionNavigation)
+                    .HasForeignKey(d => d.Usuar_UsuarioModificacion);
             });
 
             OnModelCreatingPartial(modelBuilder);
