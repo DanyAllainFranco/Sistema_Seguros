@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "f84QQFci15vdQUPSmrnz/boTfX7eFj63EAQhiGQTepR4RkkOiYHjDT31vzCRQdStoEZVOn192oQs4+xp3hnsGg==",
+  "dgSpecHash": "tW/MJZ0VHAQF/TwOiwnswULDy/GTJGpSH+Emlw+RloLJXJLYD7/0xtBVp9FygrcGDUrymoT3n1hn1o4oBLNevg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LAB2\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.BusinessLogic\\SegurosFYP.BusinessLogic.csproj",
+  "projectFilePath": "C:\\Users\\LAB2\\Desktop\\Seguross\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.BusinessLogic\\SegurosFYP.BusinessLogic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LAB2\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\LAB2\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

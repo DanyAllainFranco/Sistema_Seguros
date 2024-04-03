@@ -34,9 +34,9 @@ namespace SegurosFYP.API.Controllers
             var modelo = new tbDepartamentos()
             {
                 Depar_Id = item.Depar_Id,
-                Depar_Descripcion = item.Depar_Descripcion,
-                Depar_UsuarioCreacion = item.Depar_UsuarioCreacion,
-                Depar_FechaCreacion = item.Depar_FechaCreacion
+                Depar_Descripcion = item.Depar_Descripcion
+                //Depar_UsuarioCreacion = 1,
+                //Depar_FechaCreacion = item.Depar_FechaCreacion
             };
             var list = _generalServices.InsertDepar(modelo);
             return Ok(list);

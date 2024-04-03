@@ -7,24 +7,25 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Options;
 
 namespace SegurosFYP.Controllers
 {
     public class DepartamentoController : Controller
     {
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly Cliente _url;
+        private readonly HttpClient _client;
 
-        public DepartamentoController(IHttpClientFactory httpClientFactory)
+        public DepartamentoController(IOptions<Cliente> url, HttpClient client)
         {
-            _httpClientFactory = httpClientFactory;
+            _url = url.Value;
+            _client = client;
+            _client.BaseAddress = new Uri(_url.Url);
         }
 
         public async Task<IActionResult> Index()
         {
-            var httpClient = _httpClientFactory.CreateClient();
-            httpClient.BaseAddress = new Uri("https://localhost:44327/");
-
-            var response = await httpClient.GetAsync("api/departamento/List/Departamentos");
+            var response = await _client.GetAsync("api/departamento/List/Departamentos");
 
             if (response.IsSuccessStatusCode)
             {
@@ -40,17 +41,49 @@ namespace SegurosFYP.Controllers
             }
         }
 
-
         [HttpPost]
         public async Task<IActionResult> Insert(DepartamentoViewModel departamento)
         {
-            var httpClient = _httpClientFactory.CreateClient();
-            httpClient.BaseAddress = new Uri("https://localhost:44327/"); // Cambia la URL base según tu configuración
-
             var json = JsonConvert.SerializeObject(departamento);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await httpClient.PostAsync("api/departamento/Insert/Departamentos", content);
+            var response = await _client.PostAsync("api/departamento/Insert/Departamentos", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(DepartamentoViewModel departamento)
+        {
+            var json = JsonConvert.SerializeObject(departamento);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await _client.PostAsync("api/Departamento/Update/Departamentos", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(DepartamentoViewModel departamento)
+        {
+            var json = JsonConvert.SerializeObject(departamento);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await _client.PostAsync("api/Departamento/Delete/Departamentos", content);
 
             if (response.IsSuccessStatusCode)
             {

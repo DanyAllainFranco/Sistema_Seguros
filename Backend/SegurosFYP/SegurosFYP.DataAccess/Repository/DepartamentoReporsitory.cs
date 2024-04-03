@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿
+using Dapper;
 using Microsoft.Data.SqlClient;
 using SegurosFYP.BusinessLogic.Services;
 using SegurosFYP.Entities.Entities;
@@ -21,8 +22,8 @@ namespace SegurosFYP.DataAccess.Repository
             {
                 var parameter = new DynamicParameters();
                 parameter.Add("@Depar_Id", item.Depar_Id);
-                var result = db.QueryFirst(sql, parameter, commandType: CommandType.Text);
-                return result;
+                var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
+                return new RequestStatus { CodeStatus = result, MessageStatus = "" };
             }
 
             throw new NotImplementedException();
@@ -47,13 +48,11 @@ namespace SegurosFYP.DataAccess.Repository
                 var parameter = new DynamicParameters();
                 parameter.Add("@Depar_Id", item.Depar_Id);
                 parameter.Add("@Depar_Descripcion", item.Depar_Descripcion);
-                parameter.Add("@Depar_UsuarioCreacion", item.Depar_UsuarioCreacion);
-                parameter.Add("@Depar_FechaCreacion", item.Depar_FechaCreacion);
-                parameter.Add("@Depar_Estado", item.Depar_Estado);
+                parameter.Add("@Depar_UsuarioCreacion", 1 );
+                parameter.Add("@Depar_FechaCreacion", DateTime.Now);
 
-                var result = db.QueryFirst(sql, parameter, commandType: CommandType.Text);
-
-                return result;
+                var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
+                return new RequestStatus { CodeStatus = result, MessageStatus = "" };
             }
         }
 
@@ -83,8 +82,8 @@ namespace SegurosFYP.DataAccess.Repository
                 parameter.Add("@Depar_Descripcion", item.Depar_Descripcion);
                 parameter.Add("@Depar_UsuarioModificacion", item.Depar_UsuarioModificacion);
                 parameter.Add("@Depar_FechaModificacion", item.Depar_FechaModificacion);
-                var result = db.QueryFirst(sql, parameter, commandType: CommandType.Text);
-                return result;
+                var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
+                return new RequestStatus { CodeStatus = result, MessageStatus = ""};
             }
             //throw new NotImplementedException();
         }

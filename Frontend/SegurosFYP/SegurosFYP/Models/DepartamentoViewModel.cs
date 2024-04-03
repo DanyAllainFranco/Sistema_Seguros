@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SegurosFYP.Models
 {
@@ -19,5 +20,10 @@ namespace SegurosFYP.Models
         public DateTime? Depar_FechaModificacion { get; set; }
         public bool? Depar_Estado { get; set; }
 
+
+        [NotMapped]
+        public string UsuarioCreacion { get; set; }
+        [NotMapped]
+        public string UsuarioModificacion { get; set; }
     }
 }
