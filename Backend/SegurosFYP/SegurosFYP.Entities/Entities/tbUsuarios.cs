@@ -10,6 +10,8 @@ namespace SegurosFYP.Entities.Entities
     {
         public tbUsuarios()
         {
+            InverseUsuar_UsuarioCreacionNavigation = new HashSet<tbUsuarios>();
+            InverseUsuar_UsuarioModificacionNavigation = new HashSet<tbUsuarios>();
             tbPantallasPanta_UsuarioCreacionNavigation = new HashSet<tbPantallas>();
             tbPantallasPanta_UsuarioModificacionNavigation = new HashSet<tbPantallas>();
             tbPantallasPorRolesPapro_UsuarioCreacionNavigation = new HashSet<tbPantallasPorRoles>();
@@ -24,13 +26,18 @@ namespace SegurosFYP.Entities.Entities
         public int Emple_Id { get; set; }
         public int Roles_Id { get; set; }
         public bool Usuar_Admin { get; set; }
-        public DateTime Usuar_UltimaSesion { get; set; }
+        public DateTime? Usuar_UltimaSesion { get; set; }
         public int Usuar_UsuarioCreacion { get; set; }
         public DateTime Usuar_FechaCreacion { get; set; }
         public int? Usuar_UsuarioModificacion { get; set; }
         public DateTime? Usuar_FechaModificacion { get; set; }
         public bool? Usuar_Estado { get; set; }
 
+        public virtual tbRoles Roles { get; set; }
+        public virtual tbUsuarios Usuar_UsuarioCreacionNavigation { get; set; }
+        public virtual tbUsuarios Usuar_UsuarioModificacionNavigation { get; set; }
+        public virtual ICollection<tbUsuarios> InverseUsuar_UsuarioCreacionNavigation { get; set; }
+        public virtual ICollection<tbUsuarios> InverseUsuar_UsuarioModificacionNavigation { get; set; }
         public virtual ICollection<tbPantallas> tbPantallasPanta_UsuarioCreacionNavigation { get; set; }
         public virtual ICollection<tbPantallas> tbPantallasPanta_UsuarioModificacionNavigation { get; set; }
         public virtual ICollection<tbPantallasPorRoles> tbPantallasPorRolesPapro_UsuarioCreacionNavigation { get; set; }
