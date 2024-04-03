@@ -39,11 +39,10 @@ namespace SegurosFYP.DataAccess.Repository
                 parameter.Add("@Depar_Descripcion", item.Depar_Descripcion);
                 parameter.Add("@Depar_UsuarioCreacion", item.Depar_UsuarioCreacion);
                 parameter.Add("@Depar_FechaCreacion", item.Depar_FechaCreacion);
-                parameter.Add("@Depar_Estado", item.Depar_Estado);
 
-                var result = db.QueryFirst(sql, parameter, commandType: CommandType.Text);
+                var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
 
-                return result;
+                return new RequestStatus { CodeStatus = result, MessageStatus = "" };
             }
         }
 

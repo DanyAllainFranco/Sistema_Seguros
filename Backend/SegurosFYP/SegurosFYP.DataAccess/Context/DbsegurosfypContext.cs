@@ -1021,8 +1021,6 @@ namespace SegurosFYP.DataAccess.Context
 
                 entity.Property(e => e.Tipos_CoberturaPorSidaMaximoVitalicio).HasColumnType("numeric(10, 2)");
 
-                entity.Property(e => e.Tipos_CostoPlan).HasColumnType("numeric(10, 2)");
-
                 entity.Property(e => e.Tipos_CuartoAlimentacionDentroCA).HasColumnType("numeric(10, 2)");
 
                 entity.Property(e => e.Tipos_CuartoAlimentacionFueraCA).HasColumnType("numeric(10, 2)");

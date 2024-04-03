@@ -56,7 +56,6 @@ namespace SegurosFYP.Entities.Entities
         public int Tipos_ControlesPreventivosProstagicoANUAL { get; set; }
         public int Tipos_ControlesPreventivosMamografiaANUAL { get; set; }
         public int Cober_Id { get; set; }
-        public decimal Tipos_CostoPlan { get; set; }
         public int Tipos_UsuarioCreacion { get; set; }
         public DateTime Tipos_FechaCreacion { get; set; }
         public int? Tipos_UsuarioModificacion { get; set; }
