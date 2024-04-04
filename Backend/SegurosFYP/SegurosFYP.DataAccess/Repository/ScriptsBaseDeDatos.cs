@@ -17,6 +17,8 @@ namespace SegurosFYP.DataAccess.Repository
         public static string Depar_Listar = "Gral.SP_Departamentos_Listar";
         public static string Depar_Actualizar = "Gral.SP_Departamentos_Actualizar";
         public static string Depar_Delete = "Gral.SP_Departamentos_Eliminar";
+        public static string Depar_Cargar = "Gral.SP_Departamentos_Cargar";
+
         #endregion
     }
 }

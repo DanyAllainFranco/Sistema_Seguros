@@ -95,7 +95,21 @@ namespace SegurosFYP.BusinessLogic.Services
                     return result.Error(ex.Message);
                 }
             }
-        
-            #endregion
+
+        public ServiceResult CargarDepar(string Depar_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _departamentoRepository.find(Depar_Id);
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
         }
+
+        #endregion
+    }
 }

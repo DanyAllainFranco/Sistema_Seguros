@@ -49,9 +49,9 @@ namespace SegurosFYP.API.Controllers
             var modelo = new tbDepartamentos()
             {
                 Depar_Id = item.Depar_Id,
-                Depar_Descripcion = item.Depar_Descripcion,
-                Depar_UsuarioModificacion = item.Depar_UsuarioModificacion,
-                Depar_FechaModificacion = item.Depar_FechaModificacion
+                Depar_Descripcion = item.Depar_Descripcion
+                //Depar_UsuarioModificacion = item.Depar_UsuarioModificacion,
+                //Depar_FechaModificacion = item.Depar_FechaModificacion
             };
             var list = _generalServices.UpdateDepar(modelo);
             return Ok(list);
@@ -66,6 +66,13 @@ namespace SegurosFYP.API.Controllers
                 Depar_Id = item.Depar_Id
             };
             var list = _generalServices.DeleteDepar(modelo);
+            return Ok(list);
+        }
+
+        [HttpGet("Cargar/Departamentos")]
+        public IActionResult CargarDepartamentos(string Depar_Id)
+        {
+            var list = _generalServices.CargarDepar(Depar_Id);
             return Ok(list);
         }
 
