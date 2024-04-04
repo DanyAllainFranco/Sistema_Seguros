@@ -748,3 +748,13 @@ C:\Users\LAB2\Desktop\Seguross\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.API
 C:\Users\LAB2\Desktop\Seguross\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.API\obj\Debug\net5.0\ref\SegurosFYP.API.dll
 C:\Users\LAB2\Desktop\Seguross\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.API\obj\Debug\net5.0\SegurosFYP.API.pdb
 C:\Users\LAB2\Desktop\Seguross\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.API\obj\Debug\net5.0\SegurosFYP.API.genruntimeconfig.cache
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.API\obj\Debug\net5.0\SegurosFYP.API.csproj.AssemblyReference.cache
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.API\obj\Debug\net5.0\SegurosFYP.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.API\obj\Debug\net5.0\SegurosFYP.API.AssemblyInfoInputs.cache
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.API\obj\Debug\net5.0\SegurosFYP.API.AssemblyInfo.cs
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.API\obj\Debug\net5.0\SegurosFYP.API.csproj.CoreCompileInputs.cache
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.API\obj\Debug\net5.0\SegurosFYP.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.API\obj\Debug\net5.0\SegurosFYP.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.API\obj\Debug\net5.0\SegurosFYP.API.dll
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.API\obj\Debug\net5.0\ref\SegurosFYP.API.dll
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.API\obj\Debug\net5.0\SegurosFYP.API.pdb
