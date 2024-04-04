@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pavel\\OneDrive\\Escritorio\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj": {}
+    "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pavel\\OneDrive\\Escritorio\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj": {
+    "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pavel\\OneDrive\\Escritorio\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj",
         "projectName": "SegurosFYP.Entities",
-        "projectPath": "C:\\Users\\pavel\\OneDrive\\Escritorio\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj",
-        "packagesPath": "C:\\Users\\pavel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pavel\\OneDrive\\Escritorio\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\obj\\",
+        "projectPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\pavel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
