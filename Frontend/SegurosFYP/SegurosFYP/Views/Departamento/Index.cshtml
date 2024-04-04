@@ -132,6 +132,7 @@
             });
         });
         function fetchData(deparId) {
+            console.log(deparId);
             fetch(`https://localhost:44347/api/Departamento/Cargar/Departamentos?Depar_Id=${deparId}`)
                 .then(response => response.json())
                 .then(data => {

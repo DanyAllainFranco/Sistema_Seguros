@@ -97,7 +97,7 @@ namespace SegurosFYP.Controllers
 
         public async Task<IActionResult> Find(DepartamentoViewModel departamento)
         {
-            var response = await _client.GetAsync($"api/Departamento/Cargar/Departamentos/{departamento.Depar_Id}");
+            var response = await _client.GetAsync($"api/Departamento/Cargar/Departamentos?Depar_Id={departamento.Depar_Id}");
 
             if (response.IsSuccessStatusCode)
             {
