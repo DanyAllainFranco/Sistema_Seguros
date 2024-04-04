@@ -4,142 +4,117 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+    <div class="card-header">
+        <h1>Departamentos</h1>
+        <p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-folder-plus"></i>Nuevo</button>
+            </div>
 
-<h1>Departamentos</h1>
+                    <table class="table table-bordered" id="Example">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Depar_Id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Depar_Descripcion)
+                                </th>                             
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Depar_Id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Depar_Descripcion)
+                                    </td>                                 
+                                    <td>
+                                        <a asp-route-id="@item.Depar_Id" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-depar-id="@item.Depar_Id"><i class="mdi mdi-grease-pencil"></i>Editar</a>
+                                        <a asp-route-id="@item.Depar_Id" class="btn btn-warning"><i class="mdi mdi-eye"></i>Detalles</a>
+                                        <a asp-route-id="@item.Depar_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Depar_Id')"><i class="mdi mdi-eraser-variant"></i>Eliminar</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+      
 
-<p>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Nuevo</button>
-    <table class="table table-responsive table-bordered">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Depar_Id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Depar_Descripcion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Depar_UsuarioCreacion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Depar_FechaCreacion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Depar_UsuarioModificacion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Depar_FechaModificacion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Depar_Estado)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Depar_Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Depar_Descripcion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Depar_UsuarioCreacion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Depar_FechaCreacion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Depar_UsuarioModificacion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Depar_FechaModificacion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Depar_Estado)
-                    </td>
-                    <td>
-                        <a asp-route-id="@item.Depar_Id" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-depar-id="@item.Depar_Id">Editar</a>                   
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        <a asp-route-id="@item.Depar_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Depar_Id')">Eliminar</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    <div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    @Html.Partial("_Update", new SegurosFYP.Models.DepartamentoViewModel())
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+            <div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            @Html.Partial("_Update", new SegurosFYP.Models.DepartamentoViewModel())
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Insertar</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    @Html.Partial("_Insert", new SegurosFYP.Models.DepartamentoViewModel())
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Insertar</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            @Html.Partial("_Insert", new SegurosFYP.Models.DepartamentoViewModel())
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+            <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            @Html.Partial("_Delete", new SegurosFYP.Models.DepartamentoViewModel())
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    @Html.Partial("_Delete", new SegurosFYP.Models.DepartamentoViewModel())
-                </div>                     
             </div>
-        </div>
-    </div>
-    <script>
-        document.querySelectorAll('.FetchData').forEach(item => {
-            item.addEventListener('click', function () {
-                var deparId = this.getAttribute('data-depar-id');
-                console.log(deparId);
-                fetchData(deparId);
-            });
-        });
-        function fetchData(deparId) {
-            console.log(deparId);
-            fetch(`https://localhost:44347/api/Departamento/Cargar/Departamentos?Depar_Id=${deparId}`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('Depar_Codigo').value = data.depar_Id;
-                    document.getElementById('Depar_Descripcion').value = data.depar_Descripcion;
-                })
-                .catch(error => console.error('Hubo un error:', error));
-        }
-    </script>
+            <script>
+
+                document.querySelectorAll('.FetchData').forEach(item => {
+                    item.addEventListener('click', function () {
+                        var deparId = this.getAttribute('data-depar-id');
+                        console.log(deparId);
+                        fetchData(deparId);
+                    });
+                });
+                function fetchData(deparId) {
+                    console.log(deparId);
+                    fetch('https://localhost:44327/api/Departamento/Cargar/Departamentos?Depar_Id=' + deparId)
+                        .then(response => response.json())
+                        .then(data => {
+                            var dany = JSON.stringify(data.data);                          
+                            document.getElementById('Depar_Codigo').value = data.data[0].depar_Id;
+                            document.getElementById('Depar_Descripcion').value = data.data[0].depar_Descripcion;
+                        })
+                        .catch(error => console.error('Hubo un error:', error));
+                }
+            </script>
 

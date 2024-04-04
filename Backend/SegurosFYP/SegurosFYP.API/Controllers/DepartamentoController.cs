@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SegurosFYP.BusinessLogic.Services;
 using SegurosFYP.Common.Models;
 using SegurosFYP.Entities.Entities;
@@ -58,14 +60,9 @@ namespace SegurosFYP.API.Controllers
         }
 
         [HttpDelete("Delete/Departamentos")]
-        public IActionResult DeleteDepartamento(DepartamentoViewModel item)
+        public IActionResult DeleteDepartamento(string Depar_ID)
         {
-            var model = _mapper.Map<tbDepartamentos>(item);
-            var modelo = new tbDepartamentos()
-            {
-                Depar_Id = item.Depar_Id
-            };
-            var list = _generalServices.DeleteDepar(modelo);
+            var list = _generalServices.DeleteDepar(Depar_ID);
             return Ok(list);
         }
 
@@ -73,6 +70,7 @@ namespace SegurosFYP.API.Controllers
         public IActionResult CargarDepartamentos(string Depar_Id)
         {
             var list = _generalServices.CargarDepar(Depar_Id);
+
             return Ok(list);
         }
 

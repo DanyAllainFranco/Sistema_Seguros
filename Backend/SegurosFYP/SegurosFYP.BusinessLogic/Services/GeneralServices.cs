@@ -1,4 +1,6 @@
-﻿using SegurosFYP.DataAccess.Repository;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using SegurosFYP.DataAccess.Repository;
 using SegurosFYP.Entities.Entities;
 using System;
 using System.Collections.Generic;
@@ -75,12 +77,12 @@ namespace SegurosFYP.BusinessLogic.Services
                 }
             }
 
-            public ServiceResult DeleteDepar(tbDepartamentos item)
+            public ServiceResult DeleteDepar(string Depar_Id)
             {
                 var result = new ServiceResult();
                 try
                 {
-                    var lost = _departamentoRepository.Delete(item);
+                    var lost = _departamentoRepository.Delete(Depar_Id);
                     if (lost.CodeStatus > 0)
                     {
                         return result.Ok(lost);
@@ -102,7 +104,9 @@ namespace SegurosFYP.BusinessLogic.Services
             try
             {
                 var lost = _departamentoRepository.find(Depar_Id);
-                return result.Ok(lost);
+
+                return result.Ok(lost); 
+
             }
             catch (Exception ex)
             {

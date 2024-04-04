@@ -59,7 +59,7 @@ namespace SegurosFYP.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpPost]
         public async Task<IActionResult> Update(DepartamentoViewModel departamento)
         {
             var json = JsonConvert.SerializeObject(departamento);
@@ -77,13 +77,12 @@ namespace SegurosFYP.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpPost]
         public async Task<IActionResult> Delete(DepartamentoViewModel departamento)
         {
             var json = JsonConvert.SerializeObject(departamento);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            var response = await _client.DeleteAsync("api/Departamento/Delete/Departamentos");
+            var response = await _client.DeleteAsync($"api/Departamento/Delete/Departamentos?Depar_Id={departamento.Depar_Id}");
 
             if (response.IsSuccessStatusCode)
             {

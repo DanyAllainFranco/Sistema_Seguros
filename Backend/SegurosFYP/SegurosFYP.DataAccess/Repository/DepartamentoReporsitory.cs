@@ -14,18 +14,23 @@ namespace SegurosFYP.DataAccess.Repository
 {
     public class DepartamentoRepository : IRepository<tbDepartamentos>
     {
-        public RequestStatus Delete(tbDepartamentos item)
+        public RequestStatus Delete(string Depar_Id)
         {
             string sql = ScriptsBaseDeDatos.Depar_Delete;
 
             using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
             {
                 var parameter = new DynamicParameters();
-                parameter.Add("@Depar_Id", item.Depar_Id);
+                parameter.Add("@Depar_Id", Depar_Id);
                 var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
                 return new RequestStatus { CodeStatus = result, MessageStatus = "" };
             }
 
+            throw new NotImplementedException();
+        }
+
+        public RequestStatus Delete(tbDepartamentos item)
+        {
             throw new NotImplementedException();
         }
 

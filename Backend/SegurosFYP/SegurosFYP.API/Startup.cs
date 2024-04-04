@@ -39,7 +39,6 @@ namespace SegurosFYP.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SegurosFYP.API", Version = "v1" });
             });
-
             // Configuración de CORS
             services.AddCors(options =>
             {

@@ -8645,50 +8645,50 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-  --blue: #5E50F9;
-  --indigo: #6610f2;
-  --purple: #6a008a;
-  --pink: #E91E63;
-  --red: #f96868;
-  --orange: #f2a654;
-  --yellow: #f6e84e;
-  --green: #46c35f;
-  --teal: #58d8a3;
-  --cyan: #57c7d4;
-  --white: #ffffff;
-  --gray: #6c757d;
-  --gray-dark: #0f1531;
-  --blue: #5E50F9;
-  --indigo: #6610f2;
-  --purple: #6a008a;
-  --pink: #E91E63;
-  --red: #f96868;
-  --orange: #f2a654;
-  --yellow: #f6e84e;
-  --green: #46c35f;
-  --teal: #58d8a3;
-  --cyan: #57c7d4;
-  --white: #ffffff;
-  --gray: #434a54;
-  --gray-light: #aab2bd;
-  --gray-lighter: #e8eff4;
-  --gray-lightest: #e6e9ed;
-  --black: #000000;
-  --primary:#c4fcbc ;
-  --secondary: #a3a4a5;
-  --success: #57B657;
-  --info: #248AFD;
-  --warning: #FFC100;
-  --danger: #FF4747;
-  --light: #f8f9fa;
-  --dark: #282f3a;
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --blue: #5E50F9;
+    --indigo: #6610f2;
+    --purple: #6a008a;
+    --pink: #E91E63;
+    --red: #f96868;
+    --orange: #f2a654;
+    --yellow: #f6e84e;
+    --green: #46c35f;
+    --teal: #58d8a3;
+    --cyan: #57c7d4;
+    --white: #ffffff;
+    --gray: #6c757d;
+    --gray-dark: #0f1531;
+    --blue: #5E50F9;
+    --indigo: #6610f2;
+    --purple: #6a008a;
+    --pink: #E91E63;
+    --red: #f96868;
+    --orange: #f2a654;
+    --yellow: #f6e84e;
+    --green: #46c35f;
+    --teal: #58d8a3;
+    --cyan: #57c7d4;
+    --white: #ffffff;
+    --gray: #434a54;
+    --gray-light: #aab2bd;
+    --gray-lighter: #e8eff4;
+    --gray-lightest: #e6e9ed;
+    --black: #000000;
+    --primary: #c4fcbc;
+    --secondary: #a3a4a5;
+    --success: #57B657;
+    --info: #248AFD;
+    --warning: #f0b500;
+    --danger: #b30000;
+    --light: #f8f9fa;
+    --dark: #282f3a;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 *,
@@ -11081,38 +11081,38 @@ fieldset:disabled .wizard > .actions a,
   pointer-events: none;
 }
 
-.btn-primary, .wizard > .actions a {
-  color: #fff;
-  background-color:#c4fcbc ;
-  border-color:#c4fcbc ;
+.btn-primary, .wizard > .actions a { /*BTN-PRIMARY*/
+    color: #fff;
+    background-color: #095D7E;
+    border-color: #095D7E;
 }
 
-.btn-primary:hover, .wizard > .actions a:hover {
-  color: #fff;
-  background-color: #3f3e91;
-  border-color: #3b3a88;
-}
+    .btn-primary:hover, .wizard > .actions a:hover {
+        color: #fff;
+        background-color: #054661;
+        border-color: #054661;
+    }
 
-.btn-primary:focus, .wizard > .actions a:focus, .btn-primary.focus, .wizard > .actions a.focus {
-  color: #fff;
-  background-color: #3f3e91;
-  border-color: #3b3a88;
-  box-shadow: 0 0 0 0.2rem rgba(102, 100, 184, 0.5);
-}
+    .btn-primary:focus, .wizard > .actions a:focus, .btn-primary.focus, .wizard > .actions a.focus {
+        color: #fff;
+        background-color: #054661;
+        border-color: #054661;
+        box-shadow: 0 0 0 0.2rem rgba(102, 100, 184, 0.5);
+    }
 
-.btn-primary.disabled, .wizard > .actions a.disabled, .btn-primary:disabled, .wizard > .actions a:disabled {
-  color: #fff;
-  background-color:#c4fcbc ;
-  border-color:#c4fcbc ;
-}
+    .btn-primary.disabled, .wizard > .actions a.disabled, .btn-primary:disabled, .wizard > .actions a:disabled {
+        color: #fff;
+        background-color: #0c80ae;
+        border-color: #0c80ae;
+    }
 
-.btn-primary:not(:disabled):not(.disabled):active, .wizard > .actions a:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .wizard > .actions a:not(:disabled):not(.disabled).active,
-.show > .btn-primary.dropdown-toggle,
-.wizard > .actions .show > a.dropdown-toggle {
-  color: #fff;
-  background-color: #3b3a88;
-  border-color: #37367f;
-}
+    .btn-primary:not(:disabled):not(.disabled):active, .wizard > .actions a:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .wizard > .actions a:not(:disabled):not(.disabled).active,
+    .show > .btn-primary.dropdown-toggle,
+    .wizard > .actions .show > a.dropdown-toggle {
+        color: #fff;
+        background-color: #095D7E;
+        border-color: #095D7E;
+    }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .wizard > .actions a:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .wizard > .actions a:not(:disabled):not(.disabled).active:focus,
 .show > .btn-primary.dropdown-toggle:focus,
@@ -13843,8 +13843,6 @@ input[type="button"].btn-block {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid #e3e3e3;
 }
 
 .card-header:first-child {
@@ -26167,10 +26165,10 @@ body.avgrund-active {
   border-radius: 4px;
 }
 
-.dataTables_wrapper .dataTable .btn, .dataTables_wrapper .dataTable .fc button, .fc .dataTables_wrapper .dataTable button, .dataTables_wrapper .dataTable .ajax-upload-dragdrop .ajax-file-upload, .ajax-upload-dragdrop .dataTables_wrapper .dataTable .ajax-file-upload, .dataTables_wrapper .dataTable .swal2-modal .swal2-buttonswrapper .swal2-styled, .swal2-modal .swal2-buttonswrapper .dataTables_wrapper .dataTable .swal2-styled, .dataTables_wrapper .dataTable .wizard > .actions a, .wizard > .actions .dataTables_wrapper .dataTable a {
-  padding: 0.1rem 1rem;
-  vertical-align: top;
-}
+    .dataTables_wrapper .dataTable .btn, .dataTables_wrapper .dataTable .fc button, .fc .dataTables_wrapper .dataTable button, .dataTables_wrapper .dataTable .ajax-upload-dragdrop .ajax-file-upload, .ajax-upload-dragdrop .dataTables_wrapper .dataTable .ajax-file-upload, .dataTables_wrapper .dataTable .swal2-modal .swal2-buttonswrapper .swal2-styled, .swal2-modal .swal2-buttonswrapper .dataTables_wrapper .dataTable .swal2-styled, .dataTables_wrapper .dataTable .wizard > .actions a, .wizard > .actions .dataTables_wrapper .dataTable a {
+        padding: 1rem 1rem;
+        vertical-align: top;
+    }
 
 .dataTables_wrapper .dataTable .btn i, .dataTables_wrapper .dataTable .fc button i, .fc .dataTables_wrapper .dataTable button i, .dataTables_wrapper .dataTable .ajax-upload-dragdrop .ajax-file-upload i, .ajax-upload-dragdrop .dataTables_wrapper .dataTable .ajax-file-upload i, .dataTables_wrapper .dataTable .swal2-modal .swal2-buttonswrapper .swal2-styled i, .swal2-modal .swal2-buttonswrapper .dataTables_wrapper .dataTable .swal2-styled i, .dataTables_wrapper .dataTable .wizard > .actions a i, .wizard > .actions .dataTables_wrapper .dataTable a i {
   font-size: .875rem;
@@ -28514,9 +28512,9 @@ div.tagsinput span.tag a {
   -webkit-transition-property: color;
 }
 
-.sidebar .nav .nav-item .nav-link i {
-  color: inherit;
-}
+    .sidebar .nav .nav-item .nav-link i {
+        color: #063a4e;
+    }
 
 .sidebar .nav .nav-item .nav-link i.menu-icon {
   font-size: 1rem;
