@@ -5,7 +5,7 @@
    "DefaultDacpacSchema": null,
    "FilterSchemas": false,
    "IncludeConnectionString": false,
-   "ModelNamespace": null,
+   "ModelNamespace": "Context",
    "OutputContextPath": null,
    "OutputPath": "Context",
    "ProjectRootNamespace": "SegurosFYP.DataAccess",

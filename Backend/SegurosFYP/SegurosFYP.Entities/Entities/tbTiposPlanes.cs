@@ -15,7 +15,17 @@ namespace SegurosFYP.Entities.Entities
 
         public int Tipos_Id { get; set; }
         public string Tipos_Descripcion { get; set; }
-        public decimal Tipos_Deducible { get; set; }
+        public int Tipos_PrecioAseguradoTitularConyugeEdad { get; set; }
+        public decimal Tipos_PrecioAseguradoTitular { get; set; }
+        public decimal Tipos_PrecioDependienteConyugue { get; set; }
+        public decimal Tipos_PrecioDependientesHijos { get; set; }
+        public decimal Tipos_PrecioSeguroVidaTitular { get; set; }
+        public decimal Tipos_CentroamericaDentroRedProveedores { get; set; }
+        public decimal Tipos_CentroamericaFueraRedProveedores { get; set; }
+        public int Tipos_CentroamericaMaximoPorMiembro { get; set; }
+        public decimal Tipos_FueraCentroamericaDentroRedProveedores { get; set; }
+        public decimal Tipos_FueraCentroamericaFueraRedProveedores { get; set; }
+        public int Tipos_FueraCentroAmericaMaximoPorMiembro { get; set; }
         public decimal Tipos_MaximoVitalicio { get; set; }
         public decimal Tipos_SeguroVidaRenovableAnualMasDID { get; set; }
         public bool Tipos_DID { get; set; }

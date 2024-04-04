@@ -175,7 +175,7 @@ namespace SegurosFYP.BusinessLogic.Services
             }
         }
 
-        public ServiceResult UpdatePerso(tbIdentificaciones item)
+        public ServiceResult UpdatePerso(tbPersonas item)
         {
             var result = new ServiceResult();
             try
@@ -196,7 +196,7 @@ namespace SegurosFYP.BusinessLogic.Services
             }
         }
 
-        public ServiceResult DeletePerso(tbIdentificaciones item)
+        public ServiceResult DeletePerso(tbPersonas item)
         {
             var result = new ServiceResult();
             try

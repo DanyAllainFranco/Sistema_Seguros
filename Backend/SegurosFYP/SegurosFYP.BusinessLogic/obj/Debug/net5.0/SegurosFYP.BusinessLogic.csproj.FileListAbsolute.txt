@@ -83,3 +83,11 @@ C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.BusinessLogi
 C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.BusinessLogic\obj\Debug\net5.0\SegurosFYP.BusinessLogic.dll
 C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.BusinessLogic\obj\Debug\net5.0\ref\SegurosFYP.BusinessLogic.dll
 C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.BusinessLogic\obj\Debug\net5.0\SegurosFYP.BusinessLogic.pdb
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.BusinessLogic\obj\Debug\net5.0\SegurosFYP.BusinessLogic.csproj.AssemblyReference.cache
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.BusinessLogic\obj\Debug\net5.0\SegurosFYP.BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.BusinessLogic\obj\Debug\net5.0\SegurosFYP.BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.BusinessLogic\obj\Debug\net5.0\SegurosFYP.BusinessLogic.AssemblyInfo.cs
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.BusinessLogic\obj\Debug\net5.0\SegurosFYP.BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.BusinessLogic\obj\Debug\net5.0\SegurosFYP.BusinessLogic.dll
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.BusinessLogic\obj\Debug\net5.0\ref\SegurosFYP.BusinessLogic.dll
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.BusinessLogic\obj\Debug\net5.0\SegurosFYP.BusinessLogic.pdb

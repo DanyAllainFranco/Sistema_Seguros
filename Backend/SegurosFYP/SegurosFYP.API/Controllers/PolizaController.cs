@@ -120,9 +120,32 @@ namespace SegurosFYP.API.Controllers
                 Inmed_Fumar = item.Inmed_Fumar,
                 Inmed_FumarCantidad = item.Inmed_FumarCantidad,
                 Inmed_FumarFrecuencia = item.Inmed_FumarFrecuencia,
-
+                Inmed_Enfermedad1 = item.Inmed_Enfermedad1,
+                Inmed_Enfermedad2 = item.Inmed_Enfermedad2,
+                Inmed_Enfermedad3 = item.Inmed_Enfermedad3,
+                Inmed_Enfermedad4 = item.Inmed_Enfermedad4,
+                Inmed_Enfermedad5 = item.Inmed_Enfermedad5,
+                Inmed_Enfermedad6 = item.Inmed_Enfermedad6,
+                Inmed_Enfermedad7 = item.Inmed_Enfermedad7,
+                Inmed_Enfermedad8 = item.Inmed_Enfermedad8,
+                Inmed_Enfermedad9 = item.Inmed_Enfermedad9,
             };
             var list = _generalServices.InsertInmed(modelo);
+            return Ok(list);
+        }
+        public IActionResult InsertPariente(PolizaViewModel item)
+        {
+            var model = _mapper.Map<tbPolizas>(item);
+            var modelo = new tbPolizas()
+            {
+                Clien_Id = item.Clien_Id,
+                Tipos_Id = item.Tipos_Id,
+                Emple_Id = item.Emple_Id,
+                Poliz_Cuotas = item.Poliz_Cuotas,
+                Poliz_TipoPago = item.Poliz_TipoPago,
+                Poliz_EstadoCuotasPoliza = item.Poliz_EstadoCuotasPoliza,
+            };
+            var list = _salesServices.InsertPoliz(modelo);
             return Ok(list);
         }
     }

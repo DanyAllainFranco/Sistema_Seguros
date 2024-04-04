@@ -783,6 +783,10 @@ namespace SegurosFYP.DataAccess.Context
 
                 entity.Property(e => e.Perso_Telefono).HasMaxLength(30);
 
+                entity.HasOne(d => d.Estci)
+                    .WithMany(p => p.tbPersonas)
+                    .HasForeignKey(d => d.Estci_Id);
+
                 entity.HasOne(d => d.Ident)
                     .WithMany(p => p.tbPersonas)
                     .HasForeignKey(d => d.Ident_Id)
@@ -1019,13 +1023,15 @@ namespace SegurosFYP.DataAccess.Context
 
                 entity.Property(e => e.Tipos_CentroAmerica).HasColumnType("numeric(10, 2)");
 
+                entity.Property(e => e.Tipos_CentroamericaDentroRedProveedores).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_CentroamericaFueraRedProveedores).HasColumnType("numeric(10, 2)");
+
                 entity.Property(e => e.Tipos_CoberturaPorSidaMaximoVitalicio).HasColumnType("numeric(10, 2)");
 
                 entity.Property(e => e.Tipos_CuartoAlimentacionDentroCA).HasColumnType("numeric(10, 2)");
 
                 entity.Property(e => e.Tipos_CuartoAlimentacionFueraCA).HasColumnType("numeric(10, 2)");
-
-                entity.Property(e => e.Tipos_Deducible).HasColumnType("numeric(10, 2)");
 
                 entity.Property(e => e.Tipos_Descripcion)
                     .IsRequired()
@@ -1038,6 +1044,10 @@ namespace SegurosFYP.DataAccess.Context
                 entity.Property(e => e.Tipos_FechaModificacion).HasColumnType("datetime");
 
                 entity.Property(e => e.Tipos_FueraCentroAmerica).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_FueraCentroamericaDentroRedProveedores).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_FueraCentroamericaFueraRedProveedores).HasColumnType("numeric(10, 2)");
 
                 entity.Property(e => e.Tipos_GastosFunebresDependientes).HasColumnType("numeric(10, 2)");
 
@@ -1068,6 +1078,14 @@ namespace SegurosFYP.DataAccess.Context
                 entity.Property(e => e.Tipos_LímiteCuartoIntensivoFueraCA).HasColumnType("numeric(4, 2)");
 
                 entity.Property(e => e.Tipos_MaximoVitalicio).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_PrecioAseguradoTitular).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_PrecioDependienteConyugue).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_PrecioDependientesHijos).HasColumnType("numeric(10, 2)");
+
+                entity.Property(e => e.Tipos_PrecioSeguroVidaTitular).HasColumnType("numeric(10, 2)");
 
                 entity.Property(e => e.Tipos_ReduccionMaximoVitalicio).HasColumnType("numeric(10, 2)");
 

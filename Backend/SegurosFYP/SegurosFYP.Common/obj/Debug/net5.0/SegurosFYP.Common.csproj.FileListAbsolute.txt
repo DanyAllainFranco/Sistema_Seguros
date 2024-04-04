@@ -58,3 +58,15 @@ C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\D
 C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.dll
 C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\ref\SegurosFYP.Common.dll
 C:\Users\LAB2\Desktop\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.pdb
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\bin\Debug\net5.0\SegurosFYP.Common.deps.json
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\bin\Debug\net5.0\SegurosFYP.Common.dll
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\bin\Debug\net5.0\ref\SegurosFYP.Common.dll
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\bin\Debug\net5.0\SegurosFYP.Common.pdb
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.csproj.AssemblyReference.cache
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.AssemblyInfoInputs.cache
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.AssemblyInfo.cs
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.csproj.CoreCompileInputs.cache
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.dll
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\ref\SegurosFYP.Common.dll
+C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Backend\SegurosFYP\SegurosFYP.Common\obj\Debug\net5.0\SegurosFYP.Common.pdb
