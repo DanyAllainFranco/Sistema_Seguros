@@ -53,8 +53,8 @@ namespace SegurosFYP.API.Controllers
                 //Depar_UsuarioModificacion = item.Depar_UsuarioModificacion,
                 //Depar_FechaModificacion = item.Depar_FechaModificacion
             };
-            var list = _generalServices.UpdateDepar(modelo);
-            return Ok(list);
+            //var list = _generalServices.UpdateDepar(modelo);
+            return Ok(model);
         }
 
         [HttpDelete("Delete/Departamentos")]
@@ -65,15 +65,15 @@ namespace SegurosFYP.API.Controllers
             {
                 Depar_Id = item.Depar_Id
             };
-            var list = _generalServices.DeleteDepar(modelo);
-            return Ok(list);
+            //var list = _generalServices.DeleteDepar(modelo);
+            return Ok(modelo);
         }
 
         [HttpGet("Cargar/Departamentos")]
         public IActionResult CargarDepartamentos(string Depar_Id)
         {
-            var list = _generalServices.CargarDepar(Depar_Id);
-            return Ok(list);
+            //var list = _generalServices.CargarDepar(Depar_Id);
+            return Ok();
         }
 
     }

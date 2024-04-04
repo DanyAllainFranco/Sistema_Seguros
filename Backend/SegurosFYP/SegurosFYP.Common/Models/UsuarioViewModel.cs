@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SegurosFYP.Common
+namespace SegurosFYP.Common.Models
 {
     public class UsuarioViewModel
     {

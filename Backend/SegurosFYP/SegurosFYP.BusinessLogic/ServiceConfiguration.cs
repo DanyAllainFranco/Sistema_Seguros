@@ -12,6 +12,12 @@ namespace SegurosFYP.BusinessLogic
         {
             service.AddScoped<UsuarioRepository>();
             service.AddScoped<DepartamentoRepository>();
+            service.AddScoped<PolizaRepository>();
+            service.AddScoped<InformacionMedicaRepository>();
+            service.AddScoped<PersonaRepository>();
+            service.AddScoped<IdentificacionRepository>();
+            service.AddScoped<TipoPlanRepository>();
+
 
             SegurosFYPContext.BuildConnectionString(conn);
         }
@@ -19,6 +25,8 @@ namespace SegurosFYP.BusinessLogic
         {
             service.AddScoped<AccessServices>();
             service.AddScoped<GeneralServices>();
+            service.AddScoped<SalesServices>();
+            service.AddScoped<InsuranceServices>();
         }
     }
 }

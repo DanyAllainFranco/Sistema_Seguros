@@ -49,10 +49,10 @@ namespace SegurosFYP.DataAccess.Repository
         #region Venta
 
         #region Poliza
-        public static string Poliz_Insertar = "Gral.SP_Polizas_Insertar";
-        public static string Poliz_Modificar = "Gral.SP_Polizas_Modificar";
-        public static string Poliz_Eliminar = "Gral.SP_Polizas_Eliminar";
-        public static string Poliz_Listar = "Gral.SP_Polizas_Listar";
+        public static string Poliz_Insertar = "Venta.SP_Polizas_Insertar";
+        public static string Poliz_Modificar = "Venta.SP_Polizas_Modificar";
+        public static string Poliz_Eliminar = "Venta.SP_Polizas_Eliminar";
+        public static string Poliz_Listar = "Venta.SP_Polizas_Listar";
         #endregion
 
         #endregion

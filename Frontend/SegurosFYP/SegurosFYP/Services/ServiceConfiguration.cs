@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SegurosFYP.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace SegurosFYP
         public static void SetHttpClient(this IServiceCollection service)
         {
             service.AddScoped<Cliente>();
+            service.AddScoped<PolizaServices>();
+            service.AddScoped<DepartamentoServices>();
         }
     }
 }

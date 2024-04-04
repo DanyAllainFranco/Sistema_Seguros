@@ -31,4 +31,4 @@ namespace SegurosFYP.Models
         //public string Tipo_Descripcion { get; set; }
     }
 }
-}
+

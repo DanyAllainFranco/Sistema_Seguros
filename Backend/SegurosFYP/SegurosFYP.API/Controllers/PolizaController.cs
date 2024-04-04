@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace SegurosFYP.API.Controllers
 {
     [ApiController]
+    [Route("[controller]")]
     public class PolizaController : Controller
     {
         private readonly SalesServices _salesServices;
@@ -30,6 +31,7 @@ namespace SegurosFYP.API.Controllers
             var list = _salesServices.ListPoliz();
             return Ok(list);
         }
+        [HttpPost("InsertIdentificacion")]
         public IActionResult InsertIdentificacion(IdentificacionViewModel item)
         {
             var model = _mapper.Map<tbIdentificaciones>(item);
@@ -43,6 +45,7 @@ namespace SegurosFYP.API.Controllers
             var list = _generalServices.InsertIdent(modelo);
             return Ok(list);
         }
+        [HttpPost("InsertCliente")]
         public IActionResult InsertCliente(PersonaViewModel item)
         {
             var numeracion = _salesServices.NumerationPoliz();
@@ -70,6 +73,7 @@ namespace SegurosFYP.API.Controllers
             var list = _generalServices.InsertPerso(modelo);
             return Ok(list);
         }
+        [HttpPost("InsertPariente")]
         public IActionResult InsertPariente(PersonaViewModel item)
         {
             var numeracion = _salesServices.NumerationPoliz();
@@ -97,6 +101,7 @@ namespace SegurosFYP.API.Controllers
             var list = _generalServices.InsertPerso(modelo);
             return Ok(list);
         }
+        [HttpPost("InsertInformacionMedica")]
         public IActionResult InsertInformacionMedica(InformacionMedicaViewModel item)
         {
             var model = _mapper.Map<tbInformacionMedica>(item);
@@ -133,7 +138,8 @@ namespace SegurosFYP.API.Controllers
             var list = _generalServices.InsertInmed(modelo);
             return Ok(list);
         }
-        public IActionResult InsertPariente(PolizaViewModel item)
+        [HttpPost("InsertPoliza")]
+        public IActionResult InsertPoliza(PolizaViewModel item)
         {
             var model = _mapper.Map<tbPolizas>(item);
             var modelo = new tbPolizas()

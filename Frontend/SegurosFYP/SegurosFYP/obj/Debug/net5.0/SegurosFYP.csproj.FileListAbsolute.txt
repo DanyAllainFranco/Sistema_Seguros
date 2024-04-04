@@ -479,3 +479,15 @@ C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\Se
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Departamento\_Insert.cshtml.g.cs
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Departamento\_Update.cshtml.g.cs
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Departamento\_Delete.cshtml.g.cs
+C:\Users\LAB1\Desktop\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\bin\Debug\net5.0\ServiceStack.dll
+C:\Users\LAB1\Desktop\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\bin\Debug\net5.0\ServiceStack.Client.dll
+C:\Users\LAB1\Desktop\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\bin\Debug\net5.0\ServiceStack.Common.dll
+C:\Users\LAB1\Desktop\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\bin\Debug\net5.0\ServiceStack.Interfaces.dll
+C:\Users\LAB1\Desktop\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\bin\Debug\net5.0\ServiceStack.Text.dll
+C:\Users\LAB1\Desktop\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\bin\Debug\net5.0\System.ServiceModel.Primitives.dll
+C:\Users\LAB1\Desktop\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\bin\Debug\net5.0\runtimes\unix\lib\netstandard1.3\System.Private.ServiceModel.dll
+C:\Users\LAB1\Desktop\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\bin\Debug\net5.0\runtimes\win7\lib\netstandard1.3\System.Private.ServiceModel.dll
+C:\Users\LAB1\Desktop\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Departamento\_Delete.cshtml.g.cs
+C:\Users\LAB1\Desktop\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Departamento\_Insert.cshtml.g.cs
+C:\Users\LAB1\Desktop\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Departamento\_Update.cshtml.g.cs
+C:\Users\LAB1\Desktop\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Poliza\Index.cshtml.g.cs
