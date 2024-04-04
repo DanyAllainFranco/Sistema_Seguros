@@ -1,0 +1,14 @@
+﻿@model SegurosFYP.Models.DepartamentoViewModel
+
+<h3>Estas seguro que deseas eliminar este registro??</h3>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Depar_Id" id="Departamento" />
+    <input type="submit" value="Delete" class="btn btn-danger" /> |
+    <a asp-action="Index">Back to List</a>
+</form>
+<script>
+    function ObtenerID(id) {
+        console.log("si entra" + id);
+        $("#Departamento").val(id);
+    }
+</script>
