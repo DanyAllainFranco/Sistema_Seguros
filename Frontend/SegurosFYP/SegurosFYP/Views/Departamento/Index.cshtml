@@ -7,7 +7,7 @@
     <div class="card-header">
         <h1>Departamentos</h1>
         <p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-folder-plus"></i>Nuevo</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Nuevo</button>
             </div>
 
                     <table class="table table-bordered" id="Example">
@@ -33,9 +33,9 @@
                                         @Html.DisplayFor(modelItem => item.Depar_Descripcion)
                                     </td>                                 
                                     <td>
-                                        <a asp-route-id="@item.Depar_Id" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-depar-id="@item.Depar_Id"><i class="mdi mdi-grease-pencil"></i>Editar</a>
-                                        <a asp-route-id="@item.Depar_Id" asp-action="Details" class="btn btn-warning"><i class="mdi mdi-eye"></i>Detalles</a>
-                                        <a asp-route-id="@item.Depar_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Depar_Id')"><i class="mdi mdi-eraser-variant"></i>Eliminar</a>
+                                        <a asp-route-id="@item.Depar_Id" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-depar-id="@item.Depar_Id"><i class="fa fa-pencil"></i>Editar</a>
+                                        <a asp-route-id="@item.Depar_Id" asp-action="Details" class="btn btn-warning"><i class="fa fa-eye"></i>Detalles</a>
+                                        <a asp-route-id="@item.Depar_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Depar_Id')"><i class="fa fa-trash"></i>Eliminar</a>
                                     </td>
                                 </tr>
                             }

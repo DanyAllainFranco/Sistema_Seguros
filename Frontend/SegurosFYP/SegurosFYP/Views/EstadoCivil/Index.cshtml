@@ -29,9 +29,9 @@
                 @Html.DisplayFor(modelItem => item.Estad_Descripcion)
             </td>
             <td>
-                <a asp-route-id="@item.Estad_Id" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-estad-id="@item.Estad_Id"><i class="mdi mdi-grease-pencil"></i>Editar</a>
-                <a asp-action="Details" asp-route-id="@item.Estad_Id" class="btn btn-warning"><i class="mdi mdi-eye"></i>Detalles</a>
-                <a asp-route-id="@item.Estad_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Estad_Id')"><i class="mdi mdi-eraser-variant"></i>Eliminar</a>
+                <a asp-route-id="@item.Estad_Id" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-estad-id="@item.Estad_Id"><i class="fa fa-pencil"></i>Editar</a>
+                <a href="@Url.Action("Details","EstadoCivil", new {Esta_Id = item.Estad_Id})" class="btn btn-warning"><i class="fa fa-eye"></i>Detalles</a>
+                <a asp-route-id="@item.Estad_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Estad_Id')"><i class="fa fa-trash"></i>Eliminar</a>
 
             </td>
         </tr>

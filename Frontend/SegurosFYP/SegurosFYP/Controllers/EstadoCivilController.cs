@@ -114,18 +114,12 @@ namespace SegurosFYP.Controllers
         }
 
 
-        public ActionResult Details()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult>Details(int id)
+        //GET:EstadoCivilcontroller/Detalles/EstadoCivil
+        public async Task<IActionResult>Details(int Esta_Id)
         {
             try
             {
-                var result = await _estadoCivilServices.Details(id);
+                var result = await _estadoCivilServices.Details(Esta_Id);
                 if (result.Success)
                 {
                     return View(result.Data);

@@ -1,64 +1,96 @@
-﻿@model SegurosFYP.Models.EstadoCivilViewModel
+﻿@model IEnumerable<SegurosFYP.Models.EstadoCivilViewModel>
 
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@foreach (var item in Model)
+{
+    <h1>Detalles</h1>
+    <div>
+        <hr />
+        <form asp-controller="EstadoCivil" method="post" asp-action="Details">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Estad_Id)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Estad_Id)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Estad_Descripcion)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Estad_Descripcion)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Estad_UsuarioCreacion)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.usua_creac)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Estad_FechaCreacion)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Estad_FechaCreacion)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Estad_UsuarioModificacion)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.usua_modi)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Estad_FechaModificacion)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Estad_FechaModificacion)
+                </dd>
+            </dl>
+        </form>
+    </div>
+    <table class="table table-bordered">
+        <thead>
 
-<h1>Detalles</h1>
-
-<div>
-    <h4>EstadoCivilViewModel</h4>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Estad_UsuarioCreacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.usua_creac)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Estad_UsuarioModificacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.usua_modi)
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <hr />
-    <form asp-controller="EstadoCivil" method="post" asp-action="Details"> 
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Estad_Id)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Estad_Id)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Estad_Descripcion)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Estad_Descripcion)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Estad_UsuarioCreacion)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Estad_UsuarioCreacion)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Estad_FechaCreacion)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Estad_FechaCreacion)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Estad_UsuarioModificacion)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Estad_UsuarioModificacion)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Estad_FechaModificacion)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Estad_FechaModificacion)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Estad_Estado)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Estad_Estado)
-            </dd>
-        </dl>
-    </form>
-</div>
-
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
+    <div>
+        <a asp-route-id="@item.Estad_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Estad_Id')"><i class="mdi mdi-eraser-variant"></i>Eliminar</a>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+}
+<div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Delete", new SegurosFYP.Models.EstadoCivilViewModel())
+            </div>
+        </div>
+    </div>
 </div>

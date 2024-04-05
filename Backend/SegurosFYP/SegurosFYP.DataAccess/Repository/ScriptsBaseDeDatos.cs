@@ -22,7 +22,6 @@ namespace SegurosFYP.DataAccess.Repository
         public static string EstadoC_Insertar = "Gral.SP_EstadosCiviles_Insertar";
         public static string EstadoC_Listar = "Gral.SP_EstadosCiviles_Listar";
         public static string EstadoC_Detalles = "Gral.SP_EstadosCiviles_Detalles";
-
         public static string EstadoC_Cargar = "Gral.SP_EstadosCiviles_Cargar";
         public static string EstadoC_Actualizar = "Gral.SP_EstadosCiviles_Actualizar";
         public static string EstadoC_Delete = "Gral.SP_EstadosCiviles_Eliminar";

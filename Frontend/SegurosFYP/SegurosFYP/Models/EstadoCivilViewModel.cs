@@ -26,5 +26,13 @@ namespace SegurosFYP.Models
         public DateTime? Estad_FechaModificacion { get; set; }
         public bool? Estad_Estado { get; set; }
 
+        [Display(Name = "Usuario Creacion")]
+        [NotMapped]
+        public string usua_creac { get; set; }
+
+        [Display(Name = "Usuario Modificacion")]
+        [NotMapped]
+        public string usua_modi { get; set; }
+
     }
 }
