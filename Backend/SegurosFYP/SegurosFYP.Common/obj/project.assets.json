@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\LAB1\\.nuget\\packages\\": {}
+    "C:\\Users\\pavel\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\SegurosFYP.Common.csproj",
+      "projectUniqueName": "C:\\Users\\pavel\\OneDrive\\Escritorio\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\SegurosFYP.Common.csproj",
       "projectName": "SegurosFYP.Common",
-      "projectPath": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\SegurosFYP.Common.csproj",
-      "packagesPath": "C:\\Users\\LAB1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\obj\\",
+      "projectPath": "C:\\Users\\pavel\\OneDrive\\Escritorio\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\SegurosFYP.Common.csproj",
+      "packagesPath": "C:\\Users\\pavel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pavel\\OneDrive\\Escritorio\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\LAB1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pavel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

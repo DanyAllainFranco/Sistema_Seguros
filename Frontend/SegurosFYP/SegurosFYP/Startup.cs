@@ -1,8 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SegurosFYP.WebAPI;
+//using SegurosFYP.WebAPI;
 using System.Net.Http;
 
 namespace SegurosFYP
@@ -20,6 +23,10 @@ namespace SegurosFYP
         {
             services.AddControllersWithViews();
 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddSingleton<API>();
+            
             services.AddHttpClient();
 
             services.Configure<Cliente>(Configuration.GetSection("HttpClientUrl"));

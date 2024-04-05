@@ -1,0 +1,102 @@
+﻿@model IEnumerable<SegurosFYP.Models.PolizaViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Poliz_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clien_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipos_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emple_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poliz_Cuotas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poliz_TipoPago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poliz_EstadoCuotasPoliza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poliz_UsuarioCreacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poliz_FechaCreacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poliz_UsuarioModificacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poliz_FechaModificacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poliz_Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poliz_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clien_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipos_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emple_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poliz_Cuotas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poliz_TipoPago)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poliz_EstadoCuotasPoliza)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poliz_UsuarioCreacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poliz_FechaCreacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poliz_UsuarioModificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poliz_FechaModificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poliz_Estado)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

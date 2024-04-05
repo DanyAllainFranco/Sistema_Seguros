@@ -8,6 +8,11 @@ namespace SegurosFYP.Entities.Entities
 {
     public partial class tbEstadosCiviles
     {
+        public tbEstadosCiviles()
+        {
+            tbPersonas = new HashSet<tbPersonas>();
+        }
+
         public int Estad_Id { get; set; }
         public string Estad_Descripcion { get; set; }
         public int Estad_UsuarioCreacion { get; set; }
@@ -18,5 +23,6 @@ namespace SegurosFYP.Entities.Entities
 
         public virtual tbUsuarios Estad_UsuarioCreacionNavigation { get; set; }
         public virtual tbUsuarios Estad_UsuarioModificacionNavigation { get; set; }
+        public virtual ICollection<tbPersonas> tbPersonas { get; set; }
     }
 }

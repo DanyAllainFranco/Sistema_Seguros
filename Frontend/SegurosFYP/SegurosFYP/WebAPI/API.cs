@@ -13,18 +13,21 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using SegurosFYP_WEB.Services;
 using ServiceStack.Configuration;
+using SegurosFYP;
+using SegurosFYP_WEB.WebAPI;
 
-namespace SegurosFYP_WEB.WebAPI
+namespace SegurosFYP.WebAPI
 {
     public class API
     {
         private readonly HttpClient _client;
+        private readonly Cliente _url;
         private readonly IHttpContextAccessor _httpContext;
-        private readonly AppSettings _appSettings;
         public API(
                 IHttpContextAccessor httpContext,
-                IOptions<AppSettings> appSettings
-        ){
+                IOptions<Cliente> url
+        )
+        {
             var httpClientHandler = new HttpClientHandler();
             httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
             {
@@ -33,8 +36,8 @@ namespace SegurosFYP_WEB.WebAPI
             _client = new HttpClient(httpClientHandler);
 
             _httpContext = httpContext;
-            _appSettings = appSettings.Value;
-            _client.BaseAddress = new Uri("dbSegurosFYP.mssql.somee.com");
+            _url = url.Value;
+            _client.BaseAddress = new Uri(_url.Url);
             _client.Timeout = TimeSpan.FromSeconds(10);
         }
 

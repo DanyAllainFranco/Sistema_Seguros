@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SegurosFYP.BusinessLogic.Services;
-using SegurosFYP.Common;
+using SegurosFYP.Common.Models;
 using SegurosFYP.Entities.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace SegurosFYP.API.Controllers
 {
     [ApiController]
+    [Route("[controller]")]
     public class UsuarioController : Controller
     {
         private readonly AccessServices _accessServices;

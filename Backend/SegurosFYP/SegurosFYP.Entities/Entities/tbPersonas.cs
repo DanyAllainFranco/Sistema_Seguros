@@ -35,6 +35,7 @@ namespace SegurosFYP.Entities.Entities
         public DateTime? Perso_FechaModificacion { get; set; }
         public bool? Perso_Estado { get; set; }
 
+        public virtual tbEstadosCiviles Estci { get; set; }
         public virtual tbIdentificaciones Ident { get; set; }
         public virtual tbMunicipios Munic { get; set; }
         public virtual tbPaises Paise { get; set; }
