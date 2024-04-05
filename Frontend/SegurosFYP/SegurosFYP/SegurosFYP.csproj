@@ -10,4 +10,9 @@
     <PackageReference Include="ServiceStack" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\documents\dniFrente\" />
+    <Folder Include="wwwroot\images\documents\dniAtras\" />
+  </ItemGroup>
+
 </Project>

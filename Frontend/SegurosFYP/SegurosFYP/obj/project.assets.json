@@ -8998,11 +8998,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LAB1\\Desktop\\Proyecto_Dany\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\SegurosFYP.csproj",
+      "projectUniqueName": "C:\\Users\\LAB1\\Desktop\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\SegurosFYP.csproj",
       "projectName": "SegurosFYP",
-      "projectPath": "C:\\Users\\LAB1\\Desktop\\Proyecto_Dany\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\SegurosFYP.csproj",
+      "projectPath": "C:\\Users\\LAB1\\Desktop\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\SegurosFYP.csproj",
       "packagesPath": "C:\\Users\\LAB1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LAB1\\Desktop\\Proyecto_Dany\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\obj\\",
+      "outputPath": "C:\\Users\\LAB1\\Desktop\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\LAB1\\AppData\\Roaming\\NuGet\\NuGet.Config",

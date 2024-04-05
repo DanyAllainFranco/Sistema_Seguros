@@ -65,15 +65,24 @@ namespace SegurosFYP.DataAccess.Repository
         }
         public int Numeration() 
         {
-            string sql = ScriptsBaseDeDatos.Poliz_Listar;
+            string sql = ScriptsBaseDeDatos.Poliz_Numeracion;
 
             List<tbPolizas> list = new List<tbPolizas>();
 
             using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
             {
-                list = db.Query<tbPolizas>(sql, commandType: CommandType.Text).ToList();
+                list = db.Query<tbPolizas>(sql, commandType: CommandType.StoredProcedure).ToList();
 
-                int result = int.Parse(list.First().Poliz_Id.ToString());
+                int result;
+
+                if (!list.Any()) 
+                {
+                    result = 0;
+                }
+                else
+                {
+                    result = int.Parse(list.First().Poliz_Id.ToString());
+                }
 
                 return result;
             }

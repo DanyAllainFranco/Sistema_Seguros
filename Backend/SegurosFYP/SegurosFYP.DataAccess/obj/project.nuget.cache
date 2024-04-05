@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wjLKcEY58I09/R/7wLiKn3ZNWt6sj6HFk/ehmvFw4kFVIRyOW5+UNpo5CdpDX9CMdGythcoq2AWEm8UrxDHsbg==",
+  "dgSpecHash": "VzFcXYdW5wnxngJn5qoPXJ9uKMNTkOP5U/jjRg3D+54KQ8FaiAZD1TY/a4oLllSyiuxy/1ghd4CmzzCAN32oYg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LAB1\\Desktop\\Proyecto_Dany\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.DataAccess\\SegurosFYP.DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\LAB1\\Desktop\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.DataAccess\\SegurosFYP.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LAB1\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\LAB1\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

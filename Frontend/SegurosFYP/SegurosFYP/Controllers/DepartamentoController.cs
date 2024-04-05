@@ -20,7 +20,7 @@ namespace SegurosFYP.Controllers
         {
             _url = url.Value;
             _client = client;
-            _client.BaseAddress = new Uri(_url.Url);
+            //_client.BaseAddress = new Uri(_url.Url);
         }
 
         public async Task<IActionResult> Index()
