@@ -21,9 +21,6 @@ namespace SegurosFYP.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //var list = _polizaServices.Index();
-            
-            //return View(list);
             try
             {
                 var model = new List<PolizaViewModel>();

@@ -1,0 +1,28 @@
+﻿@model SegurosFYP.Models.EstadoCivilViewModel
+
+<h4>EstadoCivilViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Update" asp-controller="EstadoCivil">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Estad_Descripcion" class="control-label"></label>
+                <input asp-for="Estad_Id" type="hidden" class="form-control" id="Estad_Id" />
+                <input asp-for="Estad_Descripcion" class="form-control" id="Estad_Descripcion" />
+                <span asp-validation-for="Estad_Descripcion" class="text-danger"></span>
+            </div>
+                      <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

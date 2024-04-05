@@ -34,7 +34,7 @@
                                     </td>                                 
                                     <td>
                                         <a asp-route-id="@item.Depar_Id" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-depar-id="@item.Depar_Id"><i class="mdi mdi-grease-pencil"></i>Editar</a>
-                                        <a asp-route-id="@item.Depar_Id" class="btn btn-warning"><i class="mdi mdi-eye"></i>Detalles</a>
+                                        <a asp-route-id="@item.Depar_Id" asp-action="Details" class="btn btn-warning"><i class="mdi mdi-eye"></i>Detalles</a>
                                         <a asp-route-id="@item.Depar_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Depar_Id')"><i class="mdi mdi-eraser-variant"></i>Eliminar</a>
                                     </td>
                                 </tr>
@@ -55,10 +55,6 @@
                         <div class="modal-body">
                             @Html.Partial("_Update", new SegurosFYP.Models.DepartamentoViewModel())
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -73,11 +69,7 @@
                         </div>
                         <div class="modal-body">
                             @Html.Partial("_Insert", new SegurosFYP.Models.DepartamentoViewModel())
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
+                        </div>                     
                     </div>
                 </div>
             </div>
@@ -97,7 +89,6 @@
                 </div>
             </div>
             <script>
-
                 document.querySelectorAll('.FetchData').forEach(item => {
                     item.addEventListener('click', function () {
                         var deparId = this.getAttribute('data-depar-id');

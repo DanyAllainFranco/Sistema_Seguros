@@ -73,7 +73,7 @@
                         <div class="collapse" id="Generales">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="/Departamento/Index">Departamentos</a></li>
-                                <li class="nav-item"> <a class="nav-link"></a></li>
+                                <li class="nav-item"> <a class="nav-link" href="/EstadoCivil/Index">Estados Civiles</a></li>
                                 <li class="nav-item"> <a class="nav-link"></a></li>
                             </ul>
                         </div>
@@ -133,6 +133,27 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script>
         $(document).ready(function () {
+
+             @if (TempData["Exito"] != null)
+        {
+
+             @:iziToast.success({
+                 @:title: 'Éxito',
+                @: message: '@TempData["Exito"]'
+             @:});
+
+        }
+
+
+        @if (TempData["Error"] != null)
+        {
+
+            @: iziToast.error({
+                 @:title: 'Error',
+                @: message: '@TempData["Error"]'
+            @: });
+
+        }
             $('#Example').DataTable({
                 "columnDefs": [{
                     "className": 'dt-control',

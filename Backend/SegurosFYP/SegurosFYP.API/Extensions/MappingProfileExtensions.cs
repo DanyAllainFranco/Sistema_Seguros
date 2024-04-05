@@ -20,6 +20,7 @@ namespace SegurosFYP.API.Extensions
             CreateMap<TipoPlanViewModel, tbTiposPlanes>().ReverseMap();
             CreateMap<IdentificacionViewModel, tbIdentificaciones>().ReverseMap();
             CreateMap<PolizaViewModel, tbPolizas>().ReverseMap();
+            CreateMap<EstadoCivilViewModel, tbEstadosCiviles>().ReverseMap();
         }
     }
 }

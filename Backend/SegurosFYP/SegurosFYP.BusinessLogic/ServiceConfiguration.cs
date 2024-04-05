@@ -11,6 +11,7 @@ namespace SegurosFYP.BusinessLogic
         public static void DataAccess(this IServiceCollection service, string conn)
         {
             service.AddScoped<UsuarioRepository>();
+            service.AddScoped<EstadoCivilRepository>();
             service.AddScoped<DepartamentoRepository>();
             service.AddScoped<PolizaRepository>();
             service.AddScoped<InformacionMedicaRepository>();

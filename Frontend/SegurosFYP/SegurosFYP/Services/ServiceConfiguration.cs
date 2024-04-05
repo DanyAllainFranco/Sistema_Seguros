@@ -16,6 +16,8 @@ namespace SegurosFYP
             service.AddScoped<Cliente>();
             service.AddScoped<PolizaServices>();
             service.AddScoped<DepartamentoServices>();
+            service.AddScoped<EstadoCivilServices>();
+
         }
     }
 }

@@ -1,0 +1,108 @@
+﻿@model IEnumerable<SegurosFYP.Models.EstadoCivilViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card-header">
+    <h1>Estado Civiles</h1>
+    <p>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-folder-plus"></i>Nuevo</button>
+</div>
+<table class="table table-bordered" id="Example">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Estad_Descripcion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Estad_Descripcion)
+            </td>
+            <td>
+                <a asp-route-id="@item.Estad_Id" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-estad-id="@item.Estad_Id"><i class="mdi mdi-grease-pencil"></i>Editar</a>
+                <a asp-action="Details" asp-route-id="@item.Estad_Id" class="btn btn-warning"><i class="mdi mdi-eye"></i>Detalles</a>
+                <a asp-route-id="@item.Estad_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Estad_Id')"><i class="mdi mdi-eraser-variant"></i>Eliminar</a>
+
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Update", new SegurosFYP.Models.EstadoCivilViewModel())
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Insertar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Insert", new SegurosFYP.Models.EstadoCivilViewModel())
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Delete", new SegurosFYP.Models.EstadoCivilViewModel())
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+                document.querySelectorAll('.FetchData').forEach(item => {
+                    item.addEventListener('click', function () {
+                        var estadId = this.getAttribute('data-estad-id');
+                        console.log(estadId);
+                        fetchData(estadId);
+                    });
+                });
+                   function fetchData(estadId) {
+                  console.log(estadId);
+                    fetch('https://localhost:44327/api/EstadoCivil/Cargar/EstadoCivil?Estad_Id=' + estadId)
+                        .then(response => response.json())
+                        .then(data => {
+                            var dany = JSON.stringify(data.data);
+                            document.getElementById('Estad_Id').value = data.data[0].estad_Id;
+                            document.getElementById('Estad_Descripcion').value = data.data[0].estad_Descripcion;
+                        })
+                        .catch(error => console.error('Hubo un error:', error));
+                }
+</script>
+
+
+

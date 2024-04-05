@@ -38,23 +38,6 @@ namespace SegurosFYP.Services
                 {
                     return result.Ok(response.Data);
                 }
-                //var response = await _aPI.GetAsync("poliza/List").ConfigureAwait(false);
-
-                //if (response.IsSuccessStatusCode)
-                //{
-
-                //    var content = await response.Content.ReadAsStringAsync();
-                //    var jsonObject = JsonConvert.DeserializeObject<JObject>(content); // Deserializar en un objeto JObject
-
-                //    var data = jsonObject["data"].ToString(); // Obtener la cadena JSON de la propiedad 'data'
-                //    var list = JsonConvert.DeserializeObject<IEnumerable<PolizaViewModel>>(data); // Deserializar la cadena JSON en una lista de DepartamentoViewModel
-
-                //    return result.Ok(list);
-                //}
-                //else
-                //{
-                //    return result.Error(response.StatusCode);
-                //}
             }
             catch (Exception ex)
             {
