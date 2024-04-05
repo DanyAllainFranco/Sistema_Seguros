@@ -113,6 +113,7 @@ namespace SegurosFYP.Controllers
             }
         }
 
+
         public ActionResult Details()
         {
             return View();
