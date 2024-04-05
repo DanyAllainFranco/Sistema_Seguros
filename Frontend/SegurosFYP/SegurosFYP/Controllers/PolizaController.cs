@@ -19,11 +19,21 @@ namespace SegurosFYP.Controllers
             _polizaServices = polizaServices;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var list = _polizaServices.Index();
+            //var list = _polizaServices.Index();
             
-            return View(list);
+            //return View(list);
+            try
+            {
+                var model = new List<PolizaViewModel>();
+                var list = await _polizaServices.Index();
+                return View(list.Data);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
     }
 }

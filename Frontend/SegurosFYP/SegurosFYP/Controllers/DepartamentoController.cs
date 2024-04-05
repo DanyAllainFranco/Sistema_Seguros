@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Options;
-using SegurosFYP.Services;
 
 namespace SegurosFYP.Controllers
 {
@@ -16,21 +15,30 @@ namespace SegurosFYP.Controllers
     {
         private readonly Cliente _url;
         private readonly HttpClient _client;
-        private readonly DepartamentoServices _departamentoServices;
 
-        public DepartamentoController(IOptions<Cliente> url, HttpClient client, DepartamentoServices departamentoServices)
+        public DepartamentoController(IOptions<Cliente> url, HttpClient client)
         {
             _url = url.Value;
             _client = client;
             _client.BaseAddress = new Uri(_url.Url);
-            _departamentoServices = departamentoServices;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var list = _departamentoServices.Index();
+            var response = await _client.GetAsync("api/departamento/List/Departamentos");
 
-            return View(list);
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var jsonObject = JsonConvert.DeserializeObject<JObject>(content); // Deserializar en un objeto JObject
+                var data = jsonObject["data"].ToString(); // Obtener la cadena JSON de la propiedad 'data'
+                var departamentos = JsonConvert.DeserializeObject<IEnumerable<DepartamentoViewModel>>(data); // Deserializar la cadena JSON en una lista de DepartamentoViewModel
+                return View(departamentos);
+            }
+            else
+            {
+                return View("Error");
+            }
         }
 
         [HttpPost]
