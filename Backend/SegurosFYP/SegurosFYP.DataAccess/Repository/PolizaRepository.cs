@@ -55,8 +55,8 @@ namespace SegurosFYP.DataAccess.Repository
                 parameter.Add("@Poliz_TipoPago", item.Poliz_TipoPago);
                 parameter.Add("@Poliz_EstadoCuotasPoliza", item.Poliz_EstadoCuotasPoliza);
 
-                parameter.Add("@Poliz_UsuarioCreacion", item.Poliz_UsuarioCreacion);
-                parameter.Add("@Poliz_FechaCreacion", item.Poliz_FechaCreacion);
+                parameter.Add("@Poliz_UsuarioCreacion", 1);
+                parameter.Add("@Poliz_FechaCreacion", DateTime.Now);
 
                 var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
 
