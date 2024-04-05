@@ -76,11 +76,11 @@ namespace SegurosFYP.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return result.Ok();
+                    return result.Error();
                 }
                 else
                 {
-                    return result.Error();
+                    return result.Ok();
                 }
             }
             catch (Exception ex)
@@ -99,11 +99,13 @@ namespace SegurosFYP.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return result.Ok();
+                    return result.Error();
+
                 }
                 else
                 {
-                    return result.Error();
+                    return result.Ok();
+
                 }
             }
             catch (Exception ex)
@@ -122,11 +124,13 @@ namespace SegurosFYP.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return result.Ok();
+                    return result.Error();
+
                 }
                 else
                 {
-                    return result.Error();
+                    return result.Ok();
+
                 }
             }
             catch (Exception ex)
@@ -144,11 +148,13 @@ namespace SegurosFYP.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return result.Ok();
+                    return result.Error();
+
                 }
                 else
                 {
-                    return result.Error();
+                    return result.Ok();
+
                 }
             }
             catch (Exception ex)

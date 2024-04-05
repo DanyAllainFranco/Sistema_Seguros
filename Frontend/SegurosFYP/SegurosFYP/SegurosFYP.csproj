@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\documents\dniAtras\" />
     <Folder Include="wwwroot\images\documents\dniFrente\" />
+    <Folder Include="wwwroot\images\documents\dniAtras\" />
   </ItemGroup>
 
 </Project>

@@ -622,3 +622,5 @@ C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Frontend\SegurosFYP\SegurosFY
 C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\SegurosFYP.genruntimeconfig.cache
 C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\SegurosFYP.csproj.AssemblyReference.cache
 C:\Users\pavel\OneDrive\Escritorio\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Poliza\View.cshtml.g.cs
+C:\Users\LAB1\Desktop\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Poliza\Create.cshtml.g.cs
+C:\Users\LAB1\Desktop\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Poliza\View.cshtml.g.cs

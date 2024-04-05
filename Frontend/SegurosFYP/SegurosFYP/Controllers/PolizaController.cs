@@ -57,6 +57,7 @@ namespace SegurosFYP.Controllers
         {
             try
             {
+                item.Identificacion.quantity = item.Identificacion.Ident_NumeroIdentificacion.Length;
                 var identificacion = await _polizaServices.InsertIdentificacion(item.Identificacion);
 
                 if (item.Cliente.DniFrente != null)
@@ -68,7 +69,7 @@ namespace SegurosFYP.Controllers
 
                     string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
 
-                    item.Cliente.DniFrente.CopyToAsync(new FileStream(serverFolder,FileMode.Create));
+                    await item.Cliente.DniFrente.CopyToAsync(new FileStream(serverFolder,FileMode.Create));
                 }
 
                 if (item.Cliente.DniAtras != null)
@@ -80,12 +81,18 @@ namespace SegurosFYP.Controllers
 
                     string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
 
-                    item.Cliente.DniAtras.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+                    await item.Cliente.DniAtras.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
                 }
+
+                item.Cliente.quantity = item.Identificacion.quantity;
 
                 await _polizaServices.InsertCliente(item.Cliente);
 
+                item.Dependiente.quantity = item.Identificacion.quantity;
+
                 await _polizaServices.InsertDependiente(item.Dependiente);
+
+                item.Poliza.quantity = item.Identificacion.quantity; 
 
                 await _polizaServices.InsertPoliza(item.Poliza);
 
@@ -93,7 +100,7 @@ namespace SegurosFYP.Controllers
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Index", "Home");
+                return View(item);
             }
         }
     }

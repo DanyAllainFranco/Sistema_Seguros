@@ -115,17 +115,17 @@ namespace SegurosFYP.BusinessLogic.Services
                 return result.Error(ex.Message);
             }
         }
-        public ServiceResult NumerationIdent()
+        public List<tbIdentificaciones> NumerationIdent(int top)
         {
             var result = new ServiceResult();
             try
             {
-                var lost = _identificacionRepository.Numeration();
-                return result.Ok(lost);
+                var lost = _identificacionRepository.Numeration(top);
+                return lost;
             }
             catch (Exception ex)
             {
-                return result.Error(ex.Message);
+                return new List<tbIdentificaciones>();
             }
         }
 
@@ -174,11 +174,11 @@ namespace SegurosFYP.BusinessLogic.Services
                 var lost = _personaRepository.Insert(item);
                 if (lost.CodeStatus > 0)
                 {
-                    return result.Ok(lost);
+                    return result.Error(lost);
                 }
                 else
                 {
-                    return result.Error(lost);
+                    return result.Ok(lost);
                 }
             }
             catch (Exception ex)
@@ -207,12 +207,12 @@ namespace SegurosFYP.BusinessLogic.Services
                 return result.Error(ex.Message);
             }
         }
-        public ServiceResult NumerationPerso()
+        public ServiceResult NumerationPerso(int top)
         {
             var result = new ServiceResult();
             try
             {
-                var lost = _personaRepository.Numeration();
+                var lost = _personaRepository.Numeration(top);
                 return result.Ok(lost);
             }
             catch (Exception ex)

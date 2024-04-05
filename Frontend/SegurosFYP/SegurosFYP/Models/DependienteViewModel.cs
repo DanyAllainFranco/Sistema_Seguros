@@ -35,5 +35,7 @@ namespace SegurosFYP.Models
         public DateTime? Perso_FechaModificacion { get; set; }
         public bool? Perso_Estado { get; set; }
 
+        public int quantity {get; set;}
+
     }
 }

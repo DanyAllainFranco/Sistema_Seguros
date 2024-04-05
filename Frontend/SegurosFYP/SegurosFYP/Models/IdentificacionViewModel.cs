@@ -17,5 +17,8 @@ namespace SegurosFYP.Models
         public int? Ident_UsuarioModificacion { get; set; }
         public DateTime? Ident_FechaModificacion { get; set; }
         public bool? Ident_Estado { get; set; }
+
+
+        public int quantity { get; set; }
     }
 }

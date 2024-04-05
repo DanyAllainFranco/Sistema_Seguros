@@ -57,6 +57,7 @@ namespace SegurosFYP.DataAccess.Repository
         public static string Poliz_Modificar = "Venta.SP_Polizas_Modificar";
         public static string Poliz_Eliminar = "Venta.SP_Polizas_Eliminar";
         public static string Poliz_Listar = "Venta.SP_Polizas_Listar";
+        public static string Poliz_Numeracion = "Venta.SP_Polizas_Numeracion";
         #endregion
 
         #endregion

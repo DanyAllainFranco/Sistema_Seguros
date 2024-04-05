@@ -91,7 +91,7 @@ namespace SegurosFYP.DataAccess.Repository
             //throw new NotImplementedException();
         }
 
-        public int Numeration()
+        public List<tbIdentificaciones> Numeration(int top)
         {
             string sql = ScriptsBaseDeDatos.Ident_Numeracion;
 
@@ -99,11 +99,9 @@ namespace SegurosFYP.DataAccess.Repository
 
             using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
             {
-                list = db.Query<tbIdentificaciones>(sql, commandType: CommandType.Text).ToList();
+                list = db.Query<tbIdentificaciones>(sql,new { Top = top}, commandType: CommandType.StoredProcedure).ToList();   
 
-                int result = int.Parse(list.First().Ident_Id.ToString());
-
-                return result;
+                return list;
             }
         }
     }
