@@ -39,11 +39,11 @@ namespace SegurosFYP.BusinessLogic.Services
                 var lost = _polizaRepository.Insert(item);
                 if (lost.CodeStatus > 0)
                 {
-                    return result.Ok(lost);
+                    return result.Error(lost);
                 }
                 else
                 {
-                    return result.Error(lost);
+                    return result.Ok(lost);
                 }
             }
             catch (Exception ex)
