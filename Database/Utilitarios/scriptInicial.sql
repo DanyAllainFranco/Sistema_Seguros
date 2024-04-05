@@ -499,6 +499,7 @@ GO
 CREATE SCHEMA Venta
 GO
 
+
 CREATE TABLE Venta.tbPolizas(
 	Poliz_Id INT IDENTITY(1,1),
 	Clien_Id INT NOT NULL,

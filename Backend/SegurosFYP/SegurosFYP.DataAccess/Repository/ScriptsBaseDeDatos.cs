@@ -27,6 +27,8 @@ namespace SegurosFYP.DataAccess.Repository
         public static string Perso_Insertar = "Gral.SP_Personas_Insertar";
         public static string Perso_Modificar = "Gral.SP_Personas_Modificar";
         public static string Perso_Eliminar = "Gral.SP_Personas_Eliminar";
+        public static string Perso_Numeracion = "Gral.SP_Personas_Numeracion";
+
         #endregion
 
         #region InformacionMedica
@@ -35,10 +37,12 @@ namespace SegurosFYP.DataAccess.Repository
         public static string Inmed_Eliminar = "Gral.SP_InformacionMedica_Eliminar";
         #endregion
 
-        #region
+        #region Identidad
         public static string Ident_Insertar = "Gral.SP_Identificaciones_Insertar";
         public static string Ident_Modificar = "Gral.SP_Identificaciones_Modificar";
         public static string Ident_Eliminar = "Gral.SP_Identificaciones_Eliminar";
+        public static string Ident_Numeracion = "Gral.SP_Identificaciones_Numeracion";
+
         #endregion
 
         #endregion

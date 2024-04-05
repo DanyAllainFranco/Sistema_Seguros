@@ -28,5 +28,8 @@ namespace SegurosFYP.Common.Models
         public int? Perso_UsuarioModificacion { get; set; }
         public DateTime? Perso_FechaModificacion { get; set; }
         public bool? Perso_Estado { get; set; }
+
+        public string DniFrenteUrl { get; set; }
+        public string DniAtrasUrl { get; set; }
     }
 }

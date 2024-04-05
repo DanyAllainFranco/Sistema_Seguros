@@ -1,0 +1,367 @@
+﻿@model SegurosFYP.Models.PolizaCompletaViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>PolizaViewModel</h4>
+<hr />
+
+<div class="ibox-content">
+    <h2>
+        Validation Wizard Form
+    </h2>
+    <p>
+        This example show how to use Steps with jQuery Validation plugin.
+    </p>
+
+    <form id="form" enctype="multipart/form-data" method="post" action="Create" class="wizard-big">
+        <h1>Account</h1>
+
+        <fieldset style="overflow-y:auto">
+            <h2>Account Information</h2>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Poliza.Emple_Id" class="control-label"></label>
+                        <input asp-for="Poliza.Emple_Id" class="form-control" />
+                        <span asp-validation-for="Poliza.Emple_Id" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cliente.Perso_PrimerNombre" class="control-label"></label>
+                        <input asp-for="Cliente.Perso_PrimerNombre" class="form-control" />
+                        <span asp-validation-for="Cliente.Perso_PrimerNombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cliente.Perso_SegundoNombre" class="control-label"></label>
+                        <input asp-for="Cliente.Perso_SegundoNombre" class="form-control" />
+                        <span asp-validation-for="Cliente.Perso_SegundoNombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cliente.Perso_PrimerApellido" class="control-label"></label>
+                        <input asp-for="Cliente.Perso_PrimerApellido" class="form-control" />
+                        <span asp-validation-for="Cliente.Perso_PrimerApellido" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cliente.Perso_SegundoApellido" class="control-label"></label>
+                        <input asp-for="Cliente.Perso_SegundoApellido" class="form-control" />
+                        <span asp-validation-for="Cliente.Perso_SegundoApellido" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cliente.Perso_Sexo" class="control-label"></label>
+                        <input asp-for="Cliente.Perso_Sexo" class="form-control" />
+                        <span asp-validation-for="Cliente.Perso_Sexo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Identificacion.Tiden_Id" class="control-label"></label>
+                        <input asp-for="Identificacion.Tiden_Id[0]" class="form-control" />
+                        <span asp-validation-for="Identificacion.Tiden_Id" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Identificacion.Ident_NumeroIdentificacion" class="control-label"></label>
+                        <input asp-for="Identificacion.Ident_NumeroIdentificacion[0]" class="form-control" />
+                        <span asp-validation-for="Identificacion.Ident_NumeroIdentificacion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Identificacion.Ident_FechaNacimiento" class="control-label"></label>
+                        <input asp-for="Identificacion.Ident_FechaNacimiento[0]" class="form-control" />
+                        <span asp-validation-for="Identificacion.Ident_FechaNacimiento" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Identificacion.Ident_LugarNacimiento" class="control-label"></label>
+                        <input asp-for="Identificacion.Ident_LugarNacimiento[0]" class="form-control" />
+                        <span asp-validation-for="Identificacion.Ident_LugarNacimiento" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cliente.Estci_Id" class="control-label"></label>
+                        <input asp-for="Cliente.Estci_Id" class="form-control" />
+                        <span asp-validation-for="Cliente.Estci_Id" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cliente.Perso_Telefono" class="control-label"></label>
+                        <input asp-for="Cliente.Perso_Telefono" class="form-control" />
+                        <span asp-validation-for="Cliente.Perso_Telefono" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cliente.Perso_CorreoElectronico" class="control-label"></label>
+                        <input asp-for="Cliente.Perso_CorreoElectronico" class="form-control" />
+                        <span asp-validation-for="Cliente.Perso_CorreoElectronico" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cliente.Perso_Direccion" class="control-label"></label>
+                        <input asp-for="Cliente.Perso_Direccion" class="form-control" />
+                        <span asp-validation-for="Cliente.Perso_Direccion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cliente.Munic_Id" class="control-label"></label>
+                        <input asp-for="Cliente.Munic_Id" class="form-control required" />
+                        <span asp-validation-for="Cliente.Munic_Id" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cliente.Paise_Id" class="control-label "></label>
+                        <input asp-for="Cliente.Paise_Id" class="form-control required" />
+                        <span asp-validation-for="Cliente.Paise_Id" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cliente.Poliz_Id" class="control-label"></label>
+                        <input asp-for="Cliente.Poliz_Id" class="form-control" />
+                        <span asp-validation-for="Cliente.Poliz_Id" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cliente.Paren_Id" class="control-label"></label>
+                        <input asp-for="Cliente.Paren_Id" class="form-control" />
+                        <span asp-validation-for="Cliente.Paren_Id" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input asp-for="Cliente.DniFrente" class="custom-file-input">
+                            <label asp-for="Cliente.DniFrente" class="custom-file-label">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input asp-for="Cliente.DniAtras" class="custom-file-input">
+                            <label asp-for="Cliente.DniAtras" class="custom-file-label">Choose file</label>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-lg-4">
+                        <div class="text-center">
+                            <div style="margin-top: 20px">
+                                <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
+                            </div>
+                        </div>
+                    </div>*@
+
+            </div>
+        </fieldset>
+        <h1>Profile</h1>
+            <fieldset style="overflow-y:auto">
+                <h2>Profile Information</h2>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Dependiente.Perso_PrimerNombre" class="control-label"></label>
+                            <input @*asp-for="Dependiente.Perso_PrimerNombre"*@ type="text" id="Depen_PrimerNombre" name="Depen_PrimerNombre" class="form-control" />
+                            <span asp-validation-for="Dependiente.Perso_PrimerNombre" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Dependiente.Perso_SegundoNombre" class="control-label"></label>
+                            <input @*asp-for="Dependiente.Perso_SegundoNombre"*@ type="text" id="Depen_SegundoNombre" name="Depen_SegundoNombre" class="form-control" />
+                            <span asp-validation-for="Dependiente.Perso_SegundoNombre" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Dependiente.Perso_PrimerApellido" class="control-label"></label>
+                            <input @*asp-for="Dependiente.Perso_PrimerApellido"*@ type="text" id="Depen_PrimerApellido" name="Depen_PrimerApellido" class="form-control" />
+                            <span asp-validation-for="Dependiente.Perso_PrimerApellido" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Dependiente.Perso_SegundoApellido" class="control-label"></label>
+                            <input @*asp-for="Dependiente.Perso_SegundoApellido"*@ type="text" id="Depen_SegundoApellido" name="Depen_SegundoApellido" class="form-control" />
+                            <span asp-validation-for="Dependiente.Perso_SegundoApellido" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Dependiente.Perso_Sexo" class="control-label"></label>
+                            <input asp-for="Dependiente.Perso_Sexo[0]" class="form-control" />
+                            <span asp-validation-for="Dependiente.Perso_Sexo" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Identificacion.Tiden_Id" class="control-label"></label>
+                            <input @*asp-for="Identificacion.Tiden_Id"*@ type="number" id="DepenTiden_Id" name="DepenTiden_Id" class="form-control" />
+                            <span asp-validation-for="Identificacion.Tiden_Id"  class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Identificacion.Ident_NumeroIdentificacion" class="control-label"></label>
+                            <input @*asp-for="Identificacion.Ident_NumeroIdentificacion"*@ type="number" id="DepenIdent_NumeroIdentificacion" name="DepenIdent_NumeroIdentificacion" class="form-control" />
+                            <span asp-validation-for="Identificacion.Ident_NumeroIdentificacion" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Identificacion.Ident_FechaNacimiento" class="control-label"></label>
+                            <input @*asp-for="Identificacion.Ident_FechaNacimiento"*@ type="number" id="DepenIdent_FechaNacimiento" name="DepenIdent_FechaNacimiento" class="form-control" />
+                            <span asp-validation-for="Identificacion.Ident_FechaNacimiento" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Identificacion.Ident_LugarNacimiento" class="control-label"></label>
+                            <input @*asp-for="Identificacion.Ident_LugarNacimiento"*@ type="number" id="DepenIdent_LugarNacimiento" name="DepenIdent_LugarNacimiento" class="form-control" />
+                            <span asp-validation-for="Identificacion.Ident_LugarNacimiento" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Dependiente.Poliz_Id" class="control-label"></label>
+                            <input @*asp-for="Dependiente.Poliz_Id"*@ type="number" id="DepenPoliz_Id" name="DepenPoliz_Id" class="form-control" />
+                            <span asp-validation-for="Dependiente.Poliz_Id" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Dependiente.Paren_Id" class="control-label"></label>
+                            <input @*asp-for="Dependiente.Paren_Id"*@ type="number" id="DepenParen_Id" name="DepenParen_Id" class="form-control" />
+                            <span asp-validation-for="Dependiente.Paren_Id" class="text-danger"></span>
+                        </div>
+                        <div>
+                            <input type="button" onclick="appendDependiente()" id="btnAgregarDependiente" name="btnAgregarDependiente" class="btn btn-primary" value="btnAgregarDependiente" />
+                        </div>
+                        <div id="listDependientes">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <h1>Warning</h1>
+            <fieldset style="overflow-y:auto">
+                <div class="form-group">
+                    <label asp-for="Poliza.Tipos_Id" class="control-label"></label>
+                    <input asp-for="Poliza.Tipos_Id" class="form-control" />
+                    <span asp-validation-for="Poliza.Tipos_Id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Poliza.Poliz_Cuotas" class="control-label"></label>
+                    <input asp-for="Poliza.Poliz_Cuotas" class="form-control" />
+                    <span asp-validation-for="Poliza.Poliz_Cuotas" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Poliza.Poliz_TipoPago" /> @Html.DisplayNameFor(model => model.Poliza.Poliz_TipoPago)
+                    </label>
+                </div>
+            </fieldset>
+    </form>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+<script src="~/lib/jquery/dist/jquery-3.1.1.min.js"></script>
+@*<script src="~/lib/jquery/dist/jquery.js"></script>*@
+@*<script src="~/lib/popper/popper.min.js"></script>*@
+@*<script src="~/js/off-canvas.js"></script>
+    <script src="~/js/hoverable-collapse.js"></script>
+    <script src="~/js/settings.js"></script>
+    <script src="~/js/todolist.js"></script>*@
+@*<script src="~/lib/pace/pace.min.js"></script>
+    <script src="~/lib/inspinia/inspinia.js"></script>
+    <script src="~/lib/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/lib/metisMenu/jquery.metisMenu.js"></script>*@
+<script>
+
+    $(document).ready(function () {
+        console.log($('#btnAgregarDependiente'))
+
+        $("#wizard").steps();
+        $("#form").steps({
+            bodyTag: "fieldset",
+            onStepChanging: function (event, currentIndex, newIndex) {
+                // Always allow going backward even if the current step contains invalid fields!
+                if (currentIndex > newIndex) {
+                    return true;
+                }
+
+                // Forbid suppressing "Warning" step if the user is to young
+                if (newIndex === 3 && Number($("#age").val()) < 18) {
+                    return false;
+                }
+
+                var form = $(this);
+
+                // Clean up if user went backward before
+                if (currentIndex < newIndex) {
+                    // To remove error styles
+                    $(".body:eq(" + newIndex + ") label.error", form).remove();
+                    $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                }
+
+                // Disable validation on fields that are disabled or hidden.
+                form.validate().settings.ignore = ":disabled,:hidden";
+
+                // Start validation; Prevent going forward if false
+                return form.valid();
+            },
+            onStepChanged: function (event, currentIndex, priorIndex) {
+                // Suppress (skip) "Warning" step if the user is old enough.
+                if (currentIndex === 2 && Number($("#age").val()) >= 18) {
+                    $(this).steps("next");
+                }
+
+                // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
+                if (currentIndex === 2 && priorIndex === 3) {
+                    $(this).steps("previous");
+                }
+            },
+            onFinishing: function (event, currentIndex) {
+                var form = $(this);
+
+                // Disable validation on fields that are disabled.
+                // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                form.validate().settings.ignore = ":disabled";
+
+                // Start validation; Prevent form submission if false
+                return form.valid();
+            },
+            onFinished: function (event, currentIndex) {
+
+                var form = $(this);
+                form.validate().settings.ignore = ":disabled";
+                // Submit form input
+                form.submit();
+            }
+        }).validate({
+            errorPlacement: function (error, element) {
+                element.before(error);
+            },
+            rules: {
+                confirm: {
+                    equalTo: "#password"
+                }
+            }
+        });
+    });
+
+    var index = 0;
+
+    function appendDependiente() {
+        console.log("entro")
+
+        var newDependiente = `
+        <div>
+            <input id="Dependiente_Perso_PrimerNombre_${index}_" name="Dependiente.Perso_PrimerNombre[${index}]" type="text" class="form-control" />
+            <input id="Dependiente_Perso_SegundoNombre_${index}_" name="Dependiente.Perso_SegundoNombre[${index}]" type="text" class="form-control" />
+            <input id="Dependiente_Perso_PrimerApellido_${index}_" name="Dependiente.Perso_PrimerApellido[${index}]" type="text" class="form-control" />
+            <input id="Dependiente_Perso_SegundoApellido_${index}_" name="Dependiente.Perso_SegundoApellido[${index}]" type="text" class="form-control" />
+            <input id="Dependiente_Perso_Sexo_${index}_" name="Dependiente.Perso_Sexo[${index}]" type="textc" class="form-control" />
+            <input id="Identificacion_Tiden_Id_${index + 1}" name="Identificacion.Tiden_Id[${index + 1}]" type="number" class="form-control" />
+            <input id="Identificacion_Ident_NumeroIdentificacion_${index + 1}" name="Identificacion.Ident_NumeroIdentificacion[${index + 1}]" type="number" class="form-control" />
+            <input id="Identificacion_Ident_FechaNacimiento_${index + 1}" name="Identificacion.Ident_FechaNacimiento[${index + 1}]" type="number" class="form-control" />
+            <input id="Identificacion_Ident_LugarNacimiento_${index + 1}" name="Identificacion.Ident_LugarNacimiento[${index + 1}]" type="number" class="form-control" />
+            <input id="Dependiente_Poliz_Id_${index}_" name="Dependiente.Poliz_Id" type="number" class="form-control" />
+            <input id="Dependiente_Paren_Id_${index}_" name="Dependiente.Paren_Id[${index}]" type="number" class="form-control" />
+        </div>
+
+    `;
+
+        $('#listDependientes').append(newDependiente);
+
+        $(`#Dependiente_Perso_PrimerNombre_${index}_`).val($('#Depen_PrimerNombre').val());
+        $(`#Dependiente_Perso_SegundoNombre_${index}_`).val($('#Depen_SegundoNombre').val());
+        $(`#Dependiente_Perso_PrimerApellido_${index}_`).val($('#Depen_PrimerApellido').val());
+        $(`#Dependiente_Perso_SegundoApellido_${index}_`).val($('#Depen_SegundoApellido').val());
+        $(`#Dependiente_Perso_Sexo_${index}_`).val($('#Depen_Sexo').val());
+        $(`#Identificacion_Tiden_Id_${index + 1}`).val($('#DepenTiden_Id').val());
+        $(`#Identificacion_Ident_NumeroIdentificacion_${index + 1}`).val($('#DepenIdent_NumeroIdentificacion').val());
+        $(`#Identificacion_Ident_FechaNacimiento_${index + 1}`).val($('#DepenIdent_FechaNacimiento').val());
+        $(`#Identificacion_Ident_LugarNacimiento_${index + 1}`).val($('#DepenIdent_LugarNacimiento').val());
+        $(`#Dependiente_Poliz_Id_${index}_`).val($('#DepenPoliz_Id').val());
+        $(`#Dependiente_Paren_Id_${index}_`).val($('#DepenParen_Id').val());
+
+
+        index += 1;
+    }
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -48,6 +48,7 @@ namespace SegurosFYP.API.Controllers
         [HttpPost("InsertCliente")]
         public IActionResult InsertCliente(PersonaViewModel item)
         {
+            var numeroIdentificacion = _generalServices.NumerationIdent();
             var numeracion = _salesServices.NumerationPoliz();
 
             var model = _mapper.Map<tbPersonas>(item);
@@ -58,7 +59,7 @@ namespace SegurosFYP.API.Controllers
                 Perso_PrimerApellido = item.Perso_PrimerApellido,
                 Perso_SegundoApellido = item.Perso_SegundoApellido,
                 Perso_Sexo = item.Perso_Sexo,
-                Ident_Id = item.Ident_Id,
+                Ident_Id = numeroIdentificacion.Data,
 
                 Estci_Id = item.Estci_Id,
                 Perso_Telefono = item.Perso_Telefono,
@@ -66,6 +67,9 @@ namespace SegurosFYP.API.Controllers
                 Perso_Direccion = item.Perso_Direccion,
                 Munic_Id = item.Munic_Id,
                 Paise_Id = item.Paise_Id,
+
+                DniFrenteUrl = item.DniFrenteUrl,
+                DniAtrasUrl = item.DniAtrasUrl,
 
                 Poliz_Id = numeracion.Data + 1,
                 Paren_Id = 1,
@@ -76,6 +80,8 @@ namespace SegurosFYP.API.Controllers
         [HttpPost("InsertPariente")]
         public IActionResult InsertPariente(PersonaViewModel item)
         {
+            var numeroIdentificacion = _generalServices.NumerationIdent();
+
             var numeracion = _salesServices.NumerationPoliz();
 
             var model = _mapper.Map<tbPersonas>(item);
@@ -86,7 +92,7 @@ namespace SegurosFYP.API.Controllers
                 Perso_PrimerApellido = item.Perso_PrimerApellido,
                 Perso_SegundoApellido = item.Perso_SegundoApellido,
                 Perso_Sexo = item.Perso_Sexo,
-                Ident_Id = item.Ident_Id,
+                Ident_Id = numeroIdentificacion.Data,
 
                 Estci_Id = item.Estci_Id,
                 Perso_Telefono = item.Perso_Telefono,
@@ -141,15 +147,17 @@ namespace SegurosFYP.API.Controllers
         [HttpPost("InsertPoliza")]
         public IActionResult InsertPoliza(PolizaViewModel item)
         {
+            var numeroIdentificacion = _generalServices.NumerationPerso();
+
             var model = _mapper.Map<tbPolizas>(item);
             var modelo = new tbPolizas()
             {
-                Clien_Id = item.Clien_Id,
+                Clien_Id = numeroIdentificacion.Data,
                 Tipos_Id = item.Tipos_Id,
                 Emple_Id = item.Emple_Id,
                 Poliz_Cuotas = item.Poliz_Cuotas,
                 Poliz_TipoPago = item.Poliz_TipoPago,
-                Poliz_EstadoCuotasPoliza = item.Poliz_EstadoCuotasPoliza,
+                Poliz_EstadoCuotasPoliza = false,
             };
             var list = _salesServices.InsertPoliz(modelo);
             return Ok(list);

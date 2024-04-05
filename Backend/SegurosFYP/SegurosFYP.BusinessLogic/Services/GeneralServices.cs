@@ -95,7 +95,6 @@ namespace SegurosFYP.BusinessLogic.Services
                 return result.Error(ex.Message);
             }
         }
-
         public ServiceResult UpdateIdent(tbIdentificaciones item)
         {
             var result = new ServiceResult();
@@ -110,6 +109,19 @@ namespace SegurosFYP.BusinessLogic.Services
                 {
                     return result.Error(lost);
                 }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        public ServiceResult NumerationIdent()
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _identificacionRepository.Numeration();
+                return result.Ok(lost);
             }
             catch (Exception ex)
             {
@@ -195,7 +207,19 @@ namespace SegurosFYP.BusinessLogic.Services
                 return result.Error(ex.Message);
             }
         }
-
+        public ServiceResult NumerationPerso()
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _personaRepository.Numeration();
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
         public ServiceResult DeletePerso(tbPersonas item)
         {
             var result = new ServiceResult();

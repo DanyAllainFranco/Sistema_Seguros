@@ -155,5 +155,20 @@ namespace SegurosFYP.DataAccess.Repository
             }
             //throw new NotImplementedException();
         }
+        public int Numeration()
+        {
+            string sql = ScriptsBaseDeDatos.Perso_Numeracion;
+
+            List<tbPersonas> list = new List<tbPersonas>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                list = db.Query<tbPersonas>(sql, commandType: CommandType.Text).ToList();
+
+                int result = int.Parse(list.First().Perso_Id.ToString());
+
+                return result;
+            }
+        }
     }
 }
