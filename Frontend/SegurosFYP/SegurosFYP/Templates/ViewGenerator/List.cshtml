@@ -1,0 +1,241 @@
+﻿@inherits Microsoft.VisualStudio.Web.CodeGeneration.Templating.RazorTemplateBase
+@using Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore
+@using System.Collections.Generic
+@using System.Linq
+@@model @GetEnumerableTypeExpression(Model.ViewDataTypeName)
+
+@{
+    if (Model.IsPartialView)
+    {
+    }
+    else if (Model.IsLayoutPageSelected)
+    {
+@:@@{
+    @:ViewData["Title"] = "@Model.ViewName";
+    @:ViewData["ModelName"] = "@Model.ViewDataTypeShortName".Replace("ViewModel","");
+
+        if (!string.IsNullOrEmpty(Model.LayoutPageFile))
+        {
+    @:Layout = "@Model.LayoutPageFile";
+        }
+@:}
+@:<div class="card-header">
+    @:<h1>@@ViewData["ModelName"]</h1>
+@:
+    }
+    else
+    {
+@:@@{
+    @:Layout = null;
+@:}
+@:
+@:<!DOCTYPE html>
+@:
+@:<html>
+@:<head>
+    @:<meta name="viewport" content="width=device-width" />
+    @:<title>@Model.ViewName</title>
+@:</head>
+@:<body>
+        //    PushIndent("    ");
+    }
+    @:<p>
+        @:<a asp-action="Create" class="btn btn-primary"><i class="mdi mdi-folder-plus"></i>Nuevo</a>
+        @:<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-folder-plus"></i>Nuevo</button>
+    @:</p>
+@:</div>
+@:<table class="table table-responsive table-bordered" id="Example">
+    @:<thead>
+        @:<tr>
+        Dictionary<string, IPropertyMetadata> propertyLookup = ((IModelMetadata)Model.ModelMetadata).Properties.ToDictionary(x => x.PropertyName, x => x);
+        Dictionary<string, INavigationMetadata> navigationLookup = ((IModelMetadata)Model.ModelMetadata).Navigations.ToDictionary(x => x.AssociationPropertyName, x => x);
+
+        foreach (var item in Model.ModelMetadata.ModelType.GetProperties())
+        {
+            if (propertyLookup.TryGetValue(item.Name, out IPropertyMetadata property)
+                && property.Scaffold && !property.IsForeignKey && !property.IsPrimaryKey)
+            {
+                if (!GetValueExpression(property).EndsWith("FechaCreacion") &&
+                                !GetValueExpression(property).EndsWith("FechaModificacion") &&
+                                !GetValueExpression(property).EndsWith("Estado") &&
+                                !GetValueExpression(property).EndsWith("UsuarioCreacion") &&
+                                !GetValueExpression(property).EndsWith("UsuarioModificacion"))
+                {
+                    <th>
+                        @@Html.DisplayNameFor(model => model.@GetValueExpression(property))
+                    </th>
+                }
+            }
+            @*else if (navigationLookup.TryGetValue(item.Name, out INavigationMetadata navigation))
+            {
+                <th>
+                    @@Html.DisplayNameFor(model => model.@GetValueExpression(navigation))
+                </th>               
+            }*@            
+        }
+            @:<th></th>
+        @:</tr>
+    @:</thead>
+    @:<tbody>
+@:@@foreach (var item in Model) {
+        @:<tr>
+        foreach (var item in Model.ModelMetadata.ModelType.GetProperties())
+        {
+            if (propertyLookup.TryGetValue(item.Name, out IPropertyMetadata property)
+                && property.Scaffold && !property.IsForeignKey && !property.IsPrimaryKey)
+            {
+                if (!GetValueExpression(property).EndsWith("FechaCreacion") &&
+                                !GetValueExpression(property).EndsWith("FechaModificacion") &&
+                                !GetValueExpression(property).EndsWith("Estado") &&
+                                !GetValueExpression(property).EndsWith("UsuarioCreacion") &&
+                                !GetValueExpression(property).EndsWith("UsuarioModificacion"))
+                {
+                    <td>
+                        @@Html.DisplayFor(modelItem => item.@GetValueExpression(property))
+                    </td>
+                }
+            }
+            @*else if (navigationLookup.TryGetValue(item.Name, out INavigationMetadata navigation))
+            {
+            <td>
+                @@Html.DisplayFor(modelItem => item.@GetValueExpression(navigation).@navigation.DisplayPropertyName)
+            </td>
+            }*@
+        }
+        string pkName = GetPrimaryKeyName();
+        if (pkName != null)
+        {
+            @:<td>
+                @:<a asp-route-id="@@item.@pkName" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-id="@@item.@pkName"><i class="bi bi-pen-fill"></i>Editar</a>
+                @:<a asp-route-id="@@item.@pkName" asp-action="Details" class="btn btn-warning"><i class="fa fa-eye"></i>Detalles</a>
+                @:<a asp-route-id="@@item.@pkName" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@@item.@pkName')"><i class="fa fa-trash"></i>Eliminar</a>
+            @:</td>
+        }
+        @*else
+        {
+            <td>
+                @@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        }*@
+        @:</tr>
+@:}
+    @:</tbody>
+
+@:</table>
+
+/*Modales*/
+@:<div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        @:<div class="modal-dialog" role="document">
+            @:<div class="modal-content">
+                @:<div class="modal-header">
+                    @:<h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                    @:<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        @:<span aria-hidden="true">&times;</span>
+                    @:</button>
+                @:</div>
+                @:<div class="modal-body">
+                    @:@@Html.Partial("_Update", new SegurosFYP.Models.@Model.ViewDataTypeShortName ())
+                @:</div>
+            @:</div>
+        @:</div>
+    @:</div>
+    @:<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        @:<div class="modal-dialog" role="document">
+            @:<div class="modal-content">
+                @:<div class="modal-header">
+                    @:<h5 class="modal-title" id="exampleModalLabel">Insertar</h5>
+                    @:<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        @:<span aria-hidden="true">&times;</span>
+                    @:</button>
+                @:</div>
+                @:<div class="modal-body">
+                    @:@@Html.Partial("_Insert", new SegurosFYP.Models.@Model.ViewDataTypeShortName ())
+                @:</div>
+            @:</div>
+        @:</div>
+    @:</div>
+    @:<div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        @:<div class="modal-dialog" role="document">
+            @:<div class="modal-content">
+                @:<div class="modal-header">
+                    @:<h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                    @:<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        @:<span aria-hidden="true">&times;</span>
+                    @:</button>
+                @:</div>
+                @:<div class="modal-body">
+                    @:@@Html.Partial("_Delete", new SegurosFYP.Models.@Model.ViewDataTypeShortName ())
+                @:</div>                     
+            @:</div>
+        @:</div>
+    @:</div>
+@:<script>
+        @:var url = 'https://localhost:44347/api/EstadoCivil/Cargar/EstadoCivil?Estad_Id=';
+
+        @:document.querySelectorAll('.FetchData').forEach(item => {
+            @:item.addEventListener('click', function () {
+                @:var id = this.getAttribute('data-id');
+                @:console.log(id);
+                @:fetchData(id);
+            @:});
+        @:});
+
+        @:function fetchData(id) {
+            @:console.log(id);
+            @:fetch(url)
+                @:.then(response => response.json())
+                @:.then(data => {
+
+                    foreach (var property in Model.ModelMetadata.Properties)
+                    {
+                        if (property.Scaffold && !property.IsAutoGenerated && !property.IsReadOnly)
+                        {
+                            if (!property.PropertyName.EndsWith("FechaCreacion") &&
+                                !property.PropertyName.EndsWith("FechaModificacion") &&
+                                !property.PropertyName.EndsWith("Estado") &&
+                                !property.PropertyName.EndsWith("UsuarioCreacion") &&
+                                !property.PropertyName.EndsWith("UsuarioModificacion"))
+                            {
+                                @:document.getElementById('@property.PropertyName').value = data.data[0].@property.PropertyName;
+                            }
+                        }
+                    }
+
+                @:})
+                @:.catch(error => console.error('Hubo un error:', error));
+        @:}
+    @:</script>
+
+    if(!Model.IsPartialView && !Model.IsLayoutPageSelected)
+    {
+        //ClearIndent();
+@:</body>
+@:</html>
+    }
+}
+@functions
+{
+    string GetPrimaryKeyName()
+    {
+        return (Model.ModelMetadata.PrimaryKeys != null && Model.ModelMetadata.PrimaryKeys.Length == 1)
+        ? Model.ModelMetadata.PrimaryKeys[0].PropertyName
+        : null;
+    }
+
+    string GetValueExpression(IPropertyMetadata property)
+    {
+        return property.PropertyName;
+    }
+
+    string GetValueExpression(INavigationMetadata navigation)
+    {
+        return navigation.AssociationPropertyName;
+    }
+
+    string GetEnumerableTypeExpression(string typeName)
+    {
+        return "IEnumerable<" + typeName + ">";
+    }
+}
