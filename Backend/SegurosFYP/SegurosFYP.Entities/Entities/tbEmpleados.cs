@@ -30,5 +30,19 @@ namespace SegurosFYP.Entities.Entities
         public virtual tbUsuarios Emple_UsuarioModificacionNavigation { get; set; }
         public virtual ICollection<tbPolizas> tbPolizas { get; set; }
         public virtual ICollection<tbUsuarios> tbUsuarios { get; set; }
+
+        [NotMapped]
+        public string Perso_PrimerNombre { get; set; }
+        [NotMapped]
+        public string Perso_SegundoNombre { get; set; }
+        [NotMapped]
+        public string Perso_PrimerApellido { get; set; }
+        [NotMapped]
+        public string Perso_SegundoApellido { get; set; }
+        [NotMapped]
+        public string Perso_Sexo { get; set; }
+        [NotMapped]
+        public string Cargo_Descripcion { get; set; }
+
     }
 }

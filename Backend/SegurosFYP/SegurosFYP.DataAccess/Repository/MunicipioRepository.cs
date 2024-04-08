@@ -86,7 +86,9 @@ namespace SegurosFYP.DataAccess.Repository
             using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
             {
                 var parameter = new DynamicParameters();
+                parameter.Add("@Munic_Id", item.Munic_Id);
                 parameter.Add("@Munic_Descripcion", item.Munic_Descripcion);
+                parameter.Add("@Depar_Id", item.Depar_Id);
                 parameter.Add("@Munic_UsuarioCreacion", 1);
                 parameter.Add("@Munic_FechaCreacion", DateTime.Now);
                 var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
@@ -117,6 +119,7 @@ namespace SegurosFYP.DataAccess.Repository
                 var parameter = new DynamicParameters();
                 parameter.Add("@Munic_Id", item.Munic_Id);
                 parameter.Add("@Munic_Descripcion", item.Munic_Descripcion);
+                parameter.Add("@Depar_Id", item.Depar_Id);
                 parameter.Add("@Munic_UsuarioModificacion", 1);
                 parameter.Add("@Munic_FechaModificacion", DateTime.Now);
                 var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);

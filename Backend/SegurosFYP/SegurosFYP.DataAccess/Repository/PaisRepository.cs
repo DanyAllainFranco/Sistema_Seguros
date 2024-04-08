@@ -106,8 +106,8 @@ namespace SegurosFYP.DataAccess.Repository
                 parameter.Add("@Paise_Id", item.Paise_Id);
                 parameter.Add("@Paise_Descripcion", item.Paise_Descripcion);
                 parameter.Add("@Paise_Nacionalidad", item.Paise_Nacionalidad);
-                parameter.Add("@Paise_UsuarioCreacion", 1);
-                parameter.Add("@Paise_FechaCreacion", DateTime.Now);
+                parameter.Add("@Paise_UsuarioModificacion", 1);
+                parameter.Add("@Paise_FechaModificacion", DateTime.Now);
                 var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
                 return new RequestStatus { CodeStatus = result, MessageStatus = "" };
             }

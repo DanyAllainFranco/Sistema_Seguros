@@ -103,8 +103,8 @@ namespace SegurosFYP.DataAccess.Repository
                 var parameter = new DynamicParameters();
                 parameter.Add("@Paren_Id", item.Paren_Id);
                 parameter.Add("@Paren_Descripcion", item.Paren_Descripcion);
-                parameter.Add("@Paren_UsuarioCreacion", 1);
-                parameter.Add("@Paren_FechaCreacion", DateTime.Now);
+                parameter.Add("@Paren_UsuarioModificacion", 1);
+                parameter.Add("@Paren_FechaModificacion", DateTime.Now);
                 var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
                 return new RequestStatus { CodeStatus = result, MessageStatus = "" };
             }
