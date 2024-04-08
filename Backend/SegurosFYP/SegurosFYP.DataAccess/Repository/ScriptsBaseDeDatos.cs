@@ -18,6 +18,40 @@ namespace SegurosFYP.DataAccess.Repository
 
         #region General
 
+        #region TiposIdentificaciones
+        public static string TiposIdentificaciones_Insertar = "Gral.SP_TiposIdentificaciones_Insertar";
+        public static string TiposIdentificaciones_Listar = "Gral.SP_TiposIdentificaciones_Listar";
+        public static string TiposIdentificaciones_Cargar = "Gral.SP_TiposIdentificaciones_Cargar";
+        public static string TiposIdentificaciones_Actualizar = "Gral.SP_TiposIdentificaciones_Actualizar";
+        public static string TiposIdentificaciones_Delete = "Gral.SP_TiposIdentificaciones_Eliminar";
+        #endregion
+
+        #region TipoArticuloMedico
+        public static string TipoArticuloMedico_Insertar = "Gral.SP_TipoArticuloMedico_Insertar";
+        public static string TipoArticuloMedico_Listar = "Gral.SP_TipoArticuloMedico_Listar";
+        public static string TipoArticuloMedico_Cargar = "Gral.SP_TipoArticuloMedico_Cargar";
+        public static string TipoArticuloMedico_Actualizar = "Gral.SP_TipoArticuloMedico_Actualizar";
+        public static string TipoArticuloMedico_Delete = "Gral.SP_TipoArticuloMedico_Eliminar";
+        #endregion
+
+        #region Enfermedad
+        public static string Enfermedad_Insertar = "Gral.SP_Enfermedades_Insertar";
+        public static string Enfermedad_Listar = "Gral.SP_Enfermedades_Listar";
+        public static string Enfermedad_Cargar = "Gral.SP_Enfermedades_Cargar";
+        public static string Enfermedad_Actualizar = "Gral.SP_Enfermedades_Actualizar";
+        public static string Enfermedad_Delete = "Gral.SP_Enfermedades_Eliminar";
+        #endregion
+
+
+        #region Frecuencia
+        public static string Frecuencia_Insertar = "Gral.SP_Frecuencias_Insertar";
+        public static string Frecuencia_Listar = "Gral.SP_Frecuencias_Listar";
+        public static string Frecuencia_Cargar = "Gral.SP_Frecuencias_Cargar";
+        public static string Frecuencia_Actualizar = "Gral.SP_Frecuencias_Actualizar";
+        public static string Frecuencia_Delete = "Gral.SP_Frecuencias_Eliminar";
+        #endregion
+
+
         #region EstadoCivil
         public static string EstadoC_Insertar = "Gral.SP_EstadosCiviles_Insertar";
         public static string EstadoC_Listar = "Gral.SP_EstadosCiviles_Listar";
@@ -55,7 +89,8 @@ namespace SegurosFYP.DataAccess.Repository
         public static string Ident_Modificar = "Gral.SP_Identificaciones_Modificar";
         public static string Ident_Eliminar = "Gral.SP_Identificaciones_Eliminar";
         public static string Ident_Numeracion = "Gral.SP_Identificaciones_Numeracion";
-
+        public static string Identificacion_Listar = "Gral.SP_Identificaciones_Listar";
+        public static string Identificacion_Cargar = "Gral.SP_Identificaciones_Cargar";
         #endregion
 
         #region Poliza
@@ -66,6 +101,73 @@ namespace SegurosFYP.DataAccess.Repository
         public static string Poliz_Numeracion = "Venta.SP_Polizas_Numeracion";
         #endregion
 
+        #region Municipio
+        public static string Municipios_Insertar = "Gral.SP_Municipios_Insertar";
+        public static string Municipios_Listar = "Gral.SP_Municipios_Listar";
+        public static string Municipios_Cargar = "Gral.SP_Municipios_Cargar";
+        public static string Municipios_Actualizar = "Gral.SP_Municipios_Actualizar";
+        public static string Municipios_Delete = "Gral.SP_Municipios_Eliminar";
+        #endregion
+
+        #region Pais
+        public static string Paises_Insertar = "Gral.SP_Paises_Insertar";
+        public static string Paises_Listar = "Gral.SP_Paises_Listar";
+        public static string Paises_Cargar = "Gral.SP_Paises_Cargar";
+        public static string Paises_Actualizar = "Gral.SP_Paises_Actualizar";
+        public static string Paises_Delete = "Gral.SP_Paises_Eliminar";
+        #endregion
+
+        #region Pais
+        public static string Parentescos_Insertar = "Gral.SP_Parentescos_Insertar";
+        public static string Parentescos_Listar = "Gral.SP_Parentescos_Listar";
+        public static string Parentescos_Cargar = "Gral.SP_Parentescos_Cargar";
+        public static string Parentescos_Actualizar = "Gral.SP_Parentescos_Actualizar";
+        public static string Parentescos_Delete = "Gral.SP_Parentescos_Eliminar";
+        #endregion
+        #endregion
+
+        #region Seguro
+        #region Cargo
+        public static string Cargos_Insertar = "Segur.SP_Cargos_Insertar";
+        public static string Cargos_Listar = "Segur.SP_Cargos_Listar";
+        public static string Cargos_Cargar = "Segur.SP_Cargos_Cargar";
+        public static string Cargos_Actualizar = "Segur.SP_Cargos_Actualizar";
+        public static string Cargos_Delete = "Segur.SP_Cargos_Eliminar";
+        #endregion
+
+
+        #region CausaAtencionMedica
+        public static string CausaAtencionMedica_Insertar = "Segur.SP_CausaAtencionMedica_Insertar";
+        public static string CausaAtencionMedica_Listar = "Segur.SP_CausaAtencionMedica_Listar";
+        public static string CausaAtencionMedica_Cargar = "Segur.SP_CausaAtencionMedica_Cargar";
+        public static string CausaAtencionMedica_Actualizar = "Segur.SP_CausaAtencionMedica_Actualizar";
+        public static string CausaAtencionMedica_Delete = "Segur.SP_CausaAtencionMedica_Eliminar";
+        #endregion
+
+
+        #region Coberturas
+        public static string Coberturas_Insertar = "Segur.SP_Coberturas_Insertar";
+        public static string Coberturas_Listar = "Segur.SP_Coberturas_Listar";
+        public static string Coberturas_Cargar = "Segur.SP_Coberturas_Cargar";
+        public static string Coberturas_Actualizar = "Segur.SP_Coberturas_Actualizar";
+        public static string Coberturas_Delete = "Segur.SP_Coberturas_Eliminar";
+        #endregion
+
+        #region Empleados
+        public static string Empleados_Insertar = "Segur.SP_Empleados_Insertar";
+        public static string Empleados_Listar = "Segur.SP_Empleados_Listar";
+        public static string Empleados_Cargar = "Segur.SP_Empleados_Cargar";
+        public static string Empleados_Actualizar = "Segur.SP_Empleados_Actualizar";
+        public static string Empleados_Delete = "Segur.SP_Empleados_Eliminar";
+        #endregion
+
+        #region Unidades
+        public static string Unidades_Insertar = "Segur.SP_Unidades_Insertar";
+        public static string Unidades_Listar = "Segur.SP_Unidades_Listar";
+        public static string Unidades_Cargar = "Segur.SP_Unidades_Cargar";
+        public static string Unidades_Actualizar = "Segur.SP_Unidades_Actualizar";
+        public static string Unidades_Delete = "Segur.SP_Unidades_Eliminar";
+        #endregion
 
         #endregion
     }
