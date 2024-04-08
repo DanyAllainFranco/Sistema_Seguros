@@ -17,19 +17,33 @@ namespace SegurosFYP.BusinessLogic.Services
         private readonly PersonaRepository _personaRepository;
         private readonly IdentificacionRepository _identificacionRepository;
         private readonly InformacionMedicaRepository _informacionMedicaRepository;
-        public GeneralServices(DepartamentoRepository departamentoRepository ,EstadoCivilRepository estadoCivilRepository , PersonaRepository personaRepository,IdentificacionRepository identificacionRepository , InformacionMedicaRepository informacionMedicaRepository)
+        private readonly EnfermedadRepository _enfermedadRepository;
+        private readonly FrecuenciaRepository _frecuenciaRepository;
+        private readonly MunicipioRepository _municipioRepository;
+        private readonly PaisRepository _paisRepository;
+        private readonly ParentescoRepository _parentescoRepository;
+        private readonly TipoArticuloMedicoRepository _tipoArticuloMedicoRepository;
+        private readonly TiposIdentificacionesRepository _tiposIdentificacionesRepository;
+
+        public GeneralServices(TiposIdentificacionesRepository tiposIdentificacionesRepository,TipoArticuloMedicoRepository tipoArticuloMedicoRepository,ParentescoRepository parentescoRepository,PaisRepository paisRepository , DepartamentoRepository departamentoRepository ,EstadoCivilRepository estadoCivilRepository , PersonaRepository personaRepository,IdentificacionRepository identificacionRepository , InformacionMedicaRepository informacionMedicaRepository , EnfermedadRepository enfermedadRepository , FrecuenciaRepository frecuenciaRepository,MunicipioRepository municipioRepository)
         {
             _departamentoRepository = departamentoRepository;
             _estadoCivilRepository = estadoCivilRepository;
             _personaRepository = personaRepository;
             _identificacionRepository = identificacionRepository;
             _informacionMedicaRepository = informacionMedicaRepository;
-
+            _enfermedadRepository = enfermedadRepository;
+            _frecuenciaRepository = frecuenciaRepository;
+            _municipioRepository = municipioRepository;
+            _paisRepository = paisRepository;
+            _parentescoRepository = parentescoRepository;
+            _tipoArticuloMedicoRepository = tipoArticuloMedicoRepository;
+            _tipoArticuloMedicoRepository = tipoArticuloMedicoRepository;
         }
 
         #region Departamentos
-   
-            public ServiceResult ListDepar()
+
+        public ServiceResult ListDepar()
             {
                 var result = new ServiceResult();
                 try
@@ -231,6 +245,7 @@ namespace SegurosFYP.BusinessLogic.Services
                 return result.Error(ex.Message);
             }
         }
+        #endregion
 
         #region Identificacion
         public ServiceResult ListIdent()
@@ -300,12 +315,12 @@ namespace SegurosFYP.BusinessLogic.Services
             }
         }
 
-        public ServiceResult DeleteIdent(tbIdentificaciones item)
+        public ServiceResult DeleteIdent(int Ident_Id)
         {
             var result = new ServiceResult();
             try
             {
-                var lost = _identificacionRepository.Delete(item);
+                var lost = _identificacionRepository.Delete(Ident_Id);
                 if (lost.CodeStatus > 0)
                 {
                     return result.Ok(lost);
@@ -321,6 +336,37 @@ namespace SegurosFYP.BusinessLogic.Services
             }
         }
 
+        public ServiceResult CargarIdent(int Ident_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _identificacionRepository.find(Ident_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult DetallesIdent(int Ident_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _identificacionRepository.DetailsIdent(Ident_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
         #endregion
 
         #region Persona
@@ -491,8 +537,781 @@ namespace SegurosFYP.BusinessLogic.Services
             }
         }
 
-        #endregion 
         #endregion
+        
+        #region Enfermedad
+
+        public ServiceResult ListEnfermedad()
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _enfermedadRepository.List();
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        public ServiceResult InsertEnfermedad(tbEnfermedades item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _enfermedadRepository.Insert(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult UpdateEnfermedad(tbEnfermedades item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _enfermedadRepository.Update(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult DeleteEnfermedad(int Enfer_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _enfermedadRepository.Delete(Enfer_Id);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult CargarEnfermedad(int Enfer_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _enfermedadRepository.find(Enfer_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult DetallesEnfermedad(int Enfer_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _enfermedadRepository.Details(Enfer_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        #endregion
+
+
+        #region Frecuencia
+        public ServiceResult ListFrecuencia()
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _frecuenciaRepository.List();
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        public ServiceResult InsertFrecuencia(tbFrecuencias item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _frecuenciaRepository.Insert(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult UpdateFrecuencia(tbFrecuencias item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _frecuenciaRepository.Update(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult DeleteFrecuencia(int Frecu_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _frecuenciaRepository.Delete(Frecu_Id);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult CargarFrecuencia(int Frecu_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _frecuenciaRepository.find(Frecu_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult DetallesFrecuencia(int Frecu_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _frecuenciaRepository.Details(Frecu_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        #endregion
+
+        #region Municipio
+        public ServiceResult ListMunicipio()
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _municipioRepository.List();
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        public ServiceResult InsertMunicipio(tbMunicipios item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _municipioRepository.Insert(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult UpdateMunicipio(tbMunicipios item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _municipioRepository.Update(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult DeleteMunicipio(string Munic_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _municipioRepository.Delete(Munic_Id);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult CargarMunicipio(string Munic_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _municipioRepository.find(Munic_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult DetallesMunicipio(string Munic_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _municipioRepository.Details(Munic_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        #endregion
+
+        #region Pais
+        public ServiceResult ListPais()
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _paisRepository.List();
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        public ServiceResult InsertPais(tbPaises item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _paisRepository.Insert(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult UpdatePais(tbPaises item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _paisRepository.Update(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult DeletePais(int Paise_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _paisRepository.Delete(Paise_Id);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult CargarPais(int Paise_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _paisRepository.find(Paise_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult DetallesPais(int Paise_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _paisRepository.Details(Paise_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region Parentesco
+        public ServiceResult ListParentesco()
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _parentescoRepository.List();
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        public ServiceResult InsertParentesco(tbParentescos item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _parentescoRepository.Insert(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult UpdateParentesco(tbParentescos item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _parentescoRepository.Update(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult DeleteParentesco(int Paren_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _parentescoRepository.Delete(Paren_Id);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult CargarParentesco(int Paren_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _parentescoRepository.find(Paren_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult DetallesParentesco(int Paren_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _parentescoRepository.Details(Paren_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        #endregion
+
+        #region TipoArticuloMedico
+        public ServiceResult ListTipoArticuloMedico()
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _tipoArticuloMedicoRepository.List();
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        public ServiceResult InsertTipoArticuloMedico(tbTipoArticuloMedico item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _tipoArticuloMedicoRepository.Insert(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult UpdateTipoArticuloMedico(tbTipoArticuloMedico item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _tipoArticuloMedicoRepository.Update(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult DeleteTipoArticuloMedico(int Tarme_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _tipoArticuloMedicoRepository.Delete(Tarme_Id);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult CargarTipoArticuloMedico(int Tarme_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _tipoArticuloMedicoRepository.find(Tarme_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult DetallesTipoArticuloMedico(int Tarme_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _tipoArticuloMedicoRepository.Details(Tarme_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        #endregion
+
+        #region TiposIdentificaciones
+        public ServiceResult ListTiposIdentificaciones()
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _tiposIdentificacionesRepository.List();
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        public ServiceResult InsertTiposIdentificaciones(tbTiposIdentificaciones item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _tiposIdentificacionesRepository.Insert(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult UpdateTiposIdentificaciones(tbTiposIdentificaciones item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _tiposIdentificacionesRepository.Update(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult DeleteTiposIdentificaciones(int Tiden_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _tiposIdentificacionesRepository.Delete(Tiden_Id);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult CargarTiposIdentificaciones(int Tiden_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _tiposIdentificacionesRepository.find(Tiden_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult DetallesTiposIdentificaciones(int Tiden_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _tiposIdentificacionesRepository.Details(Tiden_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        #endregion
+
     }
 
 }

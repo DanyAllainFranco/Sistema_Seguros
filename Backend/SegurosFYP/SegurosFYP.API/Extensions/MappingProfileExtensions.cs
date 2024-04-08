@@ -21,6 +21,17 @@ namespace SegurosFYP.API.Extensions
             CreateMap<IdentificacionViewModel, tbIdentificaciones>().ReverseMap();
             CreateMap<PolizaViewModel, tbPolizas>().ReverseMap();
             CreateMap<EstadoCivilViewModel, tbEstadosCiviles>().ReverseMap();
+            CreateMap<EnfermadViewModel,tbEnfermedades>().ReverseMap();
+            CreateMap<MunicipioViewModel, tbMunicipios>().ReverseMap();
+            CreateMap<PaisesViewModel, tbPaises>().ReverseMap();
+            CreateMap<ParentescoViewModel, tbParentescos>().ReverseMap();
+            CreateMap<TipoArticuloMedicoViewModel, tbTipoArticuloMedico>().ReverseMap();
+            CreateMap<CargosViewModel, tbCargos>().ReverseMap();
+            CreateMap<CausaAtencionMedicaViewModel, tbCausaAtencionMedica>().ReverseMap();
+            CreateMap<CoberturaViewModel, tbCoberturas>().ReverseMap();
+            CreateMap<EmpleadoViewModel, tbEmpleados>().ReverseMap();
+            CreateMap<UnidadViewModel, tbUnidades>().ReverseMap();
+
         }
     }
 }

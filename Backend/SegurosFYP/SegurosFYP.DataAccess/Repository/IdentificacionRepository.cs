@@ -13,17 +13,14 @@ namespace SegurosFYP.DataAccess.Repository
 {
     public class IdentificacionRepository : IRepository<tbIdentificaciones>
     {
-        public RequestStatus Delete(tbIdentificaciones item)
+        public RequestStatus Delete(int Ident_Id)
         {
             string sql = ScriptsBaseDeDatos.Ident_Eliminar;
 
             using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
             {
                 var parameter = new DynamicParameters();
-                parameter.Add("@Ident_Id", item.Ident_Id);
-
-                parameter.Add("@Ident_UsuarioModificacion", 1 /*HttpContext.Session.GetSession("Usuar_Id")*/);
-                parameter.Add("@Ident_FechaModificacion", DateTime.Now);
+                parameter.Add("@Ident_Id", Ident_Id);
 
                 var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
 
@@ -32,11 +29,7 @@ namespace SegurosFYP.DataAccess.Repository
             //throw new NotImplementedException();
         }
 
-        public tbIdentificaciones Details(int? id)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public tbIdentificaciones find(int? id)
         {
             throw new NotImplementedException();
@@ -66,7 +59,16 @@ namespace SegurosFYP.DataAccess.Repository
 
         public IEnumerable<tbIdentificaciones> List()
         {
-            throw new NotImplementedException();
+            string sql = ScriptsBaseDeDatos.Identificacion_Listar;
+
+            List<tbIdentificaciones> result = new List<tbIdentificaciones>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                result = db.Query<tbIdentificaciones>(sql, commandType: CommandType.Text).ToList();
+
+                return result;
+            }
         }
 
         public RequestStatus Update(tbIdentificaciones item)
@@ -103,6 +105,44 @@ namespace SegurosFYP.DataAccess.Repository
 
                 return list;
             }
+        }
+
+        public IEnumerable<tbIdentificaciones> find(int Ident_Id)
+        {
+            string sql = ScriptsBaseDeDatos.Identificacion_Cargar;
+
+            List<tbIdentificaciones> result = new List<tbIdentificaciones>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                var parameters = new { Ident_Id };
+                result = db.Query<tbIdentificaciones>(sql, parameters, commandType: CommandType.StoredProcedure).ToList();
+                return result;
+            }
+        }
+
+        public IEnumerable<tbIdentificaciones> DetailsIdent(int? Ident_Id)
+        {
+            string sql = ScriptsBaseDeDatos.Identificacion_Cargar;
+
+            List<tbIdentificaciones> result = new List<tbIdentificaciones>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                var parameters = new { Ident_Id };
+                result = db.Query<tbIdentificaciones>(sql, parameters, commandType: CommandType.StoredProcedure).ToList();
+                return result;
+            }
+        }
+
+        tbIdentificaciones IRepository<tbIdentificaciones>.Details(int? id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public RequestStatus Delete(tbIdentificaciones item)
+        {
+            throw new NotImplementedException();
         }
     }
 }
