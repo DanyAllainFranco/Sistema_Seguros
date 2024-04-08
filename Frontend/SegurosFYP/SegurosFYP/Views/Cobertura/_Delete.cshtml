@@ -1,0 +1,23 @@
+﻿@model SegurosFYP.Models.CoberturaViewModel
+
+        @{
+        ViewData["Title"] = "_Delete";
+        ViewData["ModelName"] = "CoberturaViewModel".Replace("ViewModel","");
+        }
+        <h3>Estas seguro que deseas eliminar este registro?</h3>
+            <div class="modal-footer">
+                <hr />
+                <form asp-action="Delete" asp-controller="Cobertura">
+                    <input type="hidden" name="Cober_Id" id="id" />
+                    <div class="d-flex justify-content-end" style="gap:5px;">
+                        <input type="submit" value="Eliminar" class="btn btn-danger" />
+                        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+            <script>
+                function ObtenerID(id) {
+                    console.log("si entra" + id);
+                    $("#id").val(id);
+                }
+            </script>

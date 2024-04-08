@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yJ37Kc6P/7/jxJX+j7/mSejQ7OVjHnnqcU4mx7wvjH8Ca/27YKFUdP8mlprBA+hoq0SM2cU6vmsEd8cBKxcvPA==",
+  "dgSpecHash": "A4PdeBFxEubKkMNwx4sLQdeyrhLZGGt4vFKHO2NPC8YF0SA/RDltDF6zti29SMaeIJ7uuAre/tKKj5Lm6Ng/HQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LAB1\\Desktop\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\SegurosFYP.csproj",
+  "projectFilePath": "C:\\Users\\LAB1\\Desktop\\Proyecto_Dany\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\SegurosFYP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LAB1\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\LAB1\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.0.0\\microsoft.aspnetcore.hosting.abstractions.2.0.0.nupkg.sha512",
