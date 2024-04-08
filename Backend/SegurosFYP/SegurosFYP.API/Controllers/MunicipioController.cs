@@ -36,7 +36,8 @@ namespace SegurosFYP.API.Controllers
             var modelo = new tbMunicipios()
             {
                 Munic_Id = item.Munic_Id,
-                Munic_Descripcion = item.Munic_Descripcion
+                Munic_Descripcion = item.Munic_Descripcion,
+                Depar_Id = item.Depar_Id
                 //Depar_UsuarioCreacion = 1,
                 //Depar_FechaCreacion = item.Depar_FechaCreacion
             };
@@ -51,7 +52,9 @@ namespace SegurosFYP.API.Controllers
             var modelo = new tbMunicipios()
             {
                 Munic_Id = item.Munic_Id,
-                Munic_Descripcion = item.Munic_Descripcion
+                Munic_Descripcion = item.Munic_Descripcion,
+                Depar_Id = item.Depar_Id
+
                 //Depar_UsuarioModificacion = item.Depar_UsuarioModificacion,
                 //Depar_FechaModificacion = item.Depar_FechaModificacion
             };

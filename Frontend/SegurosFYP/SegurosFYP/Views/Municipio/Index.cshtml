@@ -4,15 +4,17 @@
     ViewData["Title"] = "Index";
     ViewData["ModelName"] = "MunicipioViewModel".Replace("ViewModel","");
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 <div class="card-header">
     <h1>@ViewData["ModelName"]</h1>
 
     <p>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-folder-plus"></i>Nuevo</button>
+        @*<a asp-action="Create" class="btn btn-primary"><i class="mdi mdi-folder-plus"></i>Nuevo</a>*@
+        <button type="button" asp-action="Create" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-folder-plus"></i>Nuevo</button>
     </p>
 </div>
-<table class="table table-responsive table-bordered" id="Example">
+<table class="table table-bordered" id="Example">
     <thead>
         <tr>
                     <th>
@@ -23,8 +25,9 @@
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Depar_Descripcion)
-                    </th>
-            <th></th>
+                    </th>    
+                     <th></th>
+          
         </tr>
     </thead>
     <tbody>
@@ -39,11 +42,17 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Depar_Descripcion)
                     </td>
+                    <td>
+                        <a asp-route-id="@item.Munic_Id" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-id="@item.Munic_Id"><i class="bi bi-pencil"></i>Editar</a>
+                        <a href="@Url.Action("Details","Municipio", new {Munic_Id = item.Munic_Id})" class="btn btn-warning"><i class="bi bi-eye"></i>Detalles</a>
+                        <a asp-route-id="@item.Munic_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Munic_Id')"><i class="bi bi-trash"></i>Eliminar</a>
+
+                    </td>               
         </tr>
 }
     </tbody>
 </table>
-@*<div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -87,25 +96,29 @@
                 </div>                     
             </div>
         </div>
-    </div>*@
+    </div>
 <script>
-    var url = 'https://localhost:44327/api/Municipio/Cargar/Municipio?Munic_Id=' + id;
-        document.querySelectorAll('.FetchData').forEach(item => {
-            item.addEventListener('click', function () {
-                var id = this.getAttribute('data-id');
-                console.log(id);
-                fetchData(id);
-            });
-        });
-        function fetchData(id) {
+
+
+    document.querySelectorAll('.FetchData').forEach(item => {
+        item.addEventListener('click', function () {
+            var id = this.getAttribute('data-id');
             console.log(id);
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                                document.getElementById('Munic_Id').value = data.data[0].Munic_Id;
-                                document.getElementById('Munic_Descripcion').value = data.data[0].Munic_Descripcion;
-                                document.getElementById('Depar_Id').value = data.data[0].Depar_Id;
-                })
-                .catch(error => console.error('Hubo un error:', error));
-        }
+            fetchData(id);
+        });
+    });
+    function fetchData(id) {
+        console.log(id);
+        fetch('https://localhost:44327/api/Municipio/Cargar/Municipio?Munic_Id=' + id)
+            .then(response => response.json())
+            .then(data => {
+                var dany = JSON.stringify(data.data);
+                document.getElementById('Munic_Id').value = data.data[0].munic_Id;
+                document.getElementById('Munic_Descripcion').value = data.data[0].munic_Descripcion;
+                document.getElementById('Depar_Id').value = data.data[0].depar_Id;
+
+            })
+            .catch(error => console.error('Hubo un error:', error));
+    }
+
     </script>
