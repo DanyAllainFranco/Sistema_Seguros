@@ -9,15 +9,17 @@ namespace SegurosFYP.Models
     public class DependienteViewModel
     {
         [Required]
-
+        [Display(Name = "Primer Nombre")]
         public string[] Perso_PrimerNombre { get; set; }
+        [Display(Name = "Segundo Nombre")]
         public string[] Perso_SegundoNombre { get; set; }
         [Required]
-
+        [Display(Name = "Primer Apellido")]
         public string[] Perso_PrimerApellido { get; set; }
+        [Display(Name = "Segundo Apellido")]
         public string[] Perso_SegundoApellido { get; set; }
         [Required]
-
+        [Display(Name = "Sexo")]
         public string[] Perso_Sexo { get; set; }
         [Required]
 
@@ -26,7 +28,7 @@ namespace SegurosFYP.Models
 
         public int Poliz_Id { get; set; }
         [Required]
-
+        [Display(Name = "Parentesco")]
         public int[] Paren_Id { get; set; }
 
         public int Perso_UsuarioCreacion { get; set; }

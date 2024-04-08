@@ -11,21 +11,22 @@ namespace SegurosFYP.Models
     {
         public int Poliz_Id { get; set; }
         [Required]
+        [Display(Name = "Contractor")]
         public int Clien_Id { get; set; }
         [Required]
-
+        [Display(Name = "Tipos de Planes")]
         public int Tipos_Id { get; set; }
         [Required]
-
+        [Display(Name = "Empleados")]
         public int Emple_Id { get; set; }
         [Required]
-
+        [Display(Name = "Cantidad de Cuotas")]
         public int Poliz_Cuotas { get; set; }
         [Required]
-
+        [Display(Name = "Tipo de Pago")]
         public bool Poliz_TipoPago { get; set; }
         [Required]
-
+        [Display(Name = "Estado de Cuota")]
         public bool Poliz_EstadoCuotasPoliza { get; set; }
 
         public int Poliz_UsuarioCreacion { get; set; }
