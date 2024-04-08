@@ -30,7 +30,7 @@ namespace SegurosFYP.Models
         [Display(Name = "Telefono")]
         public string Perso_Telefono { get; set; }
         [Required]
-        [Display(Name = "correo Electronico")]
+        [Display(Name = "Correo Electronico")]
         public string Perso_CorreoElectronico { get; set; }
         [Required]
         [Display(Name = "Direccion")]

@@ -29,7 +29,9 @@ namespace SegurosFYP.Common.Models
         [NotMapped]
 
         public string Cargo_Descripcion { get; set; }
-
+        [NotMapped]
+        public string Perso_NombreCompleto { get; set; }
+        
         public int Emple_UsuarioCreacion { get; set; }
         public DateTime Emple_FechaCreacion { get; set; }
         public int? Emple_UsuarioModificacion { get; set; }

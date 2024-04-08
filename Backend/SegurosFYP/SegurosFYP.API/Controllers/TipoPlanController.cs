@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace SegurosFYP.API.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class TipoPlanController : Controller
     {
         private readonly InsuranceServices _insuranceServices;
@@ -18,14 +20,15 @@ namespace SegurosFYP.API.Controllers
             _insuranceServices = insuranceServices;
             _mapper = mapper;
         }
+        [HttpGet("List/TipoPlan")]
         public IActionResult Index()
         {
             return View();
         }
         [HttpGet("DropDownList/TipoPlan")]
-        public IActionResult DropDownList()
+        public IActionResult DropDownLists()
         {
-            var list = _insuranceServices.DropDownListEmple();
+            var list = _insuranceServices.DropDownListTipo();
 
             return Ok(list);
         }

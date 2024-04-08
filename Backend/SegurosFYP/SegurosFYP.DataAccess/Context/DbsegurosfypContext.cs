@@ -1023,10 +1023,6 @@ namespace SegurosFYP.DataAccess.Context
 
                 entity.Property(e => e.Tipos_CentroAmerica).HasColumnType("numeric(10, 2)");
 
-                entity.Property(e => e.Tipos_CentroamericaDentroRedProveedores).HasColumnType("numeric(10, 2)");
-
-                entity.Property(e => e.Tipos_CentroamericaFueraRedProveedores).HasColumnType("numeric(10, 2)");
-
                 entity.Property(e => e.Tipos_CoberturaPorSidaMaximoVitalicio).HasColumnType("numeric(10, 2)");
 
                 entity.Property(e => e.Tipos_CuartoAlimentacionDentroCA).HasColumnType("numeric(10, 2)");
@@ -1045,9 +1041,6 @@ namespace SegurosFYP.DataAccess.Context
 
                 entity.Property(e => e.Tipos_FueraCentroAmerica).HasColumnType("numeric(10, 2)");
 
-                entity.Property(e => e.Tipos_FueraCentroamericaDentroRedProveedores).HasColumnType("numeric(10, 2)");
-
-                entity.Property(e => e.Tipos_FueraCentroamericaFueraRedProveedores).HasColumnType("numeric(10, 2)");
 
                 entity.Property(e => e.Tipos_GastosFunebresDependientes).HasColumnType("numeric(10, 2)");
 

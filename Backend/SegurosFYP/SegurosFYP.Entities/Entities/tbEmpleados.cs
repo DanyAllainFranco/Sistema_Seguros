@@ -43,6 +43,8 @@ namespace SegurosFYP.Entities.Entities
         public string Perso_Sexo { get; set; }
         [NotMapped]
         public string Cargo_Descripcion { get; set; }
+        [NotMapped]
+        public string Perso_NombreCompleto { get; set; }
 
     }
 }

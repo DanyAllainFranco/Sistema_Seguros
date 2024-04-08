@@ -76,6 +76,13 @@ namespace SegurosFYP.API.Controllers
 
             return Ok(list);
         }
+        [HttpGet("DropDownList/Municipio")]
+        public IActionResult DropDownList(string Depar_Id)
+        {
+            var list = _generalServices.DropDownListMunic(Depar_Id);
+
+            return Ok(list);
+        }
 
         [HttpGet("Detalles/Municipio")]
         public IActionResult DetallesMunicipio(string Munic_Id)

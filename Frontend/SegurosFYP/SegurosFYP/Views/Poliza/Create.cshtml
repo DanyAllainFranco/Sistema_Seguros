@@ -66,14 +66,21 @@
                     <input asp-for="Cliente.Perso_CorreoElectronico" class="form-control" />
                     <span asp-validation-for="Cliente.Perso_CorreoElectronico" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-10">
                     <label asp-for="Cliente.Perso_Direccion" class="control-label"></label>
                     <input asp-for="Cliente.Perso_Direccion" class="form-control" />
                     <span asp-validation-for="Cliente.Perso_Direccion" class="text-danger"></span>
                 </div>
                 <div class="form-group col-sm-5">
+                    <label  class="control-label">Departamento</label>
+                    <select id="Depar_Id" name="Depar_Id" onchange="ddlMunicipio()" class="form-control"></select>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-5">
                     <label asp-for="Cliente.Munic_Id" class="control-label"></label>
-                    <select asp-for="Cliente.Munic_Id" class="form-control"></select>
+                    <select asp-for="Cliente.Munic_Id" class="form-control">
+                        <option value="0">Seleccione una opcion</option>
+                    </select>
                     <span asp-validation-for="Cliente.Munic_Id" class="text-danger"></span>
                 </div>
                 <div class="form-group col-sm-5">
@@ -92,7 +99,7 @@
             <div class="d-flex justify-content-center flex-wrap">
                 <div class="form-group col-sm-5">
                     <label asp-for="Identificacion.Tiden_Id" class="control-label"></label>
-                    <input asp-for="Identificacion.Tiden_Id[0]" class="form-control" />
+                    <select asp-for="Identificacion.Tiden_Id[0]" class="form-control" ></select>
                     <span asp-validation-for="Identificacion.Tiden_Id" class="text-danger"></span>
                 </div>
                 <div class="form-group col-sm-5">
@@ -213,20 +220,33 @@
 
         <h1>Seleccionar plan</h1>
         <fieldset style="overflow-y:auto">
-            <div class="form-group col-sm-5">
-                <label asp-for="Poliza.Tipos_Id" class="control-label"></label>
-                <select asp-for="Poliza.Tipos_Id" class="form-control"></select>
-                <span asp-validation-for="Poliza.Tipos_Id" class="text-danger"></span>
-            </div>
-            <div class="form-group col-sm-5">
-                <label asp-for="Poliza.Poliz_Cuotas" class="control-label"></label>
-                <input asp-for="Poliza.Poliz_Cuotas" class="form-control" />
-                <span asp-validation-for="Poliza.Poliz_Cuotas" class="text-danger"></span>
-            </div>
-            <div class="form-group col-sm-5">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Poliza.Poliz_TipoPago" /> @Html.DisplayNameFor(model => model.Poliza.Poliz_TipoPago)
-                </label>
+            <div class="d-flex justify-content-center flex-wrap">
+                @foreach(var item in Model.TiposdePlan)
+            {
+                <div class="card mb-5 mb-lg-0 ideal" aria-hidden="false">
+                    <div class="card-body cardscroll" aria-hidden="false">
+                        <h5 class="card-title text-uppercase text-center negrita">@Html.DisplayFor(model => item.Tipos_Descripcion)</h5>
+                        <div class="dividerLineMedium mb-3" aria-hidden="false"></div>
+                        <button class="btn btn-danger btn-block" id="btnIdeal">Seleccionar</button>
+                        
+                    </div>
+                </div>
+            }
+                <div class="form-group col-sm-5">
+                    <label asp-for="Poliza.Tipos_Id" class="control-label"></label>
+                    <select asp-for="Poliza.Tipos_Id" class="form-control"></select>
+                    <span asp-validation-for="Poliza.Tipos_Id" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-5">
+                    <label asp-for="Poliza.Poliz_Cuotas" class="control-label"></label>
+                    <input asp-for="Poliza.Poliz_Cuotas" class="form-control" />
+                    <span asp-validation-for="Poliza.Poliz_Cuotas" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-5">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Poliza.Poliz_TipoPago" /> @Html.DisplayNameFor(model => model.Poliza.Poliz_TipoPago)
+                    </label>
+                </div>
             </div>
         </fieldset>
     </form>
@@ -258,7 +278,6 @@
             fetch('https://localhost:44327/api/parentesco/List/Parentesco')
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data, "data")
                     var options = '<option value="0">Seleccione una opcion</option>';
                     $.each(data.data, function (key, value) {
                         //console.log(value.paren_Id, "data.data")
@@ -271,20 +290,103 @@
                 })
                 .catch(error => console.error('Hubo un error:', error));
 
-        fetch('https://localhost:44327/api/empleado/DropDownList/Empleado')
+        fetch('https://localhost:44327/api/empleado/DropDownList/Empleados')
             .then(response => response.json())
             .then(data => {
-                console.log(data, "data")
                 var options = '<option value="0">Seleccione una opcion</option>';
                 $.each(data.data, function (key, value) {
-                    //console.log(value.paren_Id, "data.data")
-                    if (value.paren_Id != 1) {
-                        options += '<option value="' + value.paren_Id + '">' + value.paren_Descripcion + '</option>';
-                    }
+                    console.log(value.emple_Id, "data.data")
+                        options += '<option value="' + value.emple_Id + '">' + value.perso_NombreCompleto + '</option>';
+                    
                 })
-                $("#DepenParen_Id").append(options);
+                $("#Poliza_Emple_Id").append(options);
             })
             .catch(error => console.error('Hubo un error:', error));
+
+        fetch('https://localhost:44327/api/estadocivil/List/EstadoCivil')
+            .then(response => response.json())
+            .then(data => {
+                var options = '<option value="0">Seleccione una opcion</option>';
+                $.each(data.data, function (key, value) {
+                    console.log(value.estad_Id, "data.data")
+                    if (value.estad_Id != 1) {
+                        options += '<option value="' + value.estad_Id + '">' + value.estad_Descripcion + '</option>';
+                    }
+                })
+                $("#Cliente_Estci_Id").append(options);
+            })
+            .catch(error => console.error('Hubo un error:', error));
+
+        fetch('https://localhost:44327/api/departamento/List/Departamentos')
+            .then(response => response.json())
+            .then(data => {
+                var options = '<option value="0">Seleccione una opcion</option>';
+                $.each(data.data, function (key, value) {
+                    console.log(value.depar_Id, "data.data")
+                    
+                    options += '<option value="' + value.depar_Id + '">' + value.depar_Descripcion + '</option>';
+                    
+                })
+                $("#Depar_Id").append(options);
+            })
+            .catch(error => console.error('Hubo un error:', error));
+
+        fetch('https://localhost:44327/api/pais/List/Pais')
+            .then(response => response.json())
+            .then(data => {
+                var options = '<option value="0">Seleccione una opcion</option>';
+                $.each(data.data, function (key, value) {
+                    console.log(value.paise_Id, "data.data")
+
+                    options += '<option value="' + value.paise_Id + '">' + value.paise_Nacionalidad+ '</option>';
+
+                })
+                $("#Cliente_Paise_Id").append(options);
+            })
+            .catch(error => console.error('Hubo un error:', error));
+
+        fetch('https://localhost:44327/api/tiposidentificaciones/List/TiposIdentificaciones')
+            .then(response => response.json())
+            .then(data => {
+                var options = '<option value="0">Seleccione una opcion</option>';
+                $.each(data.data, function (key, value) {
+                    console.log(value.tiden_Id, "data.data")
+
+                    options += '<option value="' + value.tiden_Id + '">' + value.tiden_Descripcion+ '</option>';
+
+                })
+                $("#Identificacion_Tiden_Id_0_").append(options);
+            })
+            .catch(error => console.error('Hubo un error:', error));
+
+        fetch('https://localhost:44327/api/tiposidentificaciones/List/TiposIdentificaciones')
+            .then(response => response.json())
+            .then(data => {
+                var options = '<option value="0">Seleccione una opcion</option>';
+                $.each(data.data, function (key, value) {
+                    console.log(value.tiden_Id, "data.data")
+
+                    options += '<option value="' + value.tiden_Id + '">' + value.tiden_Descripcion + '</option>';
+
+                })
+                $("#DepenTiden_Id").append(options);
+            })
+            .catch(error => console.error('Hubo un error:', error));
+
+        fetch('https://localhost:44327/tipoplan/DropDownList/TipoPlan')
+            .then(response => response.json())
+            .then(data => {
+                var options = '<option value="0">Seleccione una opcion</option>';
+                $.each(data.data, function (key, value) {
+                    console.log(value.tipos_Id, "data.data")
+
+                    options += '<option value="' + value.tipos_Id + '">' + value.tipos_Descripcion + '</option>';
+
+                })
+                $("#Poliza_Tipos_Id").append(options);
+            })
+            .catch(error => console.error('Hubo un error:', error));
+
 
         $("#wizard").steps();
         $("#form").steps({
@@ -354,6 +456,29 @@
             }
         });
     });
+
+    function ddlMunicipio() {
+        console.log("entra")
+
+        var id = $('#Depar_Id').val()
+
+        console.log(id, "id")
+
+        fetch('https://localhost:44327/api/municipio/DropDownList/Municipio?Depar_Id' + id)
+            .then(response => response.json())
+            .then(data => {
+                console.log("fetch")
+                var options = '';
+                console.log(data,"data")
+                $.each(data.data, function (key, value) {
+                    console.log(value.munic_Id, "data.data")
+                    options += '<option value="' + value.munic_Id + '">' + value.munic_Descripcion + '</option>';
+
+                })
+                $("#Cliente_Munic_Id").append(options);
+            })
+            .catch(error => console.error('Hubo un error:', error));
+    }
 
     var index = 0;
 

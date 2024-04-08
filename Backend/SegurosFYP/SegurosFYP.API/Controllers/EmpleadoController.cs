@@ -64,7 +64,13 @@ namespace SegurosFYP.API.Controllers
             var list = _insuranceServices.DeleteEmpleados(Emple_Id);
             return Ok(list);
         }
+        [HttpGet("DropDownList/Empleados")]
+        public IActionResult DropDownList()
+        {
+            var list = _insuranceServices.DropDownListEmple();
 
+            return Ok(list);
+        }
         [HttpGet("Cargar/Empleados")]
         public IActionResult CargarEmpleados(int Emple_Id)
         {

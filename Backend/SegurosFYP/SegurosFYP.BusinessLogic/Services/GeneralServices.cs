@@ -25,7 +25,8 @@ namespace SegurosFYP.BusinessLogic.Services
         private readonly TipoArticuloMedicoRepository _tipoArticuloMedicoRepository;
         private readonly TiposIdentificacionesRepository _tiposIdentificacionesRepository;
 
-        public GeneralServices(TiposIdentificacionesRepository tiposIdentificacionesRepository,TipoArticuloMedicoRepository tipoArticuloMedicoRepository,ParentescoRepository parentescoRepository,PaisRepository paisRepository , DepartamentoRepository departamentoRepository ,EstadoCivilRepository estadoCivilRepository , PersonaRepository personaRepository,IdentificacionRepository identificacionRepository , InformacionMedicaRepository informacionMedicaRepository , EnfermedadRepository enfermedadRepository , FrecuenciaRepository frecuenciaRepository,MunicipioRepository municipioRepository)
+        public GeneralServices(TiposIdentificacionesRepository tiposIdentificacionesRepository,
+            TipoArticuloMedicoRepository tipoArticuloMedicoRepository,ParentescoRepository parentescoRepository,PaisRepository paisRepository , DepartamentoRepository departamentoRepository ,EstadoCivilRepository estadoCivilRepository , PersonaRepository personaRepository,IdentificacionRepository identificacionRepository , InformacionMedicaRepository informacionMedicaRepository , EnfermedadRepository enfermedadRepository , FrecuenciaRepository frecuenciaRepository,MunicipioRepository municipioRepository)
         {
             _departamentoRepository = departamentoRepository;
             _estadoCivilRepository = estadoCivilRepository;
@@ -38,7 +39,8 @@ namespace SegurosFYP.BusinessLogic.Services
             _paisRepository = paisRepository;
             _parentescoRepository = parentescoRepository;
             _tipoArticuloMedicoRepository = tipoArticuloMedicoRepository;
-            _tipoArticuloMedicoRepository = tipoArticuloMedicoRepository;
+            _tiposIdentificacionesRepository = tiposIdentificacionesRepository;
+             
         }
 
         #region Departamentos
@@ -837,7 +839,7 @@ namespace SegurosFYP.BusinessLogic.Services
                 return result.Error(ex.Message);
             }
         }
-
+       
         public ServiceResult CargarMunicipio(string Munic_Id)
         {
             var result = new ServiceResult();
@@ -858,7 +860,7 @@ namespace SegurosFYP.BusinessLogic.Services
             var result = new ServiceResult();
             try
             {
-                var lost = _municipioRepository.find(Depar_Id);
+                var lost = _municipioRepository.DropDownList(Depar_Id);
 
                 return result.Ok(lost);
 
