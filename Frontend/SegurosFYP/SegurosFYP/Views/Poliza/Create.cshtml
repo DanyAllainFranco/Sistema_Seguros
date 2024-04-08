@@ -368,21 +368,6 @@
             })
             .catch(error => console.error('Hubo un error:', error));
 
-        fetch('https://localhost:44327/tipoplan/DropDownList/TipoPlan')
-            .then(response => response.json())
-            .then(data => {
-                var options = '<option value="0">Seleccione una opcion</option>';
-                $.each(data.data, function (key, value) {
-                    console.log(value.tipos_Id, "data.data")
-
-                    options += '<option value="' + value.tipos_Id + '">' + value.tipos_Descripcion + '</option>';
-
-                })
-                $("#Poliza_Tipos_Id").append(options);
-            })
-            .catch(error => console.error('Hubo un error:', error));
-
-
         $("#wizard").steps();
         $("#form").steps({
             bodyTag: "fieldset",
