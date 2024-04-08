@@ -22,7 +22,18 @@ namespace SegurosFYP.DataAccess.Repository
         {
             throw new NotImplementedException();
         }
+        public IEnumerable<tbTiposPlanes> DropDownList()
+        {
+            string sql = ScriptsBaseDeDatos.TiposPlan_DropDownList;
 
+            List<tbTiposPlanes> result = new List<tbTiposPlanes>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                result = db.Query<tbTiposPlanes>(sql, commandType: CommandType.StoredProcedure).ToList();
+                return result;
+            }
+        }
         public tbTiposPlanes find(int? id)
         {
             throw new NotImplementedException();

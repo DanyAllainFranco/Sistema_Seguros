@@ -47,7 +47,19 @@ namespace SegurosFYP.DataAccess.Repository
                 return result;
             }
         }
+        public IEnumerable<tbMunicipios> DropDownList(string Depar_Id)
+        {
+            string sql = ScriptsBaseDeDatos.Municipios_DropDownList;
 
+            List<tbMunicipios> result = new List<tbMunicipios>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                var parameters = new { Depar_Id };
+                result = db.Query<tbMunicipios>(sql, parameters, commandType: CommandType.StoredProcedure).ToList();
+                return result;
+            }
+        }
         public IEnumerable<tbMunicipios> find(string Munic_Id)
         {
             string sql = ScriptsBaseDeDatos.Municipios_Cargar;

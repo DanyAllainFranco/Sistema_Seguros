@@ -116,13 +116,6 @@
 /* === Import template variables === */
 /*-------------------------------------------------------------------*/
 /* === SCSS Compass Functions === */
-/* Double-color dashed line */
-
-hr.style-three {
-    border: 0;
-    border-bottom: 1px dashed #ccc;
-    background: #999;
-}
 @-moz-keyframes flash {
   0% {
     opacity: 1;
@@ -28202,7 +28195,6 @@ div.tagsinput span.tag a {
 }
 
 .wizard > .content > .body input {
-  display: block;
   border: 1px solid #CED4DA;
 }
 

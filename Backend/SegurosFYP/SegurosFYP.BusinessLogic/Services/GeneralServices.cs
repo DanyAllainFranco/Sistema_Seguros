@@ -853,7 +853,21 @@ namespace SegurosFYP.BusinessLogic.Services
                 return result.Error(ex.Message);
             }
         }
+        public ServiceResult DropDownListMunic(string Depar_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _municipioRepository.find(Depar_Id);
 
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
         public ServiceResult DetallesMunicipio(string Munic_Id)
         {
             var result = new ServiceResult();
@@ -1058,7 +1072,7 @@ namespace SegurosFYP.BusinessLogic.Services
                 return result.Error(ex.Message);
             }
         }
-
+        
         public ServiceResult CargarParentesco(int Paren_Id)
         {
             var result = new ServiceResult();

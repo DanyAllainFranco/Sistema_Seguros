@@ -105,6 +105,7 @@ namespace SegurosFYP.DataAccess.Repository
         public static string Municipios_Insertar = "Gral.SP_Municipios_Insertar";
         public static string Municipios_Listar = "Gral.SP_Municipios_Listar";
         public static string Municipios_Cargar = "Gral.SP_Municipios_Cargar";
+        public static string Municipios_DropDownList = "Gral.SP_Municipios_DropDownList";
         public static string Municipios_Actualizar = "Gral.SP_Municipios_Actualizar";
         public static string Municipios_Delete = "Gral.SP_Municipios_Eliminar";
         #endregion
@@ -157,6 +158,7 @@ namespace SegurosFYP.DataAccess.Repository
         public static string Empleados_Insertar = "Segur.SP_Empleados_Insertar";
         public static string Empleados_Listar = "Segur.SP_Empleados_Listar";
         public static string Empleados_Cargar = "Segur.SP_Empleados_Cargar";
+        public static string Empleados_DropDownList = "Segur.SP_Empleados_DropDownList";
         public static string Empleados_Actualizar = "Segur.SP_Empleados_Actualizar";
         public static string Empleados_Delete = "Segur.SP_Empleados_Eliminar";
         #endregion
@@ -167,6 +169,11 @@ namespace SegurosFYP.DataAccess.Repository
         public static string Unidades_Cargar = "Segur.SP_Unidades_Cargar";
         public static string Unidades_Actualizar = "Segur.SP_Unidades_Actualizar";
         public static string Unidades_Delete = "Segur.SP_Unidades_Eliminar";
+        #endregion
+
+        #region TipoPlan
+        public static string TiposPlan_DropDownList = "Segur.SP_TiposPlan_DropDownList";
+
         #endregion
 
         #endregion

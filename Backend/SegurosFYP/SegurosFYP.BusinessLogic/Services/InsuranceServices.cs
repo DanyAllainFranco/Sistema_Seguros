@@ -16,13 +16,18 @@ namespace SegurosFYP.BusinessLogic.Services
         private readonly CoberturaRepository _coberturaRepository;
         private readonly EmpleadoRepository _empleadoRepository;
         private readonly UnidadRepository _unidadRepository;
-        public InsuranceServices( UnidadRepository unidadRepository,EmpleadoRepository empleadoRepository,CoberturaRepository coberturaRepository,CargoRepository cargoRepository , CausaAtencionMedicaRepository causaAtencionMedicaRepository)
+        private readonly TipoPlanRepository _tipoPlanRepository;
+
+        public InsuranceServices( UnidadRepository unidadRepository,EmpleadoRepository empleadoRepository,
+                                    CoberturaRepository coberturaRepository,CargoRepository cargoRepository , 
+                                    CausaAtencionMedicaRepository causaAtencionMedicaRepository, TipoPlanRepository tipoPlanRepository)
         {
             _cargoRepository = cargoRepository;
             _causaAtencionMedicaRepository = causaAtencionMedicaRepository;
             _coberturaRepository = coberturaRepository;
             _empleadoRepository = empleadoRepository;
             _unidadRepository = unidadRepository;
+            _tipoPlanRepository = tipoPlanRepository;
         }
         
         #region Cargo
@@ -322,7 +327,21 @@ namespace SegurosFYP.BusinessLogic.Services
                 return result.Error(ex.Message);
             }
         }
+        public ServiceResult DropDownListEmple()
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _empleadoRepository.DropDownList();
 
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
         public ServiceResult CargarEmpleados(int Emple_Id)
         {
             var result = new ServiceResult();
@@ -565,6 +584,24 @@ namespace SegurosFYP.BusinessLogic.Services
             try
             {
                 var lost = _unidadRepository.Details(Unida_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        #endregion
+
+        #region
+        public ServiceResult DropDownListTipo()
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _tipoPlanRepository.DropDownList();
 
                 return result.Ok(lost);
 

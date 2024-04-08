@@ -46,7 +46,6 @@ namespace SegurosFYP.DataAccess.Repository
                 return result;
             }
         }
-
         public IEnumerable<tbParentescos> find(int Paren_Id)
         {
             string sql = ScriptsBaseDeDatos.Parentescos_Cargar;

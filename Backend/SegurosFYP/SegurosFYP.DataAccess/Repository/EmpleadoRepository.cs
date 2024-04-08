@@ -46,7 +46,18 @@ namespace SegurosFYP.DataAccess.Repository
                 return result;
             }
         }
+        public IEnumerable<tbEmpleados> DropDownList()
+        {
+            string sql = ScriptsBaseDeDatos.Empleados_DropDownList;
 
+            List<tbEmpleados> result = new List<tbEmpleados>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                result = db.Query<tbEmpleados>(sql, commandType: CommandType.StoredProcedure).ToList();
+                return result;
+            }
+        }
         public IEnumerable<tbEmpleados> find(int Emple_Id)
         {
             string sql = ScriptsBaseDeDatos.Empleados_Cargar;
