@@ -2,101 +2,151 @@
 
 @{
     ViewData["Title"] = "Index";
+    ViewData["ModelName"] = "PolizaViewModel".Replace("ViewModel","");
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="card-header">
+    <h1>@ViewData["ModelName"]</h1>
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table table-responsive">
+    <p>
+        <a asp-action="Create" class="btn btn-primary"><i class="mdi mdi-folder-plus"></i>Nuevo</a>
+        @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-folder-plus"></i>Nuevo</button>*@
+    </p>
+</div>
+<table class="table table-responsive table-bordered" id="Example">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Poliz_Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Clien_Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tipos_Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Emple_Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Poliz_Cuotas)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Poliz_TipoPago)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Poliz_EstadoCuotasPoliza)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Poliz_UsuarioCreacion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Poliz_FechaCreacion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Poliz_UsuarioModificacion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Poliz_FechaModificacion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Poliz_Estado)
-            </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Poliz_Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Clien_Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tipos_Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Emple_Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Poliz_Cuotas)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Poliz_TipoPago)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Poliz_EstadoCuotasPoliza)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.quantity)
+                    </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Poliz_Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Clien_Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tipos_Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Emple_Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Poliz_Cuotas)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Poliz_TipoPago)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Poliz_EstadoCuotasPoliza)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantity)
+                    </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Poliz_Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Clien_Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tipos_Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Emple_Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Poliz_Cuotas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Poliz_TipoPago)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Poliz_EstadoCuotasPoliza)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Poliz_UsuarioCreacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Poliz_FechaCreacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Poliz_UsuarioModificacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Poliz_FechaModificacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Poliz_Estado)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <a asp-route-id="@item.Poliz_Id" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-id="@item.Poliz_Id"><i class="bi bi-pen-fill"></i>Editar</a>
+                <a asp-route-id="@item.Poliz_Id" asp-action="Details" class="btn btn-warning"><i class="fa fa-eye"></i>Detalles</a>
+                <a asp-route-id="@item.Poliz_Id" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Poliz_Id')"><i class="fa fa-trash"></i>Eliminar</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+<div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_Update", new SegurosFYP.Models.PolizaViewModel ())
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Insertar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_Insert", new SegurosFYP.Models.PolizaViewModel ())
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_Delete", new SegurosFYP.Models.PolizaViewModel ())
+                </div>                     
+            </div>
+        </div>
+    </div>
+<script>
+        var url = 'https://localhost:44347/api/EstadoCivil/Cargar/EstadoCivil?Estad_Id=';
+        document.querySelectorAll('.FetchData').forEach(item => {
+            item.addEventListener('click', function () {
+                var id = this.getAttribute('data-id');
+                console.log(id);
+                fetchData(id);
+            });
+        });
+        function fetchData(id) {
+            console.log(id);
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                                document.getElementById('Poliz_Id').value = data.data[0].Poliz_Id;
+                                document.getElementById('Clien_Id').value = data.data[0].Clien_Id;
+                                document.getElementById('Tipos_Id').value = data.data[0].Tipos_Id;
+                                document.getElementById('Emple_Id').value = data.data[0].Emple_Id;
+                                document.getElementById('Poliz_Cuotas').value = data.data[0].Poliz_Cuotas;
+                                document.getElementById('Poliz_TipoPago').value = data.data[0].Poliz_TipoPago;
+                                document.getElementById('Poliz_EstadoCuotasPoliza').value = data.data[0].Poliz_EstadoCuotasPoliza;
+                                document.getElementById('quantity').value = data.data[0].quantity;
+                })
+                .catch(error => console.error('Hubo un error:', error));
+        }
+    </script>

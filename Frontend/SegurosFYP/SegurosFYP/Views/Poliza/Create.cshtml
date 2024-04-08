@@ -225,18 +225,13 @@
             {
                 <div class="card mb-5 mb-lg-0 ideal" aria-hidden="false">
                     <div class="card-body cardscroll" aria-hidden="false">
+                        <input type="hidden" asp-for="Poliza.Tipos_Id" value="@Html.DisplayFor(model => item.Tipos_Id)">
                         <h5 class="card-title text-uppercase text-center negrita">@Html.DisplayFor(model => item.Tipos_Descripcion)</h5>
                         <div class="dividerLineMedium mb-3" aria-hidden="false"></div>
                         <button class="btn btn-danger btn-block" id="btnIdeal">Seleccionar</button>
-                        
                     </div>
                 </div>
             }
-                <div class="form-group col-sm-5">
-                    <label asp-for="Poliza.Tipos_Id" class="control-label"></label>
-                    <select asp-for="Poliza.Tipos_Id" class="form-control"></select>
-                    <span asp-validation-for="Poliza.Tipos_Id" class="text-danger"></span>
-                </div>
                 <div class="form-group col-sm-5">
                     <label asp-for="Poliza.Poliz_Cuotas" class="control-label"></label>
                     <input asp-for="Poliza.Poliz_Cuotas" class="form-control" />
