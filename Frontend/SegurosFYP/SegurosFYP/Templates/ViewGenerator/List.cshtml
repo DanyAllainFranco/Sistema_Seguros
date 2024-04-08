@@ -101,16 +101,16 @@
                 @@Html.DisplayFor(modelItem => item.@GetValueExpression(navigation).@navigation.DisplayPropertyName)
             </td>
             }*@
-        }
-        string pkName = GetPrimaryKeyName();
-        if (pkName != null)
-        {
+    }
+    string pkName = GetPrimaryKeyName();
+    //if (pkName != null)
+    //{
             @:<td>
-                @:<a asp-route-id="@@item.@pkName" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-id="@@item.@pkName"><i class="bi bi-pen-fill"></i>Editar</a>
+                @:<a asp-route-id="@@item.@pkName" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-id="@@item.@pkName"><i class="bi bi-pen-fill"></i>Editar</a>
                 @:<a asp-route-id="@@item.@pkName" asp-action="Details" class="btn btn-warning"><i class="fa fa-eye"></i>Detalles</a>
-                @:<a asp-route-id="@@item.@pkName" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@@item.@pkName')"><i class="fa fa-trash"></i>Eliminar</a>
+                @:<a asp-route-id="@@item.@pkName" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@@item.@pkName')"><i class="fa fa-trash"></i>Eliminar</a>
             @:</td>
-        }
+        @*}*@
         @*else
         {
             <td>
