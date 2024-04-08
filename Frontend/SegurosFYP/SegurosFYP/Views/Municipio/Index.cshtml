@@ -1,0 +1,111 @@
+﻿@model IEnumerable<SegurosFYP.Models.MunicipioViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    ViewData["ModelName"] = "MunicipioViewModel".Replace("ViewModel","");
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card-header">
+    <h1>@ViewData["ModelName"]</h1>
+
+    <p>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-folder-plus"></i>Nuevo</button>
+    </p>
+</div>
+<table class="table table-responsive table-bordered" id="Example">
+    <thead>
+        <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Munic_Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Munic_Descripcion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Depar_Descripcion)
+                    </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Munic_Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Munic_Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Depar_Descripcion)
+                    </td>
+        </tr>
+}
+    </tbody>
+</table>
+@*<div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_Update", new SegurosFYP.Models.MunicipioViewModel ())
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Insertar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_Insert", new SegurosFYP.Models.MunicipioViewModel ())
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_Delete", new SegurosFYP.Models.MunicipioViewModel ())
+                </div>                     
+            </div>
+        </div>
+    </div>*@
+<script>
+    var url = 'https://localhost:44327/api/Municipio/Cargar/Municipio?Munic_Id=' + id;
+        document.querySelectorAll('.FetchData').forEach(item => {
+            item.addEventListener('click', function () {
+                var id = this.getAttribute('data-id');
+                console.log(id);
+                fetchData(id);
+            });
+        });
+        function fetchData(id) {
+            console.log(id);
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                                document.getElementById('Munic_Id').value = data.data[0].Munic_Id;
+                                document.getElementById('Munic_Descripcion').value = data.data[0].Munic_Descripcion;
+                                document.getElementById('Depar_Id').value = data.data[0].Depar_Id;
+                })
+                .catch(error => console.error('Hubo un error:', error));
+        }
+    </script>
