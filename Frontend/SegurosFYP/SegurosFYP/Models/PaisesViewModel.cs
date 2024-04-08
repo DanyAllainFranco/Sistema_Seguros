@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SegurosFYP.Common.Models
+namespace SegurosFYP.Models
 {
    public class PaisesViewModel
     {

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SegurosFYP.Common.Models
+namespace SegurosFYP.Models
 {
     public class EmpleadoViewModel
     {
@@ -15,6 +16,19 @@ namespace SegurosFYP.Common.Models
         public int? Emple_UsuarioModificacion { get; set; }
         public DateTime? Emple_FechaModificacion { get; set; }
         public bool? Emple_Estado { get; set; }
+
+        [NotMapped]
+        public string Perso_PrimerNombre { get; set; }
+        [NotMapped]
+        public string Perso_SegundoNombre { get; set; }
+        [NotMapped]
+        public string Perso_PrimerApellido { get; set; }
+        [NotMapped]
+        public string Perso_SegundoApellido { get; set; }
+        [NotMapped]
+        public string Perso_Sexo { get; set; }
+        [NotMapped]
+        public string Cargo_Descripcion { get; set; }
 
     }
 }
