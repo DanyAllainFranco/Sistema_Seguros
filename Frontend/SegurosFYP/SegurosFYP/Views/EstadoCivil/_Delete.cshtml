@@ -1,0 +1,18 @@
+﻿@model SegurosFYP.Models.EstadoCivilViewModel
+
+<h3>Estas seguro que deseas eliminar este registro?</h3>
+<div>
+    <hr />
+    <form asp-action="Delete" asp-controller="EstadoCivil">
+        <input type="hidden" name="Estad_Id" id="EstadoCivil" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+<script>
+    function ObtenerID(id) {
+        console.log("si entra" + id);
+        $("#EstadoCivil").val(id);
+
+    }
+</script>

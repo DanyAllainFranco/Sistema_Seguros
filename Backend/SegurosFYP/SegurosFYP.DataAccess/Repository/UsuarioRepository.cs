@@ -43,9 +43,9 @@ namespace SegurosFYP.DataAccess.Repository
                 parameter.Add("@Usuar_UsuarioCreacion", item.Usuar_UsuarioCreacion);
                 parameter.Add("@Usuar_FechaCreacion", item.Usuar_FechaCreacion);
 
-                var result = db.QueryFirst(sql,parameter, commandType: CommandType.Text);
+                var result = db.Execute(sql,parameter, commandType: CommandType.StoredProcedure);
 
-                return result;
+                return new RequestStatus { CodeStatus = result, MessageStatus = ""};
             }
         }
 

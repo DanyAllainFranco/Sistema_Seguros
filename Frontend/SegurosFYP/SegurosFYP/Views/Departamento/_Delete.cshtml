@@ -3,8 +3,9 @@
 <h3>Estas seguro que deseas eliminar este registro??</h3>
 <form asp-action="Delete" asp-controller="Departamento" method="post">
     <input type="hidden" asp-for="Depar_Id" id="txtDepartamento" />
-    <input type="submit" value="Delete" class="btn btn-danger" /> |
-    <a asp-action="Index">Back to List</a>
+    <hr />
+    <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
 </form>
 <script>
     function ObtenerID(id) {

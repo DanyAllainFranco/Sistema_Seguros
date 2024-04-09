@@ -7,7 +7,7 @@ CREATE TABLE Acces.tbUsuarios(
 	Emple_Id INT NOT NULL,
 	Roles_Id INT NOT NULL,
 	Usuar_Admin BIT NOT NULL,
-	Usuar_UltimaSesion DATETIME NOT NULL,
+	Usuar_UltimaSesion DATETIME NULL,
 	CONSTRAINT PK_tbUsuarios_Usuar_Id PRIMARY KEY(Usuar_Id),
 	CONSTRAINT UQ_tbUsuarios_Usuar_Usuario UNIQUE(Usuar_Usuario),
 	--CONSTRAINT FK_tbUsuarios_tbEmpleados_Perso_Id FOREIGN KEY (Perso_Id) REFERENCES Segur.tbEmpleados(Perso_Id),
@@ -169,13 +169,13 @@ CREATE TABLE Gral.tbTiposIdentificaciones(
 GO
 CREATE TABLE Gral.tbIdentificaciones(
 	Ident_Id INT IDENTITY(1,1),
-	Ident_Tipo INT NOT NULL,
+	Tiden_Id INT NOT NULL,
 	Ident_NumeroIdentificacion NVARCHAR(100) NOT NULL,
 	Ident_FechaNacimiento DATE NOT NULL,
 	Ident_LugarNacimiento NVARCHAR(100) NOT NULL,
 	CONSTRAINT PK_tbIdentificaciones_Ident_Id PRIMARY KEY(Ident_Id),
 	CONSTRAINT UQ_tbIdentificaciones_Ident_NumeroIdentificacion UNIQUE(Ident_NumeroIdentificacion),
-	CONSTRAINT FK_tbIdentificaciones_tbTiposIdentificaciones_Ident_Tipo FOREIGN KEY(Ident_Tipo) REFERENCES Gral.tbTiposIdentificaciones(Ident_Tipo),
+	CONSTRAINT FK_tbIdentificaciones_tbTiposIdentificaciones_Ident_Tipo FOREIGN KEY(Tiden_Id) REFERENCES Gral.tbTiposIdentificaciones(Tiden_Id),
 
 	[Ident_UsuarioCreacion] [int] NOT NULL,
 	[Ident_FechaCreacion] [datetime] NOT NULL,
@@ -207,24 +207,23 @@ CREATE TABLE Gral.tbPersonas(
 	Perso_SegundoNombre NVARCHAR(50),
 	Perso_PrimerApellido NVARCHAR(50) NOT NULL,
 	Perso_SegundoApellido NVARCHAR(50),
-	Perso_FechaNacimiento DATE NOT NULL,
 	Perso_Sexo CHAR(1) NOT NULL,
 	Ident_Id INT NOT NULL,
-	Estci_Id INT NOT NULL,
-	Perso_Telefono NVARCHAR(30) NOT NULL,
-	Perso_CorreoElectronico NVARCHAR(MAX) NOT NULL,
-	Perso_Direccion NVARCHAR(MAX) NOT NULL,
-	Munic_Id CHAR(4) NOT NULL,
-	Paise_Id INT NOT NULL,
+
+	Estci_Id INT NULL,
+	Perso_Telefono NVARCHAR(30) NULL,
+	Perso_CorreoElectronico NVARCHAR(MAX) NULL,
+	Perso_Direccion NVARCHAR(MAX) NULL,
+	Munic_Id CHAR(4) NULL,
+	Paise_Id INT NULL,
 
 	Poliz_Id INT NOT NULL,
 	Paren_Id INT NOT NULL,
 	CONSTRAINT PK_tbPersonas_Perso_Id PRIMARY KEY(Perso_Id),
-	CONSTRAINT FK_tbPersonas_tbEstadosCiviles_Estci_Id FOREIGN KEY(Estci_Id) REFERENCES Gral.tbEstadosCiviles(Estad_Id),
-	CONSTRAINT FK_tbPersonas_tbMunicipios_Munic_Id FOREIGN KEY(Munic_Id) REFERENCES Gral.tbMunicipios(Munic_Id),
-	CONSTRAINT FK_tbPersonas_tbPaises_Paise_Id FOREIGN KEY(Paise_Id) REFERENCES Gral.tbPaises(Paise_Id),
 	CONSTRAINT FK_tbPersonas_tbIdentificaciones_Ident_Id FOREIGN KEY(Ident_Id) REFERENCES Gral.tbIdentificaciones(Ident_Id),
 	CONSTRAINT FK_tbPersonas_tbParentescos_Paren_Id FOREIGN KEY(Paren_Id) REFERENCES Gral.tbParentescos(Paren_Id),
+	CONSTRAINT FK_tbPersonas_tbMunicipios_Munic_Id FOREIGN KEY(Munic_Id) REFERENCES Gral.tbMunicipios(Munic_Id),
+	CONSTRAINT FK_tbPersonas_tbPaises_Paise_Id FOREIGN KEY(Paise_Id) REFERENCES Gral.tbPaises(Paise_Id),
 	CONSTRAINT CK_tbPersonas_Perso_Sexo CHECK (Perso_Sexo IN ('M','F')),
 
 	[Perso_UsuarioCreacion] [int] NOT NULL,
@@ -381,9 +380,14 @@ CREATE TABLE Segur.tbCoberturas(
 	CONSTRAINT FK_tbCoberturas_tbUsuarios_Cober_UsuarioModificacion FOREIGN KEY(Cober_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
 )
 GO
+ALTER TABLE Segur.tbTiposPlanes
+ADD Tipos_DeducibleAnual NUMERIC(10,2) NOT NULL
 CREATE TABLE Segur.tbTiposPlanes(
 	Tipos_Id INT IDENTITY(1,1),
 	Tipos_Descripcion NVARCHAR(40) NOT NULL,
+
+	--Deducible
+	Tipos_Deducible NUMERIC(10,2) NOT NULL,
 
 	--MaximoVitalicio
 	Tipos_MaximoVitalicio NUMERIC(10,2) NOT NULL,
@@ -459,6 +463,8 @@ CREATE TABLE Segur.tbTiposPlanes(
 	----------------------
 	Cober_Id INT NOT NULL,
 
+	Tipos_CostoPlan NUMERIC(10,2) NOT NULL,
+
 	CONSTRAINT PK_tbTiposPlanes_Tipos_Id PRIMARY KEY(Tipos_Id),
 	CONSTRAINT UQ_tbTiposPlanes_Tipos_Descripcion UNIQUE(Tipos_Descripcion),
 	CONSTRAINT FK_tbTiposPlanes_tbCoberturas_Cober_Id FOREIGN KEY(Cober_Id) REFERENCES Segur.tbCoberturas(Cober_Id),
@@ -475,51 +481,35 @@ GO
 CREATE TABLE Segur.tbUnidades(
 	Unida_Id INT IDENTITY(1,1),
 	Unida_Descripcion NVARCHAR(30) NOT NULL,
-)
-GO
-CREATE TABLE Segur.tbFacturaMedicaEncabezado(
-	Faenca_Id INT IDENTITY(1,1),
-	Faenca_Codigo NVARCHAR(20) NOT NULL,
-	Clien_Id INT NOT NULL,
+	CONSTRAINT PK_tbUnidades_Unida_Id PRIMARY KEY(Unida_Id),
+	CONSTRAINT UQ_tbUnidades_Unida_Descripcion UNIQUE(Unida_Descripcion),
 
-	--Factu_Documento LINK??
+	[Unida_UsuarioCreacion] [int] NOT NULL,
+	[Unida_FechaCreacion] [datetime] NOT NULL,
+	[Unida_UsuarioModificacion] [int] NULL,
+	[Unida_FechaModificacion] [datetime] NULL,
+	[Unida_Estado] [bit] CONSTRAINT DF_tbUnidades_Unida_Estado DEFAULT 1,
+	CONSTRAINT FK_tbUnidades_tbUsuarios_Unida_UsuarioCreacion FOREIGN KEY(Unida_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+	CONSTRAINT FK_tbUnidades_tbUsuarios_Unida_UsuarioModificacion FOREIGN KEY(Unida_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
 )
 GO
-CREATE TABLE Segur.tbFacturaMedicaDetalle(
-	Fadet_Id INT IDENTITY(1,1),
-	Faenca_Id INT NOT NULL,
-	Fadet_ProductoServicio BIT NOT NULL,
-	Fadet_Descripcion NVARCHAR(100) NOT NULL,
-	Fadet_Cantidad INT NOT NULL,
-	Unida_Id INT NOT NULL,
-	Fadet_Precio NUMERIC(10,2) NOT NULL
-	CONSTRAINT PK_tbFacturaMedicaDetalle_
-)
-GO
-CREATE TABLE Segur.InformeMedico(
-	Infor_Id INT IDENTITY(1,1),
-	Infor_
-	--Infor_Documento LINK??
-)
+
 --------------------------------------------------------------------------------------------------------------------------------
 GO
 CREATE SCHEMA Venta
 GO
 
-CREATE TABLE Venta.tbClientes(
-	Clien_Id INT NOT NULL,
-	CONSTRAINT PK_tbClientes_Clien_Id PRIMARY KEY(Clien_Id),
-	CONSTRAINT FK_tbClientes_tbPersonas_Clien_Id FOREIGN KEY(Clien_Id) REFERENCES Gral.tbPersonas(Perso_Id),
-)
-GO
+
 CREATE TABLE Venta.tbPolizas(
 	Poliz_Id INT IDENTITY(1,1),
 	Clien_Id INT NOT NULL,
 	Tipos_Id INT NOT NULL,
 	Emple_Id INT NOT NULL,
+	Poliz_Cuotas INT NOT NULL,
 	Poliz_TipoPago BIT NOT NULL,
+	Poliz_EstadoCuotasPoliza BIT NOT NULL,
 	CONSTRAINT PK_tbPolizas_Poliz_Id PRIMARY KEY(Poliz_Id),
-	CONSTRAINT FK_tbPolizas_tbClientes_Clien_Id FOREIGN KEY(Clien_Id) REFERENCES Gral.tbPersonas(Perso_Id),
+	CONSTRAINT FK_tbPolizas_tbPersonas_Clien_Id FOREIGN KEY(Clien_Id) REFERENCES Gral.tbPersonas(Perso_Id),
 	CONSTRAINT FK_tbPolizas_tbTiposPlanes_Tipos_Id FOREIGN KEY(Tipos_Id) REFERENCES Segur.tbTiposPlanes(Tipos_Id),
 	CONSTRAINT FK_tbPolizas_tbEmpleados_Emple_Id FOREIGN KEY(Emple_Id) REFERENCES Segur.tbEmpleados(Emple_Id),
 	CONSTRAINT UQ_tbPolizas_Clien_Id UNIQUE(Clien_Id),
@@ -533,12 +523,60 @@ CREATE TABLE Venta.tbPolizas(
 	CONSTRAINT FK_tbPolizas_tbUsuarios_Poliz_UsuarioModificacion FOREIGN KEY(Poliz_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
 )
 GO
+CREATE TABLE Segur.tbInformeMedico(
+	Infor_Id INT IDENTITY(1,1),
+	Infor_Diagnostico NVARCHAR(MAX) NOT NULL,
+	Infor_TratamientoRealizado NVARCHAR(MAX) NOT NULL,
+	Infor_TratamientoProgramado NVARCHAR(MAX) NOT NULL,
+	Infor_OtrosTratamientos NVARCHAR(MAX) NOT NULL,
 
+	Infor_DocumentoAdelante NVARCHAR(MAX) NOT NULL,
+	Infor_DocumentoAtras NVARCHAR(MAX) NOT NULL,
+	CONSTRAINT PK_tbInformeMedico_Infor_Id PRIMARY KEY(Infor_Id),
+
+	[Infor_UsuarioCreacion] [int] NOT NULL,
+	[Infor_FechaCreacion] [datetime] NOT NULL,
+	[Infor_UsuarioModificacion] [int] NULL,
+	[Infor_FechaModificacion] [datetime] NULL,
+	[Infor_Estado] [bit] CONSTRAINT DF_tbInformeMedico_Infor_Estado DEFAULT 1,
+	CONSTRAINT FK_tbInformeMedico_tbUsuarios_Infor_UsuarioCreacion FOREIGN KEY(Infor_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+	CONSTRAINT FK_tbInformeMedico_tbUsuarios_Infor_UsuarioModificacion FOREIGN KEY(Infor_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+
+)
 GO
+CREATE TABLE Segur.tbCausaAtencionMedica(
+	Catme_Id INT IDENTITY(1,1),
+	Catme_Descripcion CHAR(2) NOT NULL,
+	Infor_Id INT NOT NULL,
+	CONSTRAINT PK_tbCausaAtencionMedica_Catme_Id PRIMARY KEY(Catme_Id),
+	CONSTRAINT FK_tbCausaAtencionMedica_Infor_Id FOREIGN KEY(Infor_Id) REFERENCES Segur.tbInformeMedico(Infor_Id),
+	CONSTRAINT CK_tbCausaAtencionMedica_Catme_Descripcion CHECK (Catme_Descripcion IN ('Em', 'En', 'Ac')),
+
+	[Catme_UsuarioCreacion] [int] NOT NULL,
+	[Catme_FechaCreacion] [datetime] NOT NULL,
+	[Catme_UsuarioModificacion] [int] NULL,
+	[Catme_FechaModificacion] [datetime] NULL,
+	[Catme_Estado] [bit] CONSTRAINT DF_tbCausaAtencionMedica_Catme_Estado DEFAULT 1,
+	CONSTRAINT FK_tbCausaAtencionMedica_tbUsuarios_Catme_UsuarioCreacion FOREIGN KEY(Catme_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+	CONSTRAINT FK_tbCausaAtencionMedica_tbUsuarios_Catme_UsuarioModificacion FOREIGN KEY(Catme_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+)
+GO
+DROP TABLE Venta.tbDesembolsos
 CREATE TABLE Venta.tbDesembolsos(
 	Desem_Id INT IDENTITY(1,1),
-	Clien_Id INT NOT NULL,
+	Recla_Id INT NOT NULL,
+	Desem_TotalAcreditar NUMERIC(10,2)
 	CONSTRAINT PK_tbDesembolsos_Desem_Id PRIMARY KEY(Desem_Id),
+	CONSTRAINT FK_tbDesembolsos_tbReclamos_Recla_Id FOREIGN KEY(Recla_Id) REFERENCES Gral.tbPersonas(Perso_Id),
+	CONSTRAINT FK_tbDesembolsos_tbInformeMedico FOREIGN KEY(Infor_Id) REFERENCES Segur.tbInformeMedico(Infor_Id),
+
+	[Desem_UsuarioCreacion] [int] NOT NULL,
+	[Desem_FechaCreacion] [datetime] NOT NULL,
+	[Desem_UsuarioModificacion] [int] NULL,
+	[Desem_FechaModificacion] [datetime] NULL,
+	[Desem_Estado] [bit] CONSTRAINT DF_tbDesembolsos_Desem_Estado DEFAULT 1,
+	CONSTRAINT FK_tbDesembolsos_tbUsuarios_Desem_UsuarioCreacion FOREIGN KEY(Desem_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+	CONSTRAINT FK_tbDesembolsos_tbUsuarios_Desem_UsuarioModificacion FOREIGN KEY(Desem_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
 )
 GO
 CREATE TABLE Venta.tbQuejas(
@@ -555,3 +593,86 @@ CREATE TABLE Venta.tbQuejas(
 	CONSTRAINT FK_tbQuejas_tbUsuarios_Queja_UsuarioCreacion FOREIGN KEY(Queja_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
 	CONSTRAINT FK_tbQuejas_tbUsuarios_Queja_UsuarioModificacion FOREIGN KEY(Queja_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
 )
+CREATE TABLE Segur.tbReclamos(
+	Recla_Id INT IDENTITY(1,1),
+	Clien_Id INT NOT NULL,
+	Infor_Id INT NOT NULL,
+	Recla_TotalFactura NUMERIC(10,2) NOT NULL,
+	CONSTRAINT PK_tbReclamos_Recla_Id PRIMARY KEY(Recla_Id),
+	CONSTRAINT FK_tbReclamos_tbPersonas_Clien_Id FOREIGN KEY(Clien_Id) REFERENCES Gral.tbPersonas(Perso_Id),
+	CONSTRAINT FK_tbReclamos_tbInformeMedico FOREIGN KEY(Infor_Id) REFERENCES Segur.tbInformeMedico(Infor_Id),
+
+	[Recla_UsuarioCreacion] [int] NOT NULL,
+	[Recla_FechaCreacion] [datetime] NOT NULL,
+	[Recla_UsuarioModificacion] [int] NULL,
+	[Recla_FechaModificacion] [datetime] NULL,
+	[Recla_Estado] [bit] CONSTRAINT DF_tbReclamos_Recla_Estado DEFAULT 1,
+	CONSTRAINT FK_tbReclamos_tbUsuarios_Recla_UsuarioCreacion FOREIGN KEY(Recla_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+	CONSTRAINT FK_tbReclamos_tbUsuarios_Recla_UsuarioModificacion FOREIGN KEY(Recla_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+)
+
+CREATE TABLE Segur.tbFacturaMedicaEncabezado(
+	Faenca_Id INT IDENTITY(1,1),
+	Faenca_Codigo NVARCHAR(20) NOT NULL,
+	Clien_Id INT NOT NULL,
+	Faenca_HospitalClinica NVARCHAR(50) NOT NULL,
+	Faenca_FechaImpresion DATE NOT NULL,
+	Recla_Id INT NOT NULL,
+
+	Factu_DocumentoAdelante NVARCHAR(MAX) NOT NULL,
+	Factu_DocumentoAtras NVARCHAR(MAX) NOT NULL,
+	CONSTRAINT PK_tbFacturaMedicaEncabezado_Faenca_Id PRIMARY KEY(Faenca_Id),
+	CONSTRAINT FK_tbFacturaMedicaEncabezado_tbPersonas_Clien_Id FOREIGN KEY(Clien_Id) REFERENCES Gral.tbPersonas(Perso_Id),
+	CONSTRAINT FK_tbFacturaMedicaEncabezado_tbDesembolsos_Desem_Id FOREIGN KEY(Recla_Id) REFERENCES Venta.tbDesembolsos(Desem_Id),
+
+	[Faenca_UsuarioCreacion] [int] NOT NULL,
+	[Faenca_FechaCreacion] [datetime] NOT NULL,
+	[Faenca_UsuarioModificacion] [int] NULL,
+	[Faenca_FechaModificacion] [datetime] NULL,
+	[Faenca_Estado] [bit] CONSTRAINT DF_tbFacturaMedicaEncabezado_Faenca_Estado DEFAULT 1,
+	CONSTRAINT FK_tbFacturaMedicaEncabezado_tbUsuarios_Faenca_UsuarioCreacion FOREIGN KEY(Faenca_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+	CONSTRAINT FK_tbFacturaMedicaEncabezado_tbUsuarios_Faenca_UsuarioModificacion FOREIGN KEY(Faenca_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+)
+GO
+CREATE TABLE Segur.tbFacturaMedicaDetalle(
+	Fadet_Id INT IDENTITY(1,1),
+	Faenca_Id INT NOT NULL,
+	Fadet_ProductoServicio BIT NOT NULL,
+	Fadet_Descripcion NVARCHAR(100) NOT NULL,
+	Fadet_Cantidad INT NOT NULL,
+	Unida_Id INT NOT NULL,
+	Fadet_Precio NUMERIC(10,2) NOT NULL
+	CONSTRAINT PK_tbFacturaMedicaDetalle_Fadet_Id PRIMARY KEY(Fadet_Id),
+	CONSTRAINT FK_tbFacturaMedicaDetalle_tbFacturaMedicaEncabezado_Faenca_Id FOREIGN KEY(Faenca_Id) REFERENCES Segur.tbFacturaMedicaEncabezado(Faenca_Id),
+	CONSTRAINT FK_tbFacturaMedicaDetalle_tbUnidades_Unida_Id FOREIGN KEY(Unida_Id) REFERENCES Segur.tbUnidades(Unida_Id),
+
+	[Fadet_UsuarioCreacion] [int] NOT NULL,
+	[Fadet_FechaCreacion] [datetime] NOT NULL,
+	[Fadet_UsuarioModificacion] [int] NULL,
+	[Fadet_FechaModificacion] [datetime] NULL,
+	[Fadet_Estado] [bit] CONSTRAINT DF_tbFacturaMedicaDetalle_Fadet_Estado DEFAULT 1,
+	CONSTRAINT FK_tbFacturaMedicaDetalle_tbUsuarios_Fadet_UsuarioCreacion FOREIGN KEY(Fadet_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+	CONSTRAINT FK_tbFacturaMedicaDetalle_tbUsuarios_Fadet_UsuarioModificacion FOREIGN KEY(Fadet_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+)
+GO
+ALTER TABLE Segur.tbPrescripciones
+ADD CONSTRAINT FK_tbPrescripciones_tbReclamos_Recla_Id FOREIGN KEY(Recla_Id) REFERENCES Segur.tbReclamos(Recla_Id)
+CREATE TABLE Segur.tbPrescripciones(
+	Presc_Id INT IDENTITY(1,1),
+	Recla_Id INT NOT NULL,
+
+	Presc_DocumentoAdelante NVARCHAR(MAX) NOT NULL,
+	Presc_DocumentoAtras NVARCHAR(MAX) NOT NULL,
+	CONSTRAINT PK_tbPrescripciones_Presc_Id PRIMARY KEY(Presc_Id),
+	CONSTRAINT FK_tbPrescripciones_tbDesembolsos_Desem_Id FOREIGN KEY(Desem_Id) REFERENCES Venta.tbDesembolsos(Desem_Id),
+
+	[Presc_UsuarioCreacion] [int] NOT NULL,
+	[Presc_FechaCreacion] [datetime] NOT NULL,
+	[Presc_UsuarioModificacion] [int] NULL,
+	[Presc_FechaModificacion] [datetime] NULL,
+	[Presc_Estado] [bit] CONSTRAINT DF_tbPrescripciones_Presc_Estado DEFAULT 1,
+	CONSTRAINT FK_tbPrescripciones_tbUsuarios_Presc_UsuarioCreacion FOREIGN KEY(Presc_UsuarioCreacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+	CONSTRAINT FK_tbPrescripciones_tbUsuarios_Presc_UsuarioModificacion FOREIGN KEY(Presc_UsuarioModificacion) REFERENCES Acces.tbUsuarios(Usuar_Id),
+)
+
+GO

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.API\\SegurosFYP.API.csproj": {}
+    "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.API\\SegurosFYP.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.API\\SegurosFYP.API.csproj": {
+    "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.API\\SegurosFYP.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.API\\SegurosFYP.API.csproj",
+        "projectUniqueName": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.API\\SegurosFYP.API.csproj",
         "projectName": "SegurosFYP.API",
-        "projectPath": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.API\\SegurosFYP.API.csproj",
-        "packagesPath": "C:\\Users\\LAB1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.API\\obj\\",
+        "projectPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.API\\SegurosFYP.API.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\LAB1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.BusinessLogic\\SegurosFYP.BusinessLogic.csproj": {
-                "projectPath": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.BusinessLogic\\SegurosFYP.BusinessLogic.csproj"
+              "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.BusinessLogic\\SegurosFYP.BusinessLogic.csproj": {
+                "projectPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.BusinessLogic\\SegurosFYP.BusinessLogic.csproj"
               },
-              "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\SegurosFYP.Common.csproj": {
-                "projectPath": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\SegurosFYP.Common.csproj"
+              "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\SegurosFYP.Common.csproj": {
+                "projectPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\SegurosFYP.Common.csproj"
               }
             }
           }
@@ -96,17 +96,17 @@
         }
       }
     },
-    "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.BusinessLogic\\SegurosFYP.BusinessLogic.csproj": {
+    "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.BusinessLogic\\SegurosFYP.BusinessLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.BusinessLogic\\SegurosFYP.BusinessLogic.csproj",
+        "projectUniqueName": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.BusinessLogic\\SegurosFYP.BusinessLogic.csproj",
         "projectName": "SegurosFYP.BusinessLogic",
-        "projectPath": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.BusinessLogic\\SegurosFYP.BusinessLogic.csproj",
-        "packagesPath": "C:\\Users\\LAB1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.BusinessLogic\\obj\\",
+        "projectPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.BusinessLogic\\SegurosFYP.BusinessLogic.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.BusinessLogic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\LAB1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -120,8 +120,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.DataAccess\\SegurosFYP.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.DataAccess\\SegurosFYP.DataAccess.csproj"
+              "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.DataAccess\\SegurosFYP.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.DataAccess\\SegurosFYP.DataAccess.csproj"
               }
             }
           }
@@ -154,17 +154,17 @@
         }
       }
     },
-    "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\SegurosFYP.Common.csproj": {
+    "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\SegurosFYP.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\SegurosFYP.Common.csproj",
+        "projectUniqueName": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\SegurosFYP.Common.csproj",
         "projectName": "SegurosFYP.Common",
-        "projectPath": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\SegurosFYP.Common.csproj",
-        "packagesPath": "C:\\Users\\LAB1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\obj\\",
+        "projectPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\SegurosFYP.Common.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\LAB1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -208,17 +208,17 @@
         }
       }
     },
-    "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.DataAccess\\SegurosFYP.DataAccess.csproj": {
+    "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.DataAccess\\SegurosFYP.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.DataAccess\\SegurosFYP.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.DataAccess\\SegurosFYP.DataAccess.csproj",
         "projectName": "SegurosFYP.DataAccess",
-        "projectPath": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.DataAccess\\SegurosFYP.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\LAB1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.DataAccess\\SegurosFYP.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\LAB1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -232,8 +232,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj": {
-                "projectPath": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj"
+              "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj": {
+                "projectPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj"
               }
             }
           }
@@ -280,17 +280,17 @@
         }
       }
     },
-    "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj": {
+    "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj",
         "projectName": "SegurosFYP.Entities",
-        "projectPath": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj",
-        "packagesPath": "C:\\Users\\LAB1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LAB1\\Desktop\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\obj\\",
+        "projectPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\SegurosFYP.Entities.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Backend\\SegurosFYP\\SegurosFYP.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\LAB1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -51,10 +51,12 @@ namespace SegurosFYP.Controllers
 
             if (response.IsSuccessStatusCode)
             {
+                TempData["Exito"] = "Registro insertado con exito";
                 return RedirectToAction(nameof(Index));
             }
             else
             {
+                TempData["Error"] = "Error al insertar";
                 return View("Error");
             }
         }
@@ -69,10 +71,12 @@ namespace SegurosFYP.Controllers
 
             if (response.IsSuccessStatusCode)
             {
+                TempData["Exito"] = "Registro editado con exito";
                 return RedirectToAction(nameof(Index));
             }
             else
             {
+                TempData["Error"] = "Error al editar";
                 return View("Error");
             }
         }
@@ -86,10 +90,12 @@ namespace SegurosFYP.Controllers
 
             if (response.IsSuccessStatusCode)
             {
+                TempData["Exito"] = "Registro eliminado con exito";
                 return RedirectToAction(nameof(Index));
             }
             else
             {
+                TempData["Error"] = "Error al eliminar";
                 return View("Error");
             }
         }

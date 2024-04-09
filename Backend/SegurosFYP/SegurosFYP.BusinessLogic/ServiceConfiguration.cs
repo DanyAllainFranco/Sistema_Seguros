@@ -11,7 +11,28 @@ namespace SegurosFYP.BusinessLogic
         public static void DataAccess(this IServiceCollection service, string conn)
         {
             service.AddScoped<UsuarioRepository>();
+            service.AddScoped<EstadoCivilRepository>();
             service.AddScoped<DepartamentoRepository>();
+            service.AddScoped<PolizaRepository>();
+            service.AddScoped<InformacionMedicaRepository>();
+            service.AddScoped<EmpleadoRepository>();
+            service.AddScoped<PersonaRepository>();
+            service.AddScoped<IdentificacionRepository>();
+            service.AddScoped<TipoPlanRepository>();
+            service.AddScoped<EnfermedadRepository>();
+            service.AddScoped<FrecuenciaRepository>();
+            service.AddScoped<MunicipioRepository>();
+            service.AddScoped<PaisRepository>();
+            service.AddScoped<ParentescoRepository>();
+            service.AddScoped<TipoArticuloMedicoRepository>();
+            service.AddScoped<TiposIdentificacionesRepository>();
+            service.AddScoped<CargoRepository>();
+            service.AddScoped<CausaAtencionMedicaRepository>();
+            service.AddScoped<CoberturaRepository>();
+            service.AddScoped<UnidadRepository>();
+            service.AddScoped<RolesRepository>();
+            service.AddScoped<PantallaRepository>();
+
 
             SegurosFYPContext.BuildConnectionString(conn);
         }
@@ -19,6 +40,8 @@ namespace SegurosFYP.BusinessLogic
         {
             service.AddScoped<AccessServices>();
             service.AddScoped<GeneralServices>();
+            service.AddScoped<SalesServices>();
+            service.AddScoped<InsuranceServices>();
         }
     }
 }
