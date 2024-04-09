@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿    using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SegurosFYP.BusinessLogic.Services;
 using SegurosFYP.Common.Models;
@@ -179,7 +179,6 @@ namespace SegurosFYP.API.Controllers
                 Tipos_Id = item.Tipos_Id,
                 Emple_Id = item.Emple_Id,
                 Poliz_Cuotas = item.Poliz_Cuotas,
-                Poliz_TipoPago = item.Poliz_TipoPago,
                 Poliz_EstadoCuotasPoliza = false,
             };
             var list = _salesServices.InsertPoliz(modelo);

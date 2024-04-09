@@ -23,7 +23,8 @@ namespace SegurosFYP.API.Controllers
         [HttpGet("List/TipoPlan")]
         public IActionResult Index()
         {
-            return View();
+            var list = _insuranceServices.ListTipo();
+            return Ok(list);
         }
         [HttpGet("DropDownList/TipoPlan")]
         public IActionResult DropDownLists()
