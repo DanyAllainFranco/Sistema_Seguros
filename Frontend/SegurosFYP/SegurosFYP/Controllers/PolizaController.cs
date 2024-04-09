@@ -39,12 +39,12 @@ namespace SegurosFYP.Controllers
             }
         }
         [HttpGet]
-        public /*async Task<IActionResult>*/ IActionResult Create()
+        public async Task<IActionResult> /*IActionResult*/ Create()
         {
             try
             {
-                //var list = await _polizaServices.Create(item);
-                return View();
+                var list = await _polizaServices.ListCre();
+                return View(list.Data);
 
             }
             catch (Exception ex)

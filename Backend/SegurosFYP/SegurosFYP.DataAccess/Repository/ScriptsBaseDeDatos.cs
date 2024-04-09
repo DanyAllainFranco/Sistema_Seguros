@@ -173,6 +173,8 @@ namespace SegurosFYP.DataAccess.Repository
 
         #region TipoPlan
         public static string TiposPlan_DropDownList = "Segur.SP_TiposPlan_DropDownList";
+        public static string TiposPlan_Listar = "Segur.SP_TiposPlan_Listar";
+
 
         #endregion
 

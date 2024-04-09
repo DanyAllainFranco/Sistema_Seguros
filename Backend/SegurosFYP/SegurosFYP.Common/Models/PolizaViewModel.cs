@@ -14,7 +14,6 @@ namespace SegurosFYP.Common.Models
         public int Tipos_Id { get; set; }
         public int Emple_Id { get; set; }
         public int Poliz_Cuotas { get; set; }
-        public bool Poliz_TipoPago { get; set; }
         public bool Poliz_EstadoCuotasPoliza { get; set; }
         public int Poliz_UsuarioCreacion { get; set; }
         public DateTime Poliz_FechaCreacion { get; set; }

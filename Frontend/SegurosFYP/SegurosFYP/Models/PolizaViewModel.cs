@@ -23,9 +23,6 @@ namespace SegurosFYP.Models
         [Display(Name = "Cantidad de Cuotas")]
         public int Poliz_Cuotas { get; set; }
         [Required]
-        [Display(Name = "Tipo de Pago")]
-        public bool Poliz_TipoPago { get; set; }
-        [Required]
         [Display(Name = "Estado de Cuota")]
         public bool Poliz_EstadoCuotasPoliza { get; set; }
 

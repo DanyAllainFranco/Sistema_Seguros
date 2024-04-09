@@ -32,9 +32,6 @@
                         @Html.DisplayNameFor(model => model.Poliz_Cuotas)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Poliz_TipoPago)
-                    </th>
-                    <th>
                         @Html.DisplayNameFor(model => model.Poliz_EstadoCuotasPoliza)
                     </th>
                     <th>
@@ -62,9 +59,6 @@
                         @Html.DisplayFor(modelItem => item.Poliz_Cuotas)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Poliz_TipoPago)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.Poliz_EstadoCuotasPoliza)
                     </td>
                     <td>
@@ -89,7 +83,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    @Html.Partial("_Update", new SegurosFYP.Models.PolizaViewModel ())
+                    @*@Html.Partial("_Update", new SegurosFYP.Models.PolizaViewModel ())*@
                 </div>
             </div>
         </div>
@@ -104,7 +98,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    @Html.Partial("_Insert", new SegurosFYP.Models.PolizaViewModel ())
+                    @*@Html.Partial("_Insert", new SegurosFYP.Models.PolizaViewModel ())*@
                 </div>
             </div>
         </div>
@@ -119,7 +113,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    @Html.Partial("_Delete", new SegurosFYP.Models.PolizaViewModel ())
+                    @*@Html.Partial("_Delete", new SegurosFYP.Models.PolizaViewModel ())*@
                 </div>                     
             </div>
         </div>

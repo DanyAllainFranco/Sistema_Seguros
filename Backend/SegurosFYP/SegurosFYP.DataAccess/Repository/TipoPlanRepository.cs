@@ -46,7 +46,16 @@ namespace SegurosFYP.DataAccess.Repository
 
         public IEnumerable<tbTiposPlanes> List()
         {
-            throw new NotImplementedException();
+            string sql = ScriptsBaseDeDatos.TiposPlan_Listar;
+
+            List<tbTiposPlanes> result = new List<tbTiposPlanes>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                result = db.Query<tbTiposPlanes>(sql, commandType: CommandType.Text).ToList();
+
+                return result;
+            }
         }
 
         public RequestStatus Update(tbTiposPlanes item)

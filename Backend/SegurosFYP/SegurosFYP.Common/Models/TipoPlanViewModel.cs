@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,6 +52,10 @@ namespace SegurosFYP.Common.Models
         public int Tipos_ControlesPreventivosProstagicoANUAL { get; set; }
         public int Tipos_ControlesPreventivosMamografiaANUAL { get; set; }
         public int Cober_Id { get; set; }
+
+        [NotMapped]
+        public string Cober_Descripcion { get; set; }
+
         public int Tipos_UsuarioCreacion { get; set; }
         public DateTime Tipos_FechaCreacion { get; set; }
         public int? Tipos_UsuarioModificacion { get; set; }

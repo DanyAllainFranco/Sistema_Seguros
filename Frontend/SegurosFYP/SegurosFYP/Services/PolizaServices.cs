@@ -10,6 +10,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net.Http.Json;
+using SegurosFYP.Common.Models;
 
 namespace SegurosFYP.Services
 {
@@ -30,7 +31,6 @@ namespace SegurosFYP.Services
             var result = new ServiceResult();
             try
             {
-
                 var response = await _aPI.Get<IEnumerable<PolizaViewModel>, IEnumerable<PolizaViewModel>>(req =>
                 {
                     req.Path = $"poliza/List";
@@ -47,8 +47,33 @@ namespace SegurosFYP.Services
             catch (Exception ex)
             {
                 return result.Error(ex.Message);
+            } 
+        }
+        public async Task<ServiceResult> ListCre()
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var response = new PolizaCompletaViewModel();
+                var listadoTipo = await _aPI.Get<IEnumerable<TipoPlanViewModel>, IEnumerable<TipoPlanViewModel>>(req =>
+                {
+                    req.Path = $"tipoplan/List/TipoPlan";
+                });
+                if (!listadoTipo.Success)
+                {
+                    return result.FromApi(listadoTipo);
+                }
+                else
+                {
+                    response.TiposdePlan = listadoTipo.Data;
+
+                    return result.Ok(response);
+                }
             }
-            
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
         }
         public async Task<ServiceResult> InsertCliente(ClienteViewModel item)
         {
@@ -70,7 +95,6 @@ namespace SegurosFYP.Services
             {
                 return result.Error(ex.Message);
             }
-
         }
         public async Task<ServiceResult> InsertDependiente(DependienteViewModel item)
         {
