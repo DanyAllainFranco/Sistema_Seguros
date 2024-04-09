@@ -14,6 +14,28 @@ namespace SegurosFYP.DataAccess.Repository
         public static string Usuar_Insertar = "Acces.SP_Usuarios_Insertar";
         #endregion
 
+        #region Roles
+
+        public static string Rol_Insertar = "[Acces].[sp_Roles_Insertar]";
+        public static string Rol_Listar = "[Acces].[sp_Roles_Listar]";
+        public static string Rol_Eliminar = "[Acces].[sp_Roles_Eliminar]";
+        public static string Rol_Actualizar = "[Acces].[sp_Roles_Actualizar]";
+        public static string Rol_Obtener = "[Acces].[sp_Roles_Obtener]";
+        //public static string Rol_Llenar = "[Gene].[sp_Estados_llenar]";
+        public static string Rol_ObtenerId = "Acces.sp_Roles_ObtenerID";
+        #endregion
+
+        #region PantallasPorRoles
+        public static string PanRo_Insertar = "[Acces].[sp_PantallasPorRol_crear]";
+        public static string PanRo_Buscar = "[Acces].[sp_PantallasPorRol_buscar]";
+        public static string PanRo_Eliminar = "[Acces].[sp_PantallasPorRol_eliminar]";
+        #endregion
+
+        #region Pantallas
+        public static string Panta_Listar = "[AcceS].[sp_Pantallas_listar]";
+        #endregion
+
+
         #endregion
 
         #region General

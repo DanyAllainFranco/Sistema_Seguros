@@ -1,3 +1,4 @@
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -26,7 +27,7 @@ namespace SegurosFYP
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddSingleton<API>();
-            
+
             services.AddHttpClient();
 
             services.Configure<Cliente>(Configuration.GetSection("HttpClientUrl"));

@@ -30,6 +30,9 @@ namespace SegurosFYP.BusinessLogic
             service.AddScoped<CausaAtencionMedicaRepository>();
             service.AddScoped<CoberturaRepository>();
             service.AddScoped<UnidadRepository>();
+            service.AddScoped<RolesRepository>();
+            service.AddScoped<PantallaRepository>();
+
 
             SegurosFYPContext.BuildConnectionString(conn);
         }
