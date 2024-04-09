@@ -101,7 +101,7 @@ namespace SegurosFYP.Services
             {
                 var response = await _api.Get<IEnumerable<RolesViewModel>, IEnumerable<RolesViewModel>>(req =>
                 {
-                    req.Path = $"API/Rol/UpdateRol?Rol_id={Rol_id}";
+                    req.Path = $"API/Roles/UpdateRol?Rol_id={Rol_id}";
                 });
                 if (!response.Success)
                 {
@@ -127,7 +127,7 @@ namespace SegurosFYP.Services
             {
                 var response = await _api.Delete<DepartamentoViewModel, ServiceResult>(req =>
                 {
-                    req.Path = $"API/Roles/DeleteRol?Rol_Id={Rol_Id}";
+                    req.Path = $"API/Roles/DeleteRol?Rol_Id={Rol_Id}";  
                 });
                 if (!response.Success)
                 {

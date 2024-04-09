@@ -20,23 +20,20 @@ namespace SegurosFYP.DataAccess.Repository
 
         public RequestStatus EliminarRol(int Roles_Id)
         {
-            string sql = ScriptsBaseDeDatos.Rol_Eliminar;
+            string sql = ScriptsBaseDeDatos. Rol_Eliminar;
+
             using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
             {
-                var parametro = new DynamicParameters();
-                parametro.Add("@Roles_Id", Roles_Id);
+                var parameter = new DynamicParameters();
+                parameter.Add("@Roles_Id", Roles_Id);
+                var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
+                return new RequestStatus { CodeStatus = result, MessageStatus = "" };
+            }
 
-                var result = db.Execute(
-                    sql, parametro,
-                    commandType: CommandType.StoredProcedure
-                );
+            throw new NotImplementedException();
 
-                string mensaje = (result == 1) ? "exito" : "error";
-
-                return new RequestStatus { CodeStatus = result, MessageStatus = mensaje };
-
-            };
         }
+        
 
         public RequestStatus EliminarPantallaPorRol(int Papro_Id)
         {
@@ -127,7 +124,7 @@ namespace SegurosFYP.DataAccess.Repository
         }
 
         public IEnumerable<tbRoles> findObtenerId(string Roles_Descripcion, int usuario_creacion, DateTime fecha_creacion)
-        {
+            {
             string sql = ScriptsBaseDeDatos.Rol_ObtenerId;
 
             List<tbRoles> result = new List<tbRoles>();

@@ -16,9 +16,7 @@
 <table class="table table-bordered" id="Example">
     <thead>
         <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Roles_Id)
-                    </th>
+                 
                     <th>
                         @Html.DisplayNameFor(model => model.Roles_Descripcion)
                     </th>
@@ -28,9 +26,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Roles_Id)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.Roles_Descripcion)
             </td>
@@ -43,36 +39,6 @@
 }
     </tbody>
 </table>
-@*<div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    @Html.Partial("_Update", new SegurosFYP.Models.RolesViewModel ())
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Insertar</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    @Html.Partial("_Insert", new SegurosFYP.Models.RolesViewModel ())
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -88,23 +54,3 @@
             </div>
         </div>
     </div>
-<script>
-        var url = 'https://localhost:44347/api/EstadoCivil/Cargar/EstadoCivil?Estad_Id=';
-        document.querySelectorAll('.FetchData').forEach(item => {
-            item.addEventListener('click', function () {
-                var id = this.getAttribute('data-id');
-                console.log(id);
-                fetchData(id);
-            });
-        });
-        function fetchData(id) {
-            console.log(id);
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                                document.getElementById('Roles_Id').value = data.data[0].Roles_Id;
-                                document.getElementById('Roles_Descripcion').value = data.data[0].Roles_Descripcion;
-                })
-                .catch(error => console.error('Hubo un error:', error));
-        }
-    </script>*@

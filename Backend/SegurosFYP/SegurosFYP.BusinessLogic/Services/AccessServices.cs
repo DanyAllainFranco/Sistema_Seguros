@@ -54,6 +54,20 @@ namespace SegurosFYP.BusinessLogic.Services
                 return result.Error(ex.Message);
             }
         }
+
+        public ServiceResult Login(string Usuario, string Contra)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _UsuarioRepository.Login(Usuario, Contra);
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
         #endregion
 
         #region roles

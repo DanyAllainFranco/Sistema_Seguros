@@ -1,10 +1,14 @@
 ﻿using AutoMapper;
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using SegurosFYP.BusinessLogic.Services;
 using SegurosFYP.Common.Models;
+using SegurosFYP.DataAccess.Repository;
 using SegurosFYP.Entities.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -45,5 +49,7 @@ namespace SegurosFYP.API.Controllers
             var list = _accessServices.InsertUsu(modelo);
             return Ok(list);
         }
+    
+        }
     }
-}
+
