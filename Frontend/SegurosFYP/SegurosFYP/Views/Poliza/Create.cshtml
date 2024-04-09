@@ -220,24 +220,47 @@
 
         <h1>Seleccionar plan</h1>
         <fieldset style="overflow-y:auto">
+            <h2>Configuracion de Plan</h2>
+            <hr class="style-three" />
             <div class="d-flex justify-content-center flex-wrap">
-                @foreach(var item in Model.TiposdePlan)
-            {
-                <div class="card mb-5 mb-lg-0 ideal" aria-hidden="false">
-                    <div class="card-body cardscroll" aria-hidden="false">
-                        <input type="hidden" asp-for="@item.Tipos_Id" value="@Html.DisplayFor(model => item.Tipos_Id)">
-                        <h5 class="card-title text-uppercase text-center negrita">@Html.DisplayFor(model => item.Tipos_Descripcion)</h5>
-                        <div class="dividerLineMedium mb-3" aria-hidden="false"></div>
-                        <button class="btn btn-danger btn-block" id="btnIdeal">Seleccionar</button>
-                    </div>
-                </div>
-            }
-                @*<div class="form-group col-sm-5">
+                <input type="hidden" asp-for="Poliza.Tipos_Id" />
+                <div class="form-group col-sm-5">
                     <label asp-for="Poliza.Poliz_Cuotas" class="control-label"></label>
                     <input asp-for="Poliza.Poliz_Cuotas" class="form-control" />
                     <span asp-validation-for="Poliza.Poliz_Cuotas" class="text-danger"></span>
-                </div>*@
+                </div>
             </div>
+
+                <hr class="style-three" />
+                <div class="d-flex justify-content-center">
+                    <div class="col-sm-10">
+                        <h4>Seleccionar Tipo de Plan</h4>
+                    </div>
+                </div>
+                <hr class="style-three" />
+
+                <div class="d-flex justify-content-center flex-wrap">
+                    @{int contador = 0; }
+
+                    @foreach (var item in Model.TiposdePlan)
+                    {
+
+                        <div class="card mb-5 mb-lg-0 ideal" aria-hidden="false">
+                            <div class="card-body cardscroll" aria-hidden="false">
+                                <h5 class="card-title text-uppercase text-center negrita">@Html.DisplayFor(model => item.Tipos_Descripcion)</h5>
+                                <div class="dividerLineMedium mb-3" aria-hidden="false"></div>
+                                <button class="btn btn-danger btn-block btnSeleccionar" id="btnSeleccionar{@contador}" name="btnSeleccionar" onclick="Seleccionar(@item.Tipos_Id, @contador)">Seleccionar</button>
+                            </div>
+                        </div>
+
+                        contador += 1;
+                    }
+                    @*<div class="form-group col-sm-5">
+            <label asp-for="Poliza.Poliz_Cuotas" class="control-label"></label>
+            <input asp-for="Poliza.Poliz_Cuotas" class="form-control" />
+            <span asp-validation-for="Poliza.Poliz_Cuotas" class="text-danger"></span>
+        </div>*@
+                </div>
         </fieldset>
     </form>
 </div>
@@ -268,12 +291,12 @@
             fetch('https://localhost:44327/api/parentesco/List/Parentesco')
                 .then(response => response.json())
                 .then(data => {
-                    var options = '<option value="0">Seleccione una opcion</option>';
+                    var options = '<option id="0" value="0">Seleccione una opcion</option>';
                     $.each(data.data, function (key, value) {
                         //console.log(value.paren_Id, "data.data")
                         if (value.paren_Id != 1)
                         {
-                            options += '<option value="' + value.paren_Id + '">' + value.paren_Descripcion + '</option>';
+                            options += '<option id="' + value.paren_Id + '" value="' + value.paren_Id + '">' + value.paren_Descripcion + '</option>';
                         }
                     })
                     $("#DepenParen_Id").append(options);
@@ -285,7 +308,6 @@
             .then(data => {
                 var options = '<option value="0">Seleccione una opcion</option>';
                 $.each(data.data, function (key, value) {
-                    console.log(value.emple_Id, "data.data")
                         options += '<option value="' + value.emple_Id + '">' + value.perso_NombreCompleto + '</option>';
                     
                 })
@@ -298,7 +320,6 @@
             .then(data => {
                 var options = '<option value="0">Seleccione una opcion</option>';
                 $.each(data.data, function (key, value) {
-                    console.log(value.estad_Id, "data.data")
                     if (value.estad_Id != 1) {
                         options += '<option value="' + value.estad_Id + '">' + value.estad_Descripcion + '</option>';
                     }
@@ -312,7 +333,6 @@
             .then(data => {
                 var options = '<option value="0">Seleccione una opcion</option>';
                 $.each(data.data, function (key, value) {
-                    console.log(value.depar_Id, "data.data")
                     
                     options += '<option value="' + value.depar_Id + '">' + value.depar_Descripcion + '</option>';
                     
@@ -326,7 +346,6 @@
             .then(data => {
                 var options = '<option value="0">Seleccione una opcion</option>';
                 $.each(data.data, function (key, value) {
-                    console.log(value.paise_Id, "data.data")
 
                     options += '<option value="' + value.paise_Id + '">' + value.paise_Nacionalidad+ '</option>';
 
@@ -340,7 +359,6 @@
             .then(data => {
                 var options = '<option value="0">Seleccione una opcion</option>';
                 $.each(data.data, function (key, value) {
-                    console.log(value.tiden_Id, "data.data")
 
                     options += '<option value="' + value.tiden_Id + '">' + value.tiden_Descripcion+ '</option>';
 
@@ -354,7 +372,6 @@
             .then(data => {
                 var options = '<option value="0">Seleccione una opcion</option>';
                 $.each(data.data, function (key, value) {
-                    console.log(value.tiden_Id, "data.data")
 
                     options += '<option value="' + value.tiden_Id + '">' + value.tiden_Descripcion + '</option>';
 
@@ -432,19 +449,26 @@
         });
     });
 
+    function Seleccionar(id, contador) {
+        console.log("entra")
+
+        $('#Poliza_Tipos_Id').val(id)
+
+        $('.btnSeleccionar').removeAttr('disabled')
+
+        $(`#btnSeleccionar${contador}`).attr('disabled','')
+    }
+
     function ddlMunicipio() {
         console.log("entra")
 
         var id = $('#Depar_Id').val()
 
-        console.log(id, "id")
 
         fetch('https://localhost:44327/api/municipio/DropDownList/Municipio?Depar_Id' + id)
             .then(response => response.json())
             .then(data => {
-                console.log("fetch")
                 var options = '';
-                console.log(data,"data")
                 $.each(data.data, function (key, value) {
                     console.log(value.munic_Id, "data.data")
                     options += '<option value="' + value.munic_Id + '">' + value.munic_Descripcion + '</option>';
@@ -458,9 +482,20 @@
     var index = 0;
 
     function appendDependiente() {
-        console.log("entro")
 
         var newDependiente;
+
+        var parentesco = $('#DepenParen_Id').val()
+
+        var children = $('#DepenParen_Id').children();
+
+        var descr;
+
+        $.each(children, function (key, value) {
+            if (parentesco == value.id) {
+                descr = value.innerText;
+            }
+        })
 
         if (index == 0) {
             newDependiente = `
@@ -477,18 +512,20 @@
                                         <td>${$('#Depen_PrimerNombre').val() + ' ' + $('#Depen_SegundoNombre').val() + ' ' + $('#Depen_PrimerApellido').val() + ' ' + $('#Depen_SegundoApellido').val()}</td>
                                         <td>${$('#Depen_Sexo').val()}</td>
                                         <td>${$('#DepenIdent_NumeroIdentificacion').val()}</td>
-                                        <td>${$('#DepenParen_Id').text()}</td>
+                                        <td>${descr}</td>
                                     </tr>
                                 </tbody>`;
 
             $('#tableDependientes').append(newDependiente);
         } else {
+            
+                 
             newDependiente = `
                                     <tr>
-                                        <td>${$('#Depen_PrimerNombre').val() + ' ' + $('#Depen_SegundoNombre').val() + ' ' + $('#Depen_PrimerApellido').val() + ' ' + $('#Depen_SegundoApellido').val()}</td>
+                                        <td>${$('#Depen_PrimerNombre').val() + ' ' + $('#Depen_SegundoNombre').val() + ' ' +    $('#Depen_PrimerApellido').val() + ' ' + $('#Depen_SegundoApellido').val()}</td>
                                         <td>${$('#Depen_Sexo').val()}</td>
                                         <td>${$('#DepenIdent_NumeroIdentificacion').val()}</td>
-                                        <td>${$('#DepenParen_Id').text()}</td>
+                                        <td>${descr}</td>
                                     </tr>`;
 
             $('#tbody').append(newDependiente);
