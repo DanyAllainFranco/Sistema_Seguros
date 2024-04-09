@@ -64,6 +64,20 @@ namespace SegurosFYP.DataAccess.Repository
             //throw new NotImplementedException();
         }
 
+        public IEnumerable<tbUsuarios> Login(string Usuario, string Contra)
+        {
+            string sql = ScriptsBaseDeDatos.Usuar_Login;
+
+            List<tbUsuarios> result = new List<tbUsuarios>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                var parameters = new { @Usuario = Usuario, @Contra = Contra };
+                result = db.Query<tbUsuarios>(sql, parameters, commandType: CommandType.StoredProcedure).ToList();
+                return result;
+            }
+        }
+
         public RequestStatus Update(tbUsuarios item)
         {
             throw new NotImplementedException();

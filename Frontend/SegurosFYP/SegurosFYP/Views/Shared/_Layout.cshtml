@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@using System.Text.Json;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -25,7 +27,6 @@
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-                    <span class="icon-menu"></span>
                 </button>
                 <ul class="navbar-nav mr-lg-2">
                     <li class="nav-item nav-search d-none d-lg-block">
@@ -55,6 +56,11 @@
                 </button>
             </div>
         </nav>
+        @{
+            HttpContextAccessor _httpContextAccesor = new HttpContextAccessor();
+            var pantallasJson = _httpContextAccesor.HttpContext.Session.GetString("Pantallas");
+            var pantallas = JsonSerializer.Deserialize<List<string>>(pantallasJson);
+        }
         <!--Begin sidebar-->
         <div class="container-fluid page-body-wrapper">
 
@@ -65,67 +71,130 @@
                     <div class='air air3'></div>
                     <div class='air air4'></div>
                 </section>
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#Acceso" aria-expanded="false" aria-controls="Acceso">
-                            <i class="icon-layout menu-icon"></i>
-                            <span class="menu-title">Acceso</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="Acceso">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="/Departamento/Index">Usuarios</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/EstadoCivil/Index">Roles</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#Generales" aria-expanded="false" aria-controls="Generales">
-                            <i class="icon-layout menu-icon"></i>
-                            <span class="menu-title">Generales</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="Generales">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="/Pais/Index">Paises</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/Municipio/Index">Municipios</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/Departamento/Index">Departamentos</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/EstadoCivil/Index">Estados Civiles</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/Parentesco/Index">Parentescos</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#Seguro" aria-expanded="false" aria-controls="Seguro">
-                            <i class="icon-layout menu-icon"></i>
-                            <span class="menu-title">Seguro</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="Seguro">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="/Cargo/Index">Cargos</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/Cobertura/Index">Coberturas</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/Empleado/Index">Empleados</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/Unidad/Index">Unidades</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#Administracion" aria-expanded="false" aria-controls="Generales">
-                            <i class="icon-layout menu-icon"></i>
-                            <span class="menu-title">Administracion</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="Administracion">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="/Poliza/Index">Polizas</a></li>
-                                <li class="nav-item"> <a class="nav-link"></a></li>
-                                <li class="nav-item"> <a class="nav-link"></a></li>
-                            </ul>
-                        </div>
-                    </li>
 
-                </ul>
+
+                <ul class="nav">
+
+                    <!--Inicio Acceso-->
+                    @if (pantallas != null && pantallas.Contains("Roles") || pantallas.Contains("Admin") || pantallas.Contains("Usuario"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#Acceso" aria-expanded="false" aria-controls="Acceso">
+                                <i class="icon-layout menu-icon"></i>
+                                <span class="menu-title">Acceso</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="Acceso">
+                                <ul class="nav flex-column sub-menu">
+                                    @if (pantallas != null && pantallas.Contains("Usuarios") || pantallas.Contains("Admin"))
+                                    {
+                                        <li class="nav-item"> <a class="nav-link" href="/Departamento/Index">Usuarios</a></li>
+                                    }
+                                    @if (pantallas != null && pantallas.Contains("Roles") || pantallas.Contains("Admin"))
+                                    {
+                                        <li class="nav-item"> <a class="nav-link" href="/Rol/Index">Roles</a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </li>
+                    }
+                    <!--Fin Acceso-->
+                    <!--Inico generales-->
+                    @if (pantallas != null && pantallas.Contains("Paises") || pantallas.Contains("Admin") || pantallas.Contains("Municipios") || pantallas.Contains("Departamentos") || pantallas.Contains("Estados Civiles") || pantallas.Contains("Parentescos"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#Generales" aria-expanded="false" aria-controls="Generales">
+                                <i class="icon-layout menu-icon"></i>
+                                <span class="menu-title">Generales</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="Generales">
+                                <ul class="nav flex-column sub-menu">
+                                    @if (pantallas != null && pantallas.Contains("Paises") || pantallas.Contains("Admin"))
+                                    {
+                                        <li class="nav-item"> <a class="nav-link" href="/Pais/Index">Paises</a></li>
+                                    }
+                                    @if (pantallas != null && pantallas.Contains("Municipios") || pantallas.Contains("Admin"))
+                                    {
+                                        <li class="nav-item"> <a class="nav-link" href="/Municipio/Index">Municipios</a></li>
+                                    }
+                                    @if (pantallas != null && pantallas.Contains("Departamentos") || pantallas.Contains("Admin"))
+                                    {
+                                        <li class="nav-item"> <a class="nav-link" href="/Departamento/Index">Departamentos</a></li>
+                                    } @if (pantallas != null && pantallas.Contains("Estados Civiles") || pantallas.Contains("Admin"))
+                                    {
+                                        <li class="nav-item"> <a class="nav-link" href="/EstadoCivil/Index">Estados Civiles</a></li>
+                                    }
+                                    @if (pantallas != null && pantallas.Contains("Parentescos") || pantallas.Contains("Admin"))
+                                    {
+                                        <li class="nav-item"> <a class="nav-link" href="/Parentesco/Index">Parentescos</a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </li>
+                    }
+                    <!--Fin generales-->
+                    <!--Inicio Seguro-->
+                    @if (pantallas != null && pantallas.Contains("Cargos") || pantallas.Contains("Admin") || pantallas.Contains("Coberturas") || pantallas.Contains("Empleados") || pantallas.Contains("Unidades"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#Seguro" aria-expanded="false" aria-controls="Seguro">
+                                <i class="icon-layout menu-icon"></i>
+                                <span class="menu-title">Seguro</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="Seguro">
+                                <ul class="nav flex-column sub-menu">
+                                     @if (pantallas != null && pantallas.Contains("Cargos") || pantallas.Contains("Admin"))
+                                    {
+                                        <li class="nav-item"> <a class="nav-link" href="/Cargo/Index">Cargos</a></li>
+                                    }
+                                     @if (pantallas != null && pantallas.Contains("Coberturas") || pantallas.Contains("Admin"))
+                                    {
+                                        <li class="nav-item"> <a class="nav-link" href="/Cobertura/Index">Coberturas</a></li>
+                                    }  @if (pantallas != null && pantallas.Contains("Empleados") || pantallas.Contains("Admin"))
+                                    {
+                                        <li class="nav-item"> <a class="nav-link" href="/Empleado/Index">Empleados</a></li>
+                                    }
+                                     @if (pantallas != null && pantallas.Contains("Unidades") || pantallas.Contains("Admin"))
+                                    {
+                                        <li class="nav-item"> <a class="nav-link" href="/EstadoCivil/Index">Unidades</a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </li>
+                    }
+                    <!--Fin Seguro-->
+                    <!--Inicio Administracion-->
+
+                    @if (pantallas != null && pantallas.Contains("Polizas") || pantallas.Contains("Admin") || pantallas.Contains("Desembolos") || pantallas.Contains("Quejas"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#Administracion" aria-expanded="false" aria-controls="Generales">
+                                <i class="icon-layout menu-icon"></i>
+                                <span class="menu-title">Administracion</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="Administracion">
+                                <ul class="nav flex-column sub-menu">
+                                     @if (pantallas != null && pantallas.Contains("Polizas") || pantallas.Contains("Admin"))
+                                    {
+                                        <li class="nav-item"> <a class="nav-link" href="/Poliza/Index">Polizas</a></li>
+                                    }
+                                     @if (pantallas != null && pantallas.Contains("Desembolos") || pantallas.Contains("Admin"))
+                                    {
+                                        <li class="nav-item"> <a class="nav-link"></a>Desembolos</li>
+                                    } @if (pantallas != null && pantallas.Contains("Quejas") || pantallas.Contains("Admin"))
+                                    {
+                                        <li class="nav-item"> <a class="nav-link"></a>Quejas</li>
+                                    }
+                                    </ul>
+                            </div>
+                        </li>
+                    }
+                        <!--Fin Administracion-->
+
+                    </ul>
             </nav>
             <div class="main-panel">
                 <div class="content-wrapper">

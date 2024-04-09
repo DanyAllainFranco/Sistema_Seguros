@@ -23,7 +23,9 @@ namespace SegurosFYP
             service.AddScoped<ParentescoServices>();
             service.AddScoped<CoberturaServices>();
             service.AddScoped<EmpleadoServices>();
-            service.AddScoped<UnidadServices>();
+            service.AddScoped<RolServices>();
+            service.AddScoped<UsuarioService>();
+
 
         }
     }

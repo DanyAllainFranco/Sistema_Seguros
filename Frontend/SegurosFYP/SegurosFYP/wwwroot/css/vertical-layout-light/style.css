@@ -11234,9 +11234,9 @@ fieldset:disabled .wizard > .actions a,
 }
 
 .btn-warning {
-  color: #212529;
-  background-color: #FFC100;
-  border-color: #FFC100;
+    color: #fff;
+    background-color: #FFA836;
+    border-color: #FFA836;
 }
 
 .btn-warning:hover {
@@ -20882,12 +20882,12 @@ code {
 
 /* Buttons */
 .btn, .fc button, .ajax-upload-dragdrop .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .swal2-styled, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel, .wizard > .actions a {
-  font-size: 0.875rem;
-  line-height: 1;
-  font-weight: 400;
-  border-radius: 15px;
-  /* Buttons with only icons */
-  /* Buttons with icon and text */
+    font-size: 0.875rem;
+    line-height: 1;
+    font-weight: 400;
+    border-radius: 11px;
+    /* Buttons with only icons */
+    /* Buttons with icon and text */
 }
 
 .btn i, .fc button i, .ajax-upload-dragdrop .ajax-file-upload i, .swal2-modal .swal2-buttonswrapper .swal2-styled i, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm i, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel i, .wizard > .actions a i {
@@ -26166,7 +26166,7 @@ body.avgrund-active {
 }
 
     .dataTables_wrapper .dataTable .btn, .dataTables_wrapper .dataTable .fc button, .fc .dataTables_wrapper .dataTable button, .dataTables_wrapper .dataTable .ajax-upload-dragdrop .ajax-file-upload, .ajax-upload-dragdrop .dataTables_wrapper .dataTable .ajax-file-upload, .dataTables_wrapper .dataTable .swal2-modal .swal2-buttonswrapper .swal2-styled, .swal2-modal .swal2-buttonswrapper .dataTables_wrapper .dataTable .swal2-styled, .dataTables_wrapper .dataTable .wizard > .actions a, .wizard > .actions .dataTables_wrapper .dataTable a {
-        padding: 1rem 1rem;
+        padding: 0.9rem 0.9rem;
         vertical-align: top;
     }
 
@@ -30650,3 +30650,5 @@ section .air.air4{
     background-position-x: -1000px; 
   }
 }
+
+

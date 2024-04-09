@@ -26,5 +26,17 @@ namespace SegurosFYP.Common.Models
         public string UsuarioCreacion { get; set; }
         [NotMapped]
         public string UsuarioModificacion { get; set; }
+        [NotMapped]
+        public int Usua_Id { get; set; }
+
+
+        [NotMapped]
+        public string Usua_Nombre { get; set; }
+
+        [NotMapped]
+        public string Usua_Contrasenia { get; set; }
+
+        [NotMapped]
+        public string Panta_Descripcion { get; set; }
     }
 }

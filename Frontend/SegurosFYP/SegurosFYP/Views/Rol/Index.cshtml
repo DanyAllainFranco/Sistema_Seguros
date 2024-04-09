@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SegurosFYP.Models.RolesViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    ViewData["ModelName"] = "RolesViewModel".Replace("ViewModel","");
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card-header">
+    <h1>@ViewData["ModelName"]</h1>
+
+    <p>
+        @*<a  class="btn btn-primary"><i class="mdi mdi-folder-plus"></i>Nuevo</a>*@
+        <a asp-controller="Rol" asp-action="Create" class="btn btn-primary"><i class="mdi mdi-folder-plus"></i>Nuevo</a>
+    </p>
+</div>
+<table class="table table-bordered" id="Example">
+    <thead>
+        <tr>
+                 
+                    <th>
+                        @Html.DisplayNameFor(model => model.Roles_Descripcion)
+                    </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Roles_Descripcion)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Rol", new { Rol_Id = item.Roles_Id })" class="btn btn-primary"><i class="bi bi-pencil"></i>Editar</a>
+                <a href="@Url.Action("Details", "Rol", new { Rol_Id = item.Roles_Id })" class="btn btn-warning"><i class="bi bi-eye"></i>Detalles</a>
+                <a asp-route-id="@item.Roles_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Roles_Id')"><i class="bi bi-trash"></i>Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_Delete", new SegurosFYP.Models.RolesViewModel ())
+                </div>                     
+            </div>
+        </div>
+    </div>
