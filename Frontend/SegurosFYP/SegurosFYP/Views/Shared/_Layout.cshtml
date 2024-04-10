@@ -242,6 +242,11 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script>
         $(document).ready(function () {
+            $('.nav-link').removeClass('active');
+            $('.nav-link').removeClass('collapsed');
+            $('.collapse').removeClass('show');
+            $('.nav-item').removeClass('active');
+
 
              @if (TempData["Exito"] != null)
         {

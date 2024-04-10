@@ -33,9 +33,9 @@
                                         @Html.DisplayFor(modelItem => item.Depar_Descripcion)
                                     </td>                                 
                                     <td>
-                                        <a asp-route-id="@item.Depar_Id" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-depar-id="@item.Depar_Id"><i class="bi bi-pen-fill"></i>Editar</a>
-                                        <a asp-route-id="@item.Depar_Id" asp-action="Details" class="btn btn-warning"><i class="fa fa-eye"></i>Detalles</a>
-                                        <a asp-route-id="@item.Depar_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Depar_Id')"><i class="fa fa-trash"></i>Eliminar</a>
+                                        <a asp-route-id="@item.Depar_Id" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-depar-id="@item.Depar_Id"><i class="bi bi-pencil"></i>Editar</a>
+                                        <a asp-route-id="@item.Depar_Id" asp-action="Details" class="btn btn-warning"><i class="bi bi-eye"></i>Detalles</a>
+                                        <a asp-route-id="@item.Depar_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Depar_Id')"><i class="bi bi-trash"></i>Eliminar</a>
                                     </td>
                                 </tr>
                             }
