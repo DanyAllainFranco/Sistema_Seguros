@@ -1,0 +1,117 @@
+﻿@model IEnumerable<SegurosFYP.Models.DesembolsoViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    ViewData["ModelName"] = "DesembolsoViewModel".Replace("ViewModel","");
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card-header">
+    <h1>@ViewData["ModelName"]</h1>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary"><i class="mdi mdi-folder-plus"></i>Nuevo</a>
+        @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-folder-plus"></i>Nuevo</button>*@
+    </p>
+</div>
+<table class="table table-responsive table-bordered" id="Example">
+    <thead>
+        <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Desem_Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Recla_Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Desem_TotalAcreditar)
+                    </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Desem_Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Recla_Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Desem_TotalAcreditar)
+                    </td>
+            <td>
+                <a asp-route-id="@item." class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-id="@item."><i class="bi bi-pen-fill"></i>Editar</a>
+                <a asp-route-id="@item." asp-action="Details" class="btn btn-warning"><i class="fa fa-eye"></i>Detalles</a>
+                <a asp-route-id="@item." class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.')"><i class="fa fa-trash"></i>Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_Update", new SegurosFYP.Models.DesembolsoViewModel ())
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Insertar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_Insert", new SegurosFYP.Models.DesembolsoViewModel ())
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_Delete", new SegurosFYP.Models.DesembolsoViewModel ())
+                </div>                     
+            </div>
+        </div>
+    </div>
+<script>
+        var url = 'https://localhost:44347/api/EstadoCivil/Cargar/EstadoCivil?Estad_Id=';
+        document.querySelectorAll('.FetchData').forEach(item => {
+            item.addEventListener('click', function () {
+                var id = this.getAttribute('data-id');
+                console.log(id);
+                fetchData(id);
+            });
+        });
+        function fetchData(id) {
+            console.log(id);
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                                document.getElementById('Desem_Id').value = data.data[0].Desem_Id;
+                                document.getElementById('Recla_Id').value = data.data[0].Recla_Id;
+                                document.getElementById('Desem_TotalAcreditar').value = data.data[0].Desem_TotalAcreditar;
+                })
+                .catch(error => console.error('Hubo un error:', error));
+        }
+    </script>

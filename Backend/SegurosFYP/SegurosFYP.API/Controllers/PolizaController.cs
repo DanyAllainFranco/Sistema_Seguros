@@ -32,7 +32,7 @@ namespace SegurosFYP.API.Controllers
             return Ok(list);
         }
         [HttpPost("InsertIdentificacion")]
-        public IActionResult InsertIdentificacion(IdentificacionViewModel item)
+        public IActionResult InsertIdentificacion(IdentificacionPolizaViewModel item)
         {
             //var result = Ok();
             for (int i = 0; i < item.quantity; i++)
@@ -50,7 +50,7 @@ namespace SegurosFYP.API.Controllers
             return Ok();
         }
         [HttpPost("InsertCliente")]
-        public IActionResult InsertCliente(PersonaViewModel item)
+        public IActionResult InsertCliente(PersonaDependienteViewModel item)
         {
             var cantIdent = _generalServices.NumerationIdent(item.quantity);
 
@@ -91,7 +91,7 @@ namespace SegurosFYP.API.Controllers
             return Ok();
         }
         [HttpPost("InsertPariente")]
-        public IActionResult InsertPariente(PersonaViewModel item)
+        public IActionResult InsertPariente(PersonaDependienteViewModel item)
         {
             var cantIdent = _generalServices.NumerationIdent(item.quantity);
 

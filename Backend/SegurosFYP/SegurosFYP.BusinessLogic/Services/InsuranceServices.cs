@@ -595,7 +595,20 @@ namespace SegurosFYP.BusinessLogic.Services
         }
         #endregion
 
-        #region
+        #region TipoPlan
+        public ServiceResult ListTipo()
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _tipoPlanRepository.List();
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
         public ServiceResult DropDownListTipo()
         {
             var result = new ServiceResult();

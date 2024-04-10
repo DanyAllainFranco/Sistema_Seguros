@@ -10,8 +10,7 @@ namespace SegurosFYP.Entities.Entities
     {
         public tbInformeMedico()
         {
-            tbCausaAtencionMedica = new HashSet<tbCausaAtencionMedica>();
-            tbDesembolsos = new HashSet<tbDesembolsos>();
+            tbReclamos = new HashSet<tbReclamos>();
         }
 
         public int Infor_Id { get; set; }
@@ -27,9 +26,6 @@ namespace SegurosFYP.Entities.Entities
         public DateTime? Infor_FechaModificacion { get; set; }
         public bool? Infor_Estado { get; set; }
 
-        public virtual tbUsuarios Infor_UsuarioCreacionNavigation { get; set; }
-        public virtual tbUsuarios Infor_UsuarioModificacionNavigation { get; set; }
-        public virtual ICollection<tbCausaAtencionMedica> tbCausaAtencionMedica { get; set; }
-        public virtual ICollection<tbDesembolsos> tbDesembolsos { get; set; }
+        public virtual ICollection<tbReclamos> tbReclamos { get; set; }
     }
 }
