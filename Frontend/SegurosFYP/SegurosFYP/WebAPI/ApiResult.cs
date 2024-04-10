@@ -23,10 +23,11 @@ namespace SegurosFYP_WEB.WebAPI
 
             public ApiResultType Type { get; set; }
 
-            public T Data { get; set; }
-            //public object Data { get; set; }
+        public T Data { get; set; }
+        //public object Data { get; set; }
+        //public dynamic Data { get; set; }
 
-            public string Path { get; set; }
+        public string Path { get; set; }
 
             public string Message { get; set; }
 

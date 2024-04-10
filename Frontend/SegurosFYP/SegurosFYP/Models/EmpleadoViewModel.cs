@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -17,17 +18,36 @@ namespace SegurosFYP.Models
         public DateTime? Emple_FechaModificacion { get; set; }
         public bool? Emple_Estado { get; set; }
 
-        [NotMapped]
+        public string UsuarioModificacion { get; set; }
+        public string UsuarioCreacion { get; set; }
+
+
+        public int? Estci_Id { get; set; }
+        public string Perso_Telefono { get; set; }
+        public string Perso_CorreoElectronico { get; set; }
+        public string Perso_Direccion { get; set; }
+        public string Munic_Id { get; set; }
+
+
+        [Display(Name = "Tipo de Identificacion")]
+        public int Tiden_Id { get; set; }
+
+        [Display(Name = "Codigo de Identificacion")]
+        public string Ident_NumeroIdentificacion { get; set; }
+
+        [Display(Name = "Fecha de Nacimiento")]
+        public DateTime Ident_FechaNacimiento { get; set; }
+
+        [Display(Name = "Lugar de Nacimiento")]
+        public string Ident_LugarNacimiento { get; set; }
+
+
+
         public string Perso_PrimerNombre { get; set; }
-        [NotMapped]
         public string Perso_SegundoNombre { get; set; }
-        [NotMapped]
         public string Perso_PrimerApellido { get; set; }
-        [NotMapped]
         public string Perso_SegundoApellido { get; set; }
-        [NotMapped]
         public string Perso_Sexo { get; set; }
-        [NotMapped]
         public string Cargo_Descripcion { get; set; }
 
     }

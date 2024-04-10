@@ -1,0 +1,104 @@
+﻿@model SegurosFYP.Models.EmpleadoViewModel
+
+        @{
+        ViewData["Title"] = "View";
+        ViewData["ModelName"] = "EmpleadoViewModel".Replace("ViewModel","");
+        }
+        
+<form asp-action="Insert">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="d-flex justify-content-center flex-wrap">
+
+        <div class="form-group col-sm-5">
+            <label asp-for="Perso_PrimerNombre" class="control-label"></label>
+            <input asp-for="Perso_PrimerNombre" class="form-control" />
+            <span asp-validation-for="Perso_PrimerNombre" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Perso_SegundoNombre" class="control-label"></label>
+            <input asp-for="Perso_SegundoNombre" class="form-control" />
+            <span asp-validation-for="Perso_SegundoNombre" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Perso_PrimerApellido" class="control-label"></label>
+            <input asp-for="Perso_PrimerApellido" class="form-control" />
+            <span asp-validation-for="Perso_PrimerApellido" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Perso_SegundoApellido" class="control-label"></label>
+            <input asp-for="Perso_SegundoApellido" class="form-control" />
+            <span asp-validation-for="Perso_SegundoApellido" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Tiden_Id" class="control-label"></label>
+            <select asp-for="Tiden_Id" class="form-control"></select>
+            <span asp-validation-for="Tiden_Id" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Ident_NumeroIdentificacion" class="control-label"></label>
+            <input asp-for="Ident_NumeroIdentificacion" class="form-control" />
+            <span asp-validation-for="Ident_NumeroIdentificacion" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Ident_FechaNacimiento" class="control-label"></label>
+            <input asp-for="Ident_FechaNacimiento" class="form-control" />
+            <span asp-validation-for="Ident_FechaNacimiento" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Ident_LugarNacimiento" class="control-label"></label>
+            <input asp-for="Ident_LugarNacimiento" class="form-control" />
+            <span asp-validation-for="Ident_LugarNacimiento" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Perso_Sexo" class="control-label"></label>
+            <input asp-for="Perso_Sexo" class="form-control" />
+            <span asp-validation-for="Perso_Sexo" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Estci_Id" class="control-label"></label>
+            <select asp-for="Estci_Id" class="form-control"></select>
+            <span asp-validation-for="Estci_Id" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Perso_Telefono" class="control-label"></label>
+            <input asp-for="Perso_Telefono" class="form-control" />
+            <span asp-validation-for="Perso_Telefono" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Perso_CorreoElectronico" class="control-label"></label>
+            <input asp-for="Perso_CorreoElectronico" class="form-control" />
+            <span asp-validation-for="Perso_CorreoElectronico" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-10">
+            <label asp-for="Perso_Direccion" class="control-label"></label>
+            <input asp-for="Perso_Direccion" class="form-control" />
+            <span asp-validation-for="Perso_Direccion" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label class="control-label">Departamento</label>
+            <select id="Depar_Id" name="Depar_Id" onchange="ddlMunicipio()" class="form-control"></select>
+            <span class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Munic_Id" class="control-label"></label>
+            <select asp-for="Munic_Id" class="form-control"></select>
+            <span asp-validation-for="Munic_Id" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Cargo_Id" class="control-label"></label>
+            <select asp-for="Cargo_Id" class="form-control"></select>
+            <span asp-validation-for="Cargo_Id" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group d-flex justify-content-end" style="gap: 5px;">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+                @section Scripts {
+                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                }
+
+
+

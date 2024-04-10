@@ -12,9 +12,11 @@ namespace SegurosFYP.Controllers
     public class EmpleadoController : Controller
     {
         public EmpleadoServices _empleadoServices;
-        public EmpleadoController(EmpleadoServices empleadoServices)
+        public PersonaServices _personaServices;
+        public EmpleadoController(EmpleadoServices empleadoServices, PersonaServices personaServices)
         {
             _empleadoServices = empleadoServices;
+            _personaServices = personaServices;
         }
         public async Task<IActionResult> Index()
         {
@@ -42,6 +44,7 @@ namespace SegurosFYP.Controllers
         {
             try
             {
+                await _personaServices.Insert(item);
                 var list = await _empleadoServices.Insert(item);
                 TempData["Exito"] = "Registro insertado con exito";
                 return RedirectToAction("Index");
