@@ -13,11 +13,11 @@
     <div class="d-flex justify-content-center flex-wrap">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-        <div class="dropzone" id="dropzoneForm">
+        <form class="dropzone" id="dropzoneForm">
             <div class="fallback">
                 <input name="file" type="file" multiple />
             </div>
-        </div>
+        </form>
         <div class="form-group col-sm-5">
             <label asp-for="Desem_Id" class="control-label"></label>
             <input asp-for="Desem_Id" class="form-control" />
