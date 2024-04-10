@@ -42,6 +42,7 @@ namespace SegurosFYP.DataAccess.Context
         public virtual DbSet<tbPolizas> tbPolizas { get; set; }
         public virtual DbSet<tbPrescripciones> tbPrescripciones { get; set; }
         public virtual DbSet<tbQuejas> tbQuejas { get; set; }
+        public virtual DbSet<tbReclamos> tbReclamos { get; set; }
         public virtual DbSet<tbRoles> tbRoles { get; set; }
         public virtual DbSet<tbTipoArticuloMedico> tbTipoArticuloMedico { get; set; }
         public virtual DbSet<tbTiposIdentificaciones> tbTiposIdentificaciones { get; set; }
@@ -109,11 +110,6 @@ namespace SegurosFYP.DataAccess.Context
                     .WithMany(p => p.tbCausaAtencionMedicaCatme_UsuarioModificacionNavigation)
                     .HasForeignKey(d => d.Catme_UsuarioModificacion);
 
-                entity.HasOne(d => d.Infor)
-                    .WithMany(p => p.tbCausaAtencionMedica)
-                    .HasForeignKey(d => d.Infor_Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tbCausaAtencionMedica_Infor_Id");
             });
 
             modelBuilder.Entity<tbCoberturas>(entity =>
@@ -194,25 +190,14 @@ namespace SegurosFYP.DataAccess.Context
 
                 entity.Property(e => e.Desem_FechaModificacion).HasColumnType("datetime");
 
-                entity.HasOne(d => d.Clien)
+                entity.Property(e => e.Desem_TotalAcreditar).HasColumnType("numeric(10, 2)");
+
+              
+
+                entity.HasOne(d => d.Recla)
                     .WithMany(p => p.tbDesembolsos)
-                    .HasForeignKey(d => d.Clien_Id)
+                    .HasForeignKey(d => d.Recla_Id)
                     .OnDelete(DeleteBehavior.ClientSetNull);
-
-                entity.HasOne(d => d.Desem_UsuarioCreacionNavigation)
-                    .WithMany(p => p.tbDesembolsosDesem_UsuarioCreacionNavigation)
-                    .HasForeignKey(d => d.Desem_UsuarioCreacion)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
-
-                entity.HasOne(d => d.Desem_UsuarioModificacionNavigation)
-                    .WithMany(p => p.tbDesembolsosDesem_UsuarioModificacionNavigation)
-                    .HasForeignKey(d => d.Desem_UsuarioModificacion);
-
-                entity.HasOne(d => d.Infor)
-                    .WithMany(p => p.tbDesembolsos)
-                    .HasForeignKey(d => d.Infor_Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tbDesembolsos_tbInformeMedico");
             });
 
             modelBuilder.Entity<tbEmpleados>(entity =>
@@ -330,24 +315,12 @@ namespace SegurosFYP.DataAccess.Context
 
                 entity.Property(e => e.Fadet_Precio).HasColumnType("numeric(10, 2)");
 
-                entity.HasOne(d => d.Fadet_UsuarioCreacionNavigation)
-                    .WithMany(p => p.tbFacturaMedicaDetalleFadet_UsuarioCreacionNavigation)
-                    .HasForeignKey(d => d.Fadet_UsuarioCreacion)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
-
-                entity.HasOne(d => d.Fadet_UsuarioModificacionNavigation)
-                    .WithMany(p => p.tbFacturaMedicaDetalleFadet_UsuarioModificacionNavigation)
-                    .HasForeignKey(d => d.Fadet_UsuarioModificacion);
 
                 entity.HasOne(d => d.Faenca)
                     .WithMany(p => p.tbFacturaMedicaDetalle)
                     .HasForeignKey(d => d.Faenca_Id)
                     .OnDelete(DeleteBehavior.ClientSetNull);
 
-                entity.HasOne(d => d.Unida)
-                    .WithMany(p => p.tbFacturaMedicaDetalle)
-                    .HasForeignKey(d => d.Unida_Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
             });
 
             modelBuilder.Entity<tbFacturaMedicaEncabezado>(entity =>
@@ -377,24 +350,11 @@ namespace SegurosFYP.DataAccess.Context
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.HasOne(d => d.Clien)
+
+                entity.HasOne(d => d.Recla)
                     .WithMany(p => p.tbFacturaMedicaEncabezado)
-                    .HasForeignKey(d => d.Clien_Id)
+                    .HasForeignKey(d => d.Recla_Id)
                     .OnDelete(DeleteBehavior.ClientSetNull);
-
-                entity.HasOne(d => d.Desem)
-                    .WithMany(p => p.tbFacturaMedicaEncabezado)
-                    .HasForeignKey(d => d.Desem_Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
-
-                entity.HasOne(d => d.Faenca_UsuarioCreacionNavigation)
-                    .WithMany(p => p.tbFacturaMedicaEncabezadoFaenca_UsuarioCreacionNavigation)
-                    .HasForeignKey(d => d.Faenca_UsuarioCreacion)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
-
-                entity.HasOne(d => d.Faenca_UsuarioModificacionNavigation)
-                    .WithMany(p => p.tbFacturaMedicaEncabezadoFaenca_UsuarioModificacionNavigation)
-                    .HasForeignKey(d => d.Faenca_UsuarioModificacion);
             });
 
             modelBuilder.Entity<tbFrecuencias>(entity =>
@@ -565,14 +525,6 @@ namespace SegurosFYP.DataAccess.Context
 
                 entity.Property(e => e.Infor_TratamientoRealizado).IsRequired();
 
-                entity.HasOne(d => d.Infor_UsuarioCreacionNavigation)
-                    .WithMany(p => p.tbInformeMedicoInfor_UsuarioCreacionNavigation)
-                    .HasForeignKey(d => d.Infor_UsuarioCreacion)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
-
-                entity.HasOne(d => d.Infor_UsuarioModificacionNavigation)
-                    .WithMany(p => p.tbInformeMedicoInfor_UsuarioModificacionNavigation)
-                    .HasForeignKey(d => d.Infor_UsuarioModificacion);
             });
 
             modelBuilder.Entity<tbMunicipios>(entity =>
@@ -873,19 +825,11 @@ namespace SegurosFYP.DataAccess.Context
 
                 entity.Property(e => e.Presc_FechaModificacion).HasColumnType("datetime");
 
-                entity.HasOne(d => d.Desem)
+
+                entity.HasOne(d => d.Recla)
                     .WithMany(p => p.tbPrescripciones)
-                    .HasForeignKey(d => d.Desem_Id)
+                    .HasForeignKey(d => d.Recla_Id)
                     .OnDelete(DeleteBehavior.ClientSetNull);
-
-                entity.HasOne(d => d.Presc_UsuarioCreacionNavigation)
-                    .WithMany(p => p.tbPrescripcionesPresc_UsuarioCreacionNavigation)
-                    .HasForeignKey(d => d.Presc_UsuarioCreacion)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
-
-                entity.HasOne(d => d.Presc_UsuarioModificacionNavigation)
-                    .WithMany(p => p.tbPrescripcionesPresc_UsuarioModificacionNavigation)
-                    .HasForeignKey(d => d.Presc_UsuarioModificacion);
             });
 
             modelBuilder.Entity<tbQuejas>(entity =>
@@ -913,6 +857,31 @@ namespace SegurosFYP.DataAccess.Context
                 entity.HasOne(d => d.Queja_UsuarioModificacionNavigation)
                     .WithMany(p => p.tbQuejasQueja_UsuarioModificacionNavigation)
                     .HasForeignKey(d => d.Queja_UsuarioModificacion);
+            });
+
+            modelBuilder.Entity<tbReclamos>(entity =>
+            {
+                entity.HasKey(e => e.Recla_Id)
+                    .HasName("PK_tbReclamos_Recla_Id");
+
+                entity.ToTable("tbReclamos", "Segur");
+
+                entity.Property(e => e.Recla_Estado).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Recla_FechaCreacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Recla_FechaModificacion).HasColumnType("datetime");
+
+                entity.Property(e => e.Recla_TotalFactura).HasColumnType("numeric(10, 2)");
+
+
+                entity.HasOne(d => d.Infor)
+                    .WithMany(p => p.tbReclamos)
+                    .HasForeignKey(d => d.Infor_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tbReclamos_tbInformeMedico");
+
+               
             });
 
             modelBuilder.Entity<tbRoles>(entity =>
@@ -1040,7 +1009,6 @@ namespace SegurosFYP.DataAccess.Context
                 entity.Property(e => e.Tipos_FechaModificacion).HasColumnType("datetime");
 
                 entity.Property(e => e.Tipos_FueraCentroAmerica).HasColumnType("numeric(10, 2)");
-
 
                 entity.Property(e => e.Tipos_GastosFunebresDependientes).HasColumnType("numeric(10, 2)");
 

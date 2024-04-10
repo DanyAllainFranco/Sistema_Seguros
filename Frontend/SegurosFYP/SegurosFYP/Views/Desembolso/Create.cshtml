@@ -1,0 +1,69 @@
+﻿@model SegurosFYP.Models.DesembolsoViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>DesembolsoViewModel</h4>
+<hr />
+<form asp-action="Create">
+    <div class="d-flex justify-content-center flex-wrap">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+        <div class="dropzone" id="dropzoneForm">
+            <div class="fallback">
+                <input name="file" type="file" multiple />
+            </div>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Desem_Id" class="control-label"></label>
+            <input asp-for="Desem_Id" class="form-control" />
+            <span asp-validation-for="Desem_Id" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Recla_Id" class="control-label"></label>
+            <input asp-for="Recla_Id" class="form-control" />
+            <span asp-validation-for="Recla_Id" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Desem_TotalAcreditar" class="control-label"></label>
+            <input asp-for="Desem_TotalAcreditar" class="form-control" />
+            <span asp-validation-for="Desem_TotalAcreditar" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<script>
+
+    Dropzone.options.myGreatDropzone = { // camelized version of the `id`
+        paramName: "file", // The name that will be used to transfer the file
+        maxFilesize: 2, // MB
+        accept: function (file, done) {
+            if (file.name == "justinbieber.jpg") {
+                done("Naha, you don't.");
+            }
+            else { done(); }
+        }
+    };
+
+    $(document).ready(function () {
+        window.Dropzone;
+    })
+</script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+

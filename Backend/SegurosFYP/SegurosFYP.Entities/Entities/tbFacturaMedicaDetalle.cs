@@ -21,9 +21,6 @@ namespace SegurosFYP.Entities.Entities
         public DateTime? Fadet_FechaModificacion { get; set; }
         public bool? Fadet_Estado { get; set; }
 
-        public virtual tbUsuarios Fadet_UsuarioCreacionNavigation { get; set; }
-        public virtual tbUsuarios Fadet_UsuarioModificacionNavigation { get; set; }
         public virtual tbFacturaMedicaEncabezado Faenca { get; set; }
-        public virtual tbUnidades Unida { get; set; }
     }
 }

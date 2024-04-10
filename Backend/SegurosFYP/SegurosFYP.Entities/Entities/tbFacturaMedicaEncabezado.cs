@@ -18,7 +18,7 @@ namespace SegurosFYP.Entities.Entities
         public int Clien_Id { get; set; }
         public string Faenca_HospitalClinica { get; set; }
         public DateTime Faenca_FechaImpresion { get; set; }
-        public int Desem_Id { get; set; }
+        public int Recla_Id { get; set; }
         public string Factu_DocumentoAdelante { get; set; }
         public string Factu_DocumentoAtras { get; set; }
         public int Faenca_UsuarioCreacion { get; set; }
@@ -27,10 +27,7 @@ namespace SegurosFYP.Entities.Entities
         public DateTime? Faenca_FechaModificacion { get; set; }
         public bool? Faenca_Estado { get; set; }
 
-        public virtual tbPersonas Clien { get; set; }
-        public virtual tbDesembolsos Desem { get; set; }
-        public virtual tbUsuarios Faenca_UsuarioCreacionNavigation { get; set; }
-        public virtual tbUsuarios Faenca_UsuarioModificacionNavigation { get; set; }
+        public virtual tbReclamos Recla { get; set; }
         public virtual ICollection<tbFacturaMedicaDetalle> tbFacturaMedicaDetalle { get; set; }
     }
 }

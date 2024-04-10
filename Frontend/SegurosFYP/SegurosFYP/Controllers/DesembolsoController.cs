@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace SegurosFYP.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
     public class DesembolsoController : Controller
     {
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Create()
         {
             return View();
         }
