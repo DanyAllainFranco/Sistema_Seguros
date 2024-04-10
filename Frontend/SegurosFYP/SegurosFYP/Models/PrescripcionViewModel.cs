@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SegurosFYP.Models
 {
-    public class PrescripcionesViewModel
+    public class PrescripcionViewModel
     {
         public int Presc_Id { get; set; }
         public int Recla_Id { get; set; }
