@@ -59,13 +59,15 @@ namespace SegurosFYP.API.Controllers
 
                 var id = _accesServices.ObtenerId(txtRol, modelo.Roles_UsuarioCreacion, modelo.Roles_FechaCreacion);
 
-                var rol = id.Data;
+                var rol = id.Data as IEnumerable<tbRoles>;
 
                 int rolid = 0;
 
+                var rrr = rol.ToList().FirstOrDefault().Roles_Id;
+
                 foreach (var item in rol)
                 {
-                    rolid = item.Rol_Id;
+                    rolid = item.Roles_Id;
                 }
 
                 foreach (var pantalla in pantallasSeleccionadas)

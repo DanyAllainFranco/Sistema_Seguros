@@ -1,0 +1,130 @@
+﻿@model IEnumerable<SegurosFYP.Models.UsuarioViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    ViewData["ModelName"] = "UsuarioViewModel".Replace("ViewModel","");
+}
+<div class="card-header">
+    <h1>@ViewData["ModelName"]</h1>
+
+    <p>
+        @*<a asp-action="Create" class="btn btn-primary"><i class="mdi mdi-folder-plus"></i>Nuevo</a>*@
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-folder-plus"></i>Nuevo</button>
+    </p>
+</div>
+<table class="table table-bordered" id="Example">
+    <thead>
+        <tr>
+                  
+                    <th>
+                        @Html.DisplayNameFor(model => model.Usuar_Usuario)
+                    </th>                                                
+                    <th>
+                        @Html.DisplayNameFor(model => model.Perso_NombreCompleto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Roles_Descripcion)
+                    </th>               
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Usuar_Usuario)
+                    </td>
+             
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Perso_NombreCompleto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Roles_Descripcion)
+                    </td>
+                    
+            <td>
+                <a asp-route-id="@item." class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-id="@item."><i class="bi bi-pencil"></i>Editar</a>
+                <a asp-route-id="@item." asp-action="Details" class="btn btn-warning"><i class="bi bi-eye"></i>Detalles</a>
+                <a asp-route-id="@item." class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.')"><i class="bi bi-trash"></i>Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@*<div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_Update", new SegurosFYP.Models.UsuarioViewModel ())
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Insertar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_Insert", new SegurosFYP.Models.UsuarioViewModel ())
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_Delete", new SegurosFYP.Models.UsuarioViewModel ())
+                </div>                     
+            </div>
+        </div>
+    </div>
+<script>
+        var url = 'https://localhost:44347/api/EstadoCivil/Cargar/EstadoCivil?Estad_Id=';
+        document.querySelectorAll('.FetchData').forEach(item => {
+            item.addEventListener('click', function () {
+                var id = this.getAttribute('data-id');
+                console.log(id);
+                fetchData(id);
+            });
+        });
+        function fetchData(id) {
+            console.log(id);
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                                document.getElementById('Usuar_Id').value = data.data[0].Usuar_Id;
+                                document.getElementById('Usuar_Usuario').value = data.data[0].Usuar_Usuario;
+                                document.getElementById('Usuar_Contrasena').value = data.data[0].Usuar_Contrasena;
+                                document.getElementById('Emple_Id').value = data.data[0].Emple_Id;
+                                document.getElementById('Roles_Id').value = data.data[0].Roles_Id;
+                                document.getElementById('Usuar_Admin').value = data.data[0].Usuar_Admin;
+                                document.getElementById('Usuar_UltimaSesion').value = data.data[0].Usuar_UltimaSesion;
+                                document.getElementById('Perso_NombreCompleto').value = data.data[0].Perso_NombreCompleto;
+                                document.getElementById('Roles_Descripcion').value = data.data[0].Roles_Descripcion;
+                                document.getElementById('Usua_Nombre').value = data.data[0].Usua_Nombre;
+                                document.getElementById('Usua_Id').value = data.data[0].Usua_Id;
+                                document.getElementById('Usua_Contrasenia').value = data.data[0].Usua_Contrasenia;
+                                document.getElementById('Panta_Descripcion').value = data.data[0].Panta_Descripcion;
+                })
+                .catch(error => console.error('Hubo un error:', error));
+        }
+    </script>*@

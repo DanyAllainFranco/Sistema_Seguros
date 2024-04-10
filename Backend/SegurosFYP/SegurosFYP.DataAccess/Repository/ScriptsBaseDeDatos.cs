@@ -13,6 +13,10 @@ namespace SegurosFYP.DataAccess.Repository
         #region Usuario
         public static string Usuar_Insertar = "Acces.SP_Usuarios_Insertar";
         public static string Usuar_Login= "Acces.SP_Usuarios_InicioSesion";
+        public static string Usuar_Eliminar = "Acces.SP_Usuarios_Eliminar";
+        public static string Usuar_Actualizar = "Acces.SP_Usuarios_Actualizar";
+        public static string Usuar_Cargar = "Acces.SP_Usuario_Cargar";
+        public static string Usuar_Listar = "Acces.SP_Usuario_Listar";
 
         #endregion
 

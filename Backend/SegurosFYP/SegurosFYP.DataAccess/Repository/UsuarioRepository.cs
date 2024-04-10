@@ -13,14 +13,52 @@ namespace SegurosFYP.DataAccess.Repository
 {
     public class UsuarioRepository : IRepository<tbUsuarios>
     {
+        public RequestStatus Delete(int Usuar_Id)
+        {
+            string sql = ScriptsBaseDeDatos.Usuar_Eliminar;
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                var parameter = new DynamicParameters();
+                parameter.Add("@Usuar_Id", Usuar_Id);
+                var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
+                return new RequestStatus { CodeStatus = result, MessageStatus = "" };
+            }
+
+            throw new NotImplementedException();
+        }
+
         public RequestStatus Delete(tbUsuarios item)
         {
             throw new NotImplementedException();
         }
 
-        public tbUsuarios Details(int? id)
+        public IEnumerable<tbUsuarios> Details(int? Usuar_Id)
         {
-            throw new NotImplementedException();
+            string sql = ScriptsBaseDeDatos.Usuar_Cargar;
+
+            List<tbUsuarios> result = new List<tbUsuarios>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                var parameters = new { Usuar_Id };
+                result = db.Query<tbUsuarios>(sql, parameters, commandType: CommandType.StoredProcedure).ToList();
+                return result;
+            }
+        }
+
+        public IEnumerable<tbUsuarios> find(int Usuar_Id)
+        {
+            string sql = ScriptsBaseDeDatos.Usuar_Cargar;
+
+            List<tbUsuarios> result = new List<tbUsuarios>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                var parameters = new { Usuar_Id };
+                result = db.Query<tbUsuarios>(sql, parameters, commandType: CommandType.StoredProcedure).ToList();
+                return result;
+            }
         }
 
         public tbUsuarios find(int? id)
@@ -35,13 +73,15 @@ namespace SegurosFYP.DataAccess.Repository
             using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
             {
                 var parameter = new DynamicParameters();
+                parameter.Add("@Usuar_Id", item.Usuar_Id);
                 parameter.Add("@Usuar_Usuario", item.Usuar_Usuario);
                 parameter.Add("@Usuar_Contrasena", item.Usuar_Contrasena);
                 parameter.Add("@Emple_Id", item.Emple_Id);
                 parameter.Add("@Roles_Id", item.Roles_Id);
                 parameter.Add("@Usuar_Admin", item.Usuar_Admin);
-                parameter.Add("@Usuar_UsuarioCreacion", item.Usuar_UsuarioCreacion);
-                parameter.Add("@Usuar_FechaCreacion", item.Usuar_FechaCreacion);
+                parameter.Add("@Usuar_UltimaSesion", DateTime.Now);
+                parameter.Add("@Usuar_UsuarioCreacion", 1);
+                parameter.Add("@Usuar_FechaCreacion", DateTime.Now);
 
                 var result = db.Execute(sql,parameter, commandType: CommandType.StoredProcedure);
 
@@ -51,7 +91,7 @@ namespace SegurosFYP.DataAccess.Repository
 
         public IEnumerable<tbUsuarios> List()
         {
-            const string sql = "SELECT * FROM Acces.tbUsuarios";
+            string sql = ScriptsBaseDeDatos.Usuar_Listar;
 
             List<tbUsuarios> result = new List<tbUsuarios>();
 
@@ -79,6 +119,29 @@ namespace SegurosFYP.DataAccess.Repository
         }
 
         public RequestStatus Update(tbUsuarios item)
+        {
+            string sql = ScriptsBaseDeDatos.Usuar_Actualizar;
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                var parameter = new DynamicParameters();
+                parameter.Add("@Usuar_Id", item.Usuar_Id);
+                parameter.Add("@Usuar_Usuario", item.Usuar_Usuario);
+                parameter.Add("@Usuar_Contrasena", item.Usuar_Contrasena);
+                parameter.Add("@Emple_Id", item.Emple_Id);
+                parameter.Add("@Roles_Id", item.Roles_Id);
+                parameter.Add("@Usuar_Admin", item.Usuar_Admin);
+                parameter.Add("@Usuar_UltimaSesion", DateTime.Now);
+                parameter.Add("@Usuar_UsuarioModificacion",1);
+                parameter.Add("@Usuar_FechaModificacion", DateTime.Now);
+                var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
+                return new RequestStatus { CodeStatus = result, MessageStatus = "" };
+            }
+            //throw new NotImplementedException();
+        }
+
+
+        tbUsuarios IRepository<tbUsuarios>.Details(int? id)
         {
             throw new NotImplementedException();
         }

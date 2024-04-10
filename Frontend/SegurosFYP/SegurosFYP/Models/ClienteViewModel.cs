@@ -45,6 +45,7 @@ namespace SegurosFYP.Models
 
         public int Poliz_Id { get; set; }
         [Required]
+        [Display(Name = "Parentesco")]
 
         public int[] Paren_Id { get; set; }
 

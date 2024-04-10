@@ -17,6 +17,158 @@ namespace SegurosFYP.Services
         {
             _api = api;
         }
+        public async Task<ServiceResult> Index()
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var response = await _api.Get<IEnumerable<UsuarioViewModel>, IEnumerable<UsuarioViewModel>>(req =>
+                {
+                    req.Path = $"/Usuario/List";
+                });
+                if (!response.Success)
+                {
+                    return result.FromApi(response);
+                }
+                else
+                {
+                    return result.Ok(response.Data);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(Helpers.GetMessage(ex));
+                throw;
+            }
+        }
+
+        public async Task<ServiceResult> Insert(UsuarioViewModel item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var response = await _api.Post<UsuarioViewModel, ServiceResult>(req =>
+                {
+                    req.Path = $"/Usuario/Insert";
+                    req.Content = item;
+                });
+                if (!response.Success)
+                {
+                    return result.FromApi(response);
+                }
+                else
+                {
+                    return result.Ok(response.Data);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(Helpers.GetMessage(ex));
+                throw;
+            }
+        }
+        public async Task<ServiceResult> Update(UsuarioViewModel item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var response = await _api.Put<UsuarioViewModel, ServiceResult>(req =>
+                {
+                    req.Path = $"/Usuario/Update/Usuarios";
+                    req.Content = item;
+                });
+                if (!response.Success)
+                {
+                    return result.FromApi(response);
+                }
+                else
+                {
+                    return result.Ok(response.Data);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(Helpers.GetMessage(ex));
+                throw;
+            }
+
+        }
+        public async Task<ServiceResult> Delete(int Usuar_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var response = await _api.Delete<UsuarioViewModel, ServiceResult>(req =>
+                {
+                    req.Path = $"/api/Usuario/Delete/Usuario?Usuar_Id={Usuar_Id}";
+                });
+                if (!response.Success)
+                {
+                    return result.FromApi(response);
+                }
+                else
+                {
+                    return result.Ok(response.Data);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(Helpers.GetMessage(ex));
+                throw;
+            }
+
+        }
+
+        public async Task<ServiceResult> Find()
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var response = await _api.Get<IEnumerable<UsuarioViewModel>, IEnumerable<UsuarioViewModel>>(req =>
+                {
+                    req.Path = $"/api/Usuario/Cargar/Usuario";
+                });
+                if (!response.Success)
+                {
+                    return result.FromApi(response);
+                }
+                else
+                {
+                    return result.Ok(response.Data);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(Helpers.GetMessage(ex));
+                throw;
+            }
+        }
+
+        public async Task<ServiceResult> Details(int Usuar_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var response = await _api.Get<IEnumerable<UsuarioViewModel>, IEnumerable<UsuarioViewModel>>(req =>
+                {
+                    req.Path = $"/api/Usuario/Cargar/Usuario?Usuar_Id={Usuar_Id}";
+                });
+                if (!response.Success)
+                {
+                    return result.FromApi(response);
+                }
+                else
+                {
+                    return result.Ok(response.Data);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(Helpers.GetMessage(ex));
+                throw;
+            }
+        }
 
         public async Task<ServiceResult> Login(string Usuario, string Contra)
         {
@@ -43,5 +195,7 @@ namespace SegurosFYP.Services
                 throw;
             }
         }
+
+
     }
 }

@@ -20,8 +20,10 @@
                     <input type="text" id="txtRol" name="txtRol" placeholder="Nombre del Rol" class="form-control" required />
                 </div>
                 <div class=" form-switch col-md-6">
-                    <input class="form-check-input" type="checkbox" id="checkTodos">
-                    <label class="form-check-label" for="checkTodos">Seleccionar Todos</label>
+                    <div class="checkbox-wrapper-14">
+                        <input class="form-check-input switch" type="checkbox" id="checkTodos">
+                        <label class="form-check-label" for="checkTodos">Seleccionar Todos</label>
+                    </div>
                 </div>
             </div>
             <div class="card-body" style="margin-left:4%">
@@ -31,10 +33,12 @@
                     {
                         <div class="col-md-4">
                             <div class="">
-                                <input class="form-check-input pantalla-checkbox" type="checkbox" id="pantalla-@pantalla.Panta_Id" name="pantallasSeleccionadas" value="@pantalla.Panta_Id">
-                                <label class="form-check-label" for="pantalla-@pantalla.Panta_Id">
-                                    @pantalla.Panta_Descripcion
-                                </label>
+                                <div class="checkbox-wrapper-14">
+                                    <input class="form-check-input pantalla-checkbox switch" type="checkbox" id="pantalla-@pantalla.Panta_Id" name="pantallasSeleccionadas" value="@pantalla.Panta_Id">
+                                    <label class="form-check-label" for="pantalla-@pantalla.Panta_Id">
+                                        @pantalla.Panta_Descripcion
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     }
