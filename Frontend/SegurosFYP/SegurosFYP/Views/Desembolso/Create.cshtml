@@ -1,4 +1,4 @@
-﻿@model SegurosFYP.Models.DesembolsoViewModel
+﻿@model SegurosFYP.Models.DesembolsoCompletoViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -9,35 +9,287 @@
 
 <h4>DesembolsoViewModel</h4>
 <hr />
-<form asp-action="Create">
-    <div class="d-flex justify-content-center flex-wrap">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-        <form class="dropzone" id="dropzoneForm">
-            <div class="fallback">
-                <input name="file" type="file" multiple />
+<div class="ibox-content">
+
+    <form id="form" enctype="multipart/form-data" method="post" action="Create" class="wizard-big">
+
+        <h1>Validacion de Documentos</h1>
+        <fieldset style="overflow-y:auto">
+            <h2>Facturas</h2>
+            <hr class="style-three" />
+            <div>
+                <button type="button" class="btn btn-primary" onclick="NuevaFactura()"></button>
             </div>
-        </form>
-        <div class="form-group col-sm-5">
-            <label asp-for="Desem_Id" class="control-label"></label>
-            <input asp-for="Desem_Id" class="form-control" />
-            <span asp-validation-for="Desem_Id" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Recla_Id" class="control-label"></label>
-            <input asp-for="Recla_Id" class="form-control" />
-            <span asp-validation-for="Recla_Id" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Desem_TotalAcreditar" class="control-label"></label>
-            <input asp-for="Desem_TotalAcreditar" class="form-control" />
-            <span asp-validation-for="Desem_TotalAcreditar" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary" />
-    </div>
-</form>
+            <div id="listFacturas">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div id="formFactu_1" class="d-flex justify-content-center flex-wrap collapse">
+                            <div class="form-group">
+                                <label asp-for="Encabezado.Factu_DocumentoAdelanteArchivo[0]" class="control-label">Ingrese la parte de <b>Adelante</b> de su Factura</label>
+                                <div class="custom-file">
+                                    <input asp-for="Encabezado.Factu_DocumentoAdelanteArchivo[0]" class="custom-file-input">
+                                    <label asp-for="Encabezado.Factu_DocumentoAdelanteArchivo[0]" class="custom-file-label">Choose file</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Encabezado.Factu_DocumentoAtrasArchivo[0]" class="control-label">Ingrese la parte de <b>ATRAS</b> de su Factura</label>
+                                <div class="custom-file">
+                                    <input asp-for="Encabezado.Factu_DocumentoAtrasArchivo[0]" class="custom-file-input">
+                                    <label asp-for="Encabezado.Factu_DocumentoAtrasArchivo[0]" class="custom-file-label">Choose file</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Encabezado.Faenca_Codigo[0]" class="control-label"></label>
+                                <input asp-for="Encabezado.Faenca_Codigo[0]" class="form-control" />
+                                <span asp-validation-for="Encabezado.Faenca_Codigo[0]" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Encabezado.Clien_Id" class="control-label"></label>
+                                <select asp-for="Encabezado.Clien_Id" class="form-control"></select>
+                                <span asp-validation-for="Encabezado.Clien_Id" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Encabezado.Faenca_HospitalClinica[0]" class="control-label"></label>
+                                <select asp-for="Encabezado.Faenca_HospitalClinica[0]" class="form-control">
+                                    <option value="0">Seleccione una opcion</option>
+                                    <option value="1">Hospital Del Valle</option>
+                                    <option value="2">Hospital Escuela</option>
+                                    <option value="3">Hospital Mario Catarino Rivas</option>
+                                </select>
+                                <span asp-validation-for="Encabezado.Faenca_HospitalClinica[0]" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Encabezado.Faenca_FechaImpresion[0]" class="control-label"></label>
+                                <select asp-for="Encabezado.Faenca_FechaImpresion[0]" class="form-control"></select>
+                                <span asp-validation-for="Encabezado.Faenca_FechaImpresion[0]" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end" style="gap: 5px;">
+                            <button type="button" class="btn btn-primary" onclick="AgregarDetalle()"></button>
+                        </div>
+                        <div id="listDetalle">
+                            <table class="table-bordered table" id="tableDetalle">
+                            </table>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+            
+                
+                <hr class="style-three" />
+
+                <h2>Contractor</h2>
+
+                <hr class="style-three" />
+                <div class="d-flex justify-content-center flex-wrap">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="Cliente.Perso_PrimerNombre" class="control-label"></label>
+                        <input asp-for="Cliente.Perso_PrimerNombre" class="form-control" />
+                        <span asp-validation-for="Cliente.Perso_PrimerNombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="Cliente.Perso_SegundoNombre" class="control-label"></label>
+                        <input asp-for="Cliente.Perso_SegundoNombre" class="form-control" />
+                        <span asp-validation-for="Cliente.Perso_SegundoNombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="Cliente.Perso_PrimerApellido" class="control-label"></label>
+                        <input asp-for="Cliente.Perso_PrimerApellido" class="form-control" />
+                        <span asp-validation-for="Cliente.Perso_PrimerApellido" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="Cliente.Perso_SegundoApellido" class="control-label"></label>
+                        <input asp-for="Cliente.Perso_SegundoApellido" class="form-control" />
+                        <span asp-validation-for="Cliente.Perso_SegundoApellido" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="Cliente.Perso_Sexo" class="control-label"></label>
+                        <input asp-for="Cliente.Perso_Sexo" class="form-control" />
+                        <span asp-validation-for="Cliente.Perso_Sexo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="Cliente.Estci_Id" class="control-label"></label>
+                        <select asp-for="Cliente.Estci_Id" class="form-control"></select>
+                        <span asp-validation-for="Cliente.Estci_Id" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="Cliente.Perso_Telefono" class="control-label"></label>
+                        <input asp-for="Cliente.Perso_Telefono" class="form-control" />
+                        <span asp-validation-for="Cliente.Perso_Telefono" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="Cliente.Perso_CorreoElectronico" class="control-label"></label>
+                        <input asp-for="Cliente.Perso_CorreoElectronico" class="form-control" />
+                        <span asp-validation-for="Cliente.Perso_CorreoElectronico" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-10">
+                        <label asp-for="Cliente.Perso_Direccion" class="control-label"></label>
+                        <input asp-for="Cliente.Perso_Direccion" class="form-control" />
+                        <span asp-validation-for="Cliente.Perso_Direccion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label class="control-label">Departamento</label>
+                        <select id="Depar_Id" name="Depar_Id" onchange="ddlMunicipio()" class="form-control"></select>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="Cliente.Munic_Id" class="control-label"></label>
+                        <select asp-for="Cliente.Munic_Id" class="form-control">
+                            <option value="0">Seleccione una opcion</option>
+                        </select>
+                        <span asp-validation-for="Cliente.Munic_Id" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="Cliente.Paise_Id" class="control-label "></label>
+                        <select asp-for="Cliente.Paise_Id" class="form-control"></select>
+                        <span asp-validation-for="Cliente.Paise_Id" class="text-danger"></span>
+                    </div>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-center">
+                    <div class="col-sm-10">
+                        <h4>Identificacion</h4>
+                    </div>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-center flex-wrap">
+                    <div class="form-group col-sm-5">
+                        <label asp-for="Identificacion.Tiden_Id" class="control-label"></label>
+                        <select asp-for="Identificacion.Tiden_Id[0]" class="form-control"></select>
+                        <span asp-validation-for="Identificacion.Tiden_Id" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="Identificacion.Ident_NumeroIdentificacion" class="control-label"></label>
+                        <input asp-for="Identificacion.Ident_NumeroIdentificacion[0]" class="form-control" />
+                        <span asp-validation-for="Identificacion.Ident_NumeroIdentificacion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="Identificacion.Ident_FechaNacimiento" class="control-label"></label>
+                        <input asp-for="Identificacion.Ident_FechaNacimiento[0]" class="form-control" />
+                        <span asp-validation-for="Identificacion.Ident_FechaNacimiento" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label asp-for="Identificacion.Ident_LugarNacimiento" class="control-label"></label>
+                        <input asp-for="Identificacion.Ident_LugarNacimiento[0]" class="form-control" />
+                        <span asp-validation-for="Identificacion.Ident_LugarNacimiento" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cliente.DniFrente" class="control-label">Ingrese la parte de <b>ENFRENTE</b> de su DNI</label>
+                        <div class="custom-file">
+                            <input asp-for="Cliente.DniFrente" class="custom-file-input">
+                            <label asp-for="Cliente.DniFrente" class="custom-file-label">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cliente.DniAtras" class="control-label">Ingrese la parte de <b>ATRAS</b> de su DNI</label>
+                        <div class="custom-file">
+                            <input asp-for="Cliente.DniAtras" class="custom-file-input">
+                            <label asp-for="Cliente.DniAtras" class="custom-file-label">Choose file</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                @*<div class="col-lg-4">
+                <div class="text-center">
+                    <div style="margin-top: 20px">
+                        <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
+                    </div>
+                </div>
+            </div>*@
+
+        </fieldset>
+        <h1>Calculo de Desembolso</h1>
+        <fieldset style="overflow-y:auto">
+            <h2>Informacion de Dependiente</h2>
+            <hr class="style-three" />
+
+            <div class="d-flex justify-content-center flex-wrap">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group col-sm-5">
+                    <label asp-for="Dependiente.Perso_PrimerNombre" class="control-label"></label>
+                    <input @*asp-for="Dependiente.Perso_PrimerNombre"*@ type="text" id="Depen_PrimerNombre" name="Depen_PrimerNombre" class="form-control" />
+                    <span asp-validation-for="Dependiente.Perso_PrimerNombre" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-5">
+                    <label asp-for="Dependiente.Perso_SegundoNombre" class="control-label"></label>
+                    <input @*asp-for="Dependiente.Perso_SegundoNombre"*@ type="text" id="Depen_SegundoNombre" name="Depen_SegundoNombre" class="form-control" />
+                    <span asp-validation-for="Dependiente.Perso_SegundoNombre" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-5">
+                    <label asp-for="Dependiente.Perso_PrimerApellido" class="control-label"></label>
+                    <input @*asp-for="Dependiente.Perso_PrimerApellido"*@ type="text" id="Depen_PrimerApellido" name="Depen_PrimerApellido" class="form-control" />
+                    <span asp-validation-for="Dependiente.Perso_PrimerApellido" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-5">
+                    <label asp-for="Dependiente.Perso_SegundoApellido" class="control-label"></label>
+                    <input @*asp-for="Dependiente.Perso_SegundoApellido"*@ type="text" id="Depen_SegundoApellido" name="Depen_SegundoApellido" class="form-control" />
+                    <span asp-validation-for="Dependiente.Perso_SegundoApellido" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-5">
+                    <label asp-for="Dependiente.Perso_Sexo" class="control-label"></label>
+                    <input @*asp-for="Dependiente.Perso_Sexo[0]"*@ type="text" id="Depen_Sexo" name="Depen_Sexo" class="form-control" />
+                    <span asp-validation-for="Dependiente.Perso_Sexo" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-5">
+                    <label asp-for="Dependiente.Paren_Id" class="control-label"></label>
+                    <select @*asp-for="Dependiente.Paren_Id"*@ type="number" id="DepenParen_Id" name="DepenParen_Id" class="form-control"></select>
+                    <span asp-validation-for="Dependiente.Paren_Id" class="text-danger"></span>
+                </div>
+            </div>
+            <hr class="style-three" />
+            <div class="d-flex justify-content-center">
+                <div class="col-sm-10">
+                    <h4>Identificacion</h4>
+                </div>
+            </div>
+            <hr class="style-three" />
+            <div class="d-flex justify-content-center flex-wrap">
+                <div class="form-group col-sm-5">
+                    <label asp-for="Identificacion.Tiden_Id" class="control-label"></label>
+                    <select @*asp-for="Identificacion.Tiden_Id"*@ type="number" id="DepenTiden_Id" name="DepenTiden_Id" class="form-control"></select>
+                    <span asp-validation-for="Identificacion.Tiden_Id" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-5">
+                    <label asp-for="Identificacion.Ident_NumeroIdentificacion" class="control-label"></label>
+                    <input @*asp-for="Identificacion.Ident_NumeroIdentificacion"*@ type="number" id="DepenIdent_NumeroIdentificacion" name="DepenIdent_NumeroIdentificacion" class="form-control" />
+                    <span asp-validation-for="Identificacion.Ident_NumeroIdentificacion" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-5">
+                    <label asp-for="Identificacion.Ident_FechaNacimiento" class="control-label"></label>
+                    <input @*asp-for="Identificacion.Ident_FechaNacimiento"*@ type="datetime-local" id="DepenIdent_FechaNacimiento" name="DepenIdent_FechaNacimiento" class="form-control" />
+                    <span asp-validation-for="Identificacion.Ident_FechaNacimiento" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-5">
+                    <label asp-for="Identificacion.Ident_LugarNacimiento" class="control-label"></label>
+                    <input @*asp-for="Identificacion.Ident_LugarNacimiento"*@ type="text" id="DepenIdent_LugarNacimiento" name="DepenIdent_LugarNacimiento" class="form-control" />
+                    <span asp-validation-for="Identificacion.Ident_LugarNacimiento" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div>
+                <input type="button" onclick="appendDependiente()" id="btnAgregarDependiente" name="btnAgregarDependiente" class="btn btn-primary" value="Agregar" />
+            </div>
+            <div id="listDependientes">
+                <table class="table-bordered table" id="tableDependientes">
+                </table>
+            </div>
+        </fieldset>
+        
+    </form>
+</div>
+
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
@@ -45,21 +297,84 @@
 
 <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 <script>
-
-    Dropzone.options.myGreatDropzone = { // camelized version of the `id`
-        paramName: "file", // The name that will be used to transfer the file
-        maxFilesize: 2, // MB
-        accept: function (file, done) {
-            if (file.name == "justinbieber.jpg") {
-                done("Naha, you don't.");
-            }
-            else { done(); }
-        }
-    };
-
     $(document).ready(function () {
-        window.Dropzone;
-    })
+
+        //$("#wizard").steps();
+        $("#form").steps({
+            bodyTag: "fieldset",
+            onStepChanging: function (event, currentIndex, newIndex) {
+                // Always allow going backward even if the current step contains invalid fields!
+                if (currentIndex > newIndex) {
+                    return true;
+                }
+
+                // Forbid suppressing "Warning" step if the user is to young
+                if (newIndex === 3 && Number($("#age").val()) < 18) {
+                    return false;
+                }
+
+                var form = $(this);
+
+                // Clean up if user went backward before
+                if (currentIndex < newIndex) {
+                    // To remove error styles
+                    $(".body:eq(" + newIndex + ") label.error", form).remove();
+                    $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                }
+
+                // Disable validation on fields that are disabled or hidden.
+                form.validate().settings.ignore = ":disabled,:hidden";
+
+                // Start validation; Prevent going forward if false
+                return form.valid();
+            },
+            onStepChanged: function (event, currentIndex, priorIndex) {
+                // Suppress (skip) "Warning" step if the user is old enough.
+                if (currentIndex === 2 && Number($("#age").val()) >= 18) {
+                    $(this).steps("next");
+                }
+
+                // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
+                if (currentIndex === 2 && priorIndex === 3) {
+                    $(this).steps("previous");
+                }
+            },
+            onFinishing: function (event, currentIndex) {
+                var form = $(this);
+
+                // Disable validation on fields that are disabled.
+                // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                form.validate().settings.ignore = ":disabled";
+
+                // Start validation; Prevent form submission if false
+                return form.valid();
+            },
+            onFinished: function (event, currentIndex) {
+
+                var form = $(this);
+                form.validate().settings.ignore = ":disabled";
+                // Submit form input
+                form.submit();
+            }
+        }).validate({
+            errorPlacement: function (error, element) {
+                element.before(error);
+            },
+            rules: {
+                confirm: {
+                    equalTo: "#password"
+                }
+            }
+        });
+    });
+
+    function NuevaFactura() {
+        var formFactura;
+
+        formFactura += `
+                    
+                        `;
+    }
 </script>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
