@@ -1,4 +1,4 @@
-﻿@*@model SegurosFYP.Models.PolizaCompletaViewModel
+﻿@model SegurosFYP.Models.PolizaCompletaViewModel
 
 @{
     ViewData["Title"] = "Pdf";
@@ -8,52 +8,52 @@
 
 <table class="table mb-4">
     <tr>
-        <td colspan="4">ENCABEZADO</td>
+        <td colspan="8">ENCABEZADO</td>
     </tr>
     <tr>
-        <th>Cod. de contratante</th>
-        <th>Fecha de emision</th>
-        <th>No. de poliza</th>
-        <th>Cod. Agente de venta</th>
+        <th colspan="2">Cod. de contratante</th>
+        <th colspan="2">Fecha de emision</th>
+        <th colspan="2">No. de poliza</th>
+        <th colspan="2">Cod. Agente de venta</th>
     </tr>
     <tr>
-        <td>@Html.DisplayFor(model => model.Cliente.Perso_Id)</td>
-        <td>@DateTime.Now</td>
-        <td>@Html.DisplayFor(model => model.Poliza.Poliz_Id)</td>
-        <td>@Html.DisplayFor(model => model.Empleado.Emple_Id)</td>
+        <td colspan="2">@Html.DisplayFor(model => model.Cliente.Perso_Id)</td>
+        <td colspan="2">@DateTime.Now</td>
+        <td colspan="2">@Html.DisplayFor(model => model.Poliza.Poliz_Id)</td>
+        <td colspan="2">@Html.DisplayFor(model => model.Empleado.Emple_Id)</td>
     </tr>
 </table>
 
 <table>
     <tr class="bg-primary">
-        <td colspan="4">A. DATOS GENERALES</td>
+        <td colspan="8">A. DATOS GENERALES</td>
     </tr>
     <tr class="bg-primary">
-        <td colspan="4">I. DATOS DEL AGENTE DE SEGURO</td>
+        <td colspan="8">I. DATOS DEL AGENTE DE SEGURO</td>
     </tr>
     <tr>
-        <td>Agente</td>
-        <td ></td>
-        <td>Codigo del agente</td>
-        <td></td>
+        <td colspan="1">Agente</td>
+        <td colspan="4">@Html.DisplayFor(model => model.Empleado.Perso_PrimerNombre)</td>
+        <td colspan="1">Codigo del agente</td>
+        <td colspan="2"></td>
     </tr>
     <tr class="bg-primary">
-        <td" colspan="">II. DATOS DEL CONTRATANTE</td>
+        <td colspan="8">II. DATOS DEL CONTRATANTE</td>
     </tr>
     <tr>
-        <td><b>DATOS PERSONA NATURAL</b></td>
+        <td colspan="8"><b>DATOS PERSONA NATURAL</b></td>
     </tr>
     <tr>
-        <th>Primer Nombre</th>
-        <th>Segundo Nombre</th>
-        <th>Primer Apellido</th>
-        <th>Segundo Apellido</th>
+        <th colspan="2">Primer Nombre</th>
+        <th colspan="2">Segundo Nombre</th>
+        <th colspan="2">Primer Apellido</th>
+        <th colspan="2">Segundo Apellido</th>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td colspan="2"></td>
+        <td colspan="2"></td>
+        <td colspan="2"></td>
+        <td colspan="2"></td>
     </tr>
     <tr>
         @if ()
@@ -132,5 +132,5 @@
             <td></td>
         </tr>
     }
-</table>*@
+</table>
 
