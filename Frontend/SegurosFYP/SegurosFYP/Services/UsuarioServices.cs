@@ -75,7 +75,7 @@ namespace SegurosFYP.Services
             {
                 var response = await _api.Put<UsuarioViewModel, ServiceResult>(req =>
                 {
-                    req.Path = $"/Usuario/Update/Usuarios";
+                    req.Path = $"/Usuario/Update/Usuario";
                     req.Content = item;
                 });
                 if (!response.Success)
@@ -101,7 +101,7 @@ namespace SegurosFYP.Services
             {
                 var response = await _api.Delete<UsuarioViewModel, ServiceResult>(req =>
                 {
-                    req.Path = $"/api/Usuario/Delete/Usuario?Usuar_Id={Usuar_Id}";
+                    req.Path = $"/Usuario/Delete/Usuario?Usuar_Id={Usuar_Id}";
                 });
                 if (!response.Success)
                 {

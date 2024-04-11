@@ -73,7 +73,6 @@ namespace SegurosFYP.DataAccess.Repository
             using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
             {
                 var parameter = new DynamicParameters();
-                parameter.Add("@Usuar_Id", item.Usuar_Id);
                 parameter.Add("@Usuar_Usuario", item.Usuar_Usuario);
                 parameter.Add("@Usuar_Contrasena", item.Usuar_Contrasena);
                 parameter.Add("@Emple_Id", item.Emple_Id);
@@ -137,7 +136,6 @@ namespace SegurosFYP.DataAccess.Repository
                 var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
                 return new RequestStatus { CodeStatus = result, MessageStatus = "" };
             }
-            //throw new NotImplementedException();
         }
 
 

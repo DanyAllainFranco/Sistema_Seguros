@@ -679,8 +679,6 @@ C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\Se
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\EstadoCivil\_Update.cshtml.g.cs
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Poliza\Create.cshtml.g.cs
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Poliza\Index.cshtml.g.cs
-C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Poliza\View.cshtml.g.cs
-C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Poliza\View1.cshtml.g.cs
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Municipio\Index.cshtml.g.cs
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Municipio\_Insert.cshtml.g.cs
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Municipio\_Update.cshtml.g.cs
@@ -901,7 +899,6 @@ C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\Se
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Cobertura\_Update.cshtml.g.cs
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Empleado\Index.cshtml.g.cs
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Empleado\_Delete.cshtml.g.cs
-C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Empleado\_Insert.cshtml.g.cs
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Empleado\_Update.cshtml.g.cs
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Pais\Index.cshtml.g.cs
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Pais\_Delete.cshtml.g.cs
@@ -930,3 +927,15 @@ C:\Users\LAB1\Desktop\Proyecto_Dany\Sistema_Seguros\Frontend\SegurosFYP\SegurosF
 C:\Users\LAB1\Desktop\Proyecto_Dany\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Unidad\_Insert.cshtml.g.cs
 C:\Users\LAB1\Desktop\Proyecto_Dany\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Unidad\_Update.cshtml.g.cs
 C:\Users\LAB1\Desktop\Proyecto_Dany\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Usuarios\Index.cshtml.g.cs
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Desembolso\Create.cshtml.g.cs
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Desembolso\Index.cshtml.g.cs
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Empleado\Create.cshtml.g.cs
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Empleado\View.cshtml.g.cs
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Unidad\Index.cshtml.g.cs
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Unidad\_Delete.cshtml.g.cs
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Unidad\_Insert.cshtml.g.cs
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Unidad\_Update.cshtml.g.cs
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Usuarios\Index.cshtml.g.cs
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Usuarios\_Insert.cshtml.g.cs
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Usuarios\_Update.cshtml.g.cs
+C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Usuarios\_Delete.cshtml.g.cs

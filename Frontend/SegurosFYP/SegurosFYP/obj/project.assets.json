@@ -8993,19 +8993,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LAB1\\.nuget\\packages\\": {}
+    "C:\\Users\\ACER\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LAB1\\Desktop\\Proyecto_Dany\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\SegurosFYP.csproj",
+      "projectUniqueName": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\SegurosFYP.csproj",
       "projectName": "SegurosFYP",
-      "projectPath": "C:\\Users\\LAB1\\Desktop\\Proyecto_Dany\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\SegurosFYP.csproj",
-      "packagesPath": "C:\\Users\\LAB1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LAB1\\Desktop\\Proyecto_Dany\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\obj\\",
+      "projectPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\SegurosFYP.csproj",
+      "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ACER\\OneDrive\\Escritorio\\Seguros\\Sistema_Seguros\\Frontend\\SegurosFYP\\SegurosFYP\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\LAB1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
