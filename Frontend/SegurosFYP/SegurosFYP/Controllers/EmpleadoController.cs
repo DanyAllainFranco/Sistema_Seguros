@@ -13,10 +13,12 @@ namespace SegurosFYP.Controllers
     {
         public EmpleadoServices _empleadoServices;
         public PersonaServices _personaServices;
-        public EmpleadoController(EmpleadoServices empleadoServices, PersonaServices personaServices)
+        public IdentificacionServices _identificacionServices;
+        public EmpleadoController(EmpleadoServices empleadoServices, PersonaServices personaServices, IdentificacionServices identificacionServices)
         {
             _empleadoServices = empleadoServices;
             _personaServices = personaServices;
+            _identificacionServices = identificacionServices;
         }
         public async Task<IActionResult> Index()
         {
@@ -40,12 +42,13 @@ namespace SegurosFYP.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Insert(EmpleadoViewModel item)
+        public async Task<IActionResult> Insert(EmpleadoPersonaViewModel item)
         {
             try
             {
-                await _personaServices.Insert(item);
-                var list = await _empleadoServices.Insert(item);
+                await _identificacionServices.Insert(item.Identidad);
+                await _personaServices.Insert(item.Persona);
+                var list = await _empleadoServices.Insert(item.Empleado);
                 TempData["Exito"] = "Registro insertado con exito";
                 return RedirectToAction("Index");
             }

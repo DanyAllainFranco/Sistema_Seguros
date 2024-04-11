@@ -9,6 +9,7 @@ namespace SegurosFYP.Models
 {
     public class ClienteViewModel
     {
+        public int Perso_Id { get; set; }
         [Required]
         [Display(Name = "Primer Nombre")]
         public string[] Perso_PrimerNombre { get; set; }

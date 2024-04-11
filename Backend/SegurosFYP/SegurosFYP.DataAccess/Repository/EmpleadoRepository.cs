@@ -84,6 +84,7 @@ namespace SegurosFYP.DataAccess.Repository
             using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
             {
                 var parameter = new DynamicParameters();
+                parameter.Add("@Emple_Id", item.Emple_Id);
                 parameter.Add("@Cargo_Id", item.Cargo_Id);
                 parameter.Add("@Emple_UsuarioCreacion", 1);
                 parameter.Add("@Emple_FechaCreacion", DateTime.Now);

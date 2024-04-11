@@ -14,10 +14,12 @@ namespace SegurosFYP.API.Controllers
     public class EmpleadoController : ControllerBase
     {
         private readonly InsuranceServices _insuranceServices;
+        private readonly GeneralServices _generalServices;
         private readonly IMapper _mapper;
 
-        public EmpleadoController(InsuranceServices insuranceServices, IMapper mapper)
+        public EmpleadoController(InsuranceServices insuranceServices, GeneralServices generalServices, IMapper mapper)
         {
+            _generalServices = generalServices;
             _insuranceServices = insuranceServices;
             _mapper = mapper;
         }
@@ -32,10 +34,10 @@ namespace SegurosFYP.API.Controllers
         [HttpPost("Insert/Empleados")]
         public IActionResult InsertEmpleados(EmpleadoViewModel item)
         {
-            var model = _mapper.Map<tbEmpleados>(item);
+            var id = _generalServices.NumerationPerso(1);
             var modelo = new tbEmpleados()
             {
-                Emple_Id = item.Emple_Id,
+                Emple_Id = id.Data,
                 Cargo_Id = item.Cargo_Id
                 //Depar_UsuarioCreacion = 1,
                 //Depar_FechaCreacion = item.Depar_FechaCreacion

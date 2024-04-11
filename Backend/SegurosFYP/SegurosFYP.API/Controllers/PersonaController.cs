@@ -53,6 +53,8 @@ namespace SegurosFYP.API.Controllers
                 Perso_CorreoElectronico = item.Perso_CorreoElectronico,
                 Perso_Direccion = item.Perso_Direccion,
                 Munic_Id = item.Munic_Id,
+
+                Paren_Id = 1,
             };
 
             var result = _generalServices.InsertPerso(modelo);

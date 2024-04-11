@@ -1,4 +1,4 @@
-﻿@model SegurosFYP.Models.EmpleadoViewModel
+﻿@model SegurosFYP.Models.EmpleadoPersonaViewModel
 
 @{
     ViewData["Title"] = "Insert";
@@ -15,69 +15,69 @@
     <div class="d-flex justify-content-center flex-wrap">
 
         <div class="form-group col-sm-5">
-            <label asp-for="Perso_PrimerNombre" class="control-label"></label>
-            <input asp-for="Perso_PrimerNombre" class="form-control" />
-            <span asp-validation-for="Perso_PrimerNombre" class="text-danger"></span>
+            <label asp-for="Persona.Perso_PrimerNombre" class="control-label"></label>
+            <input asp-for="Persona.Perso_PrimerNombre" class="form-control" />
+            <span asp-validation-for="Persona.Perso_PrimerNombre" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-5">
-            <label asp-for="Perso_SegundoNombre" class="control-label"></label>
-            <input asp-for="Perso_SegundoNombre" class="form-control" />
-            <span asp-validation-for="Perso_SegundoNombre" class="text-danger"></span>
+            <label asp-for="Persona.Perso_SegundoNombre" class="control-label"></label>
+            <input asp-for="Persona.Perso_SegundoNombre" class="form-control" />
+            <span asp-validation-for="Persona.Perso_SegundoNombre" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-5">
-            <label asp-for="Perso_PrimerApellido" class="control-label"></label>
-            <input asp-for="Perso_PrimerApellido" class="form-control" />
-            <span asp-validation-for="Perso_PrimerApellido" class="text-danger"></span>
+            <label asp-for="Persona.Perso_PrimerApellido" class="control-label"></label>
+            <input asp-for="Persona.Perso_PrimerApellido" class="form-control" />
+            <span asp-validation-for="Persona.Perso_PrimerApellido" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-5">
-            <label asp-for="Perso_SegundoApellido" class="control-label"></label>
-            <input asp-for="Perso_SegundoApellido" class="form-control" />
-            <span asp-validation-for="Perso_SegundoApellido" class="text-danger"></span>
+            <label asp-for="Persona.Perso_SegundoApellido" class="control-label"></label>
+            <input asp-for="Persona.Perso_SegundoApellido" class="form-control" />
+            <span asp-validation-for="Persona.Perso_SegundoApellido" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-5">
-            <label asp-for="Tiden_Id" class="control-label"></label>
-            <select asp-for="Tiden_Id" class="form-control"></select>
-            <span asp-validation-for="Tiden_Id" class="text-danger"></span>
+            <label asp-for="Identidad.Tiden_Id" class="control-label"></label>
+            <select asp-for="Identidad.Tiden_Id" class="form-control"></select>
+            <span asp-validation-for="Identidad.Tiden_Id" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-5">
-            <label asp-for="Ident_NumeroIdentificacion" class="control-label"></label>
-            <input asp-for="Ident_NumeroIdentificacion" class="form-control" />
-            <span asp-validation-for="Ident_NumeroIdentificacion" class="text-danger"></span>
+            <label asp-for="Identidad.Ident_NumeroIdentificacion" class="control-label"></label>
+            <input asp-for="Identidad.Ident_NumeroIdentificacion" class="form-control" />
+            <span asp-validation-for="Identidad.Ident_NumeroIdentificacion" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-5">
-            <label asp-for="Ident_FechaNacimiento" class="control-label"></label>
-            <input asp-for="Ident_FechaNacimiento" class="form-control" />
-            <span asp-validation-for="Ident_FechaNacimiento" class="text-danger"></span>
+            <label asp-for="Identidad.Ident_FechaNacimiento" class="control-label"></label>
+            <input asp-for="Identidad.Ident_FechaNacimiento" class="form-control" />
+            <span asp-validation-for="Identidad.Ident_FechaNacimiento" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-5">
-            <label asp-for="Ident_LugarNacimiento" class="control-label"></label>
-            <input asp-for="Ident_LugarNacimiento" class="form-control" />
-            <span asp-validation-for="Ident_LugarNacimiento" class="text-danger"></span>
+            <label asp-for="Identidad.Ident_LugarNacimiento" class="control-label"></label>
+            <input asp-for="Identidad.Ident_LugarNacimiento" class="form-control" />
+            <span asp-validation-for="Identidad.Ident_LugarNacimiento" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-5">
-            <label asp-for="Perso_Sexo" class="control-label"></label>
-            <input asp-for="Perso_Sexo" class="form-control" />
-            <span asp-validation-for="Perso_Sexo" class="text-danger"></span>
+            <label asp-for="Persona.Perso_Sexo" class="control-label"></label>
+            <input asp-for="Persona.Perso_Sexo" class="form-control" />
+            <span asp-validation-for="Persona.Perso_Sexo" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-5">
-            <label asp-for="Estci_Id" class="control-label"></label>
-            <select asp-for="Estci_Id" class="form-control"></select>
-            <span asp-validation-for="Estci_Id" class="text-danger"></span>
+            <label asp-for="Persona.Estci_Id" class="control-label"></label>
+            <select asp-for="Persona.Estci_Id" class="form-control"></select>
+            <span asp-validation-for="Persona.Estci_Id" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-5">
-            <label asp-for="Perso_Telefono" class="control-label"></label>
-            <input asp-for="Perso_Telefono" class="form-control" />
-            <span asp-validation-for="Perso_Telefono" class="text-danger"></span>
+            <label asp-for="Persona.Perso_Telefono" class="control-label"></label>
+            <input asp-for="Persona.Perso_Telefono" class="form-control" />
+            <span asp-validation-for="Persona.Perso_Telefono" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-5">
-            <label asp-for="Perso_CorreoElectronico" class="control-label"></label>
-            <input asp-for="Perso_CorreoElectronico" class="form-control" />
-            <span asp-validation-for="Perso_CorreoElectronico" class="text-danger"></span>
+            <label asp-for="Persona.Perso_CorreoElectronico" class="control-label"></label>
+            <input asp-for="Persona.Perso_CorreoElectronico" class="form-control" />
+            <span asp-validation-for="Persona.Perso_CorreoElectronico" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-10">
-            <label asp-for="Perso_Direccion" class="control-label"></label>
-            <input asp-for="Perso_Direccion" class="form-control" />
-            <span asp-validation-for="Perso_Direccion" class="text-danger"></span>
+            <label asp-for="Persona.Perso_Direccion" class="control-label"></label>
+            <input asp-for="Persona.Perso_Direccion" class="form-control" />
+            <span asp-validation-for="Persona.Perso_Direccion" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-5">
             <label class="control-label">Departamento</label>
@@ -85,16 +85,16 @@
             <span class="text-danger"></span>
         </div>
         <div class="form-group col-sm-5">
-            <label asp-for="Munic_Id" class="control-label"></label>
-            <select asp-for="Munic_Id" class="form-control">
+            <label asp-for="Persona.Munic_Id" class="control-label"></label>
+            <select asp-for="Persona.Munic_Id" class="form-control">
                 <option value="0">Seleccione una opcion</option>
             </select>
-            <span asp-validation-for="Munic_Id" class="text-danger"></span>
+            <span asp-validation-for="Persona.Munic_Id" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-5">
-            <label asp-for="Cargo_Id" class="control-label"></label>
-            <select asp-for="Cargo_Id" class="form-control"></select>
-            <span asp-validation-for="Cargo_Id" class="text-danger"></span>
+            <label asp-for="Empleado.Cargo_Id" class="control-label"></label>
+            <select asp-for="Empleado.Cargo_Id" class="form-control"></select>
+            <span asp-validation-for="Empleado.Cargo_Id" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group d-flex justify-content-end" style="gap: 5px;">
@@ -118,10 +118,22 @@
                         options += '<option value="' + value.estad_Id + '">' + value.estad_Descripcion + '</option>';
                     }
                 })
-                $("#Estci_Id").append(options);
+                $("#Persona_Estci_Id").append(options);
             })
             .catch(error => console.error('Hubo un error:', error));
+        fetch('https://localhost:44327/api/Cargo/List/Cargo')
+            .then(response => response.json())
+            .then(data => {
+                var options = '<option value="0">Seleccione una opcion</option>';
+                $.each(data.data, function (key, value) {
 
+                    options += '<option value="' + value.cargo_Id + '">' + value.cargo_Descripcion + '</option>';
+
+                })
+                $("#Empleado_Cargo_Id").append(options);
+            })
+            .catch(error => console.error('Hubo un error:', error));
+    
         fetch('https://localhost:44327/api/departamento/List/Departamentos')
             .then(response => response.json())
             .then(data => {
@@ -144,7 +156,7 @@
                     options += '<option value="' + value.tiden_Id + '">' + value.tiden_Descripcion + '</option>';
 
                 })
-                $("#Tiden_Id").append(options);
+                $("#Identidad_Tiden_Id").append(options);
             })
             .catch(error => console.error('Hubo un error:', error));
     })
@@ -165,7 +177,7 @@
                     options += '<option value="' + value.munic_Id + '">' + value.munic_Descripcion + '</option>';
 
                 })
-                $("#Munic_Id").append(options);
+                $("#Persona_Munic_Id").append(options);
             })
             .catch(error => console.error('Hubo un error:', error));
     }

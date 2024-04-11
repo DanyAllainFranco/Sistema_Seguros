@@ -19,12 +19,12 @@ namespace SegurosFYP.Services
             _api = api;
         }
 
-        public async Task<ServiceResult> Insert(EmpleadoViewModel item)
+        public async Task<ServiceResult> Insert(PersonaViewModel item)
         {
             var result = new ServiceResult();
             try
             {
-                var response = await _api.Post<EmpleadoViewModel, ServiceResult>(req =>
+                var response = await _api.Post<PersonaViewModel, ServiceResult>(req =>
                 {
                     req.Path = $"/persona/Insert";
                     req.Content = item;
