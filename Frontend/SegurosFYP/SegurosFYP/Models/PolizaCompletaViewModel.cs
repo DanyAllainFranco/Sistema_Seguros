@@ -14,5 +14,7 @@ namespace SegurosFYP.Models
         public IdentificacionViewModel Identificacion { get; set; }
         public IEnumerable<TipoPlanViewModel> TiposdePlan { get; set; }
         public EmpleadoViewModel Empleado { get; set; }
+        public IEnumerable<DependientesViewModel> Dependientes { get; set; }
+        public ConyugueViewModel Conyugue { get; set; }
     }
 }

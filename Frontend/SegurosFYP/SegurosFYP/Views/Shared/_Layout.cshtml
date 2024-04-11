@@ -222,7 +222,7 @@
     </div>
     <script src="~/lib/jquery/dist/jquery.js"></script>
 
-    <script src="~/lib/validate/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 
     <script src="~/vendors/js/vendor.bundle.base.js"></script>
@@ -245,9 +245,14 @@
     <script src="~/js/iziToast.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script>
+
         
 
         $(document).ready(function () {
+
+          
+
+
             // Toggle collapse
             $(document).on('click', '.collapse-link', function (e) {
                 e.preventDefault();

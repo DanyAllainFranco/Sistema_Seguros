@@ -49,6 +49,23 @@ namespace SegurosFYP.Models
 
         public int[] Paren_Id { get; set; }
 
+
+
+        public int Tiden_Id { get; set; }
+        [Display(Name = "Codigo de Identificacion")]
+        public string Ident_NumeroIdentificacion { get; set; }
+        [Display(Name = "Fecha de Nacimiento")]
+        public DateTime Ident_FechaNacimiento { get; set; }
+        [Display(Name = "Lugar de Nacimiento")]
+        public string Ident_LugarNacimiento { get; set; }
+
+
+        public string Paise_Descripcion { get; set; }
+        public string Paise_Nacionalidad { get; set; }
+        public string Depar_Descripcion { get; set; }
+        public string Munic_Descripcion { get; set; }
+
+
         public int Perso_UsuarioCreacion { get; set; }
         public DateTime Perso_FechaCreacion { get; set; }
         public int? Perso_UsuarioModificacion { get; set; }

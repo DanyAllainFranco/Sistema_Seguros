@@ -8,7 +8,7 @@ namespace SegurosFYP.Models
 {
     public class IdentificacionViewModel
     {
-        public int Ident_Id { get; set; }
+        public int[] Ident_Id { get; set; }
         [Display(Name = "Tipo de Identificacion")]
         public int[] Tiden_Id { get; set; }
         [Display(Name = "Codigo de Identificacion")]

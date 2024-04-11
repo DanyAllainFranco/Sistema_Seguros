@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,9 @@ namespace SegurosFYP.Models
 {
     public class MunicipioViewModel
     {
+        [Required (ErrorMessage = "campo requerido")]
         public string Munic_Id { get; set; }
+
         public string Munic_Descripcion { get; set; }
         [NotMapped]
         public string Depar_Descripcion { get; set; }

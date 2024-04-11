@@ -42,6 +42,7 @@ namespace SegurosFYP.Models
         public string Ident_LugarNacimiento { get; set; }
 
 
+        public string Perso_NombreCompleto { get; set; }
 
         public string Perso_PrimerNombre { get; set; }
         public string Perso_SegundoNombre { get; set; }
