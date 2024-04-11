@@ -11,6 +11,7 @@ namespace SegurosFYP.Common.Models
     {
         public string Munic_Id { get; set; }
         public string Munic_Descripcion { get; set; }
+
         [NotMapped]
         public string Depar_Descripcion { get; set; }
 

@@ -32,7 +32,6 @@
             </td>
             <td>
                 <a href="@Url.Action("Edit", "Rol", new { Rol_Id = item.Roles_Id })" class="btn btn-primary"><i class="bi bi-pencil"></i>Editar</a>
-                <a href="@Url.Action("Details", "Rol", new { Rol_Id = item.Roles_Id })" class="btn btn-warning"><i class="bi bi-eye"></i>Detalles</a>
                 <a asp-route-id="@item.Roles_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Roles_Id')"><i class="bi bi-trash"></i>Eliminar</a>
             </td>
         </tr>

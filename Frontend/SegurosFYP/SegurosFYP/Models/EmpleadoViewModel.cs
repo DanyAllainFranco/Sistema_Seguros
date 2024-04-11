@@ -69,13 +69,8 @@ namespace SegurosFYP.Models
         public string Perso_SegundoApellido { get; set; }
 
         [Display(Name = "Sexo")]
-
         public string Perso_Sexo { get; set; }
         [Display(Name = "Cargo")]
-
         public string Cargo_Descripcion { get; set; }
-
-
-      
     }
 }

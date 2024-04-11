@@ -13,10 +13,12 @@ namespace SegurosFYP.Controllers
     {
         public EmpleadoServices _empleadoServices;
         public PersonaServices _personaServices;
-        public EmpleadoController(EmpleadoServices empleadoServices, PersonaServices personaServices)
+        public PolizaServices _polizaServices;
+        public EmpleadoController(EmpleadoServices empleadoServices, PersonaServices personaServices, PolizaServices polizaServices)
         {
             _empleadoServices = empleadoServices;
             _personaServices = personaServices;
+            _polizaServices = polizaServices;
         }
         public async Task<IActionResult> Index()
         {
@@ -43,7 +45,8 @@ namespace SegurosFYP.Controllers
         public async Task<IActionResult> Insert(EmpleadoViewModel item)
         {
             try
-            {
+            {              
+                //await _polizaServices.InsertIdentificacion(item2);
                 await _personaServices.Insert(item);
                 var list = await _empleadoServices.Insert(item);
                 TempData["Exito"] = "Registro insertado con exito";

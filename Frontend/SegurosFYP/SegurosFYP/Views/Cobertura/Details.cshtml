@@ -1,0 +1,116 @@
+﻿@model IEnumerable<SegurosFYP.Models.CoberturaViewModel>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@foreach (var item in Model)
+{
+    <div>
+        <div class="d-flex justify-content-around">
+            <h1>Detalles</h1>
+        </div>
+        <hr />
+        <form asp-controller="EstadoCivil" method="post" asp-action="Details">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => item.Cober_Id)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Cober_Id)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => item.Cober_Descripcion)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Cober_Descripcion)
+                </dd>
+            </dl>
+
+        </form>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Accion</th>
+                <th>Usuario</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Creacion</td>
+                <td>@Html.DisplayFor(modelItem => item.UsuarioCreacion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Cober_FechaCreacion)</td>
+            </tr>
+            <tr>
+                <td>Modificacion</td>
+                <td>@Html.DisplayFor(modelItem => item.UsuarioModificacion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Cober_FechaModificacion)</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+    <div style="gap: 5px; margin-top: 10px">
+        <a asp-route-id="@item.Cober_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Cober_Id')"><i class="bi bi-trash"></i>Eliminar</a>
+        <a asp-action="Index" class="btn btn-secondary">Regresar</a>
+    </div>
+}
+<div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Update", new SegurosFYP.Models.CoberturaViewModel())
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Delete", new SegurosFYP.Models.CoberturaViewModel())
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var url = 'https://localhost:44347/api/EstadoCivil/Cargar/EstadoCivil?Estad_Id=';
+
+    document.querySelectorAll('.FetchData').forEach(item => {
+        item.addEventListener('click', function () {
+            var id = this.getAttribute('data-id');
+            console.log(id);
+            fetchData(id);
+        });
+    });
+
+    function fetchData(id) {
+        console.log(id);
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('Cober_Id').value = data.data[0].Cober_Id;
+                document.getElementById('Cober_Descripcion').value = data.data[0].Cober_Descripcion;
+            })
+            .catch(error => console.error('Hubo un error:', error));
+    }
+</script>
+

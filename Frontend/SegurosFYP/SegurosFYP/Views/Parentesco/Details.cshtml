@@ -1,0 +1,75 @@
+﻿@model IEnumerable<SegurosFYP.Models.ParentescoViewModel>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <div>
+        <div class="d-flex justify-content-around">
+            <h1>Detalles</h1>
+        </div>
+        <hr />
+        <form asp-controller="EstadoCivil" method="post" asp-action="Details">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => item.Paren_Id)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Paren_Id)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => item.Paren_Descripcion)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Paren_Descripcion)
+                </dd>
+            </dl>
+
+        </form>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Accion</th>
+                <th>Usuario</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Creacion</td>
+                <td>@Html.DisplayFor(modelItem => item.UsuarioCreacion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Paren_FechaCreacion)</td>
+            </tr>
+            <tr>
+                <td>Modificacion</td>
+                <td>@Html.DisplayFor(modelItem => item.UsuarioModificacion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Paren_FechaModificacion)</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+    <div>
+        <a asp-route-id="@item.Paren_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Paren_Id')"><i class="mdi mdi-eraser-variant"></i>Eliminar</a>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+}
+<div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Delete", new SegurosFYP.Models.ParentescoViewModel())
+            </div>
+        </div>
+    </div>
+</div>

@@ -152,7 +152,7 @@ namespace SegurosFYP.Services
             {
                 var response = await _api.Get<IEnumerable<UsuarioViewModel>, IEnumerable<UsuarioViewModel>>(req =>
                 {
-                    req.Path = $"/api/Usuario/Cargar/Usuario?Usuar_Id={Usuar_Id}";
+                    req.Path = $"/Usuario/Cargar/Usuario?Usuar_Id={Usuar_Id}";
                 });
                 if (!response.Success)
                 {

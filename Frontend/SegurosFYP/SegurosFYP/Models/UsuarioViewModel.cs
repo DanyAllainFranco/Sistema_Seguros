@@ -11,14 +11,16 @@ namespace SegurosFYP.Models
     {
         [Display(Name = "ID")]
         public int Usuar_Id { get; set; }
-        [Display (Name = "Usuario")]
+        [Display(Name = "Usuario")]
         public string Usuar_Usuario { get; set; }
+        [Display(Name = "Contraseña")]
         public string Usuar_Contrasena { get; set; }
-        [Display (Name = "Empleado" )]
+        [Display(Name = "Empleado")]
         public int Emple_Id { get; set; }
 
         [Display(Name = "Rol")]
         public int Roles_Id { get; set; }
+        [Display (Name = "Admin")]
         public bool Usuar_Admin { get; set; }
         public DateTime Usuar_UltimaSesion { get; set; }
         public int Usuar_UsuarioCreacion { get; set; }

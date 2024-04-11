@@ -38,9 +38,17 @@ namespace SegurosFYP.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Insert(UsuarioViewModel item)
+        public async Task<IActionResult> Insert(UsuarioViewModel item , int Roles_Id)
         {
-            try
+            if (item.Usuar_Admin == true)
+            {
+                item.Roles_Id = 12;
+            }
+            else
+            {
+                Roles_Id = item.Roles_Id;
+            }
+            try           
             {
                 var list = await _UsuarioService.Insert(item);
                 TempData["Exito"] = "Registro insertado con exito";
@@ -60,8 +68,16 @@ namespace SegurosFYP.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(UsuarioViewModel item)
+        public async Task<IActionResult> Update(UsuarioViewModel item, int Roles_Id)
         {
+            if (item.Usuar_Admin == true)
+            {
+                item.Roles_Id = 12;
+            }
+            else
+            {
+                Roles_Id = item.Roles_Id;
+            }
             try
             {
                 var list = await _UsuarioService.Update(item);

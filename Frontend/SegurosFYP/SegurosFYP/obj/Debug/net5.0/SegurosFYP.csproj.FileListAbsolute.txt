@@ -939,3 +939,13 @@ C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\Se
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Usuarios\_Insert.cshtml.g.cs
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Usuarios\_Update.cshtml.g.cs
 C:\Users\ACER\OneDrive\Escritorio\Seguros\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Usuarios\_Delete.cshtml.g.cs
+C:\Users\LAB1\Desktop\Proyecto_Dany\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Usuarios\_Delete.cshtml.g.cs
+C:\Users\LAB1\Desktop\Proyecto_Dany\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Usuarios\_Insert.cshtml.g.cs
+C:\Users\LAB1\Desktop\Proyecto_Dany\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Usuarios\_Update.cshtml.g.cs
+C:\Users\LAB1\Desktop\Proyecto_Dany\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Cargo\Details.cshtml.g.cs
+C:\Users\LAB1\Desktop\Proyecto_Dany\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Empleado\Details.cshtml.g.cs
+C:\Users\LAB1\Desktop\Proyecto_Dany\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Municipio\Details.cshtml.g.cs
+C:\Users\LAB1\Desktop\Proyecto_Dany\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Cobertura\Details.cshtml.g.cs
+C:\Users\LAB1\Desktop\Proyecto_Dany\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Pais\Details.cshtml.g.cs
+C:\Users\LAB1\Desktop\Proyecto_Dany\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Parentesco\Details.cshtml.g.cs
+C:\Users\LAB1\Desktop\Proyecto_Dany\Sistema_Seguros\Frontend\SegurosFYP\SegurosFYP\obj\Debug\net5.0\Razor\Views\Usuarios\Details.cshtml.g.cs

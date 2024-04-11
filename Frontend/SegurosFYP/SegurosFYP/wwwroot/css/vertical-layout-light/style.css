@@ -28108,13 +28108,13 @@ div.tagsinput span.tag a {
 }
 
 .wizard > .steps .disabled a:active {
-  background: #e6e9ed e;
+  background: #e6e9ed;
   color: #434a54;
   cursor: default;
 }
 
 .wizard > .steps .current a {
-  background:#c4fcbc ;
+  background:#83bf7b ;
   color: #ffffff;
   cursor: default;
 }

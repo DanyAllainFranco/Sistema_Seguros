@@ -1,0 +1,146 @@
+﻿@model IEnumerable<SegurosFYP.Models.EmpleadoViewModel>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@foreach (var item in Model)
+{
+<div>
+    <div class="d-flex justify-content-around">
+        <h1>Detalles</h1>
+    </div>
+    <hr />
+    <form asp-controller="Empleado" method="post" asp-action="Details">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.Emple_Id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Emple_Id)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.Perso_Telefono)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Perso_Telefono)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.Perso_CorreoElectronico)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Perso_CorreoElectronico)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.Perso_Direccion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Perso_Direccion)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.Munic_Id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Munic_Id)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.Ident_NumeroIdentificacion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Ident_NumeroIdentificacion)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.Ident_FechaNacimiento)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Ident_FechaNacimiento)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.Ident_LugarNacimiento)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Ident_LugarNacimiento)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.Perso_PrimerNombre)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Perso_PrimerNombre)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.Perso_SegundoNombre)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Perso_SegundoNombre)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.Perso_PrimerApellido)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Perso_PrimerApellido)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.Perso_SegundoApellido)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Perso_SegundoApellido)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.Perso_Sexo)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Perso_Sexo)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.Cargo_Descripcion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Cargo_Descripcion)
+            </dd>
+        </dl>
+    </form>
+</div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Accion</th>
+                <th>Usuario</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Creacion</td>
+                <td>@Html.DisplayFor(modelItem => item.UsuarioCreacion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Emple_FechaCreacion)</td>
+            </tr>
+            <tr>
+                <td>Modificacion</td>
+                <td>@Html.DisplayFor(modelItem => item.UsuarioModificacion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Emple_FechaModificacion)</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+    <div style="gap: 5px; margin-top: 10px">
+        <a asp-route-id="@item.Emple_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Emple_Id')"><i class="fa fa-trash"></i>Eliminar</a>
+        <a asp-action="Index" class="btn btn-secondary">Regresar</a>
+
+    </div>
+}
+<div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Delete", new SegurosFYP.Models.EmpleadoViewModel())
+            </div>
+        </div>
+    </div>
+</div>
+

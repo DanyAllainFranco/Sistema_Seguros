@@ -28,24 +28,22 @@
     </div>
     <table class="table table-bordered">
         <thead>
-
+            <tr>
+                <th>Accion</th>
+                <th>Usuario</th>
+                <th>Fecha</th>
+            </tr>
         </thead>
         <tbody>
             <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Estad_UsuarioCreacion)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.usua_creac)
-                </td>
+                <td>Creacion</td>
+                <td>@Html.DisplayFor(modelItem => item.usua_creac)</td>
+                <td>@Html.DisplayFor(modelItem => item.Estad_FechaCreacion)</td>
             </tr>
             <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Estad_UsuarioModificacion)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.usua_modi)
-                </td>
+                <td>Modificacion</td>
+                <td>@Html.DisplayFor(modelItem => item.usua_modi)</td>
+                <td>@Html.DisplayFor(modelItem => item.Estad_FechaModificacion)</td>
             </tr>
         </tbody>
     </table>

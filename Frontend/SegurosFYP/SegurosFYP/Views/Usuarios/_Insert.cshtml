@@ -24,16 +24,16 @@
             <span asp-validation-for="Emple_Id" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-5">
-            <label asp-for="Roles_Id" class="control-label"></label>
-            <select asp-for="Roles_Id" id="RolSelect" class="form-control"></select>
+            <label asp-for="Roles_Id" class="control-label"></label> 
+            <select asp-for="Roles_Id" id="RolSelect" class="form-control" name="Roles_Id"></select>
             <span asp-validation-for="Roles_Id" class="text-danger"></span>
         </div>
         <div class="form-group form-check col-sm-5">
-            <label class="form-check-label">
-                <input class="form-check-input" asp-for="Usuar_Admin" type="checkbox" />@Html.DisplayNameFor(model => model.Usuar_Admin)
-            </label>
+            <div class="checkbox-wrapper-14">    
+                    <input class="form-check-input switch" asp-for="Usuar_Admin" id="ChbAdmin" type="checkbox" />@Html.DisplayNameFor(model => model.Usuar_Admin)
+                </div>
+            </div>
         </div>
-    </div>
     <div class="form-group d-flex justify-content-end" style="gap: 5px;">
         <input type="submit" value="Guardar" class="btn btn-primary" />
         <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
@@ -45,14 +45,26 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
     $(document).ready(function () {
+
+        $("#ChbAdmin").change(function () {
+            if ($("#ChbAdmin").is(':checked')) {
+                $("#RolSelect").hide();
+                console.log(Rol);
+                console.log("Entra");
+            }
+            else {
+                
+                $("#RolSelect").show();
+                console.log("Sale");
+            }
+        });
+
         fetch('https://localhost:44327/API/Roles/ListadoRoles')
             .then(response => response.json())
             .then(data => {
                 var options = '<option value="0">Seleccione una opcion</option>';
                 $.each(data.data, function (key, value) {
-                    if (value.roles_Id != 1) {
-                        options += '<option value="' + value.roles_Id + '">' + value.roles_Descripcion + '</option>';
-                    }
+                        options += '<option value="' + value.roles_Id + '">' + value.roles_Descripcion + '</option>';                 
                 })
                 $("#RolSelect").append(options);
             })
@@ -72,5 +84,6 @@
             .catch(error => console.error('Hubo un error:', error));
 
     });
+   
 </script>
 
