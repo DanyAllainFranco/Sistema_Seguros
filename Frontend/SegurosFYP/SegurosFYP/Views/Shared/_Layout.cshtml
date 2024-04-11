@@ -81,13 +81,13 @@
                     <!--Inicio Acceso-->
                     @if (pantallas != null && pantallas.Contains("Roles") || pantallas.Contains("Admin") || pantallas.Contains("Usuario"))
                     {
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="collapse" href="#Acceso" aria-expanded="false" aria-controls="Acceso">
+                        <li class="nav-item" id="Acceso">
+                            <a class="nav-link" data-toggle="collapse" href="#Acceso" aria-expanded="false" aria-controls="Acceso" id="Acceso">
                                 <i class="icon-layout menu-icon"></i>
                                 <span class="menu-title">Acceso</span>
                                 <i class="menu-arrow"></i>
                             </a>
-                            <div class="collapse" id="Acceso">
+                            <div class="collapse" id="Acceso" >
                                 <ul class="nav flex-column sub-menu">
                                     @if (pantallas != null && pantallas.Contains("Usuarios") || pantallas.Contains("Admin"))
                                     {
@@ -251,6 +251,7 @@
             $('.collapse').removeClass('show');
             $('.nav-item').removeClass('active');
 
+          
 
              @if (TempData["Exito"] != null)
         {
