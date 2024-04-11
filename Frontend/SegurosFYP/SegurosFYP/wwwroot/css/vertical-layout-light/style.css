@@ -23844,9 +23844,9 @@ dl li {
 .pagination .page-item:active .jsgrid .jsgrid-pager .jsgrid-pager-page a,
 .jsgrid .jsgrid-pager .page-item:active .jsgrid-pager-page a, .jsgrid .jsgrid-pager .jsgrid-pager-page .page-item:active a,
 .jsgrid .jsgrid-pager .jsgrid-pager-page:active a {
-  background:#c4fcbc ;
-  border-color:#c4fcbc ;
-  color: #ffffff;
+    background: #c4fcbc;
+    border-color: #c4fcbc;
+    color: #095D7E;
 }
 
 .pagination.pagination-flat .page-item, .jsgrid .pagination-flat.jsgrid-pager .page-item, .pagination.pagination-flat .jsgrid .jsgrid-pager .jsgrid-pager-nav-button, .jsgrid .jsgrid-pager .pagination.pagination-flat .jsgrid-pager-nav-button, .jsgrid .pagination-flat.jsgrid-pager .jsgrid-pager-nav-button,

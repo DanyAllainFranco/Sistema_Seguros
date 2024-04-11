@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
-    ViewData["ModelName"] = "CargosViewModel".Replace("ViewModel","");
+    ViewData["ModelName"] = "CargosViewModel".Replace("ViewModel", "");
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="card-header">
@@ -10,82 +10,88 @@
 
     <p>
         @*<a asp-action="Create" class="btn btn-primary"><i class="mdi mdi-folder-plus"></i>Nuevo</a>*@
-        <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-folder-plus"></i>Nuevo</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-folder-plus"></i>Nuevo</button>
     </p>
 </div>
 <table class="table table-bordered" id="Example">
     <thead>
-        <tr>               
-                    <th>
-                        @Html.DisplayNameFor(model => model.Cargo_Descripcion)
-                    </th>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cargo_Descripcion)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-         
-            <td>
-                @Html.DisplayFor(modelItem => item.Cargo_Descripcion)
-            </td>
-            <td>
-                <a asp-route-id="@item.Cargo_Id" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-id="@item.Cargo_Id"><i class="bi bi-pencil"></i>Editar</a>
-                <a href="@Url.Action("Details","Cargo", new {Cargo_Id = item.Cargo_Id})" class="btn btn-warning"><i class="bi bi-eye"></i>Detalles</a>
-                <a asp-route-id="@item.Cargo_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Cargo_Id')"><i class="bi bi-trash"></i>Eliminar</a>
+        @foreach (var item in Model)
+        {
+            <tr>
 
-            </td>
-        </tr>
-}
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cargo_Descripcion)
+                </td>
+                <td>
+                    <a asp-route-id="@item.Cargo_Id" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-id="@item.Cargo_Id"><i class="bi bi-pencil"></i>Editar</a>
+                    <a href="@Url.Action("Details","Cargo", new {Cargo_Id = item.Cargo_Id})" class="btn btn-warning"><i class="bi bi-eye"></i>Detalles</a>
+                    <a asp-route-id="@item.Cargo_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Cargo_Id')"><i class="bi bi-trash"></i>Eliminar</a>
+
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 <div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    @Html.Partial("_Update", new SegurosFYP.Models.CargosViewModel())
-                </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Update", new SegurosFYP.Models.CargosViewModel())
             </div>
         </div>
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Insertar</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    @Html.Partial("_Insert", new SegurosFYP.Models.CargosViewModel ())
-                </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Insertar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Insert", new SegurosFYP.Models.CargosViewModel())
             </div>
         </div>
     </div>
-    <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    @Html.Partial("_Delete", new SegurosFYP.Models.CargosViewModel ())
-                </div>                     
+</div>
+<div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Delete", new SegurosFYP.Models.CargosViewModel())
             </div>
         </div>
     </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
-
+        $('.nav-link').addClass('active');
+        $('.nav-link').addClass('collapsed');
+        $('.collapse').addClass('show');
+        $('.nav-item').addClass('active');
+    
     document.querySelectorAll('.FetchData').forEach(item => {
         item.addEventListener('click', function () {
             var id = this.getAttribute('data-id');
@@ -125,4 +131,4 @@
         //        })
         //        .catch(error => console.error('Hubo un error:', error));
         //}
-    </script>
+</script>
