@@ -14,6 +14,7 @@ namespace SegurosFYP.Models
         public int[] Fadet_Cantidad { get; set; }
         public int[] Unida_Id { get; set; }
         public decimal[] Fadet_Precio { get; set; }
+        public int[] Categ_Id { get; set; }
         public int Fadet_UsuarioCreacion { get; set; }
         public DateTime Fadet_FechaCreacion { get; set; }
         public int? Fadet_UsuarioModificacion { get; set; }

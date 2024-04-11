@@ -9,8 +9,10 @@ namespace SegurosFYP.Models
     {
         public int Presc_Id { get; set; }
         public int Recla_Id { get; set; }
-        public string Presc_DocumentoAdelante { get; set; }
-        public string Presc_DocumentoAtras { get; set; }
+        public string[] Presc_DocumentoAdelanteArch { get; set; }
+        public string[] Presc_DocumentoAtrasArch { get; set; }
+        public string[] Presc_DocumentoAdelante { get; set; }
+        public string[] Presc_DocumentoAtras { get; set; }
         public int Presc_UsuarioCreacion { get; set; }
         public DateTime Presc_FechaCreacion { get; set; }
         public int? Presc_UsuarioModificacion { get; set; }

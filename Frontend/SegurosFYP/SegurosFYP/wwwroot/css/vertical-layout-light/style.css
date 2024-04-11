@@ -118,7 +118,59 @@
 /* === SCSS Compass Functions === */
 
 /* Double-color dashed line */
+.ibox {
+    clear: both;
+    margin-bottom: 25px;
+    margin-top: 0;
+    padding: 0;
+}
+.ibox-title {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #ffffff;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 2px 0 0;
+    color: inherit;
+    margin-bottom: 0;
+    padding: 15px 90px 8px 15px;
+    min-height: 48px;
+    position: relative;
+    clear: both;
+}
 
+.ibox-content {
+    background-color: #ffffff;
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 0;
+}
+.ibox-tools {
+    display: block;
+    float: none;
+    margin-top: 0;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 0;
+    text-align: right;
+}
+    .ibox-tools a {
+        cursor: pointer;
+        margin-left: 5px;
+        color: #c4c4c4 !important;
+    }
+.ibox-tools {
+    float: none;
+    text-align: right;
+    display: block;
+}
 hr.style-three {
     border: 0;
     border-bottom: 1px dashed #ccc;
@@ -28160,17 +28212,17 @@ div.tagsinput span.tag a {
 }
 
 .wizard > .content {
-  background: #ffffff;
-  display: block;
-  margin: 0.5em;
-  min-height: 24em;
-  overflow: auto;
-  position: relative;
-  width: auto;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  border: 1px solid #CED4DA;
+    background: #f3f3f4;
+    display: block;
+    margin: 0.5em;
+    min-height: 24em;
+    overflow: auto;
+    position: relative;
+    width: auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #CED4DA;
 }
 
 .wizard > .content > .title {
@@ -30658,4 +30710,40 @@ section .air.air4{
 
 .collapse:not(.show) {
     display: none !important;
+}
+@media (max-width: 350px) {
+    .timeline-item .date {
+        text-align: left;
+        width: 110px;
+        position: relative;
+        padding-top: 30px;
+    }
+
+        .timeline-item .date i {
+            position: absolute;
+            top: 0;
+            left: 15px;
+            padding: 5px;
+            width: 30px;
+            text-align: center;
+            border: 1px solid #e7eaec;
+            background: #f8f8f8;
+        }
+
+    .timeline-item .content {
+        border-left: none;
+        border-top: 1px solid #e7eaec;
+        padding-top: 10px;
+        min-height: 100px;
+    }
+
+    .nav.navbar-top-links li.dropdown {
+        display: none;
+    }
+
+    .ibox-tools {
+        float: none;
+        text-align: left;
+        display: inline-block;
+    }
 }

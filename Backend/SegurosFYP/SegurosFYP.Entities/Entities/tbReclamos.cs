@@ -8,13 +8,6 @@ namespace SegurosFYP.Entities.Entities
 {
     public partial class tbReclamos
     {
-        public tbReclamos()
-        {
-            tbDesembolsos = new HashSet<tbDesembolsos>();
-            tbFacturaMedicaEncabezado = new HashSet<tbFacturaMedicaEncabezado>();
-            tbPrescripciones = new HashSet<tbPrescripciones>();
-        }
-
         public int Recla_Id { get; set; }
         public int Clien_Id { get; set; }
         public int Infor_Id { get; set; }
@@ -24,10 +17,5 @@ namespace SegurosFYP.Entities.Entities
         public int? Recla_UsuarioModificacion { get; set; }
         public DateTime? Recla_FechaModificacion { get; set; }
         public bool? Recla_Estado { get; set; }
-
-        public virtual tbInformeMedico Infor { get; set; }
-        public virtual ICollection<tbDesembolsos> tbDesembolsos { get; set; }
-        public virtual ICollection<tbFacturaMedicaEncabezado> tbFacturaMedicaEncabezado { get; set; }
-        public virtual ICollection<tbPrescripciones> tbPrescripciones { get; set; }
     }
 }

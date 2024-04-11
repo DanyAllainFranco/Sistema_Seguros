@@ -17,147 +17,214 @@
         <fieldset style="overflow-y:auto">
             <h2>Facturas</h2>
             <hr class="style-three" />
-            <div>
+            <div class="mb-4">
                 <button type="button" class="btn btn-primary" onclick="NuevaFactura()">Nuevo</button>
             </div>
-            <div id="listFacturas">
-                <div id="formFactu_1" class="card collapse">
+            <div id="listFacturas" class="d-flex flex-column align-items-center">
+                <div id="formFactu_0" class="ibox collapse col-sm-10">
                     <div class="ibox-title d-flex justify-content-between">
                         <h4>Factura 1</h4>
                         <div class="ibox-tools" style="gap: 10px">
                             <a class="collapse-link">
-                                <i class="bi bi-chevron-down"></i>
+                                <i class="bi bi-chevron-up"></i>
                             </a>
                             <a class="close-link">
-                                <i class="bi bi-x"></i>                            
+                                <i class="bi bi-x-lg"></i>
                             </a>
                         </div>
                     </div>
-                        <div class="ibox-content">
-                            <div class="d-flex justify-content-center flex-wrap ">
-                                <div class="form-group col-sm-10">
-                                    <label asp-for="Encabezado.Factu_DocumentoAdelanteArchivo[0]" class="control-label">Ingrese la parte de <b>Adelante</b> de su Factura</label>
-                                    <div class="custom-file">
-                                        <input asp-for="Encabezado.Factu_DocumentoAdelanteArchivo[0]" class="custom-file-input">
-                                        <label asp-for="Encabezado.Factu_DocumentoAdelanteArchivo[0]" class="custom-file-label">Choose file</label>
-                                    </div>
-                                </div>
-                                <div class="form-group col-sm-10">
-                                    <label asp-for="Encabezado.Factu_DocumentoAtrasArchivo[0]" class="control-label">Ingrese la parte de <b>ATRAS</b> de su Factura</label>
-                                    <div class="custom-file">
-                                        <input asp-for="Encabezado.Factu_DocumentoAtrasArchivo[0]" class="custom-file-input">
-                                        <label asp-for="Encabezado.Factu_DocumentoAtrasArchivo[0]" class="custom-file-label">Choose file</label>
-                                    </div>
-                                </div>
-                                <div class="form-group col-sm-5">
-                                    <label asp-for="Encabezado.Faenca_Codigo[0]" class="control-label"></label>
-                                    <input asp-for="Encabezado.Faenca_Codigo[0]" class="form-control" />
-                                    <span asp-validation-for="Encabezado.Faenca_Codigo[0]" class="text-danger"></span>
-                                </div>
-                                <div class="form-group col-sm-5">
-                                    <label asp-for="Encabezado.Clien_Id" class="control-label"></label>
-                                    <select asp-for="Encabezado.Clien_Id" class="form-control"></select>
-                                    <span asp-validation-for="Encabezado.Clien_Id" class="text-danger"></span>
-                                </div>
-                                <div class="form-group col-sm-5">
-                                    <label asp-for="Encabezado.Faenca_HospitalClinica[0]" class="control-label"></label>
-                                    <select asp-for="Encabezado.Faenca_HospitalClinica[0]" class="form-control">
-                                        <option value="0">Seleccione una opcion</option>
-                                        <option value="1">Hospital Del Valle</option>
-                                        <option value="2">Hospital Escuela</option>
-                                        <option value="3">Hospital Mario Catarino Rivas</option>
-                                    </select>
-                                    <span asp-validation-for="Encabezado.Faenca_HospitalClinica[0]" class="text-danger"></span>
-                                </div>
-                                <div class="form-group col-sm-5">
-                                    <label asp-for="Encabezado.Faenca_FechaImpresion[0]" class="control-label"></label>
-                                    <select asp-for="Encabezado.Faenca_FechaImpresion[0]" class="form-control"></select>
-                                    <span asp-validation-for="Encabezado.Faenca_FechaImpresion[0]" class="text-danger"></span>
+                    <div class="ibox-content">
+                        <div class="d-flex justify-content-center flex-wrap ">
+                            <div class="form-group col-sm-10">
+                                <label asp-for="Encabezado.Factu_DocumentoAdelanteArchivo[0]" class="control-label">Ingrese la parte de <b>Adelante</b> de su Factura</label>
+                                <div class="custom-file">
+                                    <input asp-for="Encabezado.Factu_DocumentoAdelanteArchivo[0]" class="custom-file-input">
+                                    <label asp-for="Encabezado.Factu_DocumentoAdelanteArchivo[0]" class="custom-file-label">Choose file</label>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-end" style="gap: 5px;">
-                                <button type="button" class="btn btn-primary" onclick="AgregarDetalle()"></button>
+                            <div class="form-group col-sm-10">
+                                <label asp-for="Encabezado.Factu_DocumentoAtrasArchivo[0]" class="control-label">Ingrese la parte de <b>ATRAS</b> de su Factura</label>
+                                <div class="custom-file">
+                                    <input asp-for="Encabezado.Factu_DocumentoAtrasArchivo[0]" class="custom-file-input">
+                                    <label asp-for="Encabezado.Factu_DocumentoAtrasArchivo[0]" class="custom-file-label">Choose file</label>
+                                </div>
                             </div>
-                            <div id="listDetalle">
-                                <table class="table-bordered table" id="tableDetalle">
-                                </table>
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Encabezado.Faenca_Codigo[0]" class="control-label"></label>
+                                <input asp-for="Encabezado.Faenca_Codigo[0]" class="form-control" />
+                                <span asp-validation-for="Encabezado.Faenca_Codigo[0]" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Encabezado.Clien_Id" class="control-label"></label>
+                                <select asp-for="Encabezado.Clien_Id" class="form-control"></select>
+                                <span asp-validation-for="Encabezado.Clien_Id" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Encabezado.Faenca_HospitalClinica[0]" class="control-label"></label>
+                                <select asp-for="Encabezado.Faenca_HospitalClinica[0]" class="form-control">
+                                    <option value="0">Seleccione una opcion</option>
+                                    <option value="1">Hospital Del Valle</option>
+                                    <option value="2">Hospital Escuela</option>
+                                    <option value="3">Hospital Mario Catarino Rivas</option>
+                                </select>
+                                <span asp-validation-for="Encabezado.Faenca_HospitalClinica[0]" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Encabezado.Faenca_FechaImpresion[0]" class="control-label"></label>
+                                <select asp-for="Encabezado.Faenca_FechaImpresion[0]" class="form-control"></select>
+                                <span asp-validation-for="Encabezado.Faenca_FechaImpresion[0]" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <hr class="style-three" />
+                        <div class="d-flex justify-content-center">
+                            <div class="col-sm-10">
+                                <h4>Detalle</h4>
+                            </div>
+                        </div>
+                        <hr class="style-three" />
+                        <div class="d-flex justify-content-center flex-wrap">
+                            <input type="hidden" @*asp-for="Detalle.Faenca_Id[0]"*@ id="DetalleFaenca_Id_0" value="0" class="custom-file-input">
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Detalle.Fadet_ProductoServicio" class="control-label"></label>
+                                <select @*asp-for="Detalle.Fadet_ProductoServicio[0]"*@ id="DetalleFadet_ProductoServicio" class="form-control">
+                                    <option id="0" value="false">Producto</option>
+                                    <option id="1" value="true">Servicio</option>
+                                </select>
+                                <label asp-for="Detalle.Fadet_ProductoServicio" class="text-danger">Choose file</label>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Detalle.Fadet_Descripcion" class="control-label">Ingrese la parte de <b>ATRAS</b> de su Factura</label>
+                                <input @*asp-for="Detalle.Fadet_Descripcion[0]"*@ id="DetalleFadet_Descripcion" class="custom-file-input">
+                                <label asp-for="Detalle.Fadet_Descripcion" class="text-danger">Choose file</label>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Detalle.Fadet_Cantidad" class="control-label"></label>
+                                <input @*asp-for="Detalle.Fadet_Cantidad[0]"*@ id="DetalleFadet_Cantidad" class="form-control" />
+                                <span asp-validation-for="Detalle.Fadet_Cantidad" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Detalle.Unida_Id" class="control-label"></label>
+                                <select @*asp-for="Detalle.Unida_Id"*@ id="DetalleUnida_Id" class="form-control"></select>
+                                <span asp-validation-for="Detalle.Unida_Id" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Detalle.Fadet_Precio" class="control-label"></label>
+                                <input @*asp-for="Detalle.Fadet_Precio[0]"*@ id="DetalleFadet_Precio" class="form-control" />
+                                <span asp-validation-for="Detalle.Fadet_Precio" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Detalle.Categ_Id" class="control-label"></label>
+                                <select @*asp-for="Detalle.Fadet_Precio[0]"*@ id="DetalleCateg_Id" class="form-control" ></select>
+                                <span asp-validation-for="Detalle.Categ_Id" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end" style="gap: 5px;">
+                            <button type="button" id="btnAgregar" class="btn btn-primary" onclick="AgregarDetalle()">Agregar</button>
+                        </div>
+                        <div id="listDetalle">
+                            <table class="table-bordered table" id="tableDetalle">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <hr class="style-three" />
+
+            <h2>Prescripciones</h2>
+
+            <hr class="style-three" />
+            <div id="listPrescr" class="d-flex flex-column align-items-center">
+                <div id="formPresc_0" class="ibox collapse col-sm-10">
+                    <div class="ibox-title d-flex justify-content-between">
+                        <h4>Factura 1</h4>
+                        <div class="ibox-tools" style="gap: 10px">
+                            <a class="collapse-link">
+                                <i class="bi bi-chevron-up"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="bi bi-x-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="d-flex justify-content-center flex-wrap ">
+                            <div class="form-group col-sm-10">
+                                <label asp-for="Prescripcion.Presc_DocumentoAdelanteArch[0]" class="control-label">Ingrese la parte de <b>Adelante</b> de su Prescripcion</label>
+                                <div class="custom-file">
+                                    <input asp-for="Prescripcion.Presc_DocumentoAdelanteArch[0]" class="custom-file-input">
+                                    <label asp-for="Prescripcion.Presc_DocumentoAdelanteArch[0]" class="custom-file-label">Choose file</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-10">
+                                <label asp-for="Prescripcion.Presc_DocumentoAtrasArch[0]" class="control-label">Ingrese la parte de <b>ATRAS</b> de su Prescripcion</label>
+                                <div class="custom-file">
+                                    <input asp-for="Prescripcion.Presc_DocumentoAtrasArch[0]" class="custom-file-input">
+                                    <label asp-for="Prescripcion.Presc_DocumentoAtrasArch[0]" class="custom-file-label">Choose file</label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="style-three" />
+
+            <h2>Informe Medico</h2>
+
+            <hr class="style-three" />
+            <div id="listPrescr" class="d-flex flex-column align-items-center">
+                <div id="formPresc_0" class="ibox collapse col-sm-10">
+                    <div class="ibox-title d-flex justify-content-between">
+                        <h4>Factura 1</h4>
+                        <div class="ibox-tools" style="gap: 10px">
+                            <a class="collapse-link">
+                                <i class="bi bi-chevron-up"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="bi bi-x-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="d-flex justify-content-center flex-wrap ">
+                            <div class="form-group col-sm-10">
+                                <label asp-for="Informe.Infor_DocumentoAdelanteArch" class="control-label">Ingrese la parte de <b>Adelante</b> de su Informe</label>
+                                <div class="custom-file">
+                                    <input asp-for="Informe.Infor_DocumentoAdelanteArch" class="custom-file-input">
+                                    <label asp-for="Informe.Infor_DocumentoAdelanteArch" class="custom-file-label">Choose file</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-10">
+                                <label asp-for="Informe.Infor_DocumentoAtrasArch" class="control-label">Ingrese la parte de <b>ATRAS</b> de su Informe</label>
+                                <div class="custom-file">
+                                    <input asp-for="Informe.Infor_DocumentoAtrasArch" class="custom-file-input">
+                                    <label asp-for="Informe.Infor_DocumentoAtrasArch" class="custom-file-label">Choose file</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Informe.Infor_TratamientoRealizado" class="control-label"></label>
+                                <input asp-for="Informe.Infor_TratamientoRealizado" class="form-control"/>
+                                <span asp-validation-for="Informe.Infor_TratamientoRealizado" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Informe.Infor_TratamientoProgramado" class="control-label"></label>
+                                <input asp-for="Informe.Infor_TratamientoProgramado" class="form-control" />
+                                <span asp-validation-for="Informe.Infor_TratamientoProgramado" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label asp-for="Informe.Infor_OtrosTratamientos" class="control-label"></label>
+                                <input asp-for="Informe.Infor_OtrosTratamientos" class="form-control"/>
+                                <span asp-validation-for="Informe.Infor_OtrosTratamientos" class="text-danger"></span>
                             </div>
                         </div>
                     </div>
-            </div>
-            
-                
-                <hr class="style-three" />
-
-                <h2>Contractor</h2>
-
-                <hr class="style-three" />
-                <div class="d-flex justify-content-center flex-wrap">
-                    @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group col-sm-5">
-                        <label asp-for="Cliente.Perso_PrimerNombre" class="control-label"></label>
-                        <input asp-for="Cliente.Perso_PrimerNombre" class="form-control" />
-                        <span asp-validation-for="Cliente.Perso_PrimerNombre" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-sm-5">
-                        <label asp-for="Cliente.Perso_SegundoNombre" class="control-label"></label>
-                        <input asp-for="Cliente.Perso_SegundoNombre" class="form-control" />
-                        <span asp-validation-for="Cliente.Perso_SegundoNombre" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-sm-5">
-                        <label asp-for="Cliente.Perso_PrimerApellido" class="control-label"></label>
-                        <input asp-for="Cliente.Perso_PrimerApellido" class="form-control" />
-                        <span asp-validation-for="Cliente.Perso_PrimerApellido" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-sm-5">
-                        <label asp-for="Cliente.Perso_SegundoApellido" class="control-label"></label>
-                        <input asp-for="Cliente.Perso_SegundoApellido" class="form-control" />
-                        <span asp-validation-for="Cliente.Perso_SegundoApellido" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-sm-5">
-                        <label asp-for="Cliente.Perso_Sexo" class="control-label"></label>
-                        <input asp-for="Cliente.Perso_Sexo" class="form-control" />
-                        <span asp-validation-for="Cliente.Perso_Sexo" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-sm-5">
-                        <label asp-for="Cliente.Estci_Id" class="control-label"></label>
-                        <select asp-for="Cliente.Estci_Id" class="form-control"></select>
-                        <span asp-validation-for="Cliente.Estci_Id" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-sm-5">
-                        <label asp-for="Cliente.Perso_Telefono" class="control-label"></label>
-                        <input asp-for="Cliente.Perso_Telefono" class="form-control" />
-                        <span asp-validation-for="Cliente.Perso_Telefono" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-sm-5">
-                        <label asp-for="Cliente.Perso_CorreoElectronico" class="control-label"></label>
-                        <input asp-for="Cliente.Perso_CorreoElectronico" class="form-control" />
-                        <span asp-validation-for="Cliente.Perso_CorreoElectronico" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-sm-10">
-                        <label asp-for="Cliente.Perso_Direccion" class="control-label"></label>
-                        <input asp-for="Cliente.Perso_Direccion" class="form-control" />
-                        <span asp-validation-for="Cliente.Perso_Direccion" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-sm-5">
-                        <label class="control-label">Departamento</label>
-                        <select id="Depar_Id" name="Depar_Id" onchange="ddlMunicipio()" class="form-control"></select>
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-sm-5">
-                        <label asp-for="Cliente.Munic_Id" class="control-label"></label>
-                        <select asp-for="Cliente.Munic_Id" class="form-control">
-                            <option value="0">Seleccione una opcion</option>
-                        </select>
-                        <span asp-validation-for="Cliente.Munic_Id" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-sm-5">
-                        <label asp-for="Cliente.Paise_Id" class="control-label "></label>
-                        <select asp-for="Cliente.Paise_Id" class="form-control"></select>
-                        <span asp-validation-for="Cliente.Paise_Id" class="text-danger"></span>
-                    </div>*@
                 </div>
-                <hr />
+            </div>
+                       <hr />
                 <div class="d-flex justify-content-center">
                     <div class="col-sm-10">
                         <h4>Identificacion</h4>
@@ -166,88 +233,79 @@
                 <hr />
                 <div class="d-flex justify-content-center flex-wrap">
                     @*<div class="form-group col-sm-5">
-                        <label asp-for="Identificacion.Tiden_Id" class="control-label"></label>
-                        <select asp-for="Identificacion.Tiden_Id[0]" class="form-control"></select>
-                        <span asp-validation-for="Identificacion.Tiden_Id" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-sm-5">
-                        <label asp-for="Identificacion.Ident_NumeroIdentificacion" class="control-label"></label>
-                        <input asp-for="Identificacion.Ident_NumeroIdentificacion[0]" class="form-control" />
-                        <span asp-validation-for="Identificacion.Ident_NumeroIdentificacion" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-sm-5">
-                        <label asp-for="Identificacion.Ident_FechaNacimiento" class="control-label"></label>
-                        <input asp-for="Identificacion.Ident_FechaNacimiento[0]" class="form-control" />
-                        <span asp-validation-for="Identificacion.Ident_FechaNacimiento" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-sm-5">
-                        <label asp-for="Identificacion.Ident_LugarNacimiento" class="control-label"></label>
-                        <input asp-for="Identificacion.Ident_LugarNacimiento[0]" class="form-control" />
-                        <span asp-validation-for="Identificacion.Ident_LugarNacimiento" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Cliente.DniFrente" class="control-label">Ingrese la parte de <b>ENFRENTE</b> de su DNI</label>
-                        <div class="custom-file">
-                            <input asp-for="Cliente.DniFrente" class="custom-file-input">
-                            <label asp-for="Cliente.DniFrente" class="custom-file-label">Choose file</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Cliente.DniAtras" class="control-label">Ingrese la parte de <b>ATRAS</b> de su DNI</label>
-                        <div class="custom-file">
-                            <input asp-for="Cliente.DniAtras" class="custom-file-input">
-                            <label asp-for="Cliente.DniAtras" class="custom-file-label">Choose file</label>
-                        </div>
-                    </div>*@
+                <label asp-for="Identificacion.Tiden_Id" class="control-label"></label>
+                <select asp-for="Identificacion.Tiden_Id[0]" class="form-control"></select>
+                <span asp-validation-for="Identificacion.Tiden_Id" class="text-danger"></span>
+            </div>
+            <div class="form-group col-sm-5">
+                <label asp-for="Identificacion.Ident_NumeroIdentificacion" class="control-label"></label>
+                <input asp-for="Identificacion.Ident_NumeroIdentificacion[0]" class="form-control" />
+                <span asp-validation-for="Identificacion.Ident_NumeroIdentificacion" class="text-danger"></span>
+            </div>
+            <div class="form-group col-sm-5">
+                <label asp-for="Identificacion.Ident_FechaNacimiento" class="control-label"></label>
+                <input asp-for="Identificacion.Ident_FechaNacimiento[0]" class="form-control" />
+                <span asp-validation-for="Identificacion.Ident_FechaNacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group col-sm-5">
+                <label asp-for="Identificacion.Ident_LugarNacimiento" class="control-label"></label>
+                <input asp-for="Identificacion.Ident_LugarNacimiento[0]" class="form-control" />
+                <span asp-validation-for="Identificacion.Ident_LugarNacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cliente.DniFrente" class="control-label">Ingrese la parte de <b>ENFRENTE</b> de su DNI</label>
+                <div class="custom-file">
+                    <input asp-for="Cliente.DniFrente" class="custom-file-input">
+                    <label asp-for="Cliente.DniFrente" class="custom-file-label">Choose file</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cliente.DniAtras" class="control-label">Ingrese la parte de <b>ATRAS</b> de su DNI</label>
+                <div class="custom-file">
+                    <input asp-for="Cliente.DniAtras" class="custom-file-input">
+                    <label asp-for="Cliente.DniAtras" class="custom-file-label">Choose file</label>
+                </div>
+            </div>*@
                 </div>
 
 
                 @*<div class="col-lg-4">
-                <div class="text-center">
-                    <div style="margin-top: 20px">
-                        <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
-                    </div>
+            <div class="text-center">
+                <div style="margin-top: 20px">
+                    <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
                 </div>
-            </div>*@
+            </div>
+        </div>*@
 
-        </fieldset>
+</fieldset>
         <h1>Calculo de Desembolso</h1>
         <fieldset style="overflow-y:auto">
-            <h2>Informacion de Dependiente</h2>
+            <h2>Desembolso</h2>
             <hr class="style-three" />
 
-            <!--<div class="d-flex justify-content-center flex-wrap">
+            <div class="d-flex justify-content-center flex-wrap">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group col-sm-5">
                     <label asp-for="Dependiente.Perso_PrimerNombre" class="control-label"></label>
-                    <input--> @*asp-for="Dependiente.Perso_PrimerNombre"*@ <!--type="text" id="Depen_PrimerNombre" name="Depen_PrimerNombre" class="form-control" />
+                    <input asp-for="Dependiente.Perso_PrimerNombre" type="text" id="Depen_PrimerNombre" name="Depen_PrimerNombre" class="form-control" />
                     <span asp-validation-for="Dependiente.Perso_PrimerNombre" class="text-danger"></span>
                 </div>
                 <div class="form-group col-sm-5">
                     <label asp-for="Dependiente.Perso_SegundoNombre" class="control-label"></label>
-                    <input--> @*asp-for="Dependiente.Perso_SegundoNombre"*@ <!--type="text" id="Depen_SegundoNombre" name="Depen_SegundoNombre" class="form-control" />
+                    <input asp-for="Dependiente.Perso_SegundoNombre" type="text" id="Depen_SegundoNombre" name="Depen_SegundoNombre" class="form-control" />
                     <span asp-validation-for="Dependiente.Perso_SegundoNombre" class="text-danger"></span>
                 </div>
                 <div class="form-group col-sm-5">
                     <label asp-for="Dependiente.Perso_PrimerApellido" class="control-label"></label>
-                    <input--> @*asp-for="Dependiente.Perso_PrimerApellido"*@ <!--type="text" id="Depen_PrimerApellido" name="Depen_PrimerApellido" class="form-control" />
+                    <input asp-for="Dependiente.Perso_PrimerApellido" type="text" id="Depen_PrimerApellido" name="Depen_PrimerApellido" class="form-control" />
                     <span asp-validation-for="Dependiente.Perso_PrimerApellido" class="text-danger"></span>
                 </div>
                 <div class="form-group col-sm-5">
                     <label asp-for="Dependiente.Perso_SegundoApellido" class="control-label"></label>
-                    <input--> @*asp-for="Dependiente.Perso_SegundoApellido"*@ <!--type="text" id="Depen_SegundoApellido" name="Depen_SegundoApellido" class="form-control" />
+                    <input asp-for="Dependiente.Perso_SegundoApellido" type="text" id="Depen_SegundoApellido" name="Depen_SegundoApellido" class="form-control" />
                     <span asp-validation-for="Dependiente.Perso_SegundoApellido" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
-                    <label asp-for="Dependiente.Perso_Sexo" class="control-label"></label>
-                    <input--> @*asp-for="Dependiente.Perso_Sexo[0]"*@ <!--type="text" id="Depen_Sexo" name="Depen_Sexo" class="form-control" />
-                    <span asp-validation-for="Dependiente.Perso_Sexo" class="text-danger"></span>
-                </div>
-                <div class="form-group col-sm-5">
-                    <label asp-for="Dependiente.Paren_Id" class="control-label"></label>
-                    <select--> @*asp-for="Dependiente.Paren_Id"*@ <!--type="number" id="DepenParen_Id" name="DepenParen_Id" class="form-control"></select>
-                    <span asp-validation-for="Dependiente.Paren_Id" class="text-danger"></span>
-                </div>
+                
             </div>
             <hr class="style-three" />
             <div class="d-flex justify-content-center">
@@ -259,7 +317,7 @@
             <div class="d-flex justify-content-center flex-wrap">
                 <div class="form-group col-sm-5">
                     <label asp-for="Identificacion.Tiden_Id" class="control-label"></label>
-                    <select--> @*asp-for="Identificacion.Tiden_Id"*@ <!--type="number" id="DepenTiden_Id" name="DepenTiden_Id" class="form-control"></select>
+                    <select @*asp-for="Identificacion.Tiden_Id"*@ <!--type="number" id="DepenTiden_Id" name="DepenTiden_Id" class="form-control"></select>
                     <span asp-validation-for="Identificacion.Tiden_Id" class="text-danger"></span>
                 </div>
                 <div class="form-group col-sm-5">
@@ -296,31 +354,11 @@
 </div>
 <script src="~/lib/jquery/dist/jquery.js"></script>
 
-<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 <script>
-    // toggle collapse
-    $('.collapse-link').on('click', function (e) {
-        e.preventDefault();
-        var ibox = $(this).closest('div.ibox');
-        var button = $(this).find('i');
-        var content = ibox.children('.ibox-content');
-        content.slideToggle(200);
-        button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
-        ibox.toggleClass('').toggleClass('border-bottom');
-        setTimeout(function () {
-            ibox.resize();
-            ibox.find('[id^=map-]').resize();
-        }, 50);
-    });
-
-    // Close ibox function
-    $('.close-link').on('click', function (e) {
-        e.preventDefault();
-        var content = $(this).closest('div.ibox');
-        content.remove();
-    });
 
     $(document).ready(function () {
+        
+
 
         //$("#wizard").steps();
         $("#form").steps({
@@ -393,20 +431,128 @@
 
     var factuContador = 0;
     function NuevaFactura() {
-        var formFactura;
-
         if (factuContador == 0) {
-            $('#formFactu_1').removeClass('collapse');
+            $('#formFactu_0').removeClass('collapse');
         } else {
-            var formFactura = $('#formFactu_1').clone()
-            console.log(formFactura, "formFactura")
-            formFactura += `
-                    
-                        `;
+                var newFormId = 'formFactu_' + factuContador;
+                var newForm = $('#formFactu_0').clone();
+
+                // Change ID of cloned form
+                newForm.attr('id', newFormId);
+
+                // Update title of the cloned form
+                newForm.find('h4').text('Factura ' + (factuContador+1));
+
+                // Clear inputs in the cloned form
+                newForm.find('input[type="text"]').val('');
+                newForm.find('select').val('');
+
+                // Update input indexes in the cloned form
+                newForm.find('input, select').each(function (index, element) {
+                    var originalName = $(element).attr('name');
+                    if (originalName) {
+                        var newName = originalName.replace('[0]', '[' + factuContador + ']');
+                        $(element).attr('name', newName);
+                    }
+                });
+                
+                newForm.find('#DetalleFaenca_Id_0').attr('value', factuContador);
+                newForm.find('#DetalleFaenca_Id_0').attr('id', 'DetalleFaenca_Id_' + factuContador);
+                
+                // Append the cloned form after the original form
+                $('#listFacturas').append(newForm);
         }
         
         factuContador += 1;
     }
+
+    
+    function appendDependiente() {
+
+        var newDependiente;
+
+        var tipo = $('#DetalleFadet_ProductoServicio').val()
+        var childrenPrdSer = $('#DetalleFadet_ProductoServicio').children();
+        var descrPrdSer;
+        $.each(childrenPrdSer, function (key, value) {
+            if (tipo == value.id) {
+                descrPrdSer = value.innerText;
+            }
+        })
+
+        var unidad = $('#DetalleUnida_Id').val()
+        var childrenUni = $('#DetalleUnida_Id').children();
+        var descrUni;
+        $.each(childrenUni, function (key, value) {
+            if (unidad == value.id) {
+                descrUni = value.innerText;
+            }
+        })
+
+        var categ = $('#DetalleCateg_Id').val()
+        var childrenCat = $('#DetalleCateg_Id').children();
+        var descrCat;
+        $.each(childrenCat, function (key, value) {
+            if (categ == value.id) {
+                descrCat = value.innerText;
+            }
+        })
+
+        if (index == 0) {
+            newDependiente = `
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Tipo</th>
+                                        <th>Descripcion</th>
+                                        <th>Cantidad</th>
+                                        <th>Unidad</th>
+                                        <th>Precio</th>
+                                        <th>Categoria</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody">
+                                    <tr>
+                                        <td><input id="Detalle_Faenca_Id_${index}_" name="Detalle.Faenca_Id[${index}]" type="number" class="form-control collapse" /></td>
+                                        <td>${descrPrdSer}<input id="Detalle_Fadet_ProductoServicio_${index}_" name="Detalle.Fadet_ProductoServicio[${index}]" type="text" class="form-control collapse" /></td>
+                                        <td>${$('#DetalleFadet_Descripcion').val()}<input id="Detalle_Fadet_Descripcion_${index}_" name="Detalle.Fadet_Descripcion[${index}]" type="text" class="form-control collapse" /></td>
+                                        <td>${$('#DetalleFadet_Cantidad').val()}<input id="Detalle_Fadet_Cantidad_${index}_" name="Detalle.Fadet_Cantidad_[${index}]" type="number" class="form-control collapse" /></td>
+                                        <td>${descrUni}<input id="Detalle_Unida_Id_${index}_" name="Detalle.Unida_Id_[${index}]" type="number" class="form-control collapse" /></td>
+                                        <td>${$('#DetalleFadet_Precio').val()}<input id="Detalle_Fadet_Precio_${index}" name="Detalle.Fadet_Precio[${index}]" type="number" class="form-control collapse" /></td>
+                                        <td>${descrCat} <input id="Detalle_Categ_Id_${index}_" name="Detalle.Categ_Id[${index}]" type="number" class="form-control collapse" /></td>
+                                    </tr>
+                                </tbody>`;
+
+            $('#tableDetalle').append(newDependiente);
+        } else {
+
+
+            newDependiente = `
+                                    <tr>
+                                        <td><input id="Detalle_Faenca_Id_${index}_" name="Detalle.Faenca_Id[${index}]" type="number" class="form-control collapse" /></td>
+                                        <td>${descrPrdSer}<input id="Detalle_Fadet_ProductoServicio_${index}_" name="Detalle.Fadet_ProductoServicio[${index}]" type="text" class="form-control collapse" /></td>
+                                        <td>${$('#DetalleFadet_Descripcion').val()}<input id="Detalle_Fadet_Descripcion_${index}_" name="Detalle.Fadet_Descripcion[${index}]" type="text" class="form-control collapse" /></td>
+                                        <td>${$('#DetalleFadet_Cantidad').val()}<input id="Detalle_Fadet_Cantidad_${index}_" name="Detalle.Fadet_Cantidad_[${index}]" type="number" class="form-control collapse" /></td>
+                                        <td>${descrUni}<input id="Detalle_Unida_Id_${index}_" name="Detalle.Unida_Id_[${index}]" type="number" class="form-control collapse" /></td>
+                                        <td>${$('#DetalleFadet_Precio').val()}<input id="Detalle_Fadet_Precio_${index}_" name="Detalle.Fadet_Precio[${index}]" type="number" class="form-control collapse" /></td>
+                                        <td>${descrCat} <input id="Detalle_Categ_Id_${index}_" name="Detalle.Categ_Id[${index}]" type="number" class="form-control collapse" /></td>
+                                    </tr>`;
+
+            $('#tbody').append(newDependiente);
+        }
+
+
+        $(`#Detalle_Faenca_Id_${index}_`).val($('#DetalleFaenca_Id').val());
+        $(`#Detalle_Fadet_ProductoServicio_${index}_`).val($('#DetalleFadet_ProductoServicio').val());
+        $(`#Detalle_Fadet_Descripcion_${index}_`).val($('#DetalleFadet_Descripcion').val());
+        $(`#Detalle_Fadet_Cantidad_${index}_`).val($('#DetalleFadet_Cantidad').val());
+        $(`#Detalle_Unida_Id_${index}_`).val($('#DetalleUnida_Id').val());
+        $(`#Detalle_Fadet_Precio_${index}_`).val($('#DetalleFadet_Precio').val());
+        $(`#Detalle_Categ_Id_${index}_`).val($('#DetalleCateg_Id').val());
+
+        index += 1;
+    }
+
 </script>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

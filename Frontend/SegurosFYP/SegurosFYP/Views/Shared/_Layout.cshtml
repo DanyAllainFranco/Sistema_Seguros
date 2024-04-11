@@ -245,7 +245,31 @@
     <script src="~/js/iziToast.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script>
+        
+
         $(document).ready(function () {
+            // Toggle collapse
+            $(document).on('click', '.collapse-link', function (e) {
+                e.preventDefault();
+                var ibox = $(this).closest('div.ibox');
+                var button = $(this).find('i');
+                var content = ibox.children('.ibox-content');
+                content.slideToggle(200);
+                button.toggleClass('bi-chevron-up').toggleClass('bi-chevron-down');
+                ibox.toggleClass('').toggleClass('border-bottom');
+                setTimeout(function () {
+                    ibox.resize();
+                    ibox.find('[id^=map-]').resize();
+                }, 50);
+            });
+
+            // Close ibox function
+            $(document).on('click', '.close-link', function (e) {
+                e.preventDefault();
+                var content = $(this).closest('div.ibox');
+                content.remove();
+            });
+
             $('.nav-link').removeClass('active');
             $('.nav-link').removeClass('collapsed');
             $('.collapse').removeClass('show');

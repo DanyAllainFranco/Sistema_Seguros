@@ -20,7 +20,8 @@ namespace SegurosFYP.Entities.Entities
         public int? Fadet_UsuarioModificacion { get; set; }
         public DateTime? Fadet_FechaModificacion { get; set; }
         public bool? Fadet_Estado { get; set; }
+        public int? Categ_Id { get; set; }
 
-        public virtual tbFacturaMedicaEncabezado Faenca { get; set; }
+        public virtual tbCategoriasPorTipoPlan Categ { get; set; }
     }
 }
