@@ -33,9 +33,67 @@ namespace SegurosFYP.DataAccess.Repository
 
         public tbPolizas Details(int? id)
         {
-            throw new NotImplementedException();
-        }
+            string sql = ScriptsBaseDeDatos.Poliz_Listar;
 
+            List<tbPolizas> result = new List<tbPolizas>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                result = db.Query<tbPolizas>(sql, commandType: CommandType.Text).ToList();
+
+                tbPolizas item = result.First();
+
+                return item;
+            }
+            //throw new NotImplementedException();
+        }
+        public tbPersonas CargarCliente(int? id)
+        {
+            string sql = ScriptsBaseDeDatos.Poliz_Listar;
+
+            List<tbPersonas> result = new List<tbPersonas>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                result = db.Query<tbPersonas>(sql, commandType: CommandType.Text).ToList();
+
+                tbPersonas item = result.First();
+
+                return item;
+            }
+            //throw new NotImplementedException();
+        }
+        public tbTiposPlanes CargarTipoPlan(int? id)
+        {
+            string sql = ScriptsBaseDeDatos.Poliz_Listar;
+
+            List<tbTiposPlanes> result = new List<tbTiposPlanes>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                result = db.Query<tbTiposPlanes>(sql, commandType: CommandType.Text).ToList();
+
+                tbTiposPlanes item = result.First();
+
+                return item;
+            }
+            //throw new NotImplementedException();
+        }
+        public IEnumerable<tbPersonas> CargarDependientes(int? id)
+        {
+            string sql = ScriptsBaseDeDatos.Poliz_Listar;
+
+            List<tbPersonas> result = new List<tbPersonas>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                result = db.Query<tbPersonas>(sql, commandType: CommandType.Text).ToList();
+
+
+                return result;
+            }
+            //throw new NotImplementedException();
+        }
         public tbPolizas find(int? id)
         {
             throw new NotImplementedException();
@@ -100,6 +158,8 @@ namespace SegurosFYP.DataAccess.Repository
             }
             //throw new NotImplementedException();
         }
+
+
 
         public RequestStatus Update(tbPolizas item)
         {

@@ -75,6 +75,32 @@ namespace SegurosFYP.Services
                 return result.Error(ex.Message);
             }
         }
+        public async Task<ServiceResult> Details(int Poliz_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var response = new PolizaCompletaViewModel();
+                var listadoTipo = await _aPI.Get<IEnumerable<TipoPlanViewModel>, IEnumerable<TipoPlanViewModel>>(req =>
+                {
+                    req.Path = $"poliza/Details/"+Poliz_Id;
+                });
+                if (!listadoTipo.Success)
+                {
+                    return result.FromApi(listadoTipo);
+                }
+                else
+                {
+                    response.TiposdePlan = listadoTipo.Data;
+
+                    return result.Ok(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
         public async Task<ServiceResult> InsertCliente(ClienteViewModel item)
         {
             var result = new ServiceResult();

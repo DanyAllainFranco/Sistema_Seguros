@@ -31,6 +31,30 @@ namespace SegurosFYP.API.Controllers
             var list = _salesServices.ListPoliz();
             return Ok(list);
         }
+        [HttpGet("Details")]
+        public IActionResult Details(int Poliz_Id)
+        {
+            var list = _salesServices.Details(Poliz_Id);
+            return Ok(list);
+        }
+        [HttpGet("CargarCliente")]
+        public IActionResult CargarCliente(int Poliz_Id)
+        {
+            var list = _salesServices.CargarCliente(Poliz_Id);
+            return Ok(list);
+        }
+        [HttpGet("CargarDependientes")]
+        public IActionResult CargarDependientes(int Poliz_Id)
+        {
+            var list = _salesServices.CargarDependientes(Poliz_Id);
+            return Ok(list);
+        }
+        [HttpGet("CargarTipoPlan")]
+        public IActionResult CargarTipoPlan(int Poliz_Id)
+        {
+            var list = _salesServices.CargarTipoPlan(Poliz_Id);
+            return Ok(list);
+        }
         [HttpPost("InsertIdentificacion")]
         public IActionResult InsertIdentificacion(IdentificacionPolizaViewModel item)
         {

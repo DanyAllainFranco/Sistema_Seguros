@@ -51,6 +51,19 @@ namespace SegurosFYP.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+        [HttpGet]
+        public async Task<IActionResult> /*IActionResult*/ Details()
+        {
+            try
+            {
+                var list = await _polizaServices.ListCre();
+                return View(list.Data);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
         [HttpPost]
         public async Task<IActionResult> /*IActionResult*/ Create(PolizaCompletaViewModel item)
         {
