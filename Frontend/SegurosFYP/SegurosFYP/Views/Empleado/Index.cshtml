@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
-    ViewData["ModelName"] = "EmpleadoViewModel".Replace("ViewModel","");
+    ViewData["ModelName"] = "EmpleadoViewModel".Replace("ViewModel", "");
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="card-header">
@@ -39,67 +39,69 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
+        @foreach (var item in Model)
+        {
+            <tr>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Perso_PrimerNombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Perso_SegundoNombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Perso_PrimerApellido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Perso_SegundoApellido)
-            <td>
-                @Html.DisplayFor(modelItem => item.Perso_Sexo)
+                <td>
+                    @Html.DisplayFor(modelItem => item.Perso_PrimerNombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Perso_SegundoNombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Perso_PrimerApellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Perso_SegundoApellido)
+                <td>
+                    @Html.DisplayFor(modelItem => item.Perso_Sexo)
 
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cargo_Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cargo_Descripcion)
 
-            </td>
-            <td>
-                <a asp-route-id="@item.Emple_Id" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-id="@item.Emple_Id"><i class="bi bi-pencil"></i>Editar</a>
-                <a href="@Url.Action("Details","Cargo", new {Emple_Id = item.Emple_Id})" class="btn btn-warning"><i class="bi bi-eye"></i>Detalles</a>
-                <a asp-route-id="@item.Emple_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Emple_Id')"><i class="bi bi-trash"></i>Eliminar</a>
-            </td>
-        </tr>
-}
+                </td>
+                <td>
+                    <a asp-route-id="@item.Emple_Id" type="button" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-id="@item.Emple_Id"><i class="bi bi-pencil"></i>Editar</a>
+                    <a href="@Url.Action("Details","Empleado", new {Emple_Id = item.Emple_Id})" class="btn btn-warning"><i class="bi bi-eye"></i>Detalles</a>
+                    <a asp-route-id="@item.Emple_Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Emple_Id')"><i class="bi bi-trash"></i>Eliminar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 <div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    @Html.Partial("_Update", new SegurosFYP.Models.EmpleadoViewModel ())
-                </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Update", new SegurosFYP.Models.EmpleadoViewModel())
             </div>
         </div>
     </div>
-    <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    @Html.Partial("_Delete", new SegurosFYP.Models.EmpleadoViewModel ())
-                </div>                     
+</div>
+<div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Delete", new SegurosFYP.Models.EmpleadoViewModel())
             </div>
         </div>
     </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
     document.querySelectorAll('.FetchData').forEach(item => {
         item.addEventListener('click', function () {
@@ -119,7 +121,4 @@
             })
             .catch(error => console.error('Hubo un error:', error));
     }
-
-
-    
-    </script>
+</script>

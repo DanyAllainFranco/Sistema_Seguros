@@ -68,6 +68,86 @@ namespace SegurosFYP.BusinessLogic.Services
                 return result.Error(ex.Message);
             }
         }
+
+        public ServiceResult UpdateUsuario(tbUsuarios item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _UsuarioRepository.Update(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult RestablecerContra(tbUsuarios item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _UsuarioRepository.ReestablecerContra(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult DeleteUsuario(int Usuar_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _UsuarioRepository.Delete(Usuar_Id);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
+        public ServiceResult CargarUsuario(int Usuar_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _UsuarioRepository.find(Usuar_Id);
+
+                return result.Ok(lost);
+
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
         #endregion
 
         #region roles

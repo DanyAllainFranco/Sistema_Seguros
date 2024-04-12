@@ -38,5 +38,16 @@ namespace SegurosFYP.Common.Models
         public DateTime? Emple_FechaModificacion { get; set; }
         public bool? Emple_Estado { get; set; }
 
+        public int? Estci_Id { get; set; }
+
+        public string Perso_Telefono { get; set; }
+
+        public string Perso_CorreoElectronico { get; set; }
+
+        public string Perso_Direccion { get; set; }
+        public string Munic_Id { get; set; }
+
+
+   
     }
 }

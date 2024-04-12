@@ -57,15 +57,8 @@ namespace SegurosFYP.Controllers
             try
             {
                 var list = await _rolService.CrearRoles(item);
-                string[] notificaciones = new string[4];
-                notificaciones[0] = "tim-icons icon-alert-circle-exc";
-                notificaciones[1] = "Agregado";
-                notificaciones[2] = "Se agregaron los datos con exito";
-                notificaciones[3] = "info";
-                TempData["Notificaciones"] = notificaciones;
-
+                TempData["Exito"] = "Registro insertado con exito";
                 return RedirectToAction("Index");
-                //return View(new List<DepartamentoViewModel> { (DepartamentoViewModel)list.Data } );
             }
             catch (Exception ex)
             {
@@ -87,13 +80,12 @@ namespace SegurosFYP.Controllers
                     if (response.IsSuccessStatusCode)
                     {
                         var content = await response.Content.ReadAsStringAsync();
-                        var rolData = JsonConvert.DeserializeObject<RolesViewModel>(content); // Deserializar el contenido JSON en tu modelo
+                        var rolData = JsonConvert.DeserializeObject<RolesViewModel>(content); 
                         return View(rolData);
                     }
                     else
                     {
-                        // Manejar el caso en que la solicitud no sea exitosa
-                        // Por ejemplo, redireccionar a una página de error
+
                         return RedirectToAction("Error", "Home");
                     }
                 }

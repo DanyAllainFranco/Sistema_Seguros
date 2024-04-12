@@ -1,0 +1,61 @@
+﻿@model SegurosFYP.Models.UsuarioViewModel
+
+@{
+    ViewData["Title"] = "_Update";
+    ViewData["ModelName"] = "UsuarioViewModel".Replace("ViewModel", "");
+}
+
+<form asp-action="Update">
+    <div class="d-flex justify-content-center flex-wrap">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Usuar_Usuario" class="control-label"></label>
+            <input asp-for="Usuar_Id" id="Usuar_Id" class="form-control" type="hidden" />
+            <input asp-for="Usuar_Usuario" id="Usuar_Usuario" class="form-control" />
+            <input asp-for="Usuar_Contrasena" id="Usuar_Contrasena" class="form-control" type="hidden" />
+            <span asp-validation-for="Usuar_Usuario" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Emple_Id" class="control-label"></label>
+            <select asp-for="Emple_Id" id="Emple_Id" class="form-control"></select>
+            <span asp-validation-for="Emple_Id" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Roles_Id" class="control-label"></label>
+            <select asp-for="Roles_Id" id="Roles_Id" class="form-control" name="Roles_Id"></select>
+            <span asp-validation-for="Roles_Id" class="text-danger"></span>
+        </div>
+        <div class="form-group form-check col-sm-5">
+            <div class="checkbox-wrapper-14">
+                <input class="form-check-input switch" id="Usuar_Admin" type="checkbox" asp-for="Usuar_Admin" /> @Html.DisplayNameFor(model => model.Usuar_Admin)
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#Usuar_Admin").change(function () {
+            if ($("#Usuar_Admin").is(':checked')) {
+                $("#Roles_Id").hide();
+                console.log(Rol);
+                console.log("Entra");
+            }
+            else {
+
+                $("#Roles_Id").show();
+                console.log("Sale");
+            }
+        });
+
+    });
+</script>

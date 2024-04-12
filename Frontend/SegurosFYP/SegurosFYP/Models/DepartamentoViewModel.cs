@@ -7,8 +7,10 @@ namespace SegurosFYP.Models
     public class DepartamentoViewModel
     {
         [Display(Name = "Codigo")]
+        [Required]
         public string Depar_Id { get; set; }
         [Display(Name = "Departamento")]
+        [Required]
         public string Depar_Descripcion { get; set; }
         [Display(Name = "Usuario Creacion")]
         public int Depar_UsuarioCreacion { get; set; }
@@ -25,5 +27,10 @@ namespace SegurosFYP.Models
         public string UsuarioCreacion { get; set; }
         [NotMapped]
         public string UsuarioModificacion { get; set; }
+
+        [NotMapped]
+        public string Munic_Id { get; set; }
+        [NotMapped]
+        public string Munic_Descripcion { get; set; }
     }
 }

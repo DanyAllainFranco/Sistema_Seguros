@@ -9,6 +9,7 @@ namespace SegurosFYP.Models
 {
     public class PolizaViewModel
     {
+        [Display(Name = "ID")]
         public int Poliz_Id { get; set; }
         [Required]
         [Display(Name = "Contractor")]

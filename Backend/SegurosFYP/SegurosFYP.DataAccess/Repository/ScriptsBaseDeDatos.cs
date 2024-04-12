@@ -13,7 +13,12 @@ namespace SegurosFYP.DataAccess.Repository
         #region Usuario
         public static string Usuar_Insertar = "Acces.SP_Usuarios_Insertar";
         public static string Usuar_Login= "Acces.SP_Usuarios_InicioSesion";
-
+        public static string Usuar_Eliminar = "Acces.SP_Usuarios_Eliminar";
+        public static string Usuar_Actualizar = "Acces.SP_Usuarios_Actualizar";
+        public static string Usuar_Cargar = "Acces.SP_Usuario_Cargar";
+        public static string Usuar_Listar = "Acces.SP_Usuario_Listar";
+        public static string Usuar_Restablecer = "Acces.SP_Usuarios_ReestablecerContra";
+        //SP_Usuarios_ReestablecerContra
         #endregion
 
         #region Roles
@@ -92,6 +97,8 @@ namespace SegurosFYP.DataAccess.Repository
         public static string Depar_Cargar = "Gral.SP_Departamentos_Cargar";
         public static string Depar_Actualizar = "Gral.SP_Departamentos_Actualizar";
         public static string Depar_Delete = "Gral.SP_Departamentos_Eliminar";
+        public static string Depar_Master = "Gral.SP_Municipios_Master";
+        //[Gral].SP_Municipios_Master
         #endregion
 
         #region Persona

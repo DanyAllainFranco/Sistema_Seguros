@@ -42,14 +42,67 @@ namespace SegurosFYP.API.Controllers
                 Usuar_Contrasena = item.Usuar_Contrasena,
                 Emple_Id = item.Emple_Id,
                 Roles_Id = item.Roles_Id,
-                Usuar_Admin = item.Usuar_Admin,
-                Usuar_UsuarioCreacion = item.Usuar_UsuarioCreacion,
-                Usuar_FechaCreacion = item.Usuar_FechaCreacion
+                Usuar_Admin = item.Usuar_Admin
             };
             var list = _accessServices.InsertUsu(modelo);
             return Ok(list);
         }
-    
+
+        [HttpPut("Update/Usuario")]
+        public IActionResult UpdateUsuario(UsuarioViewModel item)
+        {
+            var model = _mapper.Map<tbUsuarios>(item);
+            var modelo = new tbUsuarios()
+            {
+                Usuar_Id = item.Usuar_Id,
+                Usuar_Usuario = item.Usuar_Usuario,
+                Usuar_Contrasena = item.Usuar_Contrasena,
+                Emple_Id = item.Emple_Id,
+                Roles_Id = item.Roles_Id,
+                Usuar_Admin = item.Usuar_Admin
+            };
+            var list = _accessServices.UpdateUsuario(modelo);
+            return Ok(list);
         }
+
+        [HttpPut("ReestablecerContra/Usuario")]
+        public IActionResult ReestablecerContra(UsuarioViewModel item)
+        {
+            var model = _mapper.Map<tbUsuarios>(item);
+            var modelo = new tbUsuarios()
+            {
+                Usuar_Id = item.Usuar_Id,
+                Usuar_Contrasena = item.Usuar_Contrasena
+            };
+            var list = _accessServices.RestablecerContra(modelo);
+            return Ok(list);
+        }
+
+
+        [HttpDelete("Delete/Usuario")]
+        public IActionResult DeleteUnidades(int Usuar_Id)
+        {
+            var list = _accessServices.DeleteUsuario(Usuar_Id);
+            return Ok(list);
+        }
+
+        [HttpGet("Cargar/Usuario")]
+        public IActionResult CargarUnidades(int Usuar_Id)
+        {
+            var list = _accessServices.CargarUsuario(Usuar_Id);
+
+            return Ok(list);
+        }
+
+        [HttpGet("Detalles/Usuario")]
+        public IActionResult DetallesUnidades(int Usuar_Id)
+        {
+            var list = _accessServices.CargarUsuario(Usuar_Id);
+
+            return Ok(list);
+        }
+
+
     }
+}
 

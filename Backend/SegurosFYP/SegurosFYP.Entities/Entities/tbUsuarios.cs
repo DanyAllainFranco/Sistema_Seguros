@@ -96,6 +96,11 @@ namespace SegurosFYP.Entities.Entities
         [NotMapped]
         public int Usua_Id { get; set; }
 
+        [NotMapped]
+        public string Perso_NombreCompleto { get; set; }
+        [NotMapped]
+        public string Roles_Descripcion { get; set; }
+
         public virtual tbEmpleados Emple { get; set; }
         public virtual tbRoles Roles { get; set; }
         public virtual tbUsuarios Usuar_UsuarioCreacionNavigation { get; set; }

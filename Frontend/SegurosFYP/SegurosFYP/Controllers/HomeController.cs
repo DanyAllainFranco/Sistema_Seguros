@@ -98,6 +98,11 @@ namespace SegurosFYP.Controllers
             return View();
         }
 
+        public IActionResult Salir()
+        {
+            return RedirectToAction("Login");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

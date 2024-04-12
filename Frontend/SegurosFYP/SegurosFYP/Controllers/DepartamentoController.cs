@@ -118,5 +118,24 @@ namespace SegurosFYP.Controllers
             }
         }
 
+
+        public async Task<IActionResult> Master(DepartamentoViewModel departamento)
+        {
+            var response = await _client.GetAsync($"api/Departamento/Master/Departamentos?Depar_Id={departamento.Depar_Id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var jsonObject = JsonConvert.DeserializeObject<JObject>(content);
+                var data = jsonObject["data"].ToString();
+                var departamentos = JsonConvert.DeserializeObject<IEnumerable<DepartamentoViewModel>>(data);
+                return View(departamentos);
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+
     }
 }

@@ -9,9 +9,10 @@ namespace SegurosFYP.Models
 {
     public class EstadoCivilViewModel
     {
-
+        [Display(Name = "ID")]
         public int Estad_Id { get; set; }
         [Display(Name="Estado Civil")]
+        [Required]
         public string Estad_Descripcion { get; set; }
         [Display(Name = "Usuario Creacion")]
         public int Estad_UsuarioCreacion { get; set; }

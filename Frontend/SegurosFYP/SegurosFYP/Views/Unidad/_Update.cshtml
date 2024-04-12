@@ -5,22 +5,22 @@
         ViewData["ModelName"] = "UnidadViewModel".Replace("ViewModel","");
         }
         
-                 <form asp-action="Update">
-            <div class="d-flex justify-content-center flex-wrap">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-           
-            <div class="form-group col-sm-5">
-                <label asp-for="Unida_Descripcion" class="control-label"></label>
-                <input asp-for="Unida_Id" class="form-control" type="hidden" id="Unida_Id"/>
-                <input asp-for="Unida_Descripcion" id="Unida_Descripcion" class="form-control" />
-                <span asp-validation-for="Unida_Descripcion" class="text-danger"></span>
-            </div>
-            </div>
-            <div class="form-group d-flex justify-content-end" style="gap:5px">
-                <input type="submit" value="Guardar" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>            
-            </div>
-        </form>    
+<form asp-action="Update">
+    <div class="d-flex justify-content-center flex-wrap">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group col-sm-5">
+            <label asp-for="Unida_Descripcion" class="control-label"></label>
+            <input asp-for="Unida_Id" class="form-control" type="hidden" id="Unida_Id" />
+            <input asp-for="Unida_Descripcion" id="Unida_Descripcion" class="form-control" />
+            <span asp-validation-for="Unida_Descripcion" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>    
            
        
                 @section Scripts {

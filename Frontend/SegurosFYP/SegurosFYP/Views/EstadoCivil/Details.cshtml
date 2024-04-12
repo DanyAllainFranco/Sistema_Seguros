@@ -4,48 +4,55 @@
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @foreach (var item in Model)
 {
     <h1>Detalles</h1>
     <div>
         <hr />
         <form asp-controller="EstadoCivil" method="post" asp-action="Details">
-            <dl class="row">
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Estad_Id)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => item.Estad_Id)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Estad_Descripcion)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => item.Estad_Descripcion)
-                </dd>
-            </dl>
+            <div class="row">
+                <div class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.Estad_Id)
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => item.Estad_Id)
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.Estad_Descripcion)
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => item.Estad_Descripcion)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
         </form>
     </div>
     <table class="table table-bordered">
         <thead>
-
+            <tr>
+                <th>Accion</th>
+                <th>Usuario</th>
+                <th>Fecha</th>
+            </tr>
         </thead>
         <tbody>
             <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Estad_UsuarioCreacion)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.usua_creac)
-                </td>
+                <td>Creacion</td>
+                <td>@Html.DisplayFor(modelItem => item.usua_creac)</td>
+                <td>@Html.DisplayFor(modelItem => item.Estad_FechaCreacion)</td>
             </tr>
             <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Estad_UsuarioModificacion)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.usua_modi)
-                </td>
+                <td>Modificacion</td>
+                <td>@Html.DisplayFor(modelItem => item.usua_modi)</td>
+                <td>@Html.DisplayFor(modelItem => item.Estad_FechaModificacion)</td>
             </tr>
         </tbody>
     </table>
@@ -55,6 +62,7 @@
         <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
     </div>
 }
+
 <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
