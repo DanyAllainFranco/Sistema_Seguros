@@ -138,6 +138,20 @@ namespace SegurosFYP.DataAccess.Repository
             }
         }
 
+        public RequestStatus ReestablecerContra(tbUsuarios item)
+        {
+            string sql = ScriptsBaseDeDatos.Usuar_Restablecer;
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                var parameter = new DynamicParameters();
+                parameter.Add("@Usuar_Id", item.Usuar_Id);
+                parameter.Add("@Usuar_Contrasena", item.Usuar_Contrasena);
+                var result = db.Execute(sql, parameter, commandType: CommandType.StoredProcedure);
+                return new RequestStatus { CodeStatus = result, MessageStatus = "" };
+            }
+        }
+
 
         tbUsuarios IRepository<tbUsuarios>.Details(int? id)
         {

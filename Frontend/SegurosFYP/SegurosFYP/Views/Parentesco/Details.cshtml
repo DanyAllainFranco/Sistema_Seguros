@@ -12,22 +12,29 @@
             <h1>Detalles</h1>
         </div>
         <hr />
-        <form asp-controller="EstadoCivil" method="post" asp-action="Details">
-            <dl class="row">
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => item.Paren_Id)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => item.Paren_Id)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => item.Paren_Descripcion)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => item.Paren_Descripcion)
-                </dd>
-            </dl>
-
+        <form asp-controller="Parentesco" method="post" asp-action="Details">
+            <div class="row">
+                <div class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => item.Paren_Id)
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => item.Paren_Id)
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => item.Paren_Descripcion)
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => item.Paren_Descripcion)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
         </form>
     </div>
 
@@ -58,6 +65,7 @@
         <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
     </div>
 }
+
 <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

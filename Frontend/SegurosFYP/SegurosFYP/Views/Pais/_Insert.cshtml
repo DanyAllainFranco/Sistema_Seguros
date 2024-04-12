@@ -5,26 +5,26 @@
         ViewData["ModelName"] = "PaisesViewModel".Replace("ViewModel","");
         }
         
-                <form asp-action="Insert">
-                    <div class="d-flex justify-content-center flex-wrap">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form asp-action="Insert">
+    <div class="d-flex justify-content-center flex-wrap">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                                        <div class="form-group col-sm-5">
-                                            <label asp-for="Paise_Descripcion" class="control-label"></label>
-                                            <input asp-for="Paise_Descripcion" class="form-control" />
-                                            <span asp-validation-for="Paise_Descripcion" class="text-danger"></span>
-                                        </div>
-                                        <div class="form-group col-sm-5">
-                                            <label asp-for="Paise_Nacionalidad" class="control-label"></label>
-                                            <input asp-for="Paise_Nacionalidad" class="form-control" />
-                                            <span asp-validation-for="Paise_Nacionalidad" class="text-danger"></span>
-                                        </div>
-                    </div>
-                    <div class="form-group d-flex justify-content-end" style="gap: 5px;">
-                        <input type="submit" value="Guardar" class="btn btn-primary" />
-                        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-                    </div>
-                </form>
+        <div class="form-group col-sm-5">
+            <label asp-for="Paise_Descripcion" class="control-label"></label>
+            <input asp-for="Paise_Descripcion" class="form-control" />
+            <span asp-validation-for="Paise_Descripcion" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-5">
+            <label asp-for="Paise_Nacionalidad" class="control-label"></label>
+            <input asp-for="Paise_Nacionalidad" class="form-control" />
+            <span asp-validation-for="Paise_Nacionalidad" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
                 @section Scripts {
                 @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
                 }

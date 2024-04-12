@@ -94,6 +94,33 @@ namespace SegurosFYP.Services
             }
 
         }
+
+        public async Task<ServiceResult> Reestablecer(UsuarioViewModel item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var response = await _api.Put<UsuarioViewModel, ServiceResult>(req =>
+                {
+                    req.Path = $"/Usuario/ReestablecerContra/Usuario";
+                    req.Content = item;
+                });
+                if (!response.Success)
+                {
+                    return result.FromApi(response);
+                }
+                else
+                {
+                    return result.Ok(response.Data);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(Helpers.GetMessage(ex));
+                throw;
+            }
+
+        }
         public async Task<ServiceResult> Delete(int Usuar_Id)
         {
             var result = new ServiceResult();

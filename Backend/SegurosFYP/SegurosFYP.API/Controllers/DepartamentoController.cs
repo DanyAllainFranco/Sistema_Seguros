@@ -74,5 +74,14 @@ namespace SegurosFYP.API.Controllers
             return Ok(list);
         }
 
+        [HttpGet("Master/Departamentos")]
+        public IActionResult MasterDepartamentos(string Depar_Id)
+        {
+            var list = _generalServices.MasterDepar(Depar_Id);
+
+            return Ok(list);
+        }
+
+
     }
 }

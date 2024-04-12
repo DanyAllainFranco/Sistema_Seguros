@@ -90,6 +90,27 @@ namespace SegurosFYP.Controllers
                 return View(item);
             }
         }
+        public ActionResult Reestablecer()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Reestablecer(UsuarioViewModel item)
+        {
+            try
+            {
+                var list = await _UsuarioService.Reestablecer(item);
+                TempData["Exito"] = "La contraseña se reestablecio correctamente";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Error al reestablecer la contraseña";
+                return View(item);
+            }
+        }
 
         public ActionResult Delete()
         {

@@ -90,6 +90,27 @@ namespace SegurosFYP.BusinessLogic.Services
             }
         }
 
+        public ServiceResult RestablecerContra(tbUsuarios item)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _UsuarioRepository.ReestablecerContra(item);
+                if (lost.CodeStatus > 0)
+                {
+                    return result.Ok(lost);
+                }
+                else
+                {
+                    return result.Error(lost);
+                }
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+
         public ServiceResult DeleteUsuario(int Usuar_Id)
         {
             var result = new ServiceResult();

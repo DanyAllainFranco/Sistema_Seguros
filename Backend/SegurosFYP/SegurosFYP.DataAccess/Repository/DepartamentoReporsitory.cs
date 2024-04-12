@@ -53,6 +53,21 @@ namespace SegurosFYP.DataAccess.Repository
             }
         }
 
+        public IEnumerable<tbDepartamentos> Master(string Depar_Id)
+        {
+            string sql = ScriptsBaseDeDatos.Depar_Master;
+
+            List<tbDepartamentos> result = new List<tbDepartamentos>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                var parameters = new { Depar_Id };
+                result = db.Query<tbDepartamentos>(sql, parameters, commandType: CommandType.StoredProcedure).ToList();
+                return result;
+            }
+        }
+
+
         public tbDepartamentos find(int? id)
         {
             throw new NotImplementedException();

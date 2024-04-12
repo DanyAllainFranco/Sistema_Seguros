@@ -45,7 +45,7 @@
                 </td>
 
                 <td>
-                    <a asp-route-id="@item.Usuar_Id" class="btn btn-danger" data-toggle="modal" data-target="#ModalRestablecer"><i class="bi bi-gear"></i>Reestablecer</a>
+                    <a asp-route-id="@item.Usuar_Id" class="btn btn-danger FetchData" data-toggle="modal" data-target="#ReestablecerModal" data-id="@item.Usuar_Id"><i class="bi bi-gear"></i>Restablecer</a>
                     <a asp-route-id="@item.Usuar_Id" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-id="@item.Usuar_Id"><i class="bi bi-pencil"></i>Editar</a>
                     <a href="@Url.Action("Details","Usuarios", new {Usuar_Id = item.Usuar_Id})" class="btn btn-warning"><i class="bi bi-eye"></i>Detalles</a>
                     <a asp-route-id="@item.Usuar_Id" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Usuar_Id')"><i class="bi bi-trash"></i>Eliminar</a>
@@ -56,99 +56,115 @@
     </tbody>
 </table>
 <div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        @Html.Partial("_Update", new SegurosFYP.Models.UsuarioViewModel ())
-                    </div>
-                </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Update", new SegurosFYP.Models.UsuarioViewModel())
             </div>
         </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Insertar</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        @Html.Partial("_Insert", new SegurosFYP.Models.UsuarioViewModel ())
-                    </div>
-                </div>
+    </div>
+</div>
+<div class="modal fade" id="ReestablecerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Restablecer contraseña</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Reestablecer", new SegurosFYP.Models.UsuarioViewModel())
             </div>
         </div>
-        <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        @Html.Partial("_Delete", new SegurosFYP.Models.UsuarioViewModel ())
-                    </div>
-                </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Insertar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Insert", new SegurosFYP.Models.UsuarioViewModel())
             </div>
         </div>
-    <script>
-        document.querySelectorAll('.FetchData').forEach(item => {
-            item.addEventListener('click', function () {
-                var UsuarId = this.getAttribute('data-id');
-                console.log(UsuarId);
-                fetchData(UsuarId);
-            });
-        });
-        function fetchData(UsuarId) {
+    </div>
+</div>
+<div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Delete", new SegurosFYP.Models.UsuarioViewModel())
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.querySelectorAll('.FetchData').forEach(item => {
+        item.addEventListener('click', function () {
+            var UsuarId = this.getAttribute('data-id');
             console.log(UsuarId);
-            fetch('https://localhost:44327/Usuario/Cargar/Usuario?Usuar_Id=' + UsuarId)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
+            fetchData(UsuarId);
+        });
+    });
+    function fetchData(UsuarId) {
+        console.log(UsuarId);
+        fetch('https://localhost:44327/Usuario/Cargar/Usuario?Usuar_Id=' + UsuarId)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
 
-                    // Construir opciones para el selector Emple_Id
-                    var empleSelect = document.getElementById('Emple_Id');
-                    empleSelect.innerHTML = ''; // Limpiar las opciones anteriores
+                // Construir opciones para el selector Emple_Id
+                var empleSelect = document.getElementById('Emple_Id');
+                empleSelect.innerHTML = ''; // Limpiar las opciones anteriores
 
-                    data.data.forEach(function (item) {
-                        var option = document.createElement('option');
-                        option.value = item.emple_Id;
-                        option.textContent = item.perso_NombreCompleto; // Cambia por el nombre del campo de descripción correcto
-                        empleSelect.appendChild(option);
-                    });
+                data.data.forEach(function (item) {
+                    var option = document.createElement('option');
+                    option.value = item.emple_Id;
+                    option.textContent = item.perso_NombreCompleto; // Cambia por el nombre del campo de descripción correcto
+                    empleSelect.appendChild(option);
+                });
 
-                    // Seleccionar la opción correcta en Emple_Id
-                    document.getElementById('Emple_Id').value = data.data[0].emple_Id;
+                // Seleccionar la opción correcta en Emple_Id
+                document.getElementById('Emple_Id').value = data.data[0].emple_Id;
 
-                    // Construir opciones para el selector Roles_Id
-                    var rolesSelect = document.getElementById('Roles_Id');
-                    rolesSelect.innerHTML = ''; // Limpiar las opciones anteriores
+                // Construir opciones para el selector Roles_Id
+                var rolesSelect = document.getElementById('Roles_Id');
+                rolesSelect.innerHTML = ''; // Limpiar las opciones anteriores
 
-                    data.data.forEach(function (item) {
-                        var option = document.createElement('option');
-                        option.value = item.roles_Id;
-                        option.textContent = item.roles_Descripcion; // Cambia por el nombre del campo de descripción correcto
-                        rolesSelect.appendChild(option);
-                    });
+                data.data.forEach(function (item) {
+                    var option = document.createElement('option');
+                    option.value = item.roles_Id;
+                    option.textContent = item.roles_Descripcion; // Cambia por el nombre del campo de descripción correcto
+                    rolesSelect.appendChild(option);
+                });
 
-                    // Seleccionar la opción correcta en Roles_Id
-                    document.getElementById('Roles_Id').value = data.data[0].roles_Id;
+                // Seleccionar la opción correcta en Roles_Id
+                document.getElementById('Roles_Id').value = data.data[0].roles_Id;
 
-                    document.getElementById('Usuar_Id').value = data.data[0].usuar_Id;
-                    document.getElementById('Usuar_Usuario').value = data.data[0].usuar_Usuario;
-                    document.getElementById('Usuar_Contrasena').value = data.data[0].usuar_Contrasena;
-                    document.getElementById('Usuar_Admin').checked = data.data[0].usuar_Admin;
-                })
-                .catch(error => console.error('Hubo un error:', error));
-        }
+                document.getElementById('Usuar_Id').value = data.data[0].usuar_Id;
+                document.getElementById('Usuar_Usuario').value = data.data[0].usuar_Usuario;
+                document.getElementById('Usuar_Contrasena').value = data.data[0].usuar_Contrasena;
+                document.getElementById('Usuar_Admin').checked = data.data[0].usuar_Admin;
+            })
+            .catch(error => console.error('Hubo un error:', error));
+    }
 
-                </script>
+</script>

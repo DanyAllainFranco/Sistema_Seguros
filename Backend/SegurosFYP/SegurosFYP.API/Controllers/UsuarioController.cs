@@ -65,6 +65,20 @@ namespace SegurosFYP.API.Controllers
             return Ok(list);
         }
 
+        [HttpPut("ReestablecerContra/Usuario")]
+        public IActionResult ReestablecerContra(UsuarioViewModel item)
+        {
+            var model = _mapper.Map<tbUsuarios>(item);
+            var modelo = new tbUsuarios()
+            {
+                Usuar_Id = item.Usuar_Id,
+                Usuar_Contrasena = item.Usuar_Contrasena
+            };
+            var list = _accessServices.RestablecerContra(modelo);
+            return Ok(list);
+        }
+
+
         [HttpDelete("Delete/Usuario")]
         public IActionResult DeleteUnidades(int Usuar_Id)
         {
