@@ -360,9 +360,9 @@ $.extend( $.validator, {
 	},
 
 	messages: {
-		required: "This field is required.",
-		remote: "Please fix this field.",
-		email: "Please enter a valid email address.",
+		required: "El campo es requerido.",
+		remote: "Porfavor arregla ese campo.",
+		email: "Porfavor ingresa un correo valido.",
 		url: "Please enter a valid URL.",
 		date: "Please enter a valid date.",
 		dateISO: "Please enter a valid date (ISO).",

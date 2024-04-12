@@ -13,6 +13,8 @@ namespace SegurosFYP.Models
         [Display (Name = "ID")]
         public int Paren_Id { get; set; }
         [Display(Name = "Parentesco")]
+        [Required(ErrorMessage = "El campo es requerido")]
+
         public string Paren_Descripcion { get; set; }
         public int Paren_UsuarioCreacion { get; set; }
         [Display(Name = "Fecha Creacion")]

@@ -7,10 +7,10 @@ namespace SegurosFYP.Models
     public class DepartamentoViewModel
     {
         [Display(Name = "Codigo")]
-        [Required]
+        [Required(ErrorMessage = "El campo es requerido")]
         public string Depar_Id { get; set; }
         [Display(Name = "Departamento")]
-        [Required]
+        [Required(ErrorMessage = "El campo es requerido")]
         public string Depar_Descripcion { get; set; }
         [Display(Name = "Usuario Creacion")]
         public int Depar_UsuarioCreacion { get; set; }

@@ -14,6 +14,7 @@ namespace SegurosFYP.Models
         [Display(Name = "ID")]
         public int Roles_Id { get; set; }
         [Display(Name = "Roles")]
+        [Required(ErrorMessage = "El campo es requerido")]
 
         public string Roles_Descripcion { get; set; }
         public int Roles_UsuarioCreacion { get; set; }

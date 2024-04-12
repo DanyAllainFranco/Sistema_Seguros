@@ -12,13 +12,21 @@ namespace SegurosFYP.Models
         [Display(Name = "ID")]
         public int Usuar_Id { get; set; }
         [Display(Name = "Usuario")]
+        [Required(ErrorMessage = "El campo es requerido")]
+
         public string Usuar_Usuario { get; set; }
         [Display(Name = "Contraseña")]
+        [Required(ErrorMessage = "El campo es requerido")]
+
         public string Usuar_Contrasena { get; set; }
         [Display(Name = "Empleado")]
+        [Required(ErrorMessage = "El campo es requerido")]
+
         public int Emple_Id { get; set; }
 
         [Display(Name = "Rol")]
+        [Required(ErrorMessage = "El campo es requerido")]
+
         public int Roles_Id { get; set; }
         [Display (Name = "Admin")]
         public bool Usuar_Admin { get; set; }

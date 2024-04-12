@@ -13,7 +13,7 @@ namespace SegurosFYP.Models
         [Display(Name = "ID")]
         public int Cober_Id { get; set; }
         [Display(Name = "Cobertura")]
-        [Required]
+        [Required(ErrorMessage = "El campo es requerido")]
         public string Cober_Descripcion { get; set; }
         [Display(Name = "Usuario Creacion")]
         public int Cober_UsuarioCreacion { get; set; }

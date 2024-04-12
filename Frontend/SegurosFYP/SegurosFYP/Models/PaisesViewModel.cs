@@ -13,9 +13,13 @@ namespace SegurosFYP.Models
         [Display (Name  = "ID")]
         public int Paise_Id { get; set; }
         [Display(Name = "Pais")]
+        [Required(ErrorMessage = "El campo es requerido")]
+
         public string Paise_Descripcion { get; set; }
 
         [Display(Name = "Nacionalidad")]
+        [Required(ErrorMessage = "El campo es requerido")]
+
         public string Paise_Nacionalidad { get; set; }
         public int Paise_UsuarioCreacion { get; set; }
         [Display(Name = "Fecha Creacion")]

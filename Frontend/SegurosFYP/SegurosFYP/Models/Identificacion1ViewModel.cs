@@ -10,11 +10,18 @@ namespace SegurosFYP.Models
     {
         public int Ident_Id { get; set; }
         [Display(Name = "Tipo de Identificacion")]
+        [Required(ErrorMessage = "El campo es requerido")]
         public int Tiden_Id { get; set; }
+        [Required(ErrorMessage = "El campo es requerido")]
+
         [Display(Name = "Codigo de Identificacion")]
         public string Ident_NumeroIdentificacion { get; set; }
+        [Required(ErrorMessage = "El campo es requerido")]
+
         [Display(Name = "Fecha de Nacimiento")]
         public DateTime Ident_FechaNacimiento { get; set; }
+        [Required(ErrorMessage = "El campo es requerido")]
+
         [Display(Name = "Lugar de Nacimiento")]
         public string Ident_LugarNacimiento { get; set; }
         public int Ident_UsuarioCreacion { get; set; }

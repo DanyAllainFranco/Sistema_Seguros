@@ -11,8 +11,12 @@ namespace SegurosFYP.Models
     public class MunicipioViewModel
     {
         [Display (Name = "Codigo" )]
+        [Required(ErrorMessage = "El campo es requerido")]
+
         public string Munic_Id { get; set; }
         [Display(Name = "Municipio")]
+        [Required(ErrorMessage = "El campo es requerido")]
+
         public string Munic_Descripcion { get; set; }
         [NotMapped]
         [Display(Name = "Departamento")]

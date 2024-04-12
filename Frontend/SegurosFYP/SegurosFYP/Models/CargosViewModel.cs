@@ -13,7 +13,7 @@ namespace SegurosFYP.Models
         [Display(Name = "ID")]
         public int Cargo_Id { get; set; }
         [Display(Name = "Cargo")]
-        [Required]
+        [Required(ErrorMessage = "El campo es requerido")]
         public string Cargo_Descripcion { get; set; }
         [Display(Name = "Usuario Creacion")]
         public int Cargo_UsuarioCreacion { get; set; }
