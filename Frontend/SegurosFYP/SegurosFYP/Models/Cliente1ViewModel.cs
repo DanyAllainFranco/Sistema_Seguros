@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 
 namespace SegurosFYP.Models
 {
-    public class Cliente1ViewModel
+    public class ClienteViewModel
     {
         public int Perso_Id { get; set; }
         [Required]
         [Display(Name = "Primer Nombre")]
-        public string Perso_PrimerNombre { get; set; }
+        public string[] Perso_PrimerNombre { get; set; }
         [Display(Name = "Segundo Nombre")]
-        public string Perso_SegundoNombre { get; set; }
+        public string[] Perso_SegundoNombre { get; set; }
         [Required]
         [Display(Name = "Primer Apellido")]
-        public string Perso_PrimerApellido { get; set; }
+        public string[] Perso_PrimerApellido { get; set; }
         [Display(Name = "Segundo Apellido")]
-        public string Perso_SegundoApellido { get; set; }
+        public string[] Perso_SegundoApellido { get; set; }
         [Required]
         [Display(Name = "Sexo")]
-        public string Perso_Sexo { get; set; }
-        public int Ident_Id { get; set; }
+        public string[] Perso_Sexo { get; set; }
+        public int[] Ident_Id { get; set; }
         [Required]
         [Display(Name = "Estado Civil")]
         public int? Estci_Id { get; set; }
@@ -48,7 +48,7 @@ namespace SegurosFYP.Models
         [Required]
         [Display(Name = "Parentesco")]
 
-        public int Paren_Id { get; set; }
+        public int[] Paren_Id { get; set; }
 
 
 
@@ -60,10 +60,13 @@ namespace SegurosFYP.Models
         [Display(Name = "Lugar de Nacimiento")]
         public string Ident_LugarNacimiento { get; set; }
 
-
+        [Display(Name = "Pais")]
         public string Paise_Descripcion { get; set; }
+        [Display(Name = "Nacionalidad")]
         public string Paise_Nacionalidad { get; set; }
+        [Display(Name = "Departamento")]
         public string Depar_Descripcion { get; set; }
+        [Display(Name = "Municipio")]
         public string Munic_Descripcion { get; set; }
 
 

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,7 +10,7 @@ namespace SegurosFYP.Models
 {
     public class PolizaViewModel
     {
-        [Display(Name = "ID")]
+        [Display(Name = "Cod. de Poliza")]
         public int Poliz_Id { get; set; }
         [Required]
         [Display(Name = "Contractor")]
@@ -34,15 +35,25 @@ namespace SegurosFYP.Models
         public bool? Poliz_Estado { get; set; }
         public int quantity { get; set; }
 
-        //[NotMapped]
-        //public string UsuarioCreacion { get; set; }
-        //[NotMapped]
-        //public string UsuarioModificacion { get; set; }
+        [Display(Name = "Asegurador")]
+        [NotMapped]
+        public string Emple_NombreCompleto { get; set; }
+        [Display(Name = "Contractor")]
+        [NotMapped]
+        public string Clien_NombreCompleto { get; set; }
+        [Display(Name = "Tipo de Plan")]
+        [NotMapped]
+        public string Tipos_Descripcion { get; set; }
 
-        //[NotMapped]
-        //public string Perso_NombreCompleto { get; set; }
-        //[NotMapped]
-        //public string Tipo_Descripcion { get; set; }
+        [NotMapped]
+        public string UsuarioCreacion { get; set; }
+        [NotMapped]
+        public string UsuarioModificacion { get; set; }
+
+        [NotMapped]
+        [Display(Name = "Nombre")]
+        public string Perso_NombreCompleto { get; set; }
+      
     }
 }
 

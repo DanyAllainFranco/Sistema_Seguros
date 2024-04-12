@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SegurosFYP.Common.Models;
 using SegurosFYP.Models;
 using SegurosFYP.Services;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace SegurosFYP.Controllers
 {
+    [Authorize(Roles = "Cargos")]
     public class CargoController : Controller
     {
         public CargosServices _cargosServices;

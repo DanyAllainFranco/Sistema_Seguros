@@ -16,58 +16,46 @@
 <table class="table table-responsive table-bordered" id="Example">
     <thead>
         <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Poliz_Id)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Clien_Id)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Tipos_Id)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Emple_Id)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Poliz_Cuotas)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Poliz_EstadoCuotasPoliza)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.quantity)
-                    </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poliz_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clien_NombreCompleto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipos_Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emple_NombreCompleto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poliz_Cuotas)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Poliz_Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Clien_Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Tipos_Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Emple_Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Poliz_Cuotas)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Poliz_EstadoCuotasPoliza)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.quantity)
-                    </td>
             <td>
-                <a asp-route-id="@item.Poliz_Id" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-id="@item.Poliz_Id"><i class="bi bi-pen-fill"></i>Editar</a>
-                <a asp-route-id="@item.Poliz_Id" asp-action="Details" class="btn btn-warning"><i class="fa fa-eye"></i>Detalles</a>
-                <a asp-route-id="@item.Poliz_Id" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Poliz_Id')"><i class="fa fa-trash"></i>Eliminar</a>
+                @Html.DisplayFor(model => item.Poliz_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Clien_NombreCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Tipos_Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Emple_NombreCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Poliz_Cuotas)
+            </td>
+            <td>
+                @*<a asp-route-id="@item.Poliz_Id" class="btn btn-primary FetchData" data-toggle="modal" data-target="#EditarModal" data-id="@item.Poliz_Id"><i class="bi bi-pen-fill"></i>Editar</a>*@
+                <a href="@Url.Action("Details","Poliza", new {Poliz_Id = item.Poliz_Id})" class="btn btn-warning"><i class="fa fa-eye"></i>Detalles</a>
+                @*<a asp-route-id="@item.Poliz_Id" class="btn btn-danger" data-toggle="modal" data-target="#ModalEliminar" onclick="ObtenerID('@item.Poliz_Id')"><i class="fa fa-trash"></i>Eliminar</a>*@
             </td>
         </tr>
 }

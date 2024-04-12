@@ -14,9 +14,9 @@
         <fieldset style="overflow-y:auto">
             <h2>Asegurador</h2>
             <hr class="style-three" />
-            <div class="form-group col-sm-5">
+            <div class="form-group col-sm-4">
                 <label asp-for="Poliza.Emple_Id" class="control-label"></label>
-                <select asp-for="Poliza.Emple_Id" class="form-control"></select>
+                <select asp-for="Poliza.Emple_Id" class="form-control required"></select>
                 <span asp-validation-for="Poliza.Emple_Id" class="text-danger"></span>
             </div>
             <hr class="style-three" />
@@ -26,66 +26,66 @@
             <hr class="style-three" />
             <div class="d-flex justify-content-center flex-wrap">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Cliente.Perso_PrimerNombre" class="control-label"></label>
-                    <input asp-for="Cliente.Perso_PrimerNombre" class="form-control" />
+                    <input asp-for="Cliente.Perso_PrimerNombre" class="form-control required" />
                     <span asp-validation-for="Cliente.Perso_PrimerNombre" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Cliente.Perso_SegundoNombre" class="control-label"></label>
-                    <input asp-for="Cliente.Perso_SegundoNombre" class="form-control" />
+                    <input asp-for="Cliente.Perso_SegundoNombre" class="form-control required" />
                     <span asp-validation-for="Cliente.Perso_SegundoNombre" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Cliente.Perso_PrimerApellido" class="control-label"></label>
-                    <input asp-for="Cliente.Perso_PrimerApellido" class="form-control" />
+                    <input asp-for="Cliente.Perso_PrimerApellido" class="form-control required" />
                     <span asp-validation-for="Cliente.Perso_PrimerApellido" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Cliente.Perso_SegundoApellido" class="control-label"></label>
-                    <input asp-for="Cliente.Perso_SegundoApellido" class="form-control" />
+                    <input asp-for="Cliente.Perso_SegundoApellido" class="form-control required" />
                     <span asp-validation-for="Cliente.Perso_SegundoApellido" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Cliente.Perso_Sexo" class="control-label"></label>
-                    <input asp-for="Cliente.Perso_Sexo" class="form-control" />
+                    <input asp-for="Cliente.Perso_Sexo" class="form-control required" />
                     <span asp-validation-for="Cliente.Perso_Sexo" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Cliente.Estci_Id" class="control-label"></label>
-                    <select asp-for="Cliente.Estci_Id" class="form-control"></select>
+                    <select asp-for="Cliente.Estci_Id" class="form-control required"></select>
                     <span asp-validation-for="Cliente.Estci_Id" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Cliente.Perso_Telefono" class="control-label"></label>
-                    <input asp-for="Cliente.Perso_Telefono" class="form-control" />
+                    <input asp-for="Cliente.Perso_Telefono" class="form-control required" />
                     <span asp-validation-for="Cliente.Perso_Telefono" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Cliente.Perso_CorreoElectronico" class="control-label"></label>
-                    <input asp-for="Cliente.Perso_CorreoElectronico" class="form-control" />
+                    <input asp-for="Cliente.Perso_CorreoElectronico" class="form-control required" />
                     <span asp-validation-for="Cliente.Perso_CorreoElectronico" class="text-danger"></span>
                 </div>
                 <div class="form-group col-sm-10">
                     <label asp-for="Cliente.Perso_Direccion" class="control-label"></label>
-                    <input asp-for="Cliente.Perso_Direccion" class="form-control" />
+                    <input asp-for="Cliente.Perso_Direccion" class="form-control required" />
                     <span asp-validation-for="Cliente.Perso_Direccion" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label  class="control-label">Departamento</label>
                     <select id="Depar_Id" name="Depar_Id" onchange="ddlMunicipio()" class="form-control"></select>
                     <span class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Cliente.Munic_Id" class="control-label"></label>
-                    <select asp-for="Cliente.Munic_Id" class="form-control">
+                    <select asp-for="Cliente.Munic_Id" class="form-control required">
                         <option value="0">Seleccione una opcion</option>
                     </select>
                     <span asp-validation-for="Cliente.Munic_Id" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Cliente.Paise_Id" class="control-label "></label>
-                    <select asp-for="Cliente.Paise_Id" class="form-control"></select>
+                    <select asp-for="Cliente.Paise_Id" class="form-control required"></select>
                     <span asp-validation-for="Cliente.Paise_Id" class="text-danger"></span>
                 </div>
             </div>
@@ -97,34 +97,34 @@
             </div>
             <hr />
             <div class="d-flex justify-content-center flex-wrap">
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Identificacion.Tiden_Id" class="control-label"></label>
-                    <select asp-for="Identificacion.Tiden_Id[0]" class="form-control" ></select>
+                    <select asp-for="Identificacion.Tiden_Id[0]" class="form-control required" ></select>
                     <span asp-validation-for="Identificacion.Tiden_Id" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Identificacion.Ident_NumeroIdentificacion" class="control-label"></label>
-                    <input asp-for="Identificacion.Ident_NumeroIdentificacion[0]" class="form-control" />
+                    <input asp-for="Identificacion.Ident_NumeroIdentificacion[0]" class="form-control required" />
                     <span asp-validation-for="Identificacion.Ident_NumeroIdentificacion" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Identificacion.Ident_FechaNacimiento" class="control-label"></label>
-                    <input asp-for="Identificacion.Ident_FechaNacimiento[0]" class="form-control" />
+                    <input asp-for="Identificacion.Ident_FechaNacimiento[0]" class="form-control required" />
                     <span asp-validation-for="Identificacion.Ident_FechaNacimiento" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Identificacion.Ident_LugarNacimiento" class="control-label"></label>
-                    <input asp-for="Identificacion.Ident_LugarNacimiento[0]" class="form-control" />
+                    <input asp-for="Identificacion.Ident_LugarNacimiento[0]" class="form-control required" />
                     <span asp-validation-for="Identificacion.Ident_LugarNacimiento" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-sm-10">
                     <label asp-for="Cliente.DniFrente" class="control-label">Ingrese la parte de <b>ENFRENTE</b> de su DNI</label>
                     <div class="custom-file">
                         <input asp-for="Cliente.DniFrente" class="custom-file-input">
                         <label asp-for="Cliente.DniFrente" class="custom-file-label">Choose file</label>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-sm-10">
                     <label asp-for="Cliente.DniAtras" class="control-label">Ingrese la parte de <b>ATRAS</b> de su DNI</label>
                     <div class="custom-file">
                         <input asp-for="Cliente.DniAtras" class="custom-file-input">
@@ -148,32 +148,32 @@
 
             <div class="d-flex justify-content-center flex-wrap">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Dependiente.Perso_PrimerNombre" class="control-label"></label>
                     <input @*asp-for="Dependiente.Perso_PrimerNombre"*@ type="text" id="Depen_PrimerNombre" name="Depen_PrimerNombre" class="form-control" />
                     <span asp-validation-for="Dependiente.Perso_PrimerNombre" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Dependiente.Perso_SegundoNombre" class="control-label"></label>
                     <input @*asp-for="Dependiente.Perso_SegundoNombre"*@ type="text" id="Depen_SegundoNombre" name="Depen_SegundoNombre" class="form-control" />
                     <span asp-validation-for="Dependiente.Perso_SegundoNombre" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Dependiente.Perso_PrimerApellido" class="control-label"></label>
                     <input @*asp-for="Dependiente.Perso_PrimerApellido"*@ type="text" id="Depen_PrimerApellido" name="Depen_PrimerApellido" class="form-control" />
                     <span asp-validation-for="Dependiente.Perso_PrimerApellido" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Dependiente.Perso_SegundoApellido" class="control-label"></label>
                     <input @*asp-for="Dependiente.Perso_SegundoApellido"*@ type="text" id="Depen_SegundoApellido" name="Depen_SegundoApellido" class="form-control" />
                     <span asp-validation-for="Dependiente.Perso_SegundoApellido" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Dependiente.Perso_Sexo" class="control-label"></label>
                     <input @*asp-for="Dependiente.Perso_Sexo[0]"*@ type="text" id="Depen_Sexo" name="Depen_Sexo" class="form-control" />
                     <span asp-validation-for="Dependiente.Perso_Sexo" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Dependiente.Paren_Id" class="control-label"></label>
                     <select @*asp-for="Dependiente.Paren_Id"*@ type="number" id="DepenParen_Id" name="DepenParen_Id" class="form-control"></select>
                     <span asp-validation-for="Dependiente.Paren_Id" class="text-danger"></span>
@@ -187,22 +187,22 @@
             </div>
             <hr class="style-three" />
             <div class="d-flex justify-content-center flex-wrap">
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Identificacion.Tiden_Id" class="control-label"></label>
                     <select @*asp-for="Identificacion.Tiden_Id"*@ type="number" id="DepenTiden_Id" name="DepenTiden_Id" class="form-control"></select>
                     <span asp-validation-for="Identificacion.Tiden_Id" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Identificacion.Ident_NumeroIdentificacion" class="control-label"></label>
                     <input @*asp-for="Identificacion.Ident_NumeroIdentificacion"*@ type="number" id="DepenIdent_NumeroIdentificacion" name="DepenIdent_NumeroIdentificacion" class="form-control" />
                     <span asp-validation-for="Identificacion.Ident_NumeroIdentificacion" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Identificacion.Ident_FechaNacimiento" class="control-label"></label>
                     <input @*asp-for="Identificacion.Ident_FechaNacimiento"*@ type="datetime-local" id="DepenIdent_FechaNacimiento" name="DepenIdent_FechaNacimiento" class="form-control" />
                     <span asp-validation-for="Identificacion.Ident_FechaNacimiento" class="text-danger"></span>
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Identificacion.Ident_LugarNacimiento" class="control-label"></label>
                     <input @*asp-for="Identificacion.Ident_LugarNacimiento"*@ type="text" id="DepenIdent_LugarNacimiento" name="DepenIdent_LugarNacimiento" class="form-control" />
                     <span asp-validation-for="Identificacion.Ident_LugarNacimiento" class="text-danger"></span>
@@ -224,9 +224,9 @@
             <hr class="style-three" />
             <div class="d-flex justify-content-center flex-wrap">
                 <input type="hidden" asp-for="Poliza.Tipos_Id" />
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-4">
                     <label asp-for="Poliza.Poliz_Cuotas" class="control-label"></label>
-                    <input asp-for="Poliza.Poliz_Cuotas" class="form-control" />
+                    <input asp-for="Poliza.Poliz_Cuotas" class="form-control required" />
                     <span asp-validation-for="Poliza.Poliz_Cuotas" class="text-danger"></span>
                 </div>
             </div>
@@ -255,7 +255,7 @@
 
                         contador += 1;
                     }
-                    @*<div class="form-group col-sm-5">
+                    @*<div class="form-group col-sm-4">
             <label asp-for="Poliza.Poliz_Cuotas" class="control-label"></label>
             <input asp-for="Poliza.Poliz_Cuotas" class="form-control" />
             <span asp-validation-for="Poliza.Poliz_Cuotas" class="text-danger"></span>
@@ -380,7 +380,7 @@
             })
             .catch(error => console.error('Hubo un error:', error));
 
-        $("#wizard").steps();
+        //$("#wizard").steps();
         $("#form").steps({
             bodyTag: "fieldset",
             onStepChanging: function (event, currentIndex, newIndex) {
@@ -465,7 +465,7 @@
         var id = $('#Depar_Id').val()
 
 
-        fetch('https://localhost:44327/api/municipio/DropDownList/Municipio?Depar_Id' + id)
+        fetch('https://localhost:44327/api/municipio/DropDownList/Municipio?Depar_Id=' + id)
             .then(response => response.json())
             .then(data => {
                 var options = '';

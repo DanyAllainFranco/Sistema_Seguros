@@ -81,9 +81,31 @@ namespace SegurosFYP.Services
             try
             {
                 var response = new PolizaCompletaViewModel();
-                var listadoTipo = await _aPI.Get<IEnumerable<TipoPlanViewModel>, IEnumerable<TipoPlanViewModel>>(req =>
+                var listadoTipo = await _aPI.Get<TipoPlanViewModel, TipoPlanViewModel>(req =>
                 {
-                    req.Path = $"poliza/Details/"+Poliz_Id;
+                    req.Path = $"poliza/CargarTipoPlan?Poliz_Id=" +Poliz_Id;
+                });
+
+                var listadoPoli = await _aPI.Get<PolizaViewModel, PolizaViewModel>(req =>
+                {
+                    req.Path = $"poliza/Details?Poliz_Id=" + Poliz_Id;
+                });
+
+                var listadoClie = await _aPI.Get<Cliente1ViewModel, Cliente1ViewModel>(req =>
+                {
+                    req.Path = $"poliza/CargarCliente?Poliz_Id=" + Poliz_Id;
+                });
+                var listadoDepen = await _aPI.Get<IEnumerable<DependientesViewModel>, IEnumerable<DependientesViewModel>>(req =>
+                {
+                    req.Path = $"poliza/CargarDependientes?Poliz_Id=" + Poliz_Id;
+                });
+                var listadoConyu = await _aPI.Get<ConyugueViewModel, ConyugueViewModel>(req =>
+                {
+                    req.Path = $"poliza/CargarConyugue?Poliz_Id=" + Poliz_Id;
+                });
+                var listadoEmple = await _aPI.Get<EmpleadoViewModel, EmpleadoViewModel>(req =>
+                {
+                    req.Path = $"poliza/CargarEmpleado?Poliz_Id=" + Poliz_Id;
                 });
                 if (!listadoTipo.Success)
                 {
@@ -91,7 +113,17 @@ namespace SegurosFYP.Services
                 }
                 else
                 {
-                    response.TiposdePlan = listadoTipo.Data;
+                    response.TipodePlan = listadoTipo.Data;
+
+                    response.Cliente1 = listadoClie.Data;
+
+                    response.Dependientes = listadoDepen.Data;
+
+                    response.Poliza = listadoPoli.Data;
+
+                    response.Conyugue = listadoConyu.Data;
+
+                    response.Empleado = listadoEmple.Data;
 
                     return result.Ok(response);
                 }

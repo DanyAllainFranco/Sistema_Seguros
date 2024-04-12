@@ -43,6 +43,12 @@ namespace SegurosFYP.API.Controllers
             var list = _salesServices.CargarCliente(Poliz_Id);
             return Ok(list);
         }
+        [HttpGet("CargarConyugue")]
+        public IActionResult CargarConyugue(int Poliz_Id)
+        {
+            var list = _salesServices.CargarConyugue(Poliz_Id);
+            return Ok(list);
+        }
         [HttpGet("CargarDependientes")]
         public IActionResult CargarDependientes(int Poliz_Id)
         {
@@ -53,6 +59,12 @@ namespace SegurosFYP.API.Controllers
         public IActionResult CargarTipoPlan(int Poliz_Id)
         {
             var list = _salesServices.CargarTipoPlan(Poliz_Id);
+            return Ok(list);
+        }
+        [HttpGet("CargarEmpleado")]
+        public IActionResult CargarEmpleado(int Poliz_Id)
+        {
+            var list = _salesServices.CargarEmpleado(Poliz_Id);
             return Ok(list);
         }
         [HttpPost("InsertIdentificacion")]

@@ -87,7 +87,7 @@
                                 <span class="menu-title">Acceso</span>
                                 <i class="menu-arrow"></i>
                             </a>
-                            <div class="collapse" id="Acceso" >
+                            <div class="collapse" id="Acceso">
                                 <ul class="nav flex-column sub-menu">
                                     @if (pantallas != null && pantallas.Contains("Usuarios") || pantallas.Contains("Admin"))
                                     {
@@ -202,7 +202,7 @@
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body invoice-content">
                             @RenderBody()
                         </div>
 
@@ -238,6 +238,9 @@
     <script src="~/js/dashboard.js"></script>
     <script src="~/js/Chart.roundedBarCharts.js"></script>
 
+    @*<script src="~/lib/pdf/html2canvas.js"></script>
+    <script src="~/lib/pdf/jspdf.min.js"></script>*@
+    
     <script src="~/lib/steps/jquery.steps.min.js"></script>
 
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
@@ -246,11 +249,11 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script>
 
-        
+
 
         $(document).ready(function () {
 
-          
+
 
 
             // Toggle collapse
@@ -300,7 +303,7 @@
                 $('#AdministracionItem').addClass('active');
             }
 
-          
+
 
              @if (TempData["Exito"] != null)
         {

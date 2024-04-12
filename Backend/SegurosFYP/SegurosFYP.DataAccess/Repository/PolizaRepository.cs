@@ -33,13 +33,13 @@ namespace SegurosFYP.DataAccess.Repository
 
         public tbPolizas Details(int? id)
         {
-            string sql = ScriptsBaseDeDatos.Poliz_Listar;
+            string sql = "Venta.SP_Polizas_Cargar";
 
             List<tbPolizas> result = new List<tbPolizas>();
 
             using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
             {
-                result = db.Query<tbPolizas>(sql, commandType: CommandType.Text).ToList();
+                result = db.Query<tbPolizas>(sql, new { Poliz_Id = id }, commandType: CommandType.StoredProcedure).ToList();
 
                 tbPolizas item = result.First();
 
@@ -49,13 +49,29 @@ namespace SegurosFYP.DataAccess.Repository
         }
         public tbPersonas CargarCliente(int? id)
         {
-            string sql = ScriptsBaseDeDatos.Poliz_Listar;
+            string sql = "Venta.SP_Clientes_Cargar";
 
             List<tbPersonas> result = new List<tbPersonas>();
 
             using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
             {
-                result = db.Query<tbPersonas>(sql, commandType: CommandType.Text).ToList();
+                result = db.Query<tbPersonas>(sql, new { Poliz_Id = id }, commandType: CommandType.StoredProcedure).ToList();
+
+                tbPersonas item = result.First();
+
+                return item;
+            }
+            //throw new NotImplementedException();
+        }
+        public tbPersonas CargarConyugue(int? id)
+        {
+            string sql = "Venta.SP_Conyugue_Cargar";
+
+            List<tbPersonas> result = new List<tbPersonas>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                result = db.Query<tbPersonas>(sql, new { Poliz_Id = id }, commandType: CommandType.StoredProcedure).ToList();
 
                 tbPersonas item = result.First();
 
@@ -65,13 +81,13 @@ namespace SegurosFYP.DataAccess.Repository
         }
         public tbTiposPlanes CargarTipoPlan(int? id)
         {
-            string sql = ScriptsBaseDeDatos.Poliz_Listar;
+            string sql = "Venta.SP_TiposPlan_Cargar";
 
             List<tbTiposPlanes> result = new List<tbTiposPlanes>();
 
             using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
             {
-                result = db.Query<tbTiposPlanes>(sql, commandType: CommandType.Text).ToList();
+                result = db.Query<tbTiposPlanes>(sql, new{Poliz_Id = id },commandType: CommandType.StoredProcedure).ToList();
 
                 tbTiposPlanes item = result.First();
 
@@ -79,15 +95,31 @@ namespace SegurosFYP.DataAccess.Repository
             }
             //throw new NotImplementedException();
         }
+        public tbEmpleados CargarEmpleado(int? id)
+        {
+            string sql = "Venta.SP_Empleado_Cargar";
+
+            List<tbEmpleados> result = new List<tbEmpleados>();
+
+            using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
+            {
+                result = db.Query<tbEmpleados>(sql, new { Poliz_Id = id }, commandType: CommandType.StoredProcedure).ToList();
+
+                tbEmpleados item = result.First();
+
+                return item;
+            }
+            //throw new NotImplementedException();
+        }
         public IEnumerable<tbPersonas> CargarDependientes(int? id)
         {
-            string sql = ScriptsBaseDeDatos.Poliz_Listar;
+            string sql = "Venta.SP_Dependientes_Cargar";
 
             List<tbPersonas> result = new List<tbPersonas>();
 
             using (var db = new SqlConnection(SegurosFYPContext.ConnectionString))
             {
-                result = db.Query<tbPersonas>(sql, commandType: CommandType.Text).ToList();
+                result = db.Query<tbPersonas>(sql, new { Poliz_Id = id }, commandType: CommandType.StoredProcedure).ToList();
 
 
                 return result;

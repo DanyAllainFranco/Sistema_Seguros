@@ -18,6 +18,84 @@ namespace SegurosFYP.BusinessLogic.Services
         }
 
         #region Poliza
+        public ServiceResult CargarCliente(int Poliz_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _polizaRepository.CargarCliente(Poliz_Id);
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        public ServiceResult CargarConyugue(int Poliz_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _polizaRepository.CargarConyugue(Poliz_Id);
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        public ServiceResult CargarDependientes(int Poliz_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _polizaRepository.CargarDependientes(Poliz_Id);
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        public ServiceResult CargarTipoPlan(int Poliz_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _polizaRepository.CargarTipoPlan(Poliz_Id);
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        public ServiceResult CargarEmpleado(int Poliz_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _polizaRepository.CargarEmpleado(Poliz_Id);
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
+        public ServiceResult Details(int Poliz_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                var lost = _polizaRepository.Details(Poliz_Id);
+                return result.Ok(lost);
+            }
+            catch (Exception ex)
+            {
+                return result.Error(ex.Message);
+            }
+        }
         public ServiceResult ListPoliz()
         {
             var result = new ServiceResult();

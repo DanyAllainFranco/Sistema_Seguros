@@ -36,15 +36,15 @@ namespace SegurosFYP
             services.AddHttpClient();
             services.Configure<Cliente>(Configuration.GetSection("HttpClientUrl"));
             services.SetHttpClient();
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
            .AddCookie(option =>
            {
                option.LoginPath = "/Home/Login";
                option.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-               option.AccessDeniedPath = "/Home/AccessDenied";
+               option.AccessDeniedPath = "/Home/Privacy";
            });
-            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSession(options =>
             {
                 options.Cookie.Name = ".MySession";
@@ -70,8 +70,14 @@ namespace SegurosFYP
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
+            
             app.UseAuthorization();
-            app.UseAuthorization();
+
+            app.UseAuthentication();
+
+
+
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

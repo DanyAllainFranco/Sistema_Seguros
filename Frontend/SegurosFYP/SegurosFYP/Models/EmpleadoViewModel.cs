@@ -10,7 +10,7 @@ namespace SegurosFYP.Models
 {
     public class EmpleadoViewModel
     {
-        [Display(Name = "ID")]
+        [Display(Name = "Cod. de Empleado")]
 
         public int Emple_Id { get; set; }
         [Display(Name = "Cargo")]
@@ -21,8 +21,9 @@ namespace SegurosFYP.Models
         public int? Emple_UsuarioModificacion { get; set; }
         public DateTime? Emple_FechaModificacion { get; set; }
         public bool? Emple_Estado { get; set; }
-
+        [Display(Name = "Usuario Modificacion")]
         public string UsuarioModificacion { get; set; }
+        [Display(Name = "Usuario Creacion")]
         public string UsuarioCreacion { get; set; }
 
         [Display (Name = "Estado Civil")]
@@ -70,6 +71,11 @@ namespace SegurosFYP.Models
 
         [Display(Name = "Sexo")]
         public string Perso_Sexo { get; set; }
+
+        [Display(Name = "Nombre")]
+        public string Perso_NombreCompleto { get; set; }
+
+
         [Display(Name = "Cargo")]
         public string Cargo_Descripcion { get; set; }
     }

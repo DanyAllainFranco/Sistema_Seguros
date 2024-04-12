@@ -51,17 +51,16 @@ namespace SegurosFYP.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
-        [HttpGet]
-        public async Task<IActionResult> /*IActionResult*/ Details()
+        public async Task<IActionResult> /*IActionResult*/ Details(int Poliz_Id)
         {
             try
             {
-                var list = await _polizaServices.ListCre();
+                var list = await _polizaServices.Details(Poliz_Id);
                 return View(list.Data);
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index");
             }
         }
         [HttpPost]
