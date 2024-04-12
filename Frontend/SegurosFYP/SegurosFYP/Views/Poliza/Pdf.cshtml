@@ -1,0 +1,136 @@
+﻿@model SegurosFYP.Models.PolizaCompletaViewModel
+
+@{
+    ViewData["Title"] = "Pdf";
+    ViewData["ModelName"] = "PolizaCompletaViewModel".Replace("ViewModel", "");
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table mb-4">
+    <tr>
+        <td colspan="8">ENCABEZADO</td>
+    </tr>
+    <tr>
+        <th colspan="2">Cod. de contratante</th>
+        <th colspan="2">Fecha de emision</th>
+        <th colspan="2">No. de poliza</th>
+        <th colspan="2">Cod. Agente de venta</th>
+    </tr>
+    <tr>
+        <td colspan="2">@Html.DisplayFor(model => model.Cliente.Perso_Id)</td>
+        <td colspan="2">@DateTime.Now</td>
+        <td colspan="2">@Html.DisplayFor(model => model.Poliza.Poliz_Id)</td>
+        <td colspan="2">@Html.DisplayFor(model => model.Empleado.Emple_Id)</td>
+    </tr>
+</table>
+
+<table>
+    <tr class="bg-primary">
+        <td colspan="8">A. DATOS GENERALES</td>
+    </tr>
+    <tr class="bg-primary">
+        <td colspan="8">I. DATOS DEL AGENTE DE SEGURO</td>
+    </tr>
+    <tr>
+        <td colspan="1">Agente</td>
+        <td colspan="4">@Html.DisplayFor(model => model.Empleado.Perso_PrimerNombre)</td>
+        <td colspan="1">Codigo del agente</td>
+        <td colspan="2"></td>
+    </tr>
+    <tr class="bg-primary">
+        <td colspan="8">II. DATOS DEL CONTRATANTE</td>
+    </tr>
+    <tr>
+        <td colspan="8"><b>DATOS PERSONA NATURAL</b></td>
+    </tr>
+    <tr>
+        <th colspan="2">Primer Nombre</th>
+        <th colspan="2">Segundo Nombre</th>
+        <th colspan="2">Primer Apellido</th>
+        <th colspan="2">Segundo Apellido</th>
+    </tr>
+    <tr>
+        <td colspan="2"></td>
+        <td colspan="2"></td>
+        <td colspan="2"></td>
+        <td colspan="2"></td>
+    </tr>
+    <tr>
+        @if ()
+        {
+            <td>Tipo de Identificacion</td>
+            <td>Identidad</td>
+            <td>Pasaporte</td>
+            <td>Carne de residencia</td>
+        }
+    </tr>
+    <tr>
+        <th>No. Identificacion</th>
+        <th>RTN</th>
+        <th>Fecha de nacimiento</th>
+        <th>Lugar de nacimiento</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Estado Civil</td>
+        <td>S   C   D   V   UL</td>
+        <td>Género      Masculino   Femenino</td>
+    </tr>
+    <tr>
+        <td>Nacionalidad</td>
+        <td>Estatura</td>
+        <td>Peso</td>
+    </tr>
+    <tr>
+        <td>Telefono 1</td>
+        <td></td>
+        <td>Telefono 2</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Correo electronico 1</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Correo electronico 2</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Nombre del conyuge(completo)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td colspan=""><b>Direccion de residencia del contratante / asegurado</b></td>
+    </tr>
+    <tr>
+        <td>Pais</td>
+        <td>Departamento</td>
+        <td>Municipio</td>
+    </tr>
+    <tr>
+        <td>Direccion completa</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><b>Beneficiaros contingentes</b></td>
+    </tr>
+    <tr>
+        <th>Nombre</th>
+        <th>Identidad</th>
+        <th>Parentesco</th>
+    </tr>
+    @foreach ()
+    {
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    }
+</table>
+

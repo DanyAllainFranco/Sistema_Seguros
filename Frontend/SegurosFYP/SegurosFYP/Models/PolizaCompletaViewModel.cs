@@ -13,5 +13,6 @@ namespace SegurosFYP.Models
         public DependienteViewModel Dependiente { get; set; }
         public IdentificacionViewModel Identificacion { get; set; }
         public IEnumerable<TipoPlanViewModel> TiposdePlan { get; set; }
+        public EmpleadoViewModel Empleado { get; set; }
     }
 }
