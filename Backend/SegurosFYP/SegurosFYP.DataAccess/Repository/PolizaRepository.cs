@@ -52,7 +52,6 @@ namespace SegurosFYP.DataAccess.Repository
                 parameter.Add("@Tipos_Id", item.Tipos_Id);
                 parameter.Add("@Emple_Id", item.Emple_Id);
                 parameter.Add("@Poliz_Cuotas", item.Poliz_Cuotas);
-                parameter.Add("@Poliz_TipoPago", item.Poliz_TipoPago);
                 parameter.Add("@Poliz_EstadoCuotasPoliza", item.Poliz_EstadoCuotasPoliza);
 
                 parameter.Add("@Poliz_UsuarioCreacion", 1);

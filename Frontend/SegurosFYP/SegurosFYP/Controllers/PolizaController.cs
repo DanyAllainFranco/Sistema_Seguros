@@ -45,7 +45,6 @@ namespace SegurosFYP.Controllers
             {
                 var list = await _polizaServices.ListCre();
                 return View(list.Data);
-
             }
             catch (Exception ex)
             {
@@ -87,8 +86,10 @@ namespace SegurosFYP.Controllers
                 item.Cliente.quantity = item.Identificacion.quantity;
 
                 await _polizaServices.InsertCliente(item.Cliente);
-
-                item.Dependiente.quantity = item.Identificacion.quantity;
+                if(item.Dependiente != null)
+                {
+                    item.Dependiente.quantity = item.Identificacion.quantity;
+                }
 
                 await _polizaServices.InsertDependiente(item.Dependiente);
 
@@ -96,7 +97,7 @@ namespace SegurosFYP.Controllers
 
                 await _polizaServices.InsertPoliza(item.Poliza);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
